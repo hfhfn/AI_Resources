@@ -138,6 +138,7 @@
           <span class="tag" data-filter="pdf">PDF 文档</span>
           <span class="tag" data-filter="code">项目源码</span>
           <span class="tag" data-filter="archive">压缩包</span>
+          <span class="tag" data-filter="hf">HF 大文件</span>
         </div>
       </section>
 
@@ -198,7 +199,7 @@
           if (config.hiddenRootFolders.includes(topFolder)) return false;
           const matchesSearch = f.name.toLowerCase().includes(state.currentSearch.toLowerCase()) || f.path.toLowerCase().includes(state.currentSearch.toLowerCase());
           const type = getFileType(f);
-          const matchesFilter = state.currentFilter === "all" || type === state.currentFilter;
+          const matchesFilter = state.currentFilter === "all" || (state.currentFilter === "hf" ? f.isHF : type === state.currentFilter);
           return matchesSearch && matchesFilter;
         });
       }

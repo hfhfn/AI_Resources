@@ -1,18 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "mcp__serena__list_dir",
-      "mcp__serena__list_memories",
-      "Bash(ls:*)",
-      "mcp__serena__activate_project",
-      "Bash(find:*)",
-      "Bash(powershell -Command \"Get-ChildItem -Filter ''timgpa*'' | Rename-Item -NewName ''baidu_image_reference.jpeg''\")",
-      "Bash(powershell -Command \"Get-ChildItem | Where-Object { $_.Name.Length -gt 100 } | Format-Table Name, Length\")",
-      "Bash(powershell -Command \"Get-ChildItem | Where-Object { $_.Name -like ''timg*'' } | ForEach-Object { Rename-Item -LiteralPath $_.FullName -NewName ''baidu_image_reference.jpeg'' }\")",
-      "Bash(powershell -File -:*)",
-      "Bash(git config:*)",
-      "Bash(git add:*)",
-      "Bash(git reset:*)"
+      "mcp__serena__check_onboarding_performed"
     ]
   }
 }
