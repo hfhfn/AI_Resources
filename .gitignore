@@ -67,6 +67,9 @@ ENV/
 05-深度学习/CV/图像识别与物体检测/day07上/4-代码/day07/serving_model/commodity/1/variables/variables.data-00000-of-00001
 05-深度学习/CV/图像识别与物体检测/day07上/4-代码/day07/serving_model/commodity/2/variables/variables.data-00000-of-00001
 05-深度学习/CV/图像识别与物体检测/深度学习与检测项目md课件.zip
+05-深度学习/NLP/NLP自然语言处理/*/代码/chatservice/classify/models/classify_100_20_2.model
+05-深度学习/NLP/NLP自然语言处理/*/代码/chatservice/classify/models/classify_by_word_100_20_2.model
+05-深度学习/NLP/NLP自然语言处理/*/代码/chatservice/corpus/classify/merged_q.txt
 05-深度学习/NLP/NLP自然语言处理/第九天/代码/chatservice/classify/models/classify_100_20_2.model
 05-深度学习/NLP/NLP自然语言处理/第九天/代码/chatservice/classify/models/classify_by_word_100_20_2.model
 05-深度学习/NLP/NLP自然语言处理/第九天/代码/chatservice/corpus/classify/merged_q.txt
