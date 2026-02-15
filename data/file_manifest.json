@@ -1,6 +1,6 @@
 {
   "hf_repo_id": "hfhfn/AI_Resources",
-  "updated_at": "2026-02-15 16:21:38",
+  "updated_at": "2026-02-15 16:38:23",
   "files": [
     {
       "name": "5-第五章-TableauPPT .pptx",
@@ -18861,10 +18861,10 @@
       "name": "file_manifest.json",
       "path": "data/file_manifest.json",
       "extension": "json",
-      "size_mb": 0.88,
+      "size_mb": 0.9,
       "url": "https://raw.githubusercontent.com/hfhfn/AI_Resources/main/data/file_manifest.json",
       "is_hf": false,
-      "last_modified": "2026-02-15 16:05:05"
+      "last_modified": "2026-02-15 16:21:39"
     }
   ]
 }

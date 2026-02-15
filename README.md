@@ -182,15 +182,46 @@ AI_Resources/
 
 1. 将文件放入仓库目录（>50MB 文件将自动转移至 HuggingFace）
 2. 运行 `setup.bat`（Windows）或 `bash setup.sh`（Linux/macOS）
-3. 脚本自动完成：上传至 HuggingFace、更新 `.gitignore`、生成 manifest、提交推送
+3. 脚本自动完成：
+   - ✅ 上传至 HuggingFace
+   - ✅ 更新 `.gitignore`（自动排除大文件）
+   - ✅ 生成 `data/file_manifest.json`
+   - ✅ 提交并推送至 GitHub
 
 ### 删除大文件
 
 1. 本地删除文件：`rm your_large_file.bin`
 2. 运行 `setup.bat` 或 `bash setup.sh`
-3. 脚本自动处理：清理 `.gitignore` 规则、删除 HF 远程文件、更新 manifest
+3. 脚本自动处理：
+   - ✅ 清理 `.gitignore` 中对应规则
+   - ✅ 删除 HuggingFace 远程文件（404 容错）
+   - ✅ 更新 manifest
+   - ✅ 提交并推送
 
 > 无需手动编辑 `.gitignore`，脚本全自动处理。
+
+---
+
+## 备用方案：Git LFS
+
+如果 HuggingFace 不可用，可改用 Git LFS 管理大文件：
+
+```bash
+# 安装 Git LFS
+git lfs install
+
+# 追踪大文件类型
+git lfs track "*.pdf"
+git lfs track "*.zip"
+git lfs track "*.tar.gz"
+git lfs track "*.pptx"
+
+# 提交 .gitattributes
+git add .gitattributes
+git commit -m "Configure Git LFS tracking"
+```
+
+> **注意**：GitHub 免费账户 Git LFS 配额为 1GB 存储 + 1GB/月带宽。超出需付费或使用 HuggingFace 方案。
 
 ---
 
@@ -206,6 +237,10 @@ AI_Resources/
 
 **Q: 大文件下载很慢？**
 - 国内用户可使用镜像：`huggingface-cli download hfhfn/AI_Resources --repo-type dataset --endpoint https://hf-mirror.com`
+
+**Q: setup 脚本报错 "Filename too long"？**
+- 运行 `git config core.longpaths true` 启用长路径支持
+- 如果文件名包含特殊字符（如 `?`），在 `.gitignore` 中添加排除规则
 
 ---
 
