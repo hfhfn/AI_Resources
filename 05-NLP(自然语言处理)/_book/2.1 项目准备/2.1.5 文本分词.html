@@ -1,0 +1,1014 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>文本分词 | NLP Course</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../2.1 项目准备/2.1.6 动手练习.html" />
+    
+    
+    <link rel="prev" href="../2.1 项目准备/2.1.4 语料准备.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.1.5"
+        data-chapter-title="文本分词"
+        data-filepath="2.1 项目准备/2.1.5 文本分词.md"
+        data-basepath=".."
+        data-revision="Sun Oct 13 2019 19:58:46 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+            <span><b>1.</b> 神经网络和pytorch</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="1.1 深度学习和神经网络/index.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        1.1 深度学习和神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        深度学习的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.2.</b>
+                        
+                        神经网络的介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.2 pytorch/index.html">
+            
+                
+                    <a href="../1.2 pytorch/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        1.2 pytorch
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.</b>
+                        
+                        pytorch的介绍和安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1.2 pytorch/1.2.2 pytorch的入门使用.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.2 pytorch的入门使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.2.</b>
+                        
+                        pytorch的入门使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.3.</b>
+                        
+                        梯度下降和反向传播原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="1.2 pytorch/1.2.4 手动完成线性回归 .html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.4 手动完成线性回归 .html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.4.</b>
+                        
+                        手动完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.5.</b>
+                        
+                        调用 pytorch API完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.6.</b>
+                        
+                        pytorch中的数据加载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.7.</b>
+                        
+                        使用pytorch实现手写数字识别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1.3 循环神经网络/index.html">
+            
+                
+                    <a href="../1.3 循环神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        1.3 循环神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.1.</b>
+                        
+                        循环神经网络基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.3 循环神经网络/1.3.2 文本情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.2 文本情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.2.</b>
+                        
+                        文本情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.3 循环神经网络/1.3.3 循环神经网络.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.3 循环神经网络.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.3.</b>
+                        
+                        循环神经网络
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.4.</b>
+                        
+                        循环神经网络实现情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.5.</b>
+                        
+                        神经网络中的序列化容器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.6.</b>
+                        
+                        神经网络实现分词
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> 项目实现</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="2.1 项目准备/index.html">
+            
+                
+                    <a href="../2.1 项目准备/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        2.1 项目装备
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="2.1 项目准备/2.1.1 走进聊天机器人.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.1 走进聊天机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        走进聊天机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.2.</b>
+                        
+                        需求分析和流程介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="2.1 项目准备/2.1.3 环境准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.3 环境准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.3.</b>
+                        
+                        环境准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="2.1 项目准备/2.1.4 语料准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.4 语料准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.4.</b>
+                        
+                        语料准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.5" data-path="2.1 项目准备/2.1.5 文本分词.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.5 文本分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.5.</b>
+                        
+                        文本分词
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="2.1 项目准备/2.1.6 动手练习.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.6 动手练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.6.</b>
+                        
+                        动手练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2.2 fasttext文本分类/index.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        2.2 FastText文本分类
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.1.</b>
+                        
+                        分类的目的和方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.</b>
+                        
+                        fasttext实现文本分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.3.</b>
+                        
+                        fasttext的原理剖析
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="2.3 Seq2Seq模型和闲聊机器人/index.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        2.3 Seq2Seq模型和闲聊机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.1.</b>
+                        
+                        闲聊机器人的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.2.</b>
+                        
+                        seq2seq模型的原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.3.</b>
+                        
+                        seq2seq实现闲聊机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.4.</b>
+                        
+                        Attention的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.5.</b>
+                        
+                        BeamSearch的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.6.</b>
+                        
+                        闲聊机器人的优化
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="2.4 QA机器人/index.html">
+            
+                
+                    <a href="../2.4 QA机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        2.4 QA机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="2.4 QA机器人/2.4.1 QA机器人介绍.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.1 QA机器人介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        QA机器人介绍.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="2.4 QA机器人/2.4.2 QA机器人的召回.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.2 QA机器人的召回.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.2.</b>
+                        
+                        QA机器人的召回.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="2.4 QA机器人/2.4.3 召回优化.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.3 召回优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.3.</b>
+                        
+                        召回优化.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.4.</b>
+                        
+                        QA机器人排序模型.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.5.</b>
+                        
+                        代码的封装和提供接口.md
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 补充</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="补充/HMM.html">
+            
+                
+                    <a href="../补充/HMM.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        HMM
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="补充/MEMM和CRF.html">
+            
+                
+                    <a href="../补充/MEMM和CRF.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        MEMM和CRF
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="补充/最大匹配法.html">
+            
+                
+                    <a href="../补充/最大匹配法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        最大匹配法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >NLP Course</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x6587;&#x672C;&#x5206;&#x8BCD;">&#x6587;&#x672C;&#x5206;&#x8BCD;</h1>
+<h2 id="&#x76EE;&#x6807;">&#x76EE;&#x6807;</h2>
+<ol>
+<li>&#x5B8C;&#x6210;&#x505C;&#x7528;&#x8BCD;&#x7684;&#x51C6;&#x5907;</li>
+<li>&#x5B8C;&#x6210;&#x5206;&#x8BCD;&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;</li>
+</ol>
+<h2 id="1-&#x51C6;&#x5907;&#x8BCD;&#x5178;&#x548C;&#x505C;&#x7528;&#x8BCD;">1. &#x51C6;&#x5907;&#x8BCD;&#x5178;&#x548C;&#x505C;&#x7528;&#x8BCD;</h2>
+<h3 id="11-&#x51C6;&#x5907;&#x8BCD;&#x5178;">1.1 &#x51C6;&#x5907;&#x8BCD;&#x5178;</h3>
+<p><img src="../images/2.1/&#x8BCD;&#x5178;.png" alt=""></p>
+<h3 id="12-&#x51C6;&#x5907;&#x505C;&#x7528;&#x8BCD;">1.2 &#x51C6;&#x5907;&#x505C;&#x7528;&#x8BCD;</h3>
+<pre><code class="lang-python">stopwords = set([i.strip() <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> open(config.stopwords_path).readlines()])
+</code></pre>
+<h2 id="2-&#x51C6;&#x5907;&#x6309;&#x7167;&#x5355;&#x4E2A;&#x5B57;&#x5207;&#x5206;&#x53E5;&#x5B50;&#x7684;&#x65B9;&#x6CD5;">2. &#x51C6;&#x5907;&#x6309;&#x7167;&#x5355;&#x4E2A;&#x5B57;&#x5207;&#x5206;&#x53E5;&#x5B50;&#x7684;&#x65B9;&#x6CD5;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_cut_by_word</span><span class="hljs-params">(sentence)</span>:</span>
+    <span class="hljs-comment"># &#x5BF9;&#x4E2D;&#x6587;&#x6309;&#x7167;&#x5B57;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5BF9;&#x82F1;&#x6587;&#x4E0D;&#x5206;&#x4E3A;&#x5B57;&#x6BCD;</span>
+    sentence = re.sub(<span class="hljs-string">&quot;\s+&quot;</span>,<span class="hljs-string">&quot; &quot;</span>,sentence)
+    sentence = sentence.strip()
+    result = []
+    temp = <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> sentence:
+        <span class="hljs-keyword">if</span> word.lower() <span class="hljs-keyword">in</span> letters:
+            temp += word.lower()
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> temp != <span class="hljs-string">&quot;&quot;</span>: <span class="hljs-comment">#&#x4E0D;&#x662F;&#x5B57;&#x6BCD;</span>
+                result.append(temp)
+                temp = <span class="hljs-string">&quot;&quot;</span>
+            <span class="hljs-keyword">if</span> word.strip() <span class="hljs-keyword">in</span> filters: <span class="hljs-comment">#&#x6807;&#x70B9;&#x7B26;&#x53F7;</span>
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-keyword">else</span>: <span class="hljs-comment">#&#x662F;&#x5355;&#x4E2A;&#x5B57;</span>
+                result.append(word)
+    <span class="hljs-keyword">if</span> temp != <span class="hljs-string">&quot;&quot;</span>: <span class="hljs-comment">#&#x6700;&#x540E;&#x7684;temp&#x4E2D;&#x5305;&#x542B;&#x5B57;&#x6BCD;</span>
+        result.append(temp)
+    <span class="hljs-keyword">return</span> result
+</code></pre>
+<h2 id="3-&#x5B8C;&#x6210;&#x5206;&#x8BCD;&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;">3. &#x5B8C;&#x6210;&#x5206;&#x8BCD;&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;</h2>
+<p>lib &#x4E0B;&#x521B;&#x5EFA;<code>cut_sentence.py</code>&#x6587;&#x4EF6;&#xFF0C;&#x5B8C;&#x6210;&#x5206;&#x8BCD;&#x65B9;&#x6CD5;&#x7684;&#x6784;&#x5EFA;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> jieba
+<span class="hljs-keyword">import</span> jieba.posseg <span class="hljs-keyword">as</span> psg
+<span class="hljs-keyword">import</span> config
+<span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> string
+
+<span class="hljs-comment">#&#x5173;&#x95ED;jieba log&#x8F93;&#x51FA;</span>
+jieba.setLogLevel(logging.INFO)
+<span class="hljs-comment">#&#x52A0;&#x8F7D;&#x8BCD;&#x5178;</span>
+jieba.load_userdict(config.keywords_path)
+<span class="hljs-comment">#&#x5355;&#x5B57;&#x5206;&#x5272;&#xFF0C;&#x82F1;&#x6587;&#x90E8;&#x5206;</span>
+letters = string.ascii_lowercase
+<span class="hljs-comment">#&#x5355;&#x5B57;&#x5206;&#x5272; &#x53BB;&#x9664;&#x7684;&#x6807;&#x70B9;</span>
+filters= [<span class="hljs-string">&quot;,&quot;</span>,<span class="hljs-string">&quot;-&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot; &quot;</span>]
+<span class="hljs-comment">#&#x505C;&#x7528;&#x8BCD;</span>
+stopwords = set([i.strip() <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> open(config.stopwords_path).readlines()])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cut</span><span class="hljs-params">(sentence,by_word=False,use_stopwords=False,with_sg=False)</span>:</span>
+    <span class="hljs-keyword">assert</span> by_word!=<span class="hljs-keyword">True</span> <span class="hljs-keyword">or</span> with_sg!=<span class="hljs-keyword">True</span>,<span class="hljs-string">&quot;&#x6839;&#x636E;word&#x5207;&#x5206;&#x65F6;&#x5019;&#x65E0;&#x6CD5;&#x8FD4;&#x56DE;&#x8BCD;&#x6027;&quot;</span>
+    <span class="hljs-keyword">if</span> by_word:
+        <span class="hljs-keyword">return</span> _cut_by_word(sentence)
+    <span class="hljs-keyword">else</span>:
+        ret = psg.lcut(sentence)
+        <span class="hljs-keyword">if</span> use_stopwords:
+            ret = [(i.word,i.flag) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ret <span class="hljs-keyword">if</span> i.word <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> stopwords]
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> with_sg:
+            ret = [i.word <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ret]
+        <span class="hljs-keyword">return</span> ret
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_cut_by_word</span><span class="hljs-params">(sentence)</span>:</span>
+    <span class="hljs-comment"># &#x5BF9;&#x4E2D;&#x6587;&#x6309;&#x7167;&#x5B57;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5BF9;&#x82F1;&#x6587;&#x4E0D;&#x5206;&#x4E3A;&#x5B57;&#x6BCD;</span>
+    sentence = re.sub(<span class="hljs-string">&quot;\s+&quot;</span>,<span class="hljs-string">&quot; &quot;</span>,sentence)
+    sentence = sentence.strip()
+    result = []
+    temp = <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> sentence:
+        <span class="hljs-keyword">if</span> word.lower() <span class="hljs-keyword">in</span> letters:
+            temp += word.lower()
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> temp != <span class="hljs-string">&quot;&quot;</span>: <span class="hljs-comment">#&#x4E0D;&#x662F;&#x5B57;&#x6BCD;</span>
+                result.append(temp)
+                temp = <span class="hljs-string">&quot;&quot;</span>
+            <span class="hljs-keyword">if</span> word.strip() <span class="hljs-keyword">in</span> filters: <span class="hljs-comment">#&#x6807;&#x70B9;&#x7B26;&#x53F7;</span>
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-keyword">else</span>: <span class="hljs-comment">#&#x662F;&#x5355;&#x4E2A;&#x5B57;</span>
+                result.append(word)
+    <span class="hljs-keyword">if</span> temp != <span class="hljs-string">&quot;&quot;</span>: <span class="hljs-comment">#&#x6700;&#x540E;&#x7684;temp&#x4E2D;&#x5305;&#x542B;&#x5B57;&#x6BCD;</span>
+        result.append(temp)
+    <span class="hljs-keyword">return</span> result
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../2.1 项目准备/2.1.4 语料准备.html" class="navigation navigation-prev " aria-label="Previous page: 语料准备"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../2.1 项目准备/2.1.6 动手练习.html" class="navigation navigation-next " aria-label="Next page: 动手练习"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

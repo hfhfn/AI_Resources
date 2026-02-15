@@ -1,0 +1,1411 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>seq2seq实现闲聊机器人 | NLP Course</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html" />
+    
+    
+    <link rel="prev" href="../2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.3.3"
+        data-chapter-title="seq2seq实现闲聊机器人"
+        data-filepath="2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.md"
+        data-basepath=".."
+        data-revision="Sun Oct 13 2019 19:58:46 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+            <span><b>1.</b> 神经网络和pytorch</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="1.1 深度学习和神经网络/index.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        1.1 深度学习和神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        深度学习的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.2.</b>
+                        
+                        神经网络的介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.2 pytorch/index.html">
+            
+                
+                    <a href="../1.2 pytorch/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        1.2 pytorch
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.</b>
+                        
+                        pytorch的介绍和安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1.2 pytorch/1.2.2 pytorch的入门使用.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.2 pytorch的入门使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.2.</b>
+                        
+                        pytorch的入门使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.3.</b>
+                        
+                        梯度下降和反向传播原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="1.2 pytorch/1.2.4 手动完成线性回归 .html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.4 手动完成线性回归 .html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.4.</b>
+                        
+                        手动完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.5.</b>
+                        
+                        调用 pytorch API完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.6.</b>
+                        
+                        pytorch中的数据加载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.7.</b>
+                        
+                        使用pytorch实现手写数字识别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1.3 循环神经网络/index.html">
+            
+                
+                    <a href="../1.3 循环神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        1.3 循环神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.1.</b>
+                        
+                        循环神经网络基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.3 循环神经网络/1.3.2 文本情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.2 文本情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.2.</b>
+                        
+                        文本情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.3 循环神经网络/1.3.3 循环神经网络.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.3 循环神经网络.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.3.</b>
+                        
+                        循环神经网络
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.4.</b>
+                        
+                        循环神经网络实现情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.5.</b>
+                        
+                        神经网络中的序列化容器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.6.</b>
+                        
+                        神经网络实现分词
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> 项目实现</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="2.1 项目准备/index.html">
+            
+                
+                    <a href="../2.1 项目准备/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        2.1 项目装备
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="2.1 项目准备/2.1.1 走进聊天机器人.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.1 走进聊天机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        走进聊天机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.2.</b>
+                        
+                        需求分析和流程介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="2.1 项目准备/2.1.3 环境准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.3 环境准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.3.</b>
+                        
+                        环境准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="2.1 项目准备/2.1.4 语料准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.4 语料准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.4.</b>
+                        
+                        语料准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="2.1 项目准备/2.1.5 文本分词.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.5 文本分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.5.</b>
+                        
+                        文本分词
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="2.1 项目准备/2.1.6 动手练习.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.6 动手练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.6.</b>
+                        
+                        动手练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2.2 fasttext文本分类/index.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        2.2 FastText文本分类
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.1.</b>
+                        
+                        分类的目的和方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.</b>
+                        
+                        fasttext实现文本分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.3.</b>
+                        
+                        fasttext的原理剖析
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="2.3 Seq2Seq模型和闲聊机器人/index.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        2.3 Seq2Seq模型和闲聊机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.1.</b>
+                        
+                        闲聊机器人的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.2.</b>
+                        
+                        seq2seq模型的原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3.3" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.3.</b>
+                        
+                        seq2seq实现闲聊机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.4.</b>
+                        
+                        Attention的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.5.</b>
+                        
+                        BeamSearch的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.6.</b>
+                        
+                        闲聊机器人的优化
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="2.4 QA机器人/index.html">
+            
+                
+                    <a href="../2.4 QA机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        2.4 QA机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="2.4 QA机器人/2.4.1 QA机器人介绍.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.1 QA机器人介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        QA机器人介绍.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="2.4 QA机器人/2.4.2 QA机器人的召回.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.2 QA机器人的召回.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.2.</b>
+                        
+                        QA机器人的召回.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="2.4 QA机器人/2.4.3 召回优化.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.3 召回优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.3.</b>
+                        
+                        召回优化.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.4.</b>
+                        
+                        QA机器人排序模型.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.5.</b>
+                        
+                        代码的封装和提供接口.md
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 补充</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="补充/HMM.html">
+            
+                
+                    <a href="../补充/HMM.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        HMM
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="补充/MEMM和CRF.html">
+            
+                
+                    <a href="../补充/MEMM和CRF.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        MEMM和CRF
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="补充/最大匹配法.html">
+            
+                
+                    <a href="../补充/最大匹配法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        最大匹配法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >NLP Course</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="seq2seq&#x5B9E;&#x73B0;&#x95F2;&#x804A;&#x673A;&#x5668;&#x4EBA;">Seq2Seq&#x5B9E;&#x73B0;&#x95F2;&#x804A;&#x673A;&#x5668;&#x4EBA;</h1>
+<h2 id="&#x76EE;&#x6807;">&#x76EE;&#x6807;</h2>
+<ol>
+<li>&#x77E5;&#x9053;&#x5982;&#x4F55;&#x5904;&#x7406;&#x6587;&#x672C;&#x6570;&#x636E;</li>
+<li>&#x77E5;&#x9053;&#x5982;&#x4F55;&#x4F7F;&#x7528;seq2seq&#x5B8C;&#x6210;&#x95F2;&#x804A;&#x673A;&#x5668;&#x4EBA;&#x4EE3;&#x7801;&#x7684;&#x7F16;&#x5199;</li>
+</ol>
+<h2 id="1-&#x51C6;&#x5907;&#x8BAD;&#x7EC3;&#x6570;&#x636E;">1. &#x51C6;&#x5907;&#x8BAD;&#x7EC3;&#x6570;&#x636E;</h2>
+<p><code>&#x5355;&#x8F6E;&#x6B21;</code>&#x7684;&#x804A;&#x5929;&#x6570;&#x636E;&#x975E;&#x5E38;&#x4E0D;&#x597D;&#x83B7;&#x53D6;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4ECE;github&#x4E0A;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x5F00;&#x653E;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6765;&#x8BAD;&#x7EC3;&#x6211;&#x4EEC;&#x7684;&#x95F2;&#x804A;&#x6A21;&#x578B;</p>
+<p>&#x6570;&#x636E;&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/codemayq/chaotbot_corpus_Chinese" target="_blank">https://github.com/codemayq/chaotbot_corpus_Chinese</a></p>
+<p>&#x4E3B;&#x8981;&#x7684;&#x6570;&#x636E;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;</p>
+<ol>
+<li>&#x5C0F;&#x9EC4;&#x9E21;&#x7684;&#x804A;&#x5929;&#x8BED;&#x6599;&#xFF1A;&#x566A;&#x58F0;&#x5F88;&#x5927;<ul>
+<li><img src="../images/2.3/&#x5C0F;&#x9EC4;&#x9E21;&#x8BED;&#x6599;.png" alt=""></li>
+</ul>
+</li>
+<li>&#x5FAE;&#x535A;&#x7684;&#x6807;&#x9898;&#x548C;&#x8BC4;&#x8BBA;&#xFF1A;&#x8D28;&#x91CF;&#x76F8;&#x5BF9;&#x8F83;&#x9AD8;<ul>
+<li><img src="../images/2.3/&#x5FAE;&#x535A;&#x8BED;&#x6599;1.png" alt=""></li>
+<li><img src="../images/2.3/&#x5FAE;&#x535A;&#x8BED;&#x6599;2.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<h2 id="2-&#x6570;&#x636E;&#x7684;&#x5904;&#x7406;&#x548C;&#x4FDD;&#x5B58;">2. &#x6570;&#x636E;&#x7684;&#x5904;&#x7406;&#x548C;&#x4FDD;&#x5B58;</h2>
+<p>&#x7531;&#x4E8E;&#x6570;&#x636E;&#x4E2D;&#x5B58;&#x5230;&#x5927;&#x91CF;&#x7684;&#x566A;&#x58F0;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x57FA;&#x7840;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x7136;&#x540E;&#x5206;&#x522B;&#x628A;input&#x548C;target&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#xFF0C;&#x5373;input&#x4E2D;&#x7684;&#x7B2C;N&#x884C;&#x5C3E;&#x95EE;&#xFF0C;target&#x7684;&#x7B2C;N&#x884C;&#x4E3A;&#x7B54;</p>
+<p>&#x540E;&#x7EED;&#x53EF;&#x80FD;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x628A;&#x5355;&#x4E2A;&#x5B57;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#xFF08;&#x5B58;&#x653E;&#x5728;input_word.txt&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x628A;&#x8BCD;&#x8BED;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;(input.txt)</p>
+<h3 id="21-&#x5C0F;&#x9EC4;&#x9E21;&#x7684;&#x8BED;&#x6599;&#x7684;&#x5904;&#x7406;">2.1 &#x5C0F;&#x9EC4;&#x9E21;&#x7684;&#x8BED;&#x6599;&#x7684;&#x5904;&#x7406;</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">format_xiaohuangji_corpus</span><span class="hljs-params">(word=False)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x5904;&#x7406;&#x5C0F;&#x9EC4;&#x9E21;&#x7684;&#x8BED;&#x6599;&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">if</span> word:
+        corpus_path = <span class="hljs-string">&quot;./chatbot/corpus/xiaohuangji50w_nofenci.conv&quot;</span>
+        input_path = <span class="hljs-string">&quot;./chatbot/corpus/input_word.txt&quot;</span>
+        output_path = <span class="hljs-string">&quot;./chatbot/corpus/output_word.txt&quot;</span>
+    <span class="hljs-keyword">else</span>:
+
+        corpus_path = <span class="hljs-string">&quot;./chatbot/corpus/xiaohuangji50w_nofenci.conv&quot;</span>
+        input_path = <span class="hljs-string">&quot;./chatbot/corpus/input.txt&quot;</span>
+        output_path = <span class="hljs-string">&quot;./chatbot/corpus/output.txt&quot;</span>
+
+    f_input = open(input_path,<span class="hljs-string">&quot;a&quot;</span>)
+    f_output = open(output_path,<span class="hljs-string">&quot;a&quot;</span>)
+    pair = []
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> tqdm(open(corpus_path),ascii=<span class="hljs-keyword">True</span>):
+        <span class="hljs-keyword">if</span> line.strip() == <span class="hljs-string">&quot;E&quot;</span>:
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> pair:
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">assert</span> len(pair) == <span class="hljs-number">2</span>,<span class="hljs-string">&quot;&#x957F;&#x5EA6;&#x5FC5;&#x987B;&#x662F;2&quot;</span>
+                <span class="hljs-keyword">if</span> len(pair[<span class="hljs-number">0</span>].strip())&gt;=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> len(pair[<span class="hljs-number">1</span>].strip())&gt;=<span class="hljs-number">1</span>:
+                    f_input.write(pair[<span class="hljs-number">0</span>]+<span class="hljs-string">&quot;\n&quot;</span>)
+                    f_output.write(pair[<span class="hljs-number">1</span>]+<span class="hljs-string">&quot;\n&quot;</span>)
+                pair = []
+        <span class="hljs-keyword">elif</span> line.startswith(<span class="hljs-string">&quot;M&quot;</span>):
+            line = line[<span class="hljs-number">1</span>:]
+            <span class="hljs-keyword">if</span> word:
+                pair.append(<span class="hljs-string">&quot; &quot;</span>.join(list(line.strip())))
+            <span class="hljs-keyword">else</span>:
+                pair.append(<span class="hljs-string">&quot; &quot;</span>.join(jieba_cut(line.strip())))
+</code></pre>
+<h3 id="22-&#x5FAE;&#x535A;&#x8BED;&#x6599;&#x7684;&#x5904;&#x7406;">2.2 &#x5FAE;&#x535A;&#x8BED;&#x6599;&#x7684;&#x5904;&#x7406;</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">format_weibo</span><span class="hljs-params">(word=False)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x5FAE;&#x535A;&#x6570;&#x636E;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x566A;&#x58F0;&#xFF0C;&#x672A;&#x5904;&#x7406;
+    :return:
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">if</span> word:
+        origin_input = <span class="hljs-string">&quot;./chatbot/corpus/stc_weibo_train_post&quot;</span>
+        input_path = <span class="hljs-string">&quot;./chatbot/corpus/input_word.txt&quot;</span>
+
+        origin_output = <span class="hljs-string">&quot;./chatbot/corpus/stc_weibo_train_response&quot;</span>
+        output_path = <span class="hljs-string">&quot;./chatbot/corpus/output_word.txt&quot;</span>
+
+    <span class="hljs-keyword">else</span>:
+        origin_input = <span class="hljs-string">&quot;./chatbot/corpus/stc_weibo_train_post&quot;</span>
+        input_path = <span class="hljs-string">&quot;./chatbot/corpus/input.txt&quot;</span>
+
+        origin_output = <span class="hljs-string">&quot;./chatbot/corpus/stc_weibo_train_response&quot;</span>
+        output_path = <span class="hljs-string">&quot;./chatbot/corpus/output.txt&quot;</span>
+
+    f_input = open(input_path,<span class="hljs-string">&quot;a&quot;</span>)
+    f_output = open(output_path, <span class="hljs-string">&quot;a&quot;</span>)
+    <span class="hljs-keyword">with</span> open(origin_input) <span class="hljs-keyword">as</span> in_o,open(origin_output) <span class="hljs-keyword">as</span> out_o:
+        <span class="hljs-keyword">for</span> _in,_out <span class="hljs-keyword">in</span> tqdm(zip(in_o,out_o),ascii=<span class="hljs-keyword">True</span>):
+            _in = _in.strip()
+            _out = _out.strip()
+
+            <span class="hljs-keyword">if</span> _in.endswith(<span class="hljs-string">&quot;&#xFF09;&quot;</span>) <span class="hljs-keyword">or</span> _in.endswith(<span class="hljs-string">&quot;&#x300D;&quot;</span>) <span class="hljs-keyword">or</span> _in.endswith(<span class="hljs-string">&quot;)&quot;</span>):
+                _in = re.sub(<span class="hljs-string">&quot;&#xFF08;.*&#xFF09;|&#x300C;.*?&#x300D;|\(.*?\)&quot;</span>,<span class="hljs-string">&quot; &quot;</span>,_in)
+            _in = re.sub(<span class="hljs-string">&quot;&#x6211;&#x5728;.*?alink|alink|&#xFF08;.*?\d+x\d+.*?&#xFF09;|#|&#x3011;|&#x3010;|-+|_+|via.*?&#xFF1A;*.*&quot;</span>,<span class="hljs-string">&quot; &quot;</span>,_in)
+
+            _in = re.sub(<span class="hljs-string">&quot;\s+&quot;</span>,<span class="hljs-string">&quot; &quot;</span>,_in)
+            <span class="hljs-keyword">if</span> len(_in)&lt;<span class="hljs-number">1</span> <span class="hljs-keyword">or</span> len(_out)&lt;<span class="hljs-number">1</span>:
+                <span class="hljs-keyword">continue</span>
+
+            <span class="hljs-keyword">if</span> word:
+                _in = re.sub(<span class="hljs-string">&quot;\s+&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,_in)  <span class="hljs-comment">#&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x6574;&#x884C;&#xFF0C;&#x4E0D;&#x542B;&#x7A7A;&#x683C;</span>
+                _out = re.sub(<span class="hljs-string">&quot;\s+&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,_out)
+                <span class="hljs-keyword">if</span> len(_in)&gt;=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> len(_out)&gt;=<span class="hljs-number">1</span>:
+                    f_input.write(<span class="hljs-string">&quot; &quot;</span>.join(list(_in)) + <span class="hljs-string">&quot;\n&quot;</span>)
+                    f_output.write(<span class="hljs-string">&quot; &quot;</span>.join(list(_out)) + <span class="hljs-string">&quot;\n&quot;</span>)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">if</span> len(_in) &gt;= <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> len(_out) &gt;= <span class="hljs-number">1</span>:
+                    f_input.write(_in.strip()+<span class="hljs-string">&quot;\n&quot;</span>)
+                    f_output.write(_out.strip()+<span class="hljs-string">&quot;\n&quot;</span>)
+
+    f_input.close()
+    f_output.close()
+</code></pre>
+<h3 id="23-&#x5904;&#x7406;&#x540E;&#x7684;&#x7ED3;&#x679C;">2.3 &#x5904;&#x7406;&#x540E;&#x7684;&#x7ED3;&#x679C;</h3>
+<p><img src="../images/2.3/&#x6587;&#x672C;&#x5904;&#x7406;&#x540E;.png" alt=""></p>
+<p><img src="../images/2.3/&#x6587;&#x672C;&#x5904;&#x7406;&#x540E;2.png" alt=""></p>
+<h3 id="3-&#x6784;&#x9020;&#x6587;&#x672C;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x65B9;&#x6CD5;">3. &#x6784;&#x9020;&#x6587;&#x672C;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x65B9;&#x6CD5;</h3>
+<p>&#x548C;&#x4E4B;&#x524D;&#x7684;&#x64CD;&#x4F5C;&#x76F8;&#x540C;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x6587;&#x672C;&#x80FD;&#x8F6C;&#x5316;&#x4E3A;&#x6570;&#x5B57;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x9700;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x628A;&#x6570;&#x5B57;&#x8F6C;&#x5316;&#x4E3A;&#x6587;&#x672C;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># word_sequence.py</span>
+<span class="hljs-keyword">import</span> config
+<span class="hljs-keyword">import</span> pickle
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Word2Sequence</span><span class="hljs-params">()</span>:</span>
+    UNK_TAG = <span class="hljs-string">&quot;UNK&quot;</span>
+    PAD_TAG = <span class="hljs-string">&quot;PAD&quot;</span>
+    SOS_TAG = <span class="hljs-string">&quot;SOS&quot;</span>
+    EOS_TAG = <span class="hljs-string">&quot;EOS&quot;</span>
+
+    UNK = <span class="hljs-number">0</span>
+    PAD = <span class="hljs-number">1</span>
+    SOS = <span class="hljs-number">2</span>
+    EOS = <span class="hljs-number">3</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.dict = {
+            self.UNK_TAG :self.UNK,
+            self.PAD_TAG :self.PAD,
+            self.SOS_TAG :self.SOS,
+            self.EOS_TAG :self.EOS
+        }
+        self.count = {}
+        self.fited = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_index</span><span class="hljs-params">(self,word)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;word -&gt; index&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">assert</span> self.fited == <span class="hljs-keyword">True</span>,<span class="hljs-string">&quot;&#x5FC5;&#x987B;&#x5148;&#x8FDB;&#x884C;fit&#x64CD;&#x4F5C;&quot;</span>
+        <span class="hljs-keyword">return</span> self.dict.get(word,self.UNK)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_word</span><span class="hljs-params">(self,index)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;index -&gt; word&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">assert</span> self.fited , <span class="hljs-string">&quot;&#x5FC5;&#x987B;&#x5148;&#x8FDB;&#x884C;fit&#x64CD;&#x4F5C;&quot;</span>
+        <span class="hljs-keyword">if</span> index <span class="hljs-keyword">in</span> self.inversed_dict:
+            <span class="hljs-keyword">return</span> self.inversed_dict[index]
+        <span class="hljs-keyword">return</span> self.UNK_TAG
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__len__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> len(self.dict)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit</span><span class="hljs-params">(self, sentence)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        :param sentence:[word1,word2,word3]
+        :param min_count: &#x6700;&#x5C0F;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;
+        :param max_count: &#x6700;&#x5927;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;
+        :param max_feature: &#x603B;&#x8BCD;&#x8BED;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> sentence:
+            <span class="hljs-keyword">if</span> a <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.count:
+                self.count[a] = <span class="hljs-number">0</span>
+            self.count[a] += <span class="hljs-number">1</span>
+
+        self.fited = <span class="hljs-keyword">True</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build_vocab</span><span class="hljs-params">(self, min_count=<span class="hljs-number">1</span>, max_count=None, max_feature=None)</span>:</span>
+
+        <span class="hljs-comment"># &#x6BD4;&#x6700;&#x5C0F;&#x7684;&#x6570;&#x91CF;&#x5927;&#x548C;&#x6BD4;&#x6700;&#x5927;&#x7684;&#x6570;&#x91CF;&#x5C0F;&#x7684;&#x9700;&#x8981;</span>
+        <span class="hljs-keyword">if</span> min_count <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            self.count = {k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> self.count.items() <span class="hljs-keyword">if</span> v &gt;= min_count}
+        <span class="hljs-keyword">if</span> max_count <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            self.count = {k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> self.count.items() <span class="hljs-keyword">if</span> v &lt;= max_count}
+
+        <span class="hljs-comment"># &#x9650;&#x5236;&#x6700;&#x5927;&#x7684;&#x6570;&#x91CF;</span>
+        <span class="hljs-keyword">if</span> isinstance(max_feature, int):
+            count = sorted(list(self.count.items()), key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">1</span>])
+            <span class="hljs-keyword">if</span> max_feature <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">and</span> len(count) &gt; max_feature:
+                count = count[-int(max_feature):]
+            <span class="hljs-keyword">for</span> w, _ <span class="hljs-keyword">in</span> count:
+                self.dict[w] = len(self.dict)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> sorted(self.count.keys()):
+                self.dict[w] = len(self.dict)
+
+        <span class="hljs-comment"># &#x51C6;&#x5907;&#x4E00;&#x4E2A;index-&gt;word&#x7684;&#x5B57;&#x5178;</span>
+        self.inversed_dict = dict(zip(self.dict.values(), self.dict.keys()))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform</span><span class="hljs-params">(self, sentence,max_len=None,add_eos=False)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x5B9E;&#x73B0;&#x5427;&#x53E5;&#x5B50;&#x8F6C;&#x5316;&#x4E3A;&#x6570;&#x7EC4;&#xFF08;&#x5411;&#x91CF;&#xFF09;
+        :param sentence:
+        :param max_len:
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">assert</span> self.fited, <span class="hljs-string">&quot;&#x5FC5;&#x987B;&#x5148;&#x8FDB;&#x884C;fit&#x64CD;&#x4F5C;&quot;</span>
+
+        r = [self.to_index(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> sentence]
+        <span class="hljs-keyword">if</span> max_len <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">if</span> max_len&gt;len(sentence):
+                <span class="hljs-keyword">if</span> add_eos:
+                    r+=[self.EOS]+[self.PAD <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(max_len-len(sentence)-<span class="hljs-number">1</span>)]
+                <span class="hljs-keyword">else</span>:
+                    r += [self.PAD <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(max_len - len(sentence))]
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">if</span> add_eos:
+                    r = r[:max_len-<span class="hljs-number">1</span>]
+                    r += [self.EOS]
+                <span class="hljs-keyword">else</span>:
+                    r = r[:max_len]
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> add_eos:
+                r += [self.EOS]
+        <span class="hljs-comment"># print(len(r),r)</span>
+        <span class="hljs-keyword">return</span> r
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_transform</span><span class="hljs-params">(self,indices)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x5B9E;&#x73B0;&#x4ECE;&#x6570;&#x7EC4; &#x8F6C;&#x5316;&#x4E3A; &#x5411;&#x91CF;
+        :param indices: [1,2,3....]
+        :return:[word1,word2.....]
+        &quot;&quot;&quot;</span>
+        sentence = []
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> indices:
+            word = self.to_word(i)
+            sentence.append(word)
+        <span class="hljs-keyword">return</span> sentence
+
+<span class="hljs-comment">#&#x4E4B;&#x540E;&#x5BFC;&#x5165;&#x8BE5;word_sequence&#x4F7F;&#x7528;</span>
+word_sequence = pickle.load(open(<span class="hljs-string">&quot;./pkl/ws.pkl&quot;</span>,<span class="hljs-string">&quot;rb&quot;</span>)) <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> config.use_word <span class="hljs-keyword">else</span> pickle.load(open(<span class="hljs-string">&quot;./pkl/ws_word.pkl&quot;</span>,<span class="hljs-string">&quot;rb&quot;</span>))
+
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">from</span> word_sequence <span class="hljs-keyword">import</span> Word2Sequence
+    <span class="hljs-keyword">from</span> tqdm <span class="hljs-keyword">import</span> tqdm
+    <span class="hljs-keyword">import</span> pickle
+
+    word_sequence = Word2Sequence()
+    <span class="hljs-comment">#&#x8BCD;&#x8BED;&#x7EA7;&#x522B;</span>
+    input_path = <span class="hljs-string">&quot;../corpus/input.txt&quot;</span>
+    target_path = <span class="hljs-string">&quot;../corpus/output.txt&quot;</span>
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> tqdm(open(input_path).readlines()):
+        word_sequence.fit(line.strip().split())
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> tqdm(open(target_path).readlines()):
+        word_sequence.fit(line.strip().split())
+
+    <span class="hljs-comment">#&#x4F7F;&#x7528;max_feature=5000&#x4E2A;&#x6570;&#x636E;</span>
+    word_sequence.build_vocab(min_count=<span class="hljs-number">5</span>,max_count=<span class="hljs-keyword">None</span>,max_feature=<span class="hljs-number">5000</span>)
+    print(len(word_sequence))
+    pickle.dump(word_sequence,open(<span class="hljs-string">&quot;./pkl/ws.pkl&quot;</span>,<span class="hljs-string">&quot;wb&quot;</span>))
+</code></pre>
+<h3 id="4-&#x6784;&#x5EFA;dataset&#x548C;dataloader">4. &#x6784;&#x5EFA;Dataset&#x548C;DataLoader</h3>
+<p>&#x521B;&#x5EFA;<code>dataset.py</code>    &#x6587;&#x4EF6;&#xFF0C;&#x51C6;&#x5907;&#x6570;&#x636E;&#x96C6;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> config
+<span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> Dataset,DataLoader
+<span class="hljs-keyword">from</span> word_sequence <span class="hljs-keyword">import</span> word_sequence
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ChatDataset</span><span class="hljs-params">(Dataset)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        super(ChatDataset,self).__init__()
+
+        input_path = <span class="hljs-string">&quot;../corpus/input.txt&quot;</span>
+        target_path = <span class="hljs-string">&quot;../corpus/output.txt&quot;</span>
+        <span class="hljs-keyword">if</span> config.use_word:
+            input_path = <span class="hljs-string">&quot;../corpus/input_word.txt&quot;</span>
+            target_path = <span class="hljs-string">&quot;../corpus/output_word.txt&quot;</span>
+
+        self.input_lines = open(input_path).readlines()
+        self.target_lines = open(target_path).readlines()
+        <span class="hljs-keyword">assert</span> len(self.input_lines) == len(self.target_lines) ,<span class="hljs-string">&quot;input&#x548C;target&#x6587;&#x672C;&#x7684;&#x6570;&#x91CF;&#x5FC5;&#x987B;&#x76F8;&#x540C;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, index)</span>:</span>
+        input = self.input_lines[index].strip().split()
+        target = self.target_lines[index].strip().split()
+        <span class="hljs-keyword">if</span> len(input) == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> len(target)==<span class="hljs-number">0</span>:
+            input = self.input_lines[index+<span class="hljs-number">1</span>].strip().split()
+            target = self.target_lines[index+<span class="hljs-number">1</span>].strip().split()
+        <span class="hljs-comment">#&#x6B64;&#x5904;&#x53E5;&#x5B50;&#x7684;&#x957F;&#x5EA6;&#x5982;&#x679C;&#x5927;&#x4E8E;max_len&#xFF0C;&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;max_len</span>
+        <span class="hljs-keyword">return</span> input,target,min(len(input),config.max_len),min(len(target),config.max_len)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__len__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> len(self.input_lines)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">collate_fn</span><span class="hljs-params">(batch)</span>:</span>
+    <span class="hljs-comment">#1.&#x6392;&#x5E8F;</span>
+    batch = sorted(batch,key=<span class="hljs-keyword">lambda</span> x:x[<span class="hljs-number">2</span>],reverse=<span class="hljs-keyword">True</span>)
+    input, target, input_length, target_length = zip(*batch)
+
+    <span class="hljs-comment"># 2.&#x8FDB;&#x884C;padding&#x7684;&#x64CD;&#x4F5C;</span>
+    input = torch.LongTensor([word_sequence.transform(i, max_len=config.max_len) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> input])
+    target = torch.LongTensor([word_sequence.transform(i, max_len=config.max_len, add_eos=<span class="hljs-keyword">True</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> target])
+    input_length = torch.LongTensor(input_length)
+    target_length = torch.LongTensor(target_length)
+
+    <span class="hljs-keyword">return</span> input, target, input_length, target_length
+
+data_loader = DataLoader(dataset=ChatDataset(),batch_size=config.batch_size,shuffle=<span class="hljs-keyword">True</span>,collate_fn=collate_fn,drop_last=<span class="hljs-keyword">True</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">for</span> idx, (input, target, input_lenght, target_length) <span class="hljs-keyword">in</span> enumerate(data_loader):
+        print(idx)
+        print(input)
+        print(target)
+        print(input_lenght)
+        print(target_length)
+</code></pre>
+<h2 id="5-&#x5B8C;&#x6210;encoder&#x7F16;&#x7801;&#x5668;&#x903B;&#x8F91;">5. &#x5B8C;&#x6210;<code>encoder</code>&#x7F16;&#x7801;&#x5668;&#x903B;&#x8F91;</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn
+<span class="hljs-keyword">from</span> word_sequence <span class="hljs-keyword">import</span> word_sequence
+<span class="hljs-keyword">import</span> config
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Encoder</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        super(Encoder,self).__init__()
+        self.vocab_size = len(word_sequence)
+        self.dropout = config.dropout
+        self.embedding_dim = config.embedding_dim
+        self.embedding = nn.Embedding(num_embeddings=self.vocab_size,embedding_dim=self.embedding_dim,padding_idx=word_sequence.PAD)
+        self.gru = nn.GRU(input_size=self.embedding_dim,
+                          hidden_size=config.hidden_size,
+                          num_layers=<span class="hljs-number">1</span>,
+                          batch_first=<span class="hljs-keyword">True</span>,
+                          dropout=config.dropout)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, input,input_length)</span>:</span>
+        embeded = self.embedding(input)
+        embeded = nn.utils.rnn.pack_padded_sequence(embeded,lengths=input_length,batch_first=<span class="hljs-keyword">True</span>)
+
+        <span class="hljs-comment">#hidden:[1,batch_size,vocab_size]</span>
+        out,hidden = self.gru(embeded)
+        out,outputs_length = nn.utils.rnn.pad_packed_sequence(out,batch_first=<span class="hljs-keyword">True</span>,padding_value=word_sequence.PAD)
+        <span class="hljs-comment">#hidden [1,batch_size,hidden_size]</span>
+        <span class="hljs-keyword">return</span> out,hidden
+</code></pre>
+<h2 id="6-&#x5B8C;&#x6210;decoder&#x89E3;&#x7801;&#x5668;&#x7684;&#x903B;&#x8F91;">6. &#x5B8C;&#x6210;<code>decoder</code>&#x89E3;&#x7801;&#x5668;&#x7684;&#x903B;&#x8F91;</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn
+<span class="hljs-keyword">import</span> config
+<span class="hljs-keyword">import</span> random
+<span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F
+<span class="hljs-keyword">from</span> word_sequence <span class="hljs-keyword">import</span> word_sequence
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Decoder</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        super(Decoder,self).__init__()
+        self.max_seq_len = config.max_len
+        self.vocab_size = len(word_sequence)
+        self.embedding_dim = config.embedding_dim
+        self.dropout = config.dropout
+
+        self.embedding = nn.Embedding(num_embeddings=self.vocab_size,embedding_dim=self.embedding_dim,padding_idx=word_sequence.PAD)
+        self.gru = nn.GRU(input_size=self.embedding_dim,
+                          hidden_size=config.hidden_size,
+                          num_layers=<span class="hljs-number">1</span>,
+                          batch_first=<span class="hljs-keyword">True</span>,
+                          dropout=self.dropout)
+        self.log_softmax = nn.LogSoftmax()
+
+        self.fc = nn.Linear(config.hidden_size,self.vocab_size)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, encoder_hidden,target,target_length)</span>:</span>
+        <span class="hljs-comment"># encoder_hidden [batch_size,hidden_size]</span>
+        <span class="hljs-comment"># target [batch_size,seq-len]</span>
+
+        decoder_input = torch.LongTensor([[word_sequence.SOS]]*config.batch_size).to(config.device)
+        decoder_outputs = torch.zeros(config.batch_size,config.max_len,self.vocab_size).to(config.device) <span class="hljs-comment">#[batch_size,seq_len,14]</span>
+
+        decoder_hidden = encoder_hidden <span class="hljs-comment">#[batch_size,hidden_size]</span>
+
+        <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(config.max_len):
+            decoder_output_t , decoder_hidden = self.forward_step(decoder_input,decoder_hidden)
+            decoder_outputs[:,t,:] = decoder_output_t
+            value, index = torch.topk(decoder_output_t, <span class="hljs-number">1</span>) <span class="hljs-comment"># index [batch_size,1]</span>
+            decoder_input = index
+        <span class="hljs-keyword">return</span> decoder_outputs,decoder_hidden
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward_step</span><span class="hljs-params">(self,decoder_input,decoder_hidden)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        :param decoder_input:[batch_size,1]
+        :param decoder_hidden: [1,batch_size,hidden_size]
+        :return: out:[batch_size,vocab_size],decoder_hidden:[1,batch_size,didden_size]
+        &quot;&quot;&quot;</span>
+        embeded = self.embedding(decoder_input)  <span class="hljs-comment">#embeded: [batch_size,1 , embedding_dim]</span>
+        out,decoder_hidden = self.gru(embeded,decoder_hidden) <span class="hljs-comment">#out [1, batch_size, hidden_size]</span>
+        out = out.squeeze(<span class="hljs-number">0</span>)
+        out = F.log_softmax(self.fc(out),dim=-<span class="hljs-number">1</span>)<span class="hljs-comment">#[batch_Size, vocab_size]</span>
+        out = out.squeeze(<span class="hljs-number">1</span>)
+        <span class="hljs-comment"># print(&quot;out size:&quot;,out.size(),decoder_hidden.size())</span>
+        <span class="hljs-keyword">return</span> out,decoder_hidden
+</code></pre>
+<h2 id="7&#x5B8C;&#x6210;seq2seq&#x7684;&#x6A21;&#x578B;">7.&#x5B8C;&#x6210;seq2seq&#x7684;&#x6A21;&#x578B;</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Seq2Seq</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,encoder,decoder)</span>:</span>
+        super(Seq2Seq,self).__init__()
+        self.encoder = encoder
+        self.decoder = decoder
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, input,target,input_length,target_length)</span>:</span>
+        encoder_outputs,encoder_hidden = self.encoder(input,input_length)
+        decoder_outputs,decoder_hidden = self.decoder(encoder_hidden,target,target_length)
+        <span class="hljs-keyword">return</span> decoder_outputs,decoder_hidden
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">evaluation</span><span class="hljs-params">(self,inputs,input_length)</span>:</span>
+        encoder_outputs,encoder_hidden = self.encoder(inputs,input_length)
+        decoded_sentence = self.decoder.evaluation(encoder_hidden)
+        <span class="hljs-keyword">return</span> decoded_sentence
+</code></pre>
+<h2 id="8-&#x5B8C;&#x6210;&#x8BAD;&#x7EC3;&#x903B;&#x8F91;">8. &#x5B8C;&#x6210;&#x8BAD;&#x7EC3;&#x903B;&#x8F91;</h2>
+<p>&#x4E3A;&#x4E86;&#x52A0;&#x901F;&#x8BAD;&#x7EC3;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x5728;gpu&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x6211;&#x4EEC;&#x81EA;&#x9876;&#x4E00;&#x4E2A;&#x6240;&#x4EE5;&#x7684;tensor&#x548C;model&#x90FD;&#x9700;&#x8981;&#x8F6C;&#x5316;&#x4E3A;CUDA&#x652F;&#x6301;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x5F53;&#x524D;&#x7684;&#x6570;&#x636E;&#x91CF;&#x4E3A;500&#x591A;&#x4E07;&#x6761;&#xFF0C;&#x5728;GTX1070&#xFF08;8G&#x663E;&#x5B58;&#xFF09;&#x4E0A;&#x8BAD;&#x7EC3;&#xFF0C;&#x5927;&#x6982;&#x9700;&#x8981;90&#x5206;&#x4E00;&#x4E2A;epoch&#xFF0C;&#x8010;&#x5FC3;&#x7684;&#x7B49;&#x5F85;&#x5427;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> config
+<span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> optim
+<span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn
+<span class="hljs-keyword">from</span> encoder <span class="hljs-keyword">import</span> Encoder
+<span class="hljs-keyword">from</span> decoder <span class="hljs-keyword">import</span> Decoder
+<span class="hljs-keyword">from</span> seq2seq <span class="hljs-keyword">import</span> Seq2Seq
+<span class="hljs-keyword">from</span> dataset <span class="hljs-keyword">import</span> data_loader <span class="hljs-keyword">as</span> train_dataloader
+<span class="hljs-keyword">from</span> word_sequence <span class="hljs-keyword">import</span> word_sequence
+
+encoder = Encoder()
+decoder = Decoder()
+model = Seq2Seq(encoder,decoder)
+
+<span class="hljs-comment">#device&#x5728;config&#x6587;&#x4EF6;&#x4E2D;&#x5B9E;&#x73B0;</span>
+model.to(config.device)
+
+print(model)
+
+model.load_state_dict(torch.load(<span class="hljs-string">&quot;model/seq2seq_model.pkl&quot;</span>))
+optimizer =  optim.Adam(model.parameters())
+optimizer.load_state_dict(torch.load(<span class="hljs-string">&quot;model/seq2seq_optimizer.pkl&quot;</span>))
+criterion= nn.NLLLoss(ignore_index=word_sequence.PAD,reduction=<span class="hljs-string">&quot;mean&quot;</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_loss</span><span class="hljs-params">(decoder_outputs,target)</span>:</span>
+    target = target.view(-<span class="hljs-number">1</span>) <span class="hljs-comment">#[batch_size*max_len]</span>
+    decoder_outputs = decoder_outputs.view(config.batch_size*config.max_len,-<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">return</span> criterion(decoder_outputs,target)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">train</span><span class="hljs-params">(epoch)</span>:</span>
+    <span class="hljs-keyword">for</span> idx,(input,target,input_length,target_len) <span class="hljs-keyword">in</span> enumerate(train_dataloader):
+        input = input.to(config.device)
+        target = target.to(config.device)
+        input_length = input_length.to(config.device)
+        target_len = target_len.to(config.device)
+
+        optimizer.zero_grad()
+        <span class="hljs-comment">##[seq_len,batch_size,vocab_size] [batch_size,seq_len]</span>
+        decoder_outputs,decoder_hidden = model(input,target,input_length,target_len)
+        loss = get_loss(decoder_outputs,target)
+        loss.backward()
+        optimizer.step()
+
+        print(<span class="hljs-string">&apos;Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}&apos;</span>.format(
+            epoch, idx * len(input), len(train_dataloader.dataset),
+                   <span class="hljs-number">100.</span> * idx / len(train_dataloader), loss.item()))
+
+        torch.save(model.state_dict(), <span class="hljs-string">&quot;model/seq2seq_model.pkl&quot;</span>)
+        torch.save(optimizer.state_dict(), <span class="hljs-string">&apos;model/seq2seq_optimizer.pkl&apos;</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+        train(i)
+</code></pre>
+<p>&#x8BAD;&#x7EC3;10&#x4E2A;epoch&#x4E4B;&#x540E;&#x7684;&#x6548;&#x679C;&#x5982;&#x4E0B;,&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x635F;&#x5931;&#x4F9D;&#x7136;&#x5F88;&#x9AD8;&#xFF1A;</p>
+<pre><code>Train Epoch: 9 [2444544/4889919 (50%)]    Loss: 4.923604
+Train Epoch: 9 [2444800/4889919 (50%)]    Loss: 4.364594
+Train Epoch: 9 [2445056/4889919 (50%)]    Loss: 4.613254
+Train Epoch: 9 [2445312/4889919 (50%)]    Loss: 4.143538
+Train Epoch: 9 [2445568/4889919 (50%)]    Loss: 4.412729
+Train Epoch: 9 [2445824/4889919 (50%)]    Loss: 4.516526
+Train Epoch: 9 [2446080/4889919 (50%)]    Loss: 4.124945
+Train Epoch: 9 [2446336/4889919 (50%)]    Loss: 4.777015
+Train Epoch: 9 [2446592/4889919 (50%)]    Loss: 4.358538
+Train Epoch: 9 [2446848/4889919 (50%)]    Loss: 4.513412
+Train Epoch: 9 [2447104/4889919 (50%)]    Loss: 4.202757
+Train Epoch: 9 [2447360/4889919 (50%)]    Loss: 4.589584
+</code></pre><h2 id="9&#x5C0F;&#x7ED3;">9.&#x5C0F;&#x7ED3;</h2>
+<p>&#x6548;&#x679C;&#x4E0D;&#x597D;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html" class="navigation navigation-prev " aria-label="Previous page: seq2seq模型的原理"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html" class="navigation navigation-next " aria-label="Next page: Attention的原理和实现"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

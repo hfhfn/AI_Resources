@@ -1,0 +1,1117 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>梯度下降和反向传播原理 | NLP Course</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../1.2 pytorch/1.2.4 手动完成线性回归 .html" />
+    
+    
+    <link rel="prev" href="../1.2 pytorch/1.2.2 pytorch的入门使用.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1.2.3"
+        data-chapter-title="梯度下降和反向传播原理"
+        data-filepath="1.2 pytorch/1.2.3 梯度下降和反向传播原理.md"
+        data-basepath=".."
+        data-revision="Sun Oct 13 2019 19:58:46 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+            <span><b>1.</b> 神经网络和pytorch</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="1.1 深度学习和神经网络/index.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        1.1 深度学习和神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        深度学习的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.2.</b>
+                        
+                        神经网络的介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.2 pytorch/index.html">
+            
+                
+                    <a href="../1.2 pytorch/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        1.2 pytorch
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.</b>
+                        
+                        pytorch的介绍和安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1.2 pytorch/1.2.2 pytorch的入门使用.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.2 pytorch的入门使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.2.</b>
+                        
+                        pytorch的入门使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.3.</b>
+                        
+                        梯度下降和反向传播原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="1.2 pytorch/1.2.4 手动完成线性回归 .html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.4 手动完成线性回归 .html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.4.</b>
+                        
+                        手动完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.5.</b>
+                        
+                        调用 pytorch API完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.6.</b>
+                        
+                        pytorch中的数据加载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.7.</b>
+                        
+                        使用pytorch实现手写数字识别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1.3 循环神经网络/index.html">
+            
+                
+                    <a href="../1.3 循环神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        1.3 循环神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.1.</b>
+                        
+                        循环神经网络基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.3 循环神经网络/1.3.2 文本情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.2 文本情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.2.</b>
+                        
+                        文本情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.3 循环神经网络/1.3.3 循环神经网络.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.3 循环神经网络.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.3.</b>
+                        
+                        循环神经网络
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.4.</b>
+                        
+                        循环神经网络实现情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.5.</b>
+                        
+                        神经网络中的序列化容器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.6.</b>
+                        
+                        神经网络实现分词
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> 项目实现</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="2.1 项目准备/index.html">
+            
+                
+                    <a href="../2.1 项目准备/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        2.1 项目装备
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="2.1 项目准备/2.1.1 走进聊天机器人.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.1 走进聊天机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        走进聊天机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.2.</b>
+                        
+                        需求分析和流程介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="2.1 项目准备/2.1.3 环境准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.3 环境准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.3.</b>
+                        
+                        环境准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="2.1 项目准备/2.1.4 语料准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.4 语料准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.4.</b>
+                        
+                        语料准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="2.1 项目准备/2.1.5 文本分词.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.5 文本分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.5.</b>
+                        
+                        文本分词
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="2.1 项目准备/2.1.6 动手练习.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.6 动手练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.6.</b>
+                        
+                        动手练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2.2 fasttext文本分类/index.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        2.2 FastText文本分类
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.1.</b>
+                        
+                        分类的目的和方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.</b>
+                        
+                        fasttext实现文本分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.3.</b>
+                        
+                        fasttext的原理剖析
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="2.3 Seq2Seq模型和闲聊机器人/index.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        2.3 Seq2Seq模型和闲聊机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.1.</b>
+                        
+                        闲聊机器人的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.2.</b>
+                        
+                        seq2seq模型的原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.3.</b>
+                        
+                        seq2seq实现闲聊机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.4.</b>
+                        
+                        Attention的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.5.</b>
+                        
+                        BeamSearch的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.6.</b>
+                        
+                        闲聊机器人的优化
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="2.4 QA机器人/index.html">
+            
+                
+                    <a href="../2.4 QA机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        2.4 QA机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="2.4 QA机器人/2.4.1 QA机器人介绍.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.1 QA机器人介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        QA机器人介绍.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="2.4 QA机器人/2.4.2 QA机器人的召回.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.2 QA机器人的召回.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.2.</b>
+                        
+                        QA机器人的召回.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="2.4 QA机器人/2.4.3 召回优化.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.3 召回优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.3.</b>
+                        
+                        召回优化.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.4.</b>
+                        
+                        QA机器人排序模型.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.5.</b>
+                        
+                        代码的封装和提供接口.md
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 补充</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="补充/HMM.html">
+            
+                
+                    <a href="../补充/HMM.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        HMM
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="补充/MEMM和CRF.html">
+            
+                
+                    <a href="../补充/MEMM和CRF.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        MEMM和CRF
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="补充/最大匹配法.html">
+            
+                
+                    <a href="../补充/最大匹配法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        最大匹配法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >NLP Course</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x548C;&#x53CD;&#x5411;&#x4F20;&#x64AD;">&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x548C;&#x53CD;&#x5411;&#x4F20;&#x64AD;</h1>
+<h2 id="&#x76EE;&#x6807;">&#x76EE;&#x6807;</h2>
+<ol>
+<li>&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x662F;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</li>
+<li>&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x662F;&#x53CD;&#x5411;&#x4F20;&#x64AD;</li>
+</ol>
+<h2 id="1-&#x68AF;&#x5EA6;&#x662F;&#x4EC0;&#x4E48;">1. &#x68AF;&#x5EA6;&#x662F;&#x4EC0;&#x4E48;?</h2>
+<p>&#x68AF;&#x5EA6;&#xFF1A;&#x662F;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#xFF0C;&#x5BFC;&#x6570;+&#x53D8;&#x5316;&#x6700;&#x5FEB;&#x7684;&#x65B9;&#x5411;(&#x5B66;&#x4E60;&#x7684;&#x524D;&#x8FDB;&#x65B9;&#x5411;)</p>
+<p>&#x56DE;&#x987E;&#x673A;&#x5668;&#x5B66;&#x4E60;</p>
+<p>&#x6536;&#x96C6;&#x6570;&#x636E;$x$ &#xFF0C;&#x6784;&#x5EFA;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;$f$&#xFF0C;&#x5F97;&#x5230;$f(x,w) = Y_{predict}&#x200B;$</p>
+<p>&#x5224;&#x65AD;&#x6A21;&#x578B;&#x597D;&#x574F;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+loss &amp; = (Y<em>{predict}-Y</em>{true})^2  &amp;(&#x56DE;&#x5F52;&#x635F;&#x5931;) \
+loss &amp; = Y<em>{true} \cdot log(Y</em>{predict}) &amp;(&#x5206;&#x7C7B;&#x635F;&#x5931;)
+\end{align</em>}</p>
+<p>$$</p>
+<p>&#x76EE;&#x6807;&#xFF1A;&#x901A;&#x8FC7;&#x8C03;&#x6574;(&#x5B66;&#x4E60;)&#x53C2;&#x6570;$w$&#xFF0C;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x964D;&#x4F4E;$loss$&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x8BE5;&#x5982;&#x4F55;&#x8C03;&#x6574;$w$&#x5462;&#xFF1F;</p>
+<p><img src="../images/1.2/&#x68AF;&#x5EA6;1.png" alt=""></p>
+<p>&#x968F;&#x673A;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x8D77;&#x59CB;&#x70B9;$w_0$,&#x901A;&#x8FC7;&#x8C03;&#x6574;$w_0$&#xFF0C;&#x8BA9;loss&#x51FD;&#x6570;&#x53D6;&#x5230;&#x6700;&#x5C0F;&#x503C;</p>
+<p><img src="../images/1.2/&#x68AF;&#x5EA6;2.png" alt=""></p>
+<p><strong>$w&#x200B;$&#x7684;&#x66F4;&#x65B0;&#x65B9;&#x6CD5;</strong>&#xFF1A;</p>
+<ol>
+<li>&#x8BA1;&#x7B97;$w$&#x7684;&#x68AF;&#x5EA6;&#xFF08;&#x5BFC;&#x6570;&#xFF09;</li>
+</ol>
+<p>$$
+\begin{align<em>}
+\nabla w = \frac{f(w+0.000001)-f(w-0.000001)}{2</em>0.000001} </p>
+<p>\end{align*}</p>
+<p>$$</p>
+<ol>
+<li>&#x66F4;&#x65B0;$w$
+$$
+w = w - \alpha \nabla w
+$$</li>
+</ol>
+<p>&#x5176;&#x4E2D;&#xFF1A;</p>
+<ol>
+<li>$\nabla w &lt;0 &#x200B;$ ,&#x610F;&#x5473;&#x7740;w&#x5C06;&#x589E;&#x5927;</li>
+<li>$\nabla w &gt;0 $ ,&#x610F;&#x5473;&#x7740;w&#x5C06;&#x51CF;&#x5C0F;</li>
+</ol>
+<p>&#x603B;&#x7ED3;&#xFF1A;&#x68AF;&#x5EA6;&#x5C31;&#x662F;&#x591A;&#x5143;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;&#x8D8B;&#x52BF;&#xFF08;&#x53C2;&#x6570;&#x5B66;&#x4E60;&#x7684;&#x65B9;&#x5411;&#xFF09;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x81EA;&#x53D8;&#x91CF;&#x65F6;&#x79F0;&#x4E3A;<strong>&#x5BFC;&#x6570;</strong></p>
+<h2 id="2-&#x504F;&#x5BFC;&#x7684;&#x8BA1;&#x7B97;">2. &#x504F;&#x5BFC;&#x7684;&#x8BA1;&#x7B97;</h2>
+<h3 id="21-&#x5E38;&#x89C1;&#x7684;&#x5BFC;&#x6570;&#x8BA1;&#x7B97;">2.1 &#x5E38;&#x89C1;&#x7684;&#x5BFC;&#x6570;&#x8BA1;&#x7B97;</h3>
+<ul>
+<li><p>&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x5BFC;&#x6570;&#xFF1A;$f(x) = x^5&#x200B;$ ,$f^{&apos;}(x) = 5x^{(5-1)}&#x200B;$</p>
+</li>
+<li><p>&#x57FA;&#x672C;&#x8FD0;&#x7B97;&#x6C42;&#x5BFC;&#xFF1A;$f(x) = xy&#x200B;$ &#xFF0C;$f^{&apos;}(x) = y&#x200B;$</p>
+</li>
+<li><p>&#x6307;&#x6570;&#x6C42;&#x5BFC;&#xFF1A;$f(x) = 5e^x&#x200B;$ &#xFF0C;$f^{&apos;}(x) = 5e^x&#x200B;$</p>
+</li>
+<li><p>&#x5BF9;&#x6570;&#x6C42;&#x5BFC;&#xFF1A;$f(x) = 5lnx&#x200B;$ &#xFF0C;$f^{&apos;}(x) = \frac{5}{x}&#x200B;$&#xFF0C;ln &#x8868;&#x793A;log&#x4EE5;e&#x4E3A;&#x5E95;&#x7684;&#x5BF9;&#x6570;</p>
+</li>
+<li><p>&#x5BFC;&#x6570;&#x7684;&#x5FAE;&#x5206;&#x5F62;&#x5F0F;&#xFF1A;
+$$
+\begin{align<em>}
+&amp; f^{&apos;}(x) = &amp; \frac{d f(x)}{dx} \
+&amp; &#x725B;&#x987F;         &amp;&#x83B1;&#x5E03;&#x5C3C;&#x5179;
+\end{align</em>}
+$$</p>
+</li>
+</ul>
+<p>&#x90A3;&#x4E48;&#xFF1A;&#x5982;&#x4F55;&#x6C42;$f(x) = (1+e^{-x})^{-1}$ &#x7684;&#x5BFC;&#x6570;&#x5462;&#xFF1F;&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</p>
+<p>$f(x) = (1+e^{-x})^{-1}&#x200B;$         ==&gt;   $f(a) = a^{-1},a(b) = (1+b),b(c) = e^c,c(x) = -x&#x200B;$</p>
+<p>&#x5219;&#x6709;&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+\frac{d f(x)}{dx} &amp; = \frac{df}{da} \times \frac{da}{db} \times \frac{db}{dc}\times \frac{dc}{dx} \
+&amp;=-a^{-2} \times 1\times e^c \times (-1) \
+&amp;= -(1+e^{-x})^{-2} \times e^{-x} \times (-1) \
+&amp;= e^{-x}(1+e^{-x})^{-2}
+\end{align</em>}</p>
+<p>$$</p>
+<h3 id="22-&#x591A;&#x5143;&#x51FD;&#x6570;&#x6C42;&#x504F;&#x5BFC;">2.2 &#x591A;&#x5143;&#x51FD;&#x6570;&#x6C42;&#x504F;&#x5BFC;</h3>
+<p>&#x4E00;&#x5143;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x6709;&#x4E00;&#x4E2A;&#x81EA;&#x53D8;&#x91CF;&#x3002;&#x7C7B;&#x4F3C;$f(x)$</p>
+<p>&#x591A;&#x5143;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x6709;&#x591A;&#x4E2A;&#x81EA;&#x53D8;&#x91CF;&#x3002;&#x7C7B;&#x4F3C;$f(x,y,z),&#x4E09;&#x4E2A;&#x81EA;&#x53D8;&#x91CF;x,y,z$</p>
+<p>&#x591A;&#x5143;&#x51FD;&#x6570;&#x6C42;&#x504F;&#x5BFC;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF1A;<strong>&#x5BF9;&#x67D0;&#x4E00;&#x4E2A;&#x81EA;&#x53D8;&#x91CF;&#x6C42;&#x5BFC;&#xFF0C;&#x5176;&#x4ED6;&#x81EA;&#x53D8;&#x91CF;&#x5F53;&#x505A;&#x5E38;&#x91CF;&#x5373;&#x53EF;</strong></p>
+<p>&#x4F8B;1&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+ &amp;f(x,y,z) &amp;= &amp;ax+by+cz \
+&amp;\frac{df(x,y,z)}{dx} &amp;= &amp;a \
+&amp;\frac{df(x,y,z)}{dy} &amp;= &amp;b \
+&amp;\frac{df(x,y,z)}{dz} &amp;= &amp;c
+\end{align</em>}</p>
+<p>$$</p>
+<p>&#x4F8B;2&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+ &amp;f(x,y) &amp;= &amp;xy \
+&amp;\frac{df(x,y)}{dx} &amp;= &amp; y\
+&amp;\frac{df(x,y)}{dy} &amp;= &amp;x 
+\end{align</em>}</p>
+<p>$$
+&#x4F8B;3&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+ &amp;f(x,w) &amp;= &amp;(y-xw)^2 \
+&amp;\frac{df(x,w)}{dx} &amp;= &amp; -2w(y-xw)\
+&amp;\frac{df(x,w)}{dw} &amp;= &amp; -2x(y-xw)
+\end{align</em>}</p>
+<p>$$
+<strong>&#x7EC3;&#x4E60;&#xFF1A;</strong></p>
+<p>&#x5DF2;&#x77E5;$J(a,b,c) = 3(a+bc),&#x4EE4;u=a+v,v = bc&#x200B;$,&#x6C42;a&#xFF0C;b&#xFF0C;c&#x5404;&#x81EA;&#x7684;&#x504F;&#x5BFC;&#x6570;&#x3002;</p>
+<p>$$
+\begin{align<em>}
+ &#x4EE4;:&amp; J(a,b,c) = 3u\
+ \frac{dJ}{da} &amp;=\frac{dJ}{du} \times \frac{du}{da} = 3\times1 \
+ \frac{dJ}{db} &amp;=\frac{dJ}{du} \times \frac{du}{dv} \times \frac{dv}{db} = 3\times1\times c \
+ \frac{dJ}{dc} &amp;=\frac{dJ}{du} \times \frac{du}{dv} \times \frac{dv}{dc} = 3\times1\times b \
+\end{align</em>}</p>
+<p>$$</p>
+<h2 id="3-&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7B97;&#x6CD5;">3. &#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7B97;&#x6CD5;</h2>
+<h3 id="31-&#x8BA1;&#x7B97;&#x56FE;&#x548C;&#x53CD;&#x5411;&#x4F20;&#x64AD;">3.1 &#x8BA1;&#x7B97;&#x56FE;&#x548C;&#x53CD;&#x5411;&#x4F20;&#x64AD;</h3>
+<p>&#x8BA1;&#x7B97;&#x56FE;&#xFF1A;&#x901A;&#x8FC7;&#x56FE;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x63CF;&#x8FF0;&#x51FD;&#x6570;&#x7684;&#x56FE;&#x5F62;</p>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x7EC3;&#x4E60;&#x4E2D;&#xFF0C;$J(a,b,c) = 3(a+bc),&#x4EE4;u=a+v,v = bc$,&#x628A;&#x5B83;&#x7ED8;&#x5236;&#x6210;&#x8BA1;&#x7B97;&#x56FE;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;&#xFF1A;</p>
+<p><img src="../images/1.2/&#x8BA1;&#x7B97;&#x56FE;.png" alt=""></p>
+<p>&#x7ED8;&#x5236;&#x6210;&#x4E3A;&#x8BA1;&#x7B97;&#x56FE;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x7684;&#x770B;&#x5230;&#x5411;&#x524D;&#x8BA1;&#x7B97;&#x7684;&#x8FC7;&#x7A0B;</p>
+<p>&#x4E4B;&#x540E;&#xFF0C;&#x5BF9;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x6C42;&#x504F;&#x5BFC;&#x53EF;&#x6709;&#xFF1A;</p>
+<p><img src="../images/1.2/&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;.png" alt=""></p>
+<p>&#x90A3;&#x4E48;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E0A;&#x56FE;&#x7684;&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x81EA;&#x53D8;&#x91CF;$a,b,c$&#x5404;&#x81EA;&#x7684;&#x504F;&#x5BFC;&#x5C31;&#x662F;&#x8FDE;&#x7EBF;&#x4E0A;&#x7684;&#x68AF;&#x5EA6;&#x7684;&#x4E58;&#x79EF;&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+\frac{dJ}{da} &amp;= 3 \times 1 \
+\frac{dJ}{db} &amp;= 3 \times 1 \times c \
+\frac{dJ}{dc} &amp;= 3 \times 1 \times b 
+\end{align</em>}</p>
+<p>$$</p>
+<h3 id="32-&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x53CD;&#x5411;&#x4F20;&#x64AD;">3.2 &#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x53CD;&#x5411;&#x4F20;&#x64AD;</h3>
+<h4 id="321-&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x793A;&#x610F;&#x56FE;">3.2.1 &#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x793A;&#x610F;&#x56FE;</h4>
+<p>$w1,w2,....wn&#x200B;$&#x8868;&#x793A;&#x7F51;&#x7EDC;&#x7B2C;n&#x5C42;&#x6743;&#x91CD;</p>
+<p>$w_n[i,j]$&#x8868;&#x793A;&#x7B2C;n&#x5C42;&#x7B2C;i&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#xFF0C;&#x8FDE;&#x63A5;&#x5230;&#x7B2C;n+1&#x5C42;&#x7B2C;j&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x7684;&#x6743;&#x91CD;&#x3002;</p>
+<p><img src="../images/1.2/&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8BA1;&#x7B97;&#x56FE;.png" alt=""></p>
+<h4 id="322-&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BA1;&#x7B97;&#x56FE;">3.2.2 &#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BA1;&#x7B97;&#x56FE;</h4>
+<p><img src="../images/1.2/&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8BA1;&#x7B97;&#x56FE;2.png" alt=""></p>
+<p>&#x5176;&#x4E2D;&#xFF1A;</p>
+<ol>
+<li>$\nabla out&#x200B;$&#x662F;&#x6839;&#x636E;&#x635F;&#x5931;&#x51FD;&#x6570;&#x5BF9;&#x9884;&#x6D4B;&#x503C;&#x8FDB;&#x884C;&#x6C42;&#x5BFC;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;</li>
+<li>f&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</li>
+</ol>
+<p><strong>&#x95EE;&#x9898;&#xFF1A;</strong>&#x90A3;&#x4E48;&#x6B64;&#x65F6;$w_1[1,2]$&#x7684;&#x504F;&#x5BFC;&#x8BE5;&#x5982;&#x4F55;&#x6C42;&#x89E3;&#x5462;&#xFF1F;</p>
+<p>&#x901A;&#x8FC7;&#x89C2;&#x5BDF;&#xFF0C;&#x53D1;&#x73B0;&#x4ECE;$out$ &#x5230;$w_1[1,2]$&#x7684;&#x6765;&#x8FDE;&#x63A5;&#x7EBF;&#x6709;&#x4E24;&#x6761;</p>
+<p><img src="../images/1.2/&#x504F;&#x5BFC;&#x7684;&#x8BA1;&#x7B97;.png" alt=""></p>
+<p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>$$
+\frac{dout}{dW_1[1,2]} = x1<em>f^{&apos;}(a2)</em>(W_2[2,1]<em>f^{&apos;}(b1)</em>W_3[1,1]<em>\nabla out +W_2[2,2]</em>f^{&apos;}(b2)<em>W_3[2,1]</em>\nabla out)</p>
+<p>$$
+&#x516C;&#x5F0F;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206;&#xFF1A;</p>
+<ol>
+<li>&#x62EC;&#x53F7;&#x5916;&#xFF1A;&#x5DE6;&#x8FB9;&#x7EA2;&#x7EBF;&#x90E8;&#x5206;</li>
+<li>&#x62EC;&#x53F7;&#x5185;<ol>
+<li>&#x52A0;&#x53F7;&#x5DE6;&#x8FB9;&#xFF1A;&#x53F3;&#x8FB9;&#x7EA2;&#x7EBF;&#x90E8;&#x5206;</li>
+<li>&#x52A0;&#x53F7;&#x53F3;&#x8FB9;&#xFF1A;&#x84DD;&#x7EBF;&#x90E8;&#x5206;</li>
+</ol>
+</li>
+</ol>
+<p>&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x5F53;&#x6A21;&#x578B;&#x5F88;&#x5927;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BA1;&#x7B97;&#x91CF;&#x975E;&#x5E38;&#x5927;</p>
+<p>&#x6240;&#x4EE5;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7684;&#x601D;&#x60F3;&#x5C31;&#x662F;&#x5BF9;&#x5176;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5355;&#x72EC;&#x6C42;&#x68AF;&#x5EA6;&#xFF0C;&#x4E4B;&#x540E;&#x66F4;&#x65B0;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="../images/1.2/&#x504F;&#x5BFC;&#x7684;&#x8BA1;&#x7B97;2.png" alt=""></p>
+<p>&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;</p>
+<p>$$
+\begin{align<em>}
+&amp;\nabla W_3[1,1] = f(b_1)</em>\nabla out  &amp; &#xFF08;&#x8BA1;&#x7B97;W_3[1,1]&#x68AF;&#x5EA6;&#xFF09;\
+&amp;\nabla W_3[2,1] = f(b_2)<em>\nabla out  &amp; &#xFF08;&#x8BA1;&#x7B97;W_3[2,1]&#x68AF;&#x5EA6;&#xFF09;\
+\
+&amp;\nabla b_1= f^{&apos;}(b_1)</em>W_3[1,1]<em>\nabla out  &amp; &#xFF08;&#x8BA1;&#x7B97;W_3[2,1]&#x68AF;&#x5EA6;&#xFF09;\
+&amp;\nabla b_2= f^{&apos;}(b_2)</em>W_3[2,1]*\nabla out  &amp; &#xFF08;&#x8BA1;&#x7B97;W_3[2,1]&#x68AF;&#x5EA6;&#xFF09;\</p>
+<p>\end{align*}</p>
+<p>$$
+&#x66F4;&#x65B0;&#x53C2;&#x6570;&#x4E4B;&#x540E;&#xFF0C;&#x7EE7;&#x7EED;&#x53CD;&#x5411;&#x4F20;&#x64AD;</p>
+<p><img src="../images/1.2/&#x504F;&#x5BFC;&#x7684;&#x8BA1;&#x7B97;3.png" alt=""></p>
+<p>&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+&amp;\nabla W_2[1,2] = f(a_1)</em> \nabla b_2 \
+&amp;\nabla a_2 = f^{&apos;}(a_2)<em>(w_2[2,1]\nabla b_1 +W_2[2,2] \nabla b_2)
+\end{align</em>}</p>
+<p>$$
+&#x7EE7;&#x7EED;&#x53CD;&#x5411;&#x4F20;&#x64AD;</p>
+<p><img src="../images/1.2/&#x504F;&#x5BFC;&#x7684;&#x8BA1;&#x7B97;4.png" alt=""></p>
+<p>&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>$$
+\begin{align<em>}
+&amp;&#x25BD;W_1[1,2]= x_1</em>&#x25BD;a_2\
+&amp;&#x25BD;x_1= (W_1[1,1]<em>&#x25BD;a_1+w_1[1,2]</em>&#x25BD;a_2)<em>x_1&#x2019;
+\end{align</em>}</p>
+<p>$$</p>
+<p><strong>&#x901A;&#x7528;&#x7684;&#x63CF;&#x8FF0;&#x5982;&#x4E0B;</strong></p>
+<p>$$
+\nabla w^{l}<em>{i,j} = f(a^l_i)* \nabla a^{i+1}</em>{j}\
+\nabla a^{l}<em>i = f&apos;(a^l_i)*(\sum</em>{j=1}^{m}w_{i,j}*\nabla a_j^{l+1})</p>
+<p>$$</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../1.2 pytorch/1.2.2 pytorch的入门使用.html" class="navigation navigation-prev " aria-label="Previous page: pytorch的入门使用"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../1.2 pytorch/1.2.4 手动完成线性回归 .html" class="navigation navigation-next " aria-label="Next page: 手动完成线性回归"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

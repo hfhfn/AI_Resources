@@ -1,0 +1,706 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Python数据可视化 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toc2/toc2.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-tbfed-pagefooter/footer.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./14_Matplotlib绘图.html" />
+    
+    
+    <link rel="prev" href="./13_datetime数据类型.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="5"
+        data-chapter-title="Python数据可视化"
+        data-filepath="第5章-14-17_Python数据可视化.md"
+        data-basepath="."
+        data-revision="Tue Apr 20 2021 11:46:25 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="第1章-01-02_介绍及环境搭建.html">
+            
+                
+                    <a href="./第1章-01-02_介绍及环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Python数据分析介绍及环境搭建
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01_Python数据分析简介.html">
+            
+                
+                    <a href="./01_Python数据分析简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Python数据分析简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="02_Python数据分析开发环境搭建.html">
+            
+                
+                    <a href="./02_Python数据分析开发环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Python数据分析环境搭建
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="第2章-03-05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./第2章-03-05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="03_Pandas的DataFrame.html">
+            
+                
+                    <a href="./03_Pandas的DataFrame.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Pandas的DataFrame
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="04_Pandas_数据结构.html">
+            
+                
+                    <a href="./04_Pandas_数据结构.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Pandas_数据结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="第3章-06-09_Pandas数据清洗.html">
+            
+                
+                    <a href="./第3章-06-09_Pandas数据清洗.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Pandas数据清洗
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="06_数据组合.html">
+            
+                
+                    <a href="./06_数据组合.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        数据组合
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="07_缺失数据处理.html">
+            
+                
+                    <a href="./07_缺失数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        缺失数据处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="08_整理数据.html">
+            
+                
+                    <a href="./08_整理数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        数据整理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="09_Pandas数据类型.html">
+            
+                
+                    <a href="./09_Pandas数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Pandas数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="第4章-10-13_Pandas数据处理.html">
+            
+                
+                    <a href="./第4章-10-13_Pandas数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Pandas数据处理
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="10_Apply自定义函数.html">
+            
+                
+                    <a href="./10_Apply自定义函数.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Apply自定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="11_数据分组.html">
+            
+                
+                    <a href="./11_数据分组.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        数据分组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="12_数据透视表.html">
+            
+                
+                    <a href="./12_数据透视表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        数据透视表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="13_datetime数据类型.html">
+            
+                
+                    <a href="./13_datetime数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        datetime数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="5" data-path="第5章-14-17_Python数据可视化.html">
+            
+                
+                    <a href="./第5章-14-17_Python数据可视化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Python数据可视化
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="14_Matplotlib绘图.html">
+            
+                
+                    <a href="./14_Matplotlib绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Matplotlib绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="15_Pandas绘图.html">
+            
+                
+                    <a href="./15_Pandas绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Pandas绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="16_Seaborn绘图.html">
+            
+                
+                    <a href="./16_Seaborn绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Seaborn绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="17_Pyecharts绘图.html">
+            
+                
+                    <a href="./17_Pyecharts绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        Pyecharts绘图
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="第6章-18-20_综合案例.html">
+            
+                
+                    <a href="./第6章-18-20_综合案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        综合案例
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="18_综合案例_Appstore数据分析.html">
+            
+                
+                    <a href="./18_综合案例_Appstore数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        综合案例_Appstore数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="19_综合案例_优衣库销售数据分析.html">
+            
+                
+                    <a href="./19_综合案例_优衣库销售数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        综合案例_优衣库销售数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="20_综合案例_RFM用户分群.html">
+            
+                
+                    <a href="./20_综合案例_RFM用户分群.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        综合案例_RFM用户分群
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x5FEB;&#x901F;&#x5BFC;&#x822A;">&#x5FEB;&#x901F;&#x5BFC;&#x822A;</h1>
+<blockquote>
+<p>&#x7B2C;&#x4E00;&#x7AE0;  &#x25BC;</p>
+</blockquote>
+<ul>
+<li><a href="&#x7B2C;1&#x7AE0;-01-02_&#x4ECB;&#x7ECD;&#x53CA;&#x73AF;&#x5883;&#x642D;&#x5EFA;.html">Python&#x6570;&#x636E;&#x5206;&#x6790;&#x4ECB;&#x7ECD;&#x53CA;&#x73AF;&#x5883;&#x642D;&#x5EFA;</a>  <ul>
+<li><a href="01_Python&#x6570;&#x636E;&#x5206;&#x6790;&#x7B80;&#x4ECB;.html">Python&#x6570;&#x636E;&#x5206;&#x6790;&#x7B80;&#x4ECB;</a></li>
+<li><a href="02_Python&#x6570;&#x636E;&#x5206;&#x6790;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;.html">Python&#x6570;&#x636E;&#x5206;&#x6790;&#x73AF;&#x5883;&#x642D;&#x5EFA;</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x7B2C;&#x4E8C;&#x7AE0;  &#x25BC;</p>
+</blockquote>
+<ul>
+<li><a href="&#x7B2C;2&#x7AE0;-03-05_Pandas&#x6570;&#x636E;&#x5206;&#x6790;&#x5165;&#x95E8;.html">Pandas&#x6570;&#x636E;&#x5206;&#x6790;&#x5165;&#x95E8;</a><ul>
+<li><a href="03_Pandas&#x7684;DataFrame.html">Pandas&#x7684;DataFrame</a></li>
+<li><a href="04_Pandas_&#x6570;&#x636E;&#x7ED3;&#x6784;.html">Pandas_&#x6570;&#x636E;&#x7ED3;&#x6784;</a></li>
+<li><a href="05_Pandas&#x6570;&#x636E;&#x5206;&#x6790;&#x5165;&#x95E8;.html">Pandas&#x6570;&#x636E;&#x5206;&#x6790;&#x5165;&#x95E8;</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x7B2C;&#x4E09;&#x7AE0;  &#x25BC;</p>
+</blockquote>
+<ul>
+<li><a href="&#x7B2C;3&#x7AE0;-06-09_Pandas&#x6570;&#x636E;&#x6E05;&#x6D17;.html">Pandas&#x6570;&#x636E;&#x6E05;&#x6D17;</a><ul>
+<li><a href="06_&#x6570;&#x636E;&#x7EC4;&#x5408;.html">&#x6570;&#x636E;&#x7EC4;&#x5408;</a></li>
+<li><a href="07_&#x7F3A;&#x5931;&#x6570;&#x636E;&#x5904;&#x7406;.html">&#x7F3A;&#x5931;&#x6570;&#x636E;&#x5904;&#x7406;</a></li>
+<li><a href="08_&#x6574;&#x7406;&#x6570;&#x636E;.html">&#x6570;&#x636E;&#x6574;&#x7406;</a></li>
+<li><a href="09_Pandas&#x6570;&#x636E;&#x7C7B;&#x578B;.html">Pandas&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x7B2C;&#x56DB;&#x7AE0;  &#x25BC;</p>
+</blockquote>
+<ul>
+<li><a href="&#x7B2C;4&#x7AE0;-10-13_Pandas&#x6570;&#x636E;&#x5904;&#x7406;.html">Pandas&#x6570;&#x636E;&#x5904;&#x7406;</a><ul>
+<li><a href="10_Apply&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;.html">Apply&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</a></li>
+<li><a href="11_&#x6570;&#x636E;&#x5206;&#x7EC4;.html">&#x6570;&#x636E;&#x5206;&#x7EC4;</a></li>
+<li><a href="12_&#x6570;&#x636E;&#x900F;&#x89C6;&#x8868;.html">&#x6570;&#x636E;&#x900F;&#x89C6;&#x8868;</a></li>
+<li><a href="13_datetime&#x6570;&#x636E;&#x7C7B;&#x578B;.html">datetime&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x7B2C;&#x4E94;&#x7AE0;  &#x25BC;</p>
+</blockquote>
+<ul>
+<li><a href="&#x7B2C;5&#x7AE0;-14-17_Python&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;.html">Python&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;</a><ul>
+<li><a href="14_Matplotlib&#x7ED8;&#x56FE;.html">Matplotlib&#x7ED8;&#x56FE;</a></li>
+<li><a href="15_Pandas&#x7ED8;&#x56FE;.html">Pandas&#x7ED8;&#x56FE;</a></li>
+<li><a href="16_Seaborn&#x7ED8;&#x56FE;.html">Seaborn&#x7ED8;&#x56FE;</a></li>
+<li><a href="17_Pyecharts&#x7ED8;&#x56FE;.html">Pyecharts&#x7ED8;&#x56FE;</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x7B2C;&#x516D;&#x7AE0;  &#x25BC;</p>
+</blockquote>
+<ul>
+<li><a href="&#x7B2C;6&#x7AE0;-18-20_&#x7EFC;&#x5408;&#x6848;&#x4F8B;.html">&#x7EFC;&#x5408;&#x6848;&#x4F8B;</a><ul>
+<li><a href="18_&#x7EFC;&#x5408;&#x6848;&#x4F8B;_Appstore&#x6570;&#x636E;&#x5206;&#x6790;.html">&#x7EFC;&#x5408;&#x6848;&#x4F8B;_Appstore&#x6570;&#x636E;&#x5206;&#x6790;</a></li>
+<li><a href="19_&#x7EFC;&#x5408;&#x6848;&#x4F8B;_&#x4F18;&#x8863;&#x5E93;&#x9500;&#x552E;&#x6570;&#x636E;&#x5206;&#x6790;.html">&#x7EFC;&#x5408;&#x6848;&#x4F8B;_&#x4F18;&#x8863;&#x5E93;&#x9500;&#x552E;&#x6570;&#x636E;&#x5206;&#x6790;</a></li>
+<li><a href="20_&#x7EFC;&#x5408;&#x6848;&#x4F8B;_RFM&#x7528;&#x6237;&#x5206;&#x7FA4;.html">&#x7EFC;&#x5408;&#x6848;&#x4F8B;_RFM&#x7528;&#x6237;&#x5206;&#x7FA4;</a> </li>
+</ul>
+</li>
+</ul>
+<footer class="page-footer"><span class="copyright">&#xA9;2021.4 &#x539F;&#x6EE1; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-04-20 11:44:12
+</span></footer>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./13_datetime数据类型.html" class="navigation navigation-prev " aria-label="Previous page: datetime数据类型"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./14_Matplotlib绘图.html" class="navigation navigation-next " aria-label="Next page: Matplotlib绘图"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-toc2/toc2.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"expandable-chapters-small":{},"toc2":{"addClass":true,"className":"toc"},"tbfed-pagefooter":{"copyright":"©2021.4 原满","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"back-to-top-button":{},"chapter-fold":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

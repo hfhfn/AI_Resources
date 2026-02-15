@@ -1,0 +1,1310 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>HMM | NLP Course</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../补充/MEMM和CRF.html" />
+    
+    
+    <link rel="prev" href="../2.4 QA机器人/2.4.5 代码的封装和提供接口.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.1"
+        data-chapter-title="HMM"
+        data-filepath="补充/HMM.md"
+        data-basepath=".."
+        data-revision="Sun Oct 13 2019 19:58:46 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+            <span><b>1.</b> 神经网络和pytorch</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="1.1 深度学习和神经网络/index.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        1.1 深度学习和神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        深度学习的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.2.</b>
+                        
+                        神经网络的介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.2 pytorch/index.html">
+            
+                
+                    <a href="../1.2 pytorch/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        1.2 pytorch
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.</b>
+                        
+                        pytorch的介绍和安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1.2 pytorch/1.2.2 pytorch的入门使用.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.2 pytorch的入门使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.2.</b>
+                        
+                        pytorch的入门使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.3.</b>
+                        
+                        梯度下降和反向传播原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="1.2 pytorch/1.2.4 手动完成线性回归 .html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.4 手动完成线性回归 .html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.4.</b>
+                        
+                        手动完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.5.</b>
+                        
+                        调用 pytorch API完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.6.</b>
+                        
+                        pytorch中的数据加载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.7.</b>
+                        
+                        使用pytorch实现手写数字识别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1.3 循环神经网络/index.html">
+            
+                
+                    <a href="../1.3 循环神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        1.3 循环神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.1.</b>
+                        
+                        循环神经网络基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.3 循环神经网络/1.3.2 文本情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.2 文本情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.2.</b>
+                        
+                        文本情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.3 循环神经网络/1.3.3 循环神经网络.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.3 循环神经网络.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.3.</b>
+                        
+                        循环神经网络
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.4.</b>
+                        
+                        循环神经网络实现情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.5.</b>
+                        
+                        神经网络中的序列化容器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.6.</b>
+                        
+                        神经网络实现分词
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> 项目实现</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="2.1 项目准备/index.html">
+            
+                
+                    <a href="../2.1 项目准备/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        2.1 项目装备
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="2.1 项目准备/2.1.1 走进聊天机器人.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.1 走进聊天机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        走进聊天机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.2.</b>
+                        
+                        需求分析和流程介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="2.1 项目准备/2.1.3 环境准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.3 环境准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.3.</b>
+                        
+                        环境准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="2.1 项目准备/2.1.4 语料准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.4 语料准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.4.</b>
+                        
+                        语料准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="2.1 项目准备/2.1.5 文本分词.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.5 文本分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.5.</b>
+                        
+                        文本分词
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="2.1 项目准备/2.1.6 动手练习.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.6 动手练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.6.</b>
+                        
+                        动手练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2.2 fasttext文本分类/index.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        2.2 FastText文本分类
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.1.</b>
+                        
+                        分类的目的和方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.</b>
+                        
+                        fasttext实现文本分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.3.</b>
+                        
+                        fasttext的原理剖析
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="2.3 Seq2Seq模型和闲聊机器人/index.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        2.3 Seq2Seq模型和闲聊机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.1.</b>
+                        
+                        闲聊机器人的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.2.</b>
+                        
+                        seq2seq模型的原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.3.</b>
+                        
+                        seq2seq实现闲聊机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.4.</b>
+                        
+                        Attention的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.5.</b>
+                        
+                        BeamSearch的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.6.</b>
+                        
+                        闲聊机器人的优化
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="2.4 QA机器人/index.html">
+            
+                
+                    <a href="../2.4 QA机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        2.4 QA机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="2.4 QA机器人/2.4.1 QA机器人介绍.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.1 QA机器人介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        QA机器人介绍.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="2.4 QA机器人/2.4.2 QA机器人的召回.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.2 QA机器人的召回.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.2.</b>
+                        
+                        QA机器人的召回.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="2.4 QA机器人/2.4.3 召回优化.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.3 召回优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.3.</b>
+                        
+                        召回优化.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.4.</b>
+                        
+                        QA机器人排序模型.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.5.</b>
+                        
+                        代码的封装和提供接口.md
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 补充</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.1" data-path="补充/HMM.html">
+            
+                
+                    <a href="../补充/HMM.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        HMM
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="补充/MEMM和CRF.html">
+            
+                
+                    <a href="../补充/MEMM和CRF.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        MEMM和CRF
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="补充/最大匹配法.html">
+            
+                
+                    <a href="../补充/最大匹配法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        最大匹配法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >NLP Course</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;">&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;</h1>
+<h2 id="&#x76EE;&#x6807;">&#x76EE;&#x6807;</h2>
+<ol>
+<li>&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x662F;&#x81EA;&#x52A8;&#x673A;</li>
+<li>&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x662F;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</li>
+<li>&#x77E5;&#x9053;&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x662F;&#x4EC0;&#x4E48;</li>
+<li>&#x77E5;&#x9053;&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x7684;&#x539F;&#x7406;&#x662F;&#x4EC0;&#x4E48;</li>
+<li>&#x77E5;&#x9053;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x5B8C;&#x6210;&#x5206;&#x8BCD;&#xFF0C;&#x8BCD;&#x6027;&#x6807;&#x6CE8;&#x7B49;&#x4EFB;&#x52A1;</li>
+<li>&#x77E5;&#x9053;MEMM&#x662F;&#x4EC0;&#x4E48;</li>
+<li>&#x77E5;&#x9053;CRF&#x662F;&#x4EC0;&#x4E48;</li>
+</ol>
+<h2 id="1-&#x81EA;&#x52A8;&#x673A;">1. &#x81EA;&#x52A8;&#x673A;</h2>
+<p>&#x81EA;&#x52A8;&#x673A;&#xFF1A;&#xFF08;&#x53C8;&#x79F0;&#x4E3A; &#x6709;&#x9650;&#x81EA;&#x52A8;&#x673A;&#xFF0C;&#x6709;&#x9650;&#x72B6;&#x6001;&#x81EA;&#x52A8;&#x673A;&#xFF0C;FSA&#xFF09;&#x662F;&#x8868;&#x793A;&#x6709;&#x9650;&#x4E2A;&#x72B6;&#x6001;&#x4EE5;&#x53CA;&#x5728;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x79FB;&#x548C;&#x52A8;&#x4F5C;&#x7B49;&#x884C;&#x4E3A;&#x7684;&#x6570;&#x5B66;&#x6A21;&#x578B;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<p>&#x6211;&#x4EEC;&#x5E38;&#x7528;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x5B57;&#x7B26;&#x4E32;&#x51FA;&#x73B0;&#x5B57;&#x7B26;&#x7684;&#x81EA;&#x52A8;&#x673A;&#x3002;</p>
+<p>&#x5047;&#x5982;&#x6211;&#x4EEC;&#x6709;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;<code>baa+!</code>&#xFF0C;&#x8868;&#x793A;&#x7684;&#x662F;ba&#x540E;&#x9762;&#x6709;1&#x4E2A;&#x6216;&#x8FD9;&#x591A;&#x4E2A;a&#xFF0C;&#x6700;&#x540E;&#x662F;&#x4E00;&#x4E2A;&#x611F;&#x53F9;&#x53F7;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x4E0A;&#x8FF0;&#x7684;&#x81EA;&#x52A8;&#x673A;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x793A;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="../images/&#x8865;&#x5145;/&#x81EA;&#x52A8;&#x673A;.png" alt=""></p>
+<p>&#x81EA;&#x52A8;&#x673A;&#x4ECE;&#x521D;&#x59CB;&#x72B6;&#x6001;q0&#x5F00;&#x59CB;&#xFF0C;&#x53CD;&#x590D;&#x8FDB;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;&#x627E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;b&#xFF0C;&#x5982;&#x679C;&#x627E;&#x5230;b&#x90A3;&#x4E48;&#x8FDB;&#x5165;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x518D;&#x53BB;&#x5BFB;&#x627E;&#x4E0B;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x9700;&#x8981;&#x7684;&#x5B57;&#x6BCD;&#xFF0C;&#x6307;&#x5BFC;&#x8FDB;&#x884C;&#x63A5;&#x6536;&#x72B6;&#x6001;q4&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x8868;&#x6765;&#x81EA;&#x52A8;&#x673A;&#xFF1A;</p>
+<p><img src="../images/&#x8865;&#x5145;/&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x77E9;&#x9635;.png" alt=""></p>
+<p>&#x4E0A;&#x8FF0;&#x7684;&#x72B6;&#x6001;&#x673A;&#x6211;&#x4EEC;&#x4E5F;&#x79F0;&#x4E3A;<strong>&#x786E;&#x5B9A;&#x7684;&#x81EA;&#x52A8;&#x72B6;&#x6001;&#x673A;DFSA</strong>(&#x4F8B;&#x5982;&#x7EA2;&#x7EFF;&#x706F;)&#xFF0C;&#x5982;&#x679C;&#x4F4D;&#x4E8E;q3&#x7684;&#x5FAA;&#x73AF;&#x5728;q2&#x4E0A;&#xFF0C;&#x90A3;&#x4E48;&#x5728;q2&#x72B6;&#x6001;&#x4E0B;&#xFF0C;&#x770B;&#x5230;a&#xFF0C;&#x4ED6;&#x662F;&#x4E0D;&#x6E05;&#x695A;&#x8981;&#x5411;&#x90A3;&#x4E2A;&#x5730;&#x65B9;&#x8FDB;&#x884C;&#x8F6C;&#x79FB;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x628A;&#x8FD9;&#x79CD;&#x72B6;&#x6001;&#x673A;&#x6210;&#x4E3A;<strong>&#x975E;&#x786E;&#x5B9A;&#x7684;&#x81EA;&#x52A8;&#x72B6;&#x6001;&#x673A; NFSA</strong>&#xFF0C;&#xFF08;&#x6BD4;&#x5982;&#x5929;&#x6C14;&#xFF09;&#x3002;</p>
+<h2 id="2-&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x548C;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x5047;&#x8BBE;">2. &#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x548C;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x5047;&#x8BBE;</h2>
+<p>&#x9A6C;&#x5C14;&#x53EF;&#x94FE;&#x662F;&#x81EA;&#x52A8;&#x72B6;&#x6001;&#x673A;&#x7684;&#x6269;&#x5C55;&#x7248;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x5E26;&#x6743;&#x7684;&#x81EA;&#x52A8;&#x72B6;&#x6001;&#x673A;&#x3002;&#x6743;&#x91CD;&#x5728;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x4E2D;&#x5C31;&#x662F;&#x8FDE;&#x63A5;&#x5F27;&#x7684;&#x6982;&#x7387;&#x3002;&#x79BB;&#x5F00;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;&#x7684;&#x6982;&#x7387;&#x548C;&#x4E3A;1&#x3002;</p>
+<p>&#x7528;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x63CF;&#x8FF0;&#x5929;&#x6C14;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x56FE;&#x6A21;&#x578B;&#x6765;&#x63CF;&#x8FF0;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p><img src="../images/&#x8865;&#x5145;/&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x5929;&#x6C14;.png" alt=""></p>
+<p>&#x5982;&#x679C;&#x4ECA;&#x5929;&#x4E0B;&#x96E8;&#xFF0C;&#x90A3;&#x4E48;&#x660E;&#x5929;&#x7684;&#x5929;&#x6C14;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;</p>
+<p>&#x660E;&#x5929;&#x4E0B;&#x96EA;&#x7684;&#x6982;&#x7387;&#xFF1A;0.02</p>
+<p>&#x660E;&#x5929;&#x4E0B;&#x96E8;&#x7684;&#x6982;&#x7387;&#xFF1A;0.8</p>
+<p>&#x660E;&#x5929;&#x6674;&#x5929;&#x7684;&#x6982;&#x7387;&#xFF1A;0.18</p>
+<p>&#x4E0A;&#x8FF0;&#x7684;&#x8FC7;&#x7A0B;&#x5305;&#x542B;&#x4E86;&#x6982;&#x7387;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x5047;&#x8BBE;&#xFF1A;&#x5728;&#x4E00;&#x4E2A;<strong>&#x4E00;&#x9636;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</strong>&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387;&#x53EA;&#x548C;&#x4ED6;&#x7684;&#x524D;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x662F;&#x6709;&#x5173;&#x7684;&#xFF1A;</p>
+<p><strong>&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x5047;&#x8BBE;</strong>&#xFF1A;</p>
+<p>$$
+P(q<em>i|q</em>{i-1}\cdots q<em>1) = P(q_i|q</em>{i-1})</p>
+<p>$$
+&#x5982;&#x679C;&#x662F;&#x628A;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x5E94;&#x7528;&#x4E8E;NLP&#x7684;&#x6587;&#x672C;&#x5E8F;&#x5217;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x8868;&#x793A;&#x7684;&#x5C31;&#x662F;<strong>&#x4E8C;&#x5143;N-gram&#x6A21;&#x578B;</strong></p>
+<h2 id="3-&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6A21;&#x578B;">3. &#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6A21;&#x578B;</h2>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x8981;&#x8BA1;&#x7B97;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x4E8B;&#x4EF6;&#x5E8F;&#x5217;&#x7684;&#x6982;&#x7387;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;&#x3002;&#x4F46;&#x662F;&#x5728;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x6982;&#x7387;&#x662F;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x76F4;&#x63A5;&#x8BA1;&#x7B97;&#x7684;&#x3002;&#x4F8B;&#x5982;&#x5728;<strong>&#x8BCD;&#x6027;&#x6807;&#x6CE8;</strong>&#x7684;&#x95EE;&#x9898;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x770B;&#x5230;&#x53E5;&#x5B50;&#x4E2D;&#x7684;&#x8BCD;&#xFF0C;&#x80FD;&#x591F;&#x8BA1;&#x7B97;&#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x7EC4;&#x5408;&#x7684;&#x6982;&#x7387;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x6807;&#x662F;&#x6216;&#x8005;&#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x5BF9;&#x5E94;&#x7684;&#x8BCD;&#x6027;&#x7684;&#x5E8F;&#x5217;&#x3002;&#x8FD9;&#x4E9B;&#x8BCD;&#x6027;&#x5E8F;&#x5217;&#x662F;&#x9690;&#x85CF;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x88AB;&#x89C2;&#x5BDF;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x53BB;&#x63A8;&#x65AD;&#x9690;&#x85CF;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;<strong>&#x9690;&#x9A6C;&#x5C14;&#x79D1;&#x592B;&#x6A21;&#x578B;&#xFF08;HMM&#xFF09;</strong>&#x3002;</p>
+<p>&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x6765;&#x8FDB;&#x884C;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<blockquote>
+<p>$Q = q_1,q_2,\cdots q_N$  &#x72B6;&#x6001;N&#x7684;&#x96C6;&#x5408;</p>
+<p>$A = a<em>{11},a</em>{12}&#xFF0C;\cdots,a<em>{nn}&#x200B;$  &#x8F6C;&#x79FB;&#x6982;&#x7387;&#x77E9;&#x9635;A&#x3002;&#x6BCF;&#x4E00;&#x4E2A;&#x8F6C;&#x79FB;&#x6982;&#x7387;$a</em>{ij}&#x200B;$&#x8868;&#x793A;&#x4ECE;&#x72B6;&#x6001;i&#x8F6C;&#x79FB;&#x5230;&#x72B6;&#x6001;j&#x7684;&#x6982;&#x7387;&#xFF0C;&#x540C;&#x65F6;&#x4ECE;&#x67D0;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x51FA;&#x53D1;&#x7684;&#x8F6C;&#x79FB;&#x6982;&#x7387;&#x548C;&#x4E3A;1</p>
+<p>$O = O_1,O_2 \cdots O_n$ &#x89C2;&#x5BDF;&#x5230;&#x7684;&#x5E8F;&#x5217;T</p>
+<p>$B = b_i(O_i)&#x200B;$  &#x89C2;&#x5BDF;&#x4F3C;&#x7136;&#x5EA6;&#xFF0C;&#x4E5F;&#x53EB;&#x505A;&#x53D1;&#x5C04;&#x6982;&#x7387;&#xFF0C;&#x8868;&#x793A;&#x4ECE;&#x72B6;&#x6001;i&#x5F97;&#x5230;&#x89C2;&#x5BDF;$O_i&#x200B;$&#x7684;&#x6982;&#x7387;</p>
+<p>q_0,q_F  &#x8868;&#x793A;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x548C;&#x7EC8;&#x7ED3;&#x72B6;&#x6001;</p>
+</blockquote>
+<p>&#x9690;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x9664;&#x4E86;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x5047;&#x8BBE;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5047;&#x8BBE;&#xFF0C;&#x5373;&#x8F93;&#x51FA;&#x72EC;&#x7ACB;&#x6027;&#x5047;&#x8BBE;&#xFF0C;&#x5373;:</p>
+<p>&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x89C2;&#x5BDF;$O_i$&#x7684;&#x6982;&#x7387;&#x53EA;&#x548C;&#x4EA7;&#x751F;&#x8BE5;&#x89C2;&#x5BDF;&#x7684;&#x72B6;&#x6001;$q_i&#x200B;$&#x6709;&#x5173;</p>
+<p>$$
+P(O_i|q_1,q_2\cdots q_T &#xFF0C;O_1,O_2 \cdots O_T) = P(O_i|q_i)</p>
+<p>$$</p>
+<p>&#x5728;&#x7C7B;&#x4F3C;&#x8BCD;&#x6027;&#x6807;&#x6CE8;&#x7684;&#x95EE;&#x9898;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5728;&#x542B;&#x6709;n&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x89C2;&#x5BDF;&#x5E8F;&#x5217;&#x7684;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x9690;&#x85CF;&#x5E8F;&#x5217;&#x4E2D;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x6982;&#x7387;&#x6700;&#x5927;&#x7684;&#x9690;&#x85CF;&#x5E8F;&#x5217;&#xFF0C;&#x5199;&#x6210;&#x516C;&#x5F0F;&#x5982;&#x4E0B;(&#x5176;&#x4E2D;&#x5E3D;&#x5B50;&#x7B26;&#x53F7;$\hat{}$&#x8868;&#x793A;&#x5BF9;&#x6B63;&#x786E;&#x5E8F;&#x5217;&#x7684;&#x4F30;&#x8BA1;)&#xFF1A;</p>
+<p>$$
+\hat{t}<em>n = \mathop{argmax}</em>{t_n}P(t_n|w_n)</p>
+<p>$$</p>
+<p>&#x6839;&#x636E;&#x524D;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x6982;&#x7387;&#x5047;&#x8BBE;&#xFF0C;&#x4E0A;&#x8FF0;&#x516C;&#x5F0F;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;&#xFF1A;</p>
+<p>$$
+\begin{align}
+\hat{t}<em>n &amp;= \mathop{argmax}</em>{t<em>n}P(t_n|w_n) \
+&amp;= \mathop{argmax}</em>{t<em>n}\frac{P(t_n,w_n)}{P(w_n)} \
+&amp;= \mathop{argmax}</em>{t<em>n}P(t_n,w_n) \
+&amp;= \mathop{argmax}</em>{t<em>n}\prod</em>{i=1}^{n} P(w<em>i|t_i)P(t_i|t</em>{i-1}) \
+&amp;= \mathop{argmax}<em>{t_n}P(w_i|t_i)P(t_i|t</em>{i-1})
+\end{align}</p>
+<p>$$
+&#x4E0A;&#x8FF0;&#x7684;&#x516C;&#x5F0F;&#x4E2D;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x6982;&#x7387;&#xFF1A;</p>
+<ol>
+<li><p>&#x6807;&#x8BB0;&#x7684; <strong>&#x8F6C;&#x79FB;&#x6982;&#x7387;</strong>&#xFF1A;$P(t<em>i|t</em>{i-1})&#x200B;$</p>
+</li>
+<li><p>&#x5355;&#x8BCD;&#x7684;<strong>&#x4F3C;&#x7136;&#x5EA6;(likelihood)</strong>:&#x53C8;&#x79F0;&#x4E3A;&#x53D1;&#x5C04;&#x6982;&#x7387;&#xFF0C;&#x5373;&#x5728;&#x72B6;&#x6001;$t_i&#x200B;$&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x53D1;&#x73B0;&#x89C2;&#x6D4B;&#x503C;&#x4E3A;$w_i&#x200B;$&#x7684;&#x6982;&#x7387;&#x3002;</p>
+<blockquote>
+<p>&#x4F3C;&#x7136;&#x5EA6;&#xFF1A;likelihood&#x7684;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;&#xFF0C;&#x8868;&#x793A;&#x53EF;&#x80FD;&#x6027;&#x3001;&#x6982;&#x7387;&#x7684;&#x610F;&#x601D;</p>
+</blockquote>
+</li>
+</ol>
+<p>&#x8F6C;&#x79FB;&#x6982;&#x7387;&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF1A;&#x901A;&#x8FC7;&#x6781;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;(MLE)&#xFF0C;&#x901A;&#x8FC7;&#x73B0;&#x6709;&#x7684;&#x8BED;&#x6599;&#xFF0C;&#x76F4;&#x63A5;&#x8BA1;&#x7B97;&#x5373;&#x53EF;&#xFF1A;</p>
+<p>&#x5373;&#xFF1A;&#x72B6;&#x6001;&#x4ECE;$t<em>{i-1}&#x5230;t_i$&#x7684;&#x603B;&#x6570; &#x9664;&#x4EE5;$t</em>{i-1}$&#x7684;&#x603B;&#x6570;</p>
+<p>$$
+P(t<em>i|t</em>{i-1}) = \frac{C(t<em>{i-1},t_i)}{C(t</em>{i-1})}</p>
+<p>$$</p>
+<blockquote>
+<p><strong>&#x6781;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;</strong>&#xFF1A;&#x662F;&#x4E00;&#x79CD;&#x6982;&#x7387;&#x5728;&#x7EDF;&#x8BA1;&#x5B66;&#x4E2D;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x53C2;&#x6570;&#x4F30;&#x8BA1;&#x65B9;&#x6CD5;&#xFF0C;&#x8BF4;&#x7684;&#x662F;&#x8BF4;&#x7684;&#x662F;&#x5DF2;&#x77E5;&#x67D0;&#x4E2A;&#x968F;&#x673A;&#x6837;&#x672C;&#x6EE1;&#x8DB3;&#x67D0;&#x79CD;&#x6982;&#x7387;&#x5206;&#x5E03;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x4E2D;&#x5177;&#x4F53;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x6E05;&#x695A;&#xFF0C;&#x53C2;&#x6570;&#x4F30;&#x8BA1;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x82E5;&#x5E72;&#x6B21;&#x8BD5;&#x9A8C;&#xFF0C;&#x4F7F;&#x7528;&#x5B9E;&#x9A8C;&#x5F97;&#x51FA;&#x7684;&#x6982;&#x7387;&#x4F5C;&#x4E3A;&#x6837;&#x672C;&#x7684;&#x6982;&#x7387;&#x3002;</p>
+</blockquote>
+<p>&#x4F3C;&#x7136;&#x5EA6;&#x6982;&#x7387;&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x540C;&#x7406;&#xFF1A;</p>
+<p>$$
+P(w_i|t_i) = \frac{C(t_i,w_i)}{C(t_i)}</p>
+<p>$$
+&#x5373;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x6240;&#x6709;&#x7684;$w_i&#x4E3A;t_i$&#x7684;&#x6837;&#x672C;&#x6570;&#x91CF; &#x9664;&#x4EE5; &#x8BE5;&#x72B6;&#x6001;$t_i$&#x7684;&#x603B;&#x6570;</p>
+<h3 id="31-&#x9A6C;&#x5C14;&#x79D1;&#x592B;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x4E09;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;">3.1 &#x9A6C;&#x5C14;&#x79D1;&#x592B;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x4E09;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</h3>
+<ol>
+<li>&#x4F3C;&#x7136;&#x5EA6;&#x95EE;&#x9898;&#xFF0C;&#x5373;&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x7684;&#x89C2;&#x5BDF;&#x5E8F;&#x5217;&#xFF0C;&#x8BA1;&#x7B97;&#x5176;&#x53EF;&#x80FD;&#x7684;&#x6982;&#x7387;</li>
+<li>&#x89E3;&#x7801;&#x95EE;&#x9898;&#xFF1A;&#x5373;&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x7684;&#x89C2;&#x5BDF;&#x5E8F;&#x5217;&#xFF0C;&#x627E;&#x5230;&#x6982;&#x7387;&#x6700;&#x5927;&#x7684;&#x9690;&#x85CF;&#x5E8F;&#x5217;</li>
+<li>&#x5B66;&#x4E60;&#x95EE;&#x9898;&#xFF1A;&#x7ED9;&#x5B9A;&#x6837;&#x672C;&#xFF0C;&#x5B66;&#x4E60;HMM&#x4E2D;&#x7684;&#x53C2;&#x6570;A&#xFF08;&#x8F6C;&#x79FB;&#x6982;&#x7387;&#xFF09;&#x548C;B&#xFF08;&#x89C2;&#x5BDF;&#x4F3C;&#x7136;&#x5EA6;&#xFF09;</li>
+</ol>
+<p>&#x5176;&#x4E2D;&#x95EE;&#x9898;&#x4E09;&#xFF1A;&#x5B66;&#x4E60;&#x95EE;&#x9898;&#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x8BB2;&#x89E3;&#xFF0C;&#x901A;&#x8FC7;&#x8BED;&#x6599;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;&#xFF0C;&#x901A;&#x8FC7;&#x6781;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;&#x5C31;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x3002;</p>
+<h3 id="32-&#x4F3C;&#x7136;&#x5EA6;&#x95EE;&#x9898;&#xFF1A;">3.2 &#x4F3C;&#x7136;&#x5EA6;&#x95EE;&#x9898;&#xFF1A;</h3>
+<p>&#x4F20;&#x8BF4;&#x6D77;&#x85FB;&#x7684;&#x80FD;&#x591F;&#x9884;&#x6D4B;&#x5929;&#x6C14;&#xFF0C;&#x5047;&#x5982;&#x6D77;&#x85FB;&#x6709;&#x4E0B;&#x9762;&#x56DB;&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x5929;&#x6C14;&#x6709;&#x4E09;&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E00;&#x5217;&#x6D77;&#x85FB;&#x7684;&#x72B6;&#x6001;<code>[Damp,Dryish,Dry,Soggy]</code>,&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x60F3;&#x77E5;&#x9053;&#x5BF9;&#x5E94;&#x8FD9;&#x56DB;&#x5929;&#x7684;&#x5929;&#x6C14;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x5B50;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x5982;&#x4F55;&#x8BA1;&#x7B97;&#xFF1F;</p>
+<p><img src="../images/&#x8865;&#x5145;/&#x6D77;&#x85FB;&#x548C;&#x5929;&#x6C14;.png" alt=""></p>
+<p>&#x8981;&#x5B8C;&#x6210;&#x4E0A;&#x8FF0;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5386;&#x53F2;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x5982;&#x4E0B;&#x7684;&#x5386;&#x53F2;&#x6570;&#x636E;&#xFF1A;</p>
+<ol>
+<li><p>&#x7B2C;&#x4E00;&#x5929;&#x5206;&#x522B;&#x4E3A;[sun,cloud,Rain]&#x7684;&#x6982;&#x7387;&#x5206;&#x522B;&#x662F;[0.3,0.3,0.4]</p>
+</li>
+<li><p>&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x6982;&#x7387;&#x548C;&#x53D1;&#x5C04;&#x6982;&#x7387;&#x5982;&#x4E0B;</p>
+<p><img src="../images/&#x8865;&#x5145;/&#x6D77;&#x85FB;.png" alt=""></p>
+</li>
+</ol>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x6EE1;&#x8DB3;&#x8981;&#x6C42;<code>[Damp,Dryish,Dry,Soggy]</code>&#x7684;&#x6240;&#x6709;&#x7684;&#x5929;&#x6C14;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x4E58;&#x79EF;&#xFF0C;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8BA1;&#x7B97;$N^M&#x200B;$&#x6B21;&#xFF0C;&#x5176;&#x4E2D;M&#x8868;&#x793A;&#x89C2;&#x6D4B;&#x503C;&#x7684;&#x6570;&#x91CF;&#xFF0C;N&#x8868;&#x793A;&#x72B6;&#x6001;&#x7684;&#x6570;&#x91CF;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<strong>&#x5411;&#x524D;&#x7B97;&#x6CD5;</strong>&#x6765;&#x4EE3;&#x66FF;&#x4E0A;&#x8FF0;&#x5448;&#x6307;&#x6570;&#x7EA7;&#x589E;&#x957F;&#x7684;&#x6982;&#x7387;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x3002;&#x5411;&#x524D;&#x7B97;&#x6CD5;&#x662F;&#x4E00;&#x79CD;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5176;&#x6838;&#x5FC3;&#x601D;&#x60F3;&#x5C31;&#x662F;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x89C2;&#x5BDF;&#x5E8F;&#x5217;&#x7684;&#x6982;&#x7387;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x503C;&#x6765;&#x5B58;&#x50A8;&#x5176;&#x4E2D;&#x95F4;&#x503C;&#xFF0C;&#x540C;&#x65F6;&#x5BF9;&#x4E8E;<strong>&#x4E2D;&#x95F4;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x4F7F;&#x7528;  &#x4E4B;&#x524D;&#x72B6;&#x6001; &#x4E58; &#x8F6C;&#x79FB;&#x6982;&#x7387;&#x7684;&#x6C42;&#x548C;&#x8BA1;&#x7B97;&#x5F97;&#x5230;</strong></p>
+<blockquote>
+<p>&#x52A8;&#x6001;&#x89C4;&#x5212;&#xFF1A;&#x628A;&#x591A;&#x9636;&#x6BB5;&#x51B3;&#x7B56;&#x8FC7;&#x7A0B;&#x7684;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x7CFB;&#x5217;&#x5355;&#x9636;&#x6BB5;&#x7684;&#x95EE;&#x9898;</p>
+</blockquote>
+<p>&#x5176;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="../images/&#x8865;&#x5145;/&#x5411;&#x524D;&#x7B97;&#x6CD5;.png" alt=""></p>
+<p>&#x5176;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x7684;&#x4F2A;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<blockquote>
+<ol>
+<li><p>&#x521D;&#x59CB;&#x5316;</p>
+<p>$\alpha<em>1(j) = \alpha</em>{0j}b_{j}(o_1)&#x200B;$</p>
+</li>
+<li><p>&#x9012;&#x5F52;</p>
+<p>$\alpha<em>t(j) = \sum</em>{i=1}^N \alpha<em>{t-1}(i) a</em>{ij} b<em>{j}(o</em>{t})&#x200B;$</p>
+</li>
+<li><p>&#x7ED3;&#x675F;</p>
+<p>$P(O|\lambda) = \sum<em>{i=1}^N \alpha</em>{T}(i)\alpha_{iF}&#x200B;$</p>
+</li>
+</ol>
+<p>$&#x5176;&#x4E2D;\alpha<em>t&#x8868;&#x793A;&#x4E2D;&#x95F4;&#x6982;&#x7387;&#xFF0C;\alpha</em>{ij}&#x8868;&#x793A;&#x8F6C;&#x79FB;&#x6982;&#x7387;&#xFF0C;b_j(o_t)&#x8868;&#x793A;&#x53D1;&#x5C04;&#x6982;&#x7387;&#x200B;$</p>
+</blockquote>
+<h3 id="33-&#x89E3;&#x7801;&#x95EE;&#x9898;">3.3 &#x89E3;&#x7801;&#x95EE;&#x9898;</h3>
+<p>&#x6839;&#x636E;&#x89C2;&#x5BDF;&#x5E8F;&#x5217;&#x786E;&#x5B9A;&#x9690;&#x85CF;&#x5E8F;&#x5217;&#x7684;&#x8FC7;&#x7A0B;&#x79F0;&#x4E4B;&#x4E3A;decoding(&#x89E3;&#x7801;)&#xFF0C;decoder(&#x52A0;&#x7801;&#x5668;)&#x7684;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x53D1;&#x73B0;&#x6700;&#x4F18;&#x9690;&#x85CF;&#x5E8F;&#x5217;</p>
+<p><img src="../images/&#x8865;&#x5145;/&#x7EF4;&#x7279;&#x6BD4;.png" alt=""></p>
+<p>&#x5176;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x904D;&#x5386;&#x6240;&#x6709;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6839;&#x636E;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387;&#x8BA1;&#x7B97;*&#x89C2;&#x5BDF;&#x5E8F;&#x5217;&#x5BF9;&#x5E94;&#x7684;&#x53D1;&#x5C04;&#x6982;&#x7387;&#xFF0C;&#x5F97;&#x5230;&#x7B2C;&#x4E00;&#x6B21;&#x6982;&#x7387;&#x7ED3;&#x679C;</li>
+<li>&#x904D;&#x5386;&#x4ECE;&#x7B2C;&#x4E8C;&#x6B21;&#x5230;&#x6700;&#x540E;&#x7684;&#x65F6;&#x95F4;&#x6B65;</li>
+<li>&#x904D;&#x5386;&#x6240;&#x6709;&#x7684;&#x72B6;&#x6001;</li>
+<li>&#x8BA1;&#x7B97;&#xFF1A;&#x524D;&#x4E00;&#x6B21;&#x7684;&#x6982;&#x7387;&#x7ED3;&#x679C;*&#x8F6C;&#x79FB;&#x6982;&#x7387;*&#x53D1;&#x5C04;&#x6982;&#x7387;&#xFF0C;&#x9009;&#x62E9;&#x6982;&#x7387;&#x6700;&#x5927;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x4F5C;&#x4E3A;&#x5F53;&#x524D;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;</li>
+</ol>
+<h2 id="&#x6848;&#x4F8B;">&#x6848;&#x4F8B;</h2>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x8BED;&#x6599;&#xFF0C;&#x4F7F;&#x7528;HMM&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x5206;&#x8BCD;</p>
+<p>&#x8BED;&#x6599;github&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/liwenzhu/corpusZh" target="_blank">https://github.com/liwenzhu/corpusZh</a></p>
+<p>&#x8BED;&#x6599;&#x5185;&#x5BB9;&#x5982;&#x4E0B;</p>
+<p><img src="../images/&#x8865;&#x5145;/HMM&#x6848;&#x4F8B;1.png" alt=""></p>
+<p>&#x5176;&#x4E2D;&#x8BCD;&#x6027;&#x6807;&#x6CE8;&#x7684;&#x4EE3;&#x7801;&#x542B;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-txt">        n   &#x666E;&#x901A;&#x540D;&#x8BCD;
+        nt  &#x65F6;&#x95F4;&#x540D;&#x8BCD;
+        nd  &#x65B9;&#x4F4D;&#x540D;&#x8BCD;
+        nl  &#x5904;&#x6240;&#x540D;&#x8BCD;
+        nh  &#x4EBA;&#x540D;
+        nhf &#x59D3;
+        nhs &#x540D;
+        ns  &#x5730;&#x540D;
+        nn  &#x65CF;&#x540D;
+        ni  &#x673A;&#x6784;&#x540D;
+        nz  &#x5176;&#x4ED6;&#x4E13;&#x540D;
+        v   &#x52A8;&#x8BCD;
+        vd  &#x8D8B;&#x5411;&#x52A8;&#x8BCD;
+        vl  &#x8054;&#x7CFB;&#x52A8;&#x8BCD;
+        vu  &#x80FD;&#x613F;&#x52A8;&#x8BCD;
+        a   &#x5F62;&#x5BB9;&#x8BCD;
+        f   &#x533A;&#x522B;&#x8BCD;
+        m   &#x6570;&#x8BCD;&#x3000;&#x3000;
+        q   &#x91CF;&#x8BCD;
+        d   &#x526F;&#x8BCD;
+        r   &#x4EE3;&#x8BCD;
+        p   &#x4ECB;&#x8BCD;
+        c   &#x8FDE;&#x8BCD;
+        u   &#x52A9;&#x8BCD;
+        e   &#x53F9;&#x8BCD;
+        o   &#x62DF;&#x58F0;&#x8BCD;
+        i   &#x4E60;&#x7528;&#x8BED;
+        j   &#x7F29;&#x7565;&#x8BED;
+        h   &#x524D;&#x63A5;&#x6210;&#x5206;
+        k   &#x540E;&#x63A5;&#x6210;&#x5206;
+        g   &#x8BED;&#x7D20;&#x5B57;
+        x   &#x975E;&#x8BED;&#x7D20;&#x5B57;
+        w   &#x6807;&#x70B9;&#x7B26;&#x53F7;
+        ws  &#x975E;&#x6C49;&#x5B57;&#x5B57;&#x7B26;&#x4E32;
+        wu  &#x5176;&#x4ED6;&#x672A;&#x77E5;&#x7684;&#x7B26;&#x53F7;
+</code></pre>
+<p>&#x8BE5;&#x8BED;&#x6599;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BAD;&#x7EC3;&#x5206;&#x8BCD;&#x6A21;&#x578B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BAD;&#x7EC3;&#x8BCD;&#x6027;&#x6807;&#x6CE8;&#x7B49;&#x6A21;&#x578B;&#x3002;</p>
+<h3 id="&#x5982;&#x4F55;&#x5BF9;&#x53E5;&#x5B50;&#x8FDB;&#x884C;&#x5206;&#x8BCD;">&#x5982;&#x4F55;&#x5BF9;&#x53E5;&#x5B50;&#x8FDB;&#x884C;&#x5206;&#x8BCD;</h3>
+<p>&#x601D;&#x8003;&#xFF1A;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E0A;&#x8FF0;&#x7684;&#x8BED;&#x6599;&#x8FDB;&#x884C;&#x5206;&#x8BCD;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x51C6;&#x5907;&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;</p>
+</blockquote>
+<p>&#x901A;&#x5E38;&#x5728;&#x5206;&#x8BCD;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x5B57;&#x4F1A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x6839;&#x636E;&#x9884;&#x6D4B;&#x7684;&#x7B26;&#x53F7;&#x5BF9;&#x53E5;&#x5B50;&#x8FDB;&#x884C;&#x5212;&#x5206;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF1A;&#x6211;&#x4EEC;&#x6709;&#x4E0B;&#x5217;&#x56DB;&#x79CD;&#x7B26;&#x53F7;&#x8868;&#x793A;&#x6240;&#x6709;&#x5355;&#x5B57;&#x7684;&#x72B6;&#x6001;</p>
+<pre><code class="lang-txt">B  &#x8868;&#x793A; begin &#x8BCD;&#x8BED;&#x7684;&#x5F00;&#x59CB;
+M  &#x8868;&#x793A; middle &#x8BCD;&#x8BED;&#x7684;&#x4E2D;&#x95F4;
+E  &#x8868;&#x793A; end  &#x8BCD;&#x8BED;&#x7684;&#x7ED3;&#x675F;
+S  &#x8868;&#x793A; single &#x5355;&#x4E2A;&#x5B57;&#x6210;&#x8BCD;
+</code></pre>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x4F1A;&#x6709;&#x4E0B;&#x5217;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-pyhton">&#x6211;/S&#x7231;/S&#x5317;/B&#x4EAC;/E&#x5929;/B&#x5B89;/M&#x95E8;/E
+</code></pre>
+<p>&#x6B64;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x6240;&#x6709;&#x7684;E&#x548C;S&#x5206;&#x5F00;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x5B9E;&#x73B0;&#x5BF9;&#x53E5;&#x5B50;&#x7684;&#x5206;&#x8BCD;&#x4E86;</p>
+<h3 id="&#x7EDF;&#x8BA1;&#x6982;&#x7387;">&#x7EDF;&#x8BA1;&#x6982;&#x7387;</h3>
+<p>&#x6839;&#x636E;&#x524D;&#x9762;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x4E3A;&#x4E86;&#x8BA1;&#x7B97;&#x89E3;&#x7801;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x6B65;&#x4E0A;&#x7684;&#x6982;&#x7387;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x9700;&#x8981;&#x7EDF;&#x8BA1;&#x56DB;&#x4E2A;&#x6982;&#x7387;&#xFF0C;&#x5206;&#x522B;&#x662F;</p>
+<ol>
+<li>&#x521D;&#x59CB;&#x72B6;&#x6001;&#x6982;&#x7387;</li>
+<li>&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x6982;&#x7387;</li>
+<li>&#x53D1;&#x5C04;&#x6982;&#x7387;</li>
+<li>&#x7ED3;&#x675F;&#x72B6;&#x6001;&#x6982;&#x7387;</li>
+</ol>
+<p>&#x6839;&#x636E;&#x6781;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x7EDF;&#x8BA1;&#x8BED;&#x6599;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E0A;&#x8FF0;&#x6982;&#x7387;</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x601D;&#x8DEF;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5B9A;&#x4E49;&#x4FDD;&#x5B58;&#x6982;&#x7387;&#x7684;&#x5BB9;&#x5668;</li>
+<li>&#x5BF9;&#x6BCF;&#x4E2A;&#x53E5;&#x5B50;&#x8FDB;&#x884C;&#x5904;&#x7406;</li>
+<li>&#x5BF9;&#x6BCF;&#x4E2A;&#x53E5;&#x5B50;&#x4E2D;&#x7684;&#x5B57;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;</li>
+<li>&#x4FDD;&#x5B58;&#x6982;&#x7387;&#x540E;&#x7EED;&#x4F7F;&#x7528;</li>
+</ol>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C; &#x6765;&#x8FDB;&#x884C;&#x6982;&#x7387;&#x7684;&#x7EDF;&#x8BA1;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProbilityMartix</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.state_list = [<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;M&quot;</span>,<span class="hljs-string">&quot;E&quot;</span>,<span class="hljs-string">&quot;S&quot;</span>] <span class="hljs-comment">#&#x521D;&#x59CB;&#x7684;&#x56DB;&#x79CD;&#x72B6;&#x6001;</span>
+        self.state_num = len(self.state_list)
+
+        <span class="hljs-comment">#&#x521D;&#x59CB;&#x6982;&#x7387;&#x5411;&#x91CF; {B:200&#xFF0C;S:400}</span>
+        self.PiVector = {i:<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> self.state_list}
+        <span class="hljs-comment">#&#x603B;&#x7684;&#x53E5;&#x5B50;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x603B;&#x5F97;&#x521D;&#x59CB;&#x5411;&#x91CF;</span>
+        self.PiVector_size = <span class="hljs-number">0</span>
+
+        <span class="hljs-comment">#&#x8F6C;&#x79FB;&#x6982;&#x7387;&#x77E9;&#x9635;&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x6570;&#x91CF; {B:{E:100,S:200...}}</span>
+        self.TransProbMatrix = {i:{j:<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> self.state_list} <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> self.state_list }
+        <span class="hljs-comment">#&#x6BCF;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x603B;&#x6570;&#xFF0C;&#x4E0A;&#x9762;&#x7684;/&#x4E0B;&#x9762;&#x7684; = &#x4ECE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387; {S:200,E:300}</span>
+        self.TransProbMatrix_size = {i:<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> self.state_list}
+
+        <span class="hljs-comment">#&#x53D1;&#x5C04;&#x6982;&#x7387;&#x77E9;&#x9635;&#xFF0C;&#x4ECE;&#x72B6;&#x6001;&#x5230;&#x8BCD;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x3010;&#x540E;&#x7EED;&#x6C42;&#x5F53;&#x524D;&#x8FD9;&#x4E2A;&#x8BCD;&#x5230;&#x4F4D;&#x67D0;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x6570;&#x91CF;/ &#x72B6;&#x6001;&#x7684;&#x6570;&#x91CF;= &#x67D0;&#x4E2A;&#x8BCD;&#x4E3A;&#x67D0;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387;&#x3011;</span>
+        self.EmitProbMartix = {i:{} <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> self.state_list}
+        <span class="hljs-comment">#&#x6BCF;&#x4E2A;&#x72B6;&#x6001;&#x6570;&#x91CF; {&quot;S&quot;&#xFF1A;100}</span>
+        self.EmitProbMartix_word_size = {}
+
+        self.EndProbMartix = {i:<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> self.state_list}
+        self.EndProbMartix_size = <span class="hljs-number">0</span>
+</code></pre>
+<p>&#x4E4B;&#x540E;&#xFF0C;&#x5BF9;&#x6BCF;&#x4E2A;&#x53E5;&#x5B50;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x548C;&#x7EDF;&#x8BA1;</p>
+<pre><code class="lang-python">   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sentence2states</span><span class="hljs-params">(self,sentence)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        :param sentence:[&apos;&#x660E;&#x65E5;&apos;, &apos;&#x5C06;&apos;, &apos;&#x4E0E;&apos;, &apos;&#x6CB3;&#x5317;&apos;, &apos;&#x961F;&apos;, &apos;&#x4F5C;&apos;, &apos;&#x8D5B;&apos;, &apos;&#x6D25;&apos;, &apos;&#x961F;&apos;, &apos;&#x5728;&apos;, &apos;&#x5B9E;&#x529B;&apos;, &apos;&#x4E0A;&apos;, &apos;&#x7A0D;&#x80DC;&#x4E00;&#x7B79;&apos;, &apos;&#x53EF;&#x671B;&apos;, &apos;&#x53D6;&#x80DC;&apos;]
+        :return: [&quot;BE&quot;&#xFF0C;&quot;S&quot;,&quot;S&quot;....]
+        &apos;&apos;&apos;</span>
+        state_output = []
+        <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> sentence:
+            word = word.strip()
+            <span class="hljs-keyword">if</span> len(word)&lt;<span class="hljs-number">1</span>:
+                <span class="hljs-keyword">continue</span>
+            current_state = <span class="hljs-string">&quot;&quot;</span>
+            <span class="hljs-keyword">if</span> len(word) ==<span class="hljs-number">1</span>:
+                current_state += <span class="hljs-string">&quot;S&quot;</span>
+            <span class="hljs-keyword">elif</span> len(word)&gt;<span class="hljs-number">1</span>:
+                M_num = len(word)-<span class="hljs-number">2</span>
+                current_state += <span class="hljs-string">&quot;B&quot;</span>
+                current_state += <span class="hljs-string">&quot;M&quot;</span>*M_num
+                current_state += <span class="hljs-string">&quot;E&quot;</span>
+            state_output.append(current_state)
+        <span class="hljs-keyword">return</span> state_output
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_count_by_sentence</span><span class="hljs-params">(self,sentence)</span>:</span>
+        states = self.sentence2states(sentence)
+
+        <span class="hljs-comment">#&#x628A;&#x8BCD;&#x548C;&#x72B6;&#x6001;&#x94FE;&#x63A5;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x65B9;&#x4FBF;&#x540E;&#x9762;&#x7EDF;&#x8BA1;</span>
+        joined_sentence = <span class="hljs-string">&quot;&quot;</span>.join(sentence) <span class="hljs-comment">#&#x660E;&#x65E5;&#x5C06;&#x4E0E;&#x6CB3;&#x5317;&apos;</span>
+        joined_states = <span class="hljs-string">&quot;&quot;</span>.join(states) <span class="hljs-comment">#&quot;BESSBE&quot;</span>
+
+         <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x521D;&#x59CB;&#x6570;&#x91CF;</span>
+        self.PiVector[joined_states[<span class="hljs-number">0</span>]] +=<span class="hljs-number">1</span>
+        <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x521D;&#x59CB;&#x603B;&#x6570;</span>
+        self.PiVector_size+=<span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(joined_states)-<span class="hljs-number">1</span>):
+            <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x8F6C;&#x79FB;&#x72B6;&#x6001;&#x7684;&#x6570;&#x91CF;</span>
+            self.TransProbMatrix[joined_states[i]][joined_states[i+<span class="hljs-number">1</span>]] +=<span class="hljs-number">1</span>
+            <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x72B6;&#x6001;&#x7684;&#x6570;&#x91CF;</span>
+            self.TransProbMatrix_size[joined_states[i]] +=<span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(joined_states)):
+            <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x53D1;&#x5C04;&#x8BCD;&#x7684;&#x6570;&#x91CF;</span>
+            <span class="hljs-keyword">if</span> joined_sentence[i] <span class="hljs-keyword">in</span> self.EmitProbMartix[joined_states[i]]:
+                self.EmitProbMartix[joined_states[i]][joined_sentence[i]] +=<span class="hljs-number">1</span>
+            <span class="hljs-keyword">else</span>:
+                self.EmitProbMartix[joined_states[i]][joined_sentence[i]]=<span class="hljs-number">1</span>
+
+            <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x4E0D;&#x540C;&#x8BCD;&#x7684;&#x603B;&#x6570;,&#x5E94;&#x8BE5;&#x662F;&#x7EDF;&#x8BA1;&#x6240;&#x6709;&#x7684;&#x72B6;&#x6001;</span>
+            <span class="hljs-keyword">if</span> joined_states[i] <span class="hljs-keyword">in</span> self.EmitProbMartix_word_size:
+                self.EmitProbMartix_word_size[joined_states[i]] += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">else</span>:
+                self.EmitProbMartix_word_size[joined_states[i]] = <span class="hljs-number">1</span>
+        <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x7ED3;&#x675F;&#x7684;&#x6982;&#x7387;</span>
+        last_state = joined_states[-<span class="hljs-number">1</span>]
+        self.EndProbMartix[last_state] += <span class="hljs-number">1</span>
+        self.EndProbMartix_size += <span class="hljs-number">1</span>
+</code></pre>
+<p>&#x4E4B;&#x540E;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x548C;&#x4FDD;&#x5B58;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_probility</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        &#x5F00;&#x59CB;&#x8BA1;&#x7B97;&#x6982;&#x7387;
+        :return:
+        &apos;&apos;&apos;</span>
+        self.PiVector_prob = deepcopy(self.PiVector)
+        self.TransProbMatrix_prob = deepcopy(self.TransProbMatrix)
+        self.EmitProbMartix_prob = deepcopy(self.EmitProbMartix)
+
+        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> self.PiVector_prob:
+            self.PiVector_prob[key] = np.log((self.PiVector_prob[key]/self.PiVector_size))
+        <span class="hljs-keyword">for</span> start <span class="hljs-keyword">in</span> self.TransProbMatrix_prob:
+            <span class="hljs-keyword">for</span> end <span class="hljs-keyword">in</span> self.TransProbMatrix_prob[start]:
+                <span class="hljs-comment">#&#x907F;&#x514D;&#x7B97;&#x51FA;&#x6765;&#x4E3A;0</span>
+                self.TransProbMatrix_prob[start][end] = <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> self.TransProbMatrix_prob[start][end]==<span class="hljs-number">0</span> <span class="hljs-keyword">else</span> self.TransProbMatrix_prob[start][end]
+
+                self.TransProbMatrix_prob[start][end] = np.log((self.TransProbMatrix_prob[start][end]/self.TransProbMatrix_size[start]))
+
+        <span class="hljs-comment">#&#x540E;&#x7EED;&#x518D;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x7684;&#x8BCD;&#x8BA9;&#x5176;&#x6982;&#x7387;&#x4F4E;</span>
+        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> self.EmitProbMartix_prob:
+            <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> self.EmitProbMartix_prob[key]:
+                self.EmitProbMartix_prob[key][word] = np.log((self.EmitProbMartix_prob[key][word]/self.EmitProbMartix_word_size[key]))
+
+         <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x7ED3;&#x675F;&#x6982;&#x7387;</span>
+        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> self.EndProbMartix_prob:
+            self.EndProbMartix_prob[key] = np.log(self.EndProbMartix_prob[key]/self.EndProbMartix_size)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save_probility</span><span class="hljs-params">(self)</span>:</span>
+        temp = {
+            <span class="hljs-string">&quot;EmitProbMartix_prob&quot;</span> : self.EmitProbMartix_prob,
+            <span class="hljs-string">&quot;PiVector_prob&quot;</span>:self.PiVector_prob,
+            <span class="hljs-string">&quot;TransProbMatrix_prob&quot;</span>:self.TransProbMatrix_prob,
+            <span class="hljs-string">&quot;EndProbMatrix_prob&quot;</span>: self.EndProbMartix_prob
+        }
+        <span class="hljs-keyword">with</span> open(<span class="hljs-string">&quot;./probility.pkl&quot;</span>,<span class="hljs-string">&quot;wb&quot;</span>) <span class="hljs-keyword">as</span> f:
+            pickle.dump(temp,f)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span>:</span>
+        file_path = <span class="hljs-string">r&quot;corpusZH-master/all.txt&quot;</span>
+        <span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> prepar_sentences(file_path):
+            self.start_count_by_sentence(sentence)
+
+        self.get_probility()
+        self.save_probility()
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;viterbi&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x89E3;&#x7801;">&#x4F7F;&#x7528;viterbi&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x89E3;&#x7801;</h3>
+<p>&#x4F7F;&#x7528;viterbi&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x5206;&#x8BCD;&#x7684;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_calcute</span><span class="hljs-params">(self,sentence)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        &#x901A;&#x8FC7;viterbi&#x7B97;&#x6CD5;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;
+        :param sentence: &quot;&#x5C0F;&#x660E;&#x7855;&#x58EB;&#x6BD5;&#x4E1A;&#x4E8E;&#x4E2D;&#x56FD;&#x79D1;&#x5B66;&#x9662;&#x8BA1;&#x7B97;&#x6240;&quot;
+        :return: &quot;S...E&quot;
+        &apos;&apos;&apos;</span>
+        zero = -<span class="hljs-number">3.14e+100</span>
+        zero_log = np.log(-<span class="hljs-number">3.14e+100</span>)
+        init_state = self.prob_dict[<span class="hljs-string">&quot;PiVector_prob&quot;</span>]
+        trans_prob = self.prob_dict[<span class="hljs-string">&quot;TransProbMatrix_prob&quot;</span>]
+        emit_prob = self.prob_dict[<span class="hljs-string">&quot;EmitProbMartix_prob&quot;</span>]
+        end_prob = self.prob_dict[<span class="hljs-string">&quot;EndProbMatrix_prob&quot;</span>]
+
+        V = [{}] <span class="hljs-comment">#&#x5176;&#x4E2D;&#x7684;&#x5B57;&#x5178;&#x4FDD;&#x5B58; &#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x6B65;&#x4E0A;&#x7684;&#x6BCF;&#x4E2A;&#x72B6;&#x6001;&#x5BF9;&#x5E94;&#x7684;&#x6982;&#x7387;</span>
+        path = {}
+
+        <span class="hljs-comment">#&#x521D;&#x59CB;&#x6982;&#x7387;</span>
+        <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> self.state_list:
+            V[<span class="hljs-number">0</span>][y] = init_state[y] + emit_prob[y].get(sentence[<span class="hljs-number">0</span>],zero_log)
+            path[y] = [y]
+
+        <span class="hljs-comment">#&#x4ECE;&#x7B2C;&#x4E8C;&#x6B21;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6B65;</span>
+        <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,len(sentence)):
+            V.append({})
+            newpath = {}
+            <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> self.state_list: <span class="hljs-comment">#&#x904D;&#x5386;&#x6240;&#x6709;&#x7684;&#x5F53;&#x524D;&#x72B6;&#x6001;</span>
+                    temp_state_prob_list = []
+                    <span class="hljs-keyword">for</span> y0 <span class="hljs-keyword">in</span> self.state_list: <span class="hljs-comment">#&#x904D;&#x5386;&#x6240;&#x6709;&#x7684;&#x524D;&#x4E00;&#x6B21;&#x72B6;&#x6001;</span>
+                        cur_prob = V[t-<span class="hljs-number">1</span>][y0]+trans_prob[y0][y]+emit_prob[y].get(sentence[t],zero_log)
+                        temp_state_prob_list.append([cur_prob,y0])
+                    <span class="hljs-comment">#&#x53D6;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x4F5C;&#x4E3A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6B65;&#x7684;&#x6982;&#x7387;</span>
+                    prob,state =  sorted(temp_state_prob_list,key=<span class="hljs-keyword">lambda</span> x:x[<span class="hljs-number">0</span>],reverse=<span class="hljs-keyword">True</span>)[<span class="hljs-number">0</span>]
+                    <span class="hljs-comment">#&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6B65;&#xFF0C;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387;</span>
+                    V[t][y] = prob
+                    <span class="hljs-comment">#&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;&#x5230;newpath&#x4E2D;</span>
+                    newpath[y] = path[state] + [y]
+            <span class="hljs-comment">#&#x8BA9;path&#x4E3A;&#x65B0;&#x5EFA;&#x7684;newpath</span>
+            path = newpath
+
+        <span class="hljs-comment">#&#x8F93;&#x51FA;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7ED3;&#x679C;&#x53EA;&#x4F1A;&#x662F;S&#xFF08;&#x8868;&#x793A;&#x5355;&#x4E2A;&#x5B57;&#xFF09;&#x6216;&#x8005;E&#xFF08;&#x8868;&#x793A;&#x7ED3;&#x675F;&#x7B26;&#xFF09;</span>
+        (prob, state) = max([(V[len(sentence)][y]+end_prob[y], y) <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;S&quot;</span>,<span class="hljs-string">&quot;E&quot;</span>]])
+        <span class="hljs-keyword">return</span> (prob, path[state])
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../2.4 QA机器人/2.4.5 代码的封装和提供接口.html" class="navigation navigation-prev " aria-label="Previous page: 代码的封装和提供接口.md"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../补充/MEMM和CRF.html" class="navigation navigation-next " aria-label="Next page: MEMM和CRF"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

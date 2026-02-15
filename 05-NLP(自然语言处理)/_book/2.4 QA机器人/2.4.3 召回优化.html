@@ -1,0 +1,1421 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>召回优化.md | NLP Course</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../2.4 QA机器人/2.4.4 QA机器人排序模型.html" />
+    
+    
+    <link rel="prev" href="../2.4 QA机器人/2.4.2 QA机器人的召回.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.4.3"
+        data-chapter-title="召回优化.md"
+        data-filepath="2.4 QA机器人/2.4.3 召回优化.md"
+        data-basepath=".."
+        data-revision="Sun Oct 13 2019 19:58:46 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+            <span><b>1.</b> 神经网络和pytorch</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="1.1 深度学习和神经网络/index.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        1.1 深度学习和神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.1 深度学习的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        深度学习的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+            
+                
+                    <a href="../1.1 深度学习和神经网络/1.1.2 神经网络的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.2.</b>
+                        
+                        神经网络的介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.2 pytorch/index.html">
+            
+                
+                    <a href="../1.2 pytorch/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        1.2 pytorch
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.1 pytorch的介绍和安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.</b>
+                        
+                        pytorch的介绍和安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1.2 pytorch/1.2.2 pytorch的入门使用.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.2 pytorch的入门使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.2.</b>
+                        
+                        pytorch的入门使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.3 梯度下降和反向传播原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.3.</b>
+                        
+                        梯度下降和反向传播原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="1.2 pytorch/1.2.4 手动完成线性回归 .html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.4 手动完成线性回归 .html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.4.</b>
+                        
+                        手动完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.5调用 pytorch API完成线性回归.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.5.</b>
+                        
+                        调用 pytorch API完成线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.6 pytorch中的数据加载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.6.</b>
+                        
+                        pytorch中的数据加载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+            
+                
+                    <a href="../1.2 pytorch/1.2.7 使用pytorch实现手写数字识别.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.7.</b>
+                        
+                        使用pytorch实现手写数字识别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1.3 循环神经网络/index.html">
+            
+                
+                    <a href="../1.3 循环神经网络/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        1.3 循环神经网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.1 循环神经网络基础.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.1.</b>
+                        
+                        循环神经网络基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.3 循环神经网络/1.3.2 文本情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.2 文本情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.2.</b>
+                        
+                        文本情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.3 循环神经网络/1.3.3 循环神经网络.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.3 循环神经网络.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.3.</b>
+                        
+                        循环神经网络
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.4 循环神经网络实现情感分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.4.</b>
+                        
+                        循环神经网络实现情感分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.5 神经网络中的序列化容器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.5.</b>
+                        
+                        神经网络中的序列化容器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+            
+                
+                    <a href="../1.3 循环神经网络/1.3.6 神经网络实现分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.6.</b>
+                        
+                        神经网络实现分词
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> 项目实现</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="2.1 项目准备/index.html">
+            
+                
+                    <a href="../2.1 项目准备/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        2.1 项目装备
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="2.1 项目准备/2.1.1 走进聊天机器人.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.1 走进聊天机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        走进聊天机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.2 需求分析和流程介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.2.</b>
+                        
+                        需求分析和流程介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="2.1 项目准备/2.1.3 环境准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.3 环境准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.3.</b>
+                        
+                        环境准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="2.1 项目准备/2.1.4 语料准备.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.4 语料准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.4.</b>
+                        
+                        语料准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="2.1 项目准备/2.1.5 文本分词.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.5 文本分词.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.5.</b>
+                        
+                        文本分词
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="2.1 项目准备/2.1.6 动手练习.html">
+            
+                
+                    <a href="../2.1 项目准备/2.1.6 动手练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.6.</b>
+                        
+                        动手练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2.2 fasttext文本分类/index.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        2.2 FastText文本分类
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.1 分类的目的和方法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.1.</b>
+                        
+                        分类的目的和方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.2 fasttext实现文本分类.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.</b>
+                        
+                        fasttext实现文本分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+            
+                
+                    <a href="../2.2 fasttext文本分类/2.2.3 fasttext的原理剖析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.3.</b>
+                        
+                        fasttext的原理剖析
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="2.3 Seq2Seq模型和闲聊机器人/index.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        2.3 Seq2Seq模型和闲聊机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.1 闲聊机器人的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.1.</b>
+                        
+                        闲聊机器人的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.2 seq2seq模型的原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.2.</b>
+                        
+                        seq2seq模型的原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.3 seq2seq实现闲聊机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.3.</b>
+                        
+                        seq2seq实现闲聊机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.4 Attention的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.4.</b>
+                        
+                        Attention的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.5 BeamSearch的原理和实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.5.</b>
+                        
+                        BeamSearch的原理和实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+            
+                
+                    <a href="../2.3 Seq2Seq模型和闲聊机器人/2.3.6 闲聊机器人的优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.6.</b>
+                        
+                        闲聊机器人的优化
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="2.4 QA机器人/index.html">
+            
+                
+                    <a href="../2.4 QA机器人/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        2.4 QA机器人
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="2.4 QA机器人/2.4.1 QA机器人介绍.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.1 QA机器人介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        QA机器人介绍.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="2.4 QA机器人/2.4.2 QA机器人的召回.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.2 QA机器人的召回.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.2.</b>
+                        
+                        QA机器人的召回.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4.3" data-path="2.4 QA机器人/2.4.3 召回优化.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.3 召回优化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.3.</b>
+                        
+                        召回优化.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.4 QA机器人排序模型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.4.</b>
+                        
+                        QA机器人排序模型.md
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+            
+                
+                    <a href="../2.4 QA机器人/2.4.5 代码的封装和提供接口.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.5.</b>
+                        
+                        代码的封装和提供接口.md
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 补充</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="补充/HMM.html">
+            
+                
+                    <a href="../补充/HMM.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        HMM
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="补充/MEMM和CRF.html">
+            
+                
+                    <a href="../补充/MEMM和CRF.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        MEMM和CRF
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="补充/最大匹配法.html">
+            
+                
+                    <a href="../补充/最大匹配法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        最大匹配法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >NLP Course</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x53EC;&#x56DE;&#x8FC7;&#x7A0B;&#x4F18;&#x5316;">&#x53EC;&#x56DE;&#x8FC7;&#x7A0B;&#x4F18;&#x5316;</h1>
+<h2 id="&#x76EE;&#x6807;">&#x76EE;&#x6807;</h2>
+<ol>
+<li>&#x77E5;&#x9053;&#x4F18;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x601D;&#x8DEF;</li>
+<li>&#x77E5;&#x9053;BM25&#x65B9;&#x6CD5;&#x7684;&#x539F;&#x7406;&#x548C;&#x5B9E;&#x73B0;</li>
+<li>&#x80FD;&#x591F;&#x4F7F;&#x7528;word2vector&#x5B8C;&#x6210;&#x4F18;&#x5316;&#x8FC7;&#x7A0B;</li>
+</ol>
+<h2 id="1-&#x4F18;&#x5316;&#x601D;&#x8DEF;">1. &#x4F18;&#x5316;&#x601D;&#x8DEF;</h2>
+<p>&#x524D;&#x9762;&#x7684;&#x5B66;&#x4E60;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x76F8;&#x4F3C;&#x7684;&#x53EC;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x4F55;&#x8BA9;&#x8FD9;&#x4E9B;&#x7ED3;&#x679C;&#x66F4;&#x52A0;&#x51C6;&#x786E;&#x5462;&#xFF1F;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0B;&#x9762;&#x7684;&#x89D2;&#x5EA6;&#x51FA;&#x53D1;&#xFF1A;</p>
+<ol>
+<li>tfidf&#x4F7F;&#x7528;&#x7684;&#x662F;&#x8BCD;&#x9891;&#x548C;&#x6574;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x8BCD;&#x8BED;&#xFF0C;&#x5982;&#x679C;&#x7528;&#x6237;&#x95EE;&#x9898;&#x7684;&#x67D0;&#x4E2A;&#x8BCD;&#x8BED;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x8FC7;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;&#x53EF;&#x80FD;&#x5C31;&#x4E0D;&#x51C6;&#x786E;&#x3002;&#x8BE5;&#x95EE;&#x9898;&#x7684;&#x89E3;&#x51B3;&#x601D;&#x8DEF;&#xFF1A;<ul>
+<li>&#x5BF9;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x95EE;&#x9898;&#x8FDB;&#x884C;&#x6587;&#x672C;&#x7684;&#x5BF9;&#x9F50;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x4F7F;&#x7528;&#x8BAD;&#x7EC3;&#x597D;&#x7684;word2vector&#xFF0C;&#x5F80;&#x53E5;&#x5B50;&#x4E2D;&#x586B;&#x5145;&#x975E;&#x4E3B;&#x8BED;&#x7684;&#x5176;&#x4ED6;&#x8BCD;&#x8BED;&#x7684;&#x76F8;&#x4F3C;&#x8BCD;&#x8BED;&#x3002;&#x4F8B;&#x5982;<code>python &#x597D;&#x5B66; &#x4E48; --&gt;&#x586B;&#x5145;&#x540E;&#x662F; &#xFF1A;python &#x597D;&#x5B66; &#x4E48; &#x7B80;&#x5355; &#x96BE; &#x561B;</code>&#xFF0C;&#x8FD9;&#x91CC;&#x5047;&#x8BBE;word2vector&#x540C;&#x5B66;&#x4F1A;&#x4E86;<code>&#x597D;&#x5B66;&#xFF0C;&#x7B80;&#x5355;&#xFF0C;&#x96BE;</code>&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x662F;&#x76F8;&#x4F3C;&#x7684;</li>
+<li>&#x4F7F;&#x7528;word2vector&#x5BF9;&#x9F50;&#x7684;&#x597D;&#x5904;&#x9664;&#x4E86;&#x5E94;&#x5BF9;&#x672A;&#x51FA;&#x73B0;&#x7684;&#x8BCD;&#x8BED;&#xFF0C;&#x8FD8;&#x80FD;&#x591F;&#x63D0;&#x9AD8;&#x4E3B;&#x8BED;&#x7684;&#x91CD;&#x8981;&#x7A0B;&#x5EA6;&#xFF0C;&#x8BA9;&#x4E3B;&#x8BED;&#x4F4D;&#x7F6E;&#x7684;tfidf&#x7684;&#x503C;&#x66F4;&#x5927;&#xFF0C;&#x4ECE;&#x800C;&#x8BA9;&#x76F8;&#x4F3C;&#x5EA6;&#x66F4;&#x52A0;&#x51C6;&#x786E;</li>
+</ul>
+</li>
+<li>tfidf&#x662F;&#x4E00;&#x4E2A;&#x8BCD;&#x888B;&#x6A21;&#x578B;&#xFF0C;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x8BCD;&#x548C;&#x8BCD;&#x4E4B;&#x95F4;&#x7684;&#x987A;&#x5E8F;<ul>
+<li>&#x4F7F;&#x7528;n-garm&#x548C;&#x8BCD;&#x4E00;&#x8D77;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#xFF0C;&#x8F6C;&#x5316;&#x4E3A;&#x7279;&#x5F81;&#x5411;&#x91CF;</li>
+</ul>
+</li>
+<li>&#x4E0D;&#x53BB;&#x4F7F;&#x7528;tfidf&#x5904;&#x7406;&#x53E5;&#x5B50;&#x5F97;&#x5230;&#x5411;&#x91CF;&#x3002;<ul>
+<li>&#x4F7F;&#x7528;BM25&#x7B97;&#x6CD5;</li>
+<li>&#x6216;&#x8005; &#x4F7F;&#x7528;fasttext&#x3001;word2vector&#xFF0C;&#x628A;&#x53E5;&#x5B50;&#x8F6C;&#x5316;&#x4E3A;&#x5411;</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-&#x901A;&#x8FC7;bm25&#x7B97;&#x6CD5;&#x4EE3;&#x66FF;tfidf">2. &#x901A;&#x8FC7;BM25&#x7B97;&#x6CD5;&#x4EE3;&#x66FF;TFIDF</h2>
+<h3 id="21-bm25&#x7B97;&#x6CD5;&#x539F;&#x7406;">2.1 BM25&#x7B97;&#x6CD5;&#x539F;&#x7406;</h3>
+<p>BM25(BM=best matching)&#x662F;TDIDF&#x7684;&#x4F18;&#x5316;&#x7248;&#x672C;&#xFF0C;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;TFIDF&#x662F;&#x600E;&#x4E48;&#x8BA1;&#x7B97;&#x7684;</p>
+<p>$$
+tfidf_i = tf<em>idf = \frac{&#x8BCD;i&#x7684;&#x6570;&#x91CF;}{&#x8BCD;&#x8BED;&#x603B;&#x6570;}</em>log\frac{&#x603B;&#x6587;&#x6863;&#x6570;}{&#x5305;&#x542B;&#x8BCD;i&#x7684;&#x6587;&#x6863;&#x6570;}</p>
+<p>$$
+&#x5176;&#x4E2D;tf&#x79F0;&#x4E3A;&#x8BCD;&#x9891;&#xFF0C;idf&#x4E3A;&#x9006;&#x6587;&#x6863;&#x9891;&#x7387;</p>
+<p>&#x90A3;&#x4E48;BM25&#x662F;&#x5982;&#x4F55;&#x8BA1;&#x7B97;&#x7684;&#x5462;&#xFF1F;</p>
+<p>$$
+BM25(i) = \frac{&#x8BCD;i&#x7684;&#x6570;&#x91CF;}{&#x603B;&#x8BCD;&#x6570;}<em>\frac{(k+1)C}{C+k(1-b+b\frac{|d|}{avdl}&#xFF09;}</em>log(\frac{&#x603B;&#x6587;&#x6863;&#x6570;}{&#x5305;&#x542B;i&#x7684;&#x6587;&#x6863;&#x6570;}) \
+C = tf=\frac{&#x8BCD;i&#x7684;&#x6570;&#x91CF;}{&#x603B;&#x8BCD;&#x6570;},k&gt;0,b\in [0,1]&#xFF0C;d&#x4E3A;&#x6587;&#x6863;i&#x7684;&#x957F;&#x5EA6;&#xFF0C;avdl&#x662F;&#x6587;&#x6863;&#x5E73;&#x5747;&#x957F;&#x5EA6;</p>
+<p>$$
+&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;BM25&#x548C;tfidf&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x4E2D;&#x591A;&#x4E86;&#x4E00;&#x9879;&#xFF0C;&#x8FD9;&#x4E00;&#x9879;&#x662F;&#x7528;&#x6765;&#x5BF9;tf&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x7684;&#x4E00;&#x79CD;&#x53D8;&#x6362;&#x3002;</p>
+<p>&#x628A;$1-b+b\frac{d}{avdl}$&#x4E2D;&#x7684;b&#x770B;&#x6210;0&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x4E2D;&#x95F4;&#x9879;&#x7684;&#x7ED3;&#x679C;&#x4E3A;$\frac{(k+1)tf}{k+tf}$&#xFF0C;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;k&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x4FDD;&#x8BC1;&#x5176;&#x6700;&#x5927;&#x503C;&#x4E3A;$1&#x200B;$&#xFF0C;&#x8FBE;&#x5230;&#x9650;&#x5236;tf&#x8FC7;&#x5927;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
+<p>&#x5373;&#xFF1A;</p>
+<p>$$
+\begin{align}
+&amp;\frac{(k+1)tf}{k+tf}= \frac{k+1}{1+\frac{k}{tf}} \qquad \qquad \qquad,&#x4E0A;&#x4E0B;&#x540C;&#x9664;tf
+\end{align}</p>
+<p>$$
+k&#x4E0D;&#x53D8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0A;&#x5F0F;&#x968F;&#x7740;tf&#x7684;&#x589E;&#x5927;&#x800C;&#x589E;&#x5927;&#xFF0C;&#x4E0A;&#x9650;&#x4E3A;k+1,&#x4F46;&#x662F;&#x589E;&#x52A0;&#x7684;&#x7A0B;&#x5EA6;&#x4F1A;&#x53D8;&#x5C0F;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x3002;</p>
+<p>&#x5728;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#x4E2D;&#xFF0C;&#x67D0;&#x4E2A;&#x8BCD;&#x91CD;&#x8981;&#x7A0B;&#x5EA6;&#x5E94;&#x8BE5;&#x662F;&#x968F;&#x7740;&#x8BCD;&#x8BED;&#x7684;&#x6570;&#x91CF;&#x9010;&#x6E10;&#x8870;&#x51CF;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E2D;&#x95F4;&#x9879;&#x5BF9;&#x8BCD;&#x9891;&#x8FDB;&#x884C;&#x4E86;&#x60E9;&#x7F5A;&#xFF0C;&#x968F;&#x7740;&#x6B21;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x5F71;&#x54CD;&#x7A0B;&#x5EA6;&#x7684;&#x589E;&#x52A0;&#x4F1A;&#x8D8A;&#x6765;&#x8D8A;&#x5C0F;&#x3002;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;k&#x503C;&#xFF0C;&#x80FD;&#x591F;&#x4FDD;&#x8BC1;&#x5176;&#x6700;&#x5927;&#x503C;&#x4E3A;k+1&#xFF0C;<code>k&#x5F80;&#x5F80;&#x53D6;&#x503C;1.2</code>&#x3002;</p>
+<p>&#x5176;&#x53D8;&#x5316;&#x5982;&#x4E0B;&#x56FE;&#xFF08;&#x65E0;&#x8BBA;k&#x4E3A;&#x591A;&#x5C11;&#xFF0C;&#x4E2D;&#x95F4;&#x9879;&#x7684;&#x53D8;&#x5316;&#x7A0B;&#x5EA6;&#x4F1A;&#x968F;&#x7740;&#x6B21;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x5C0F;&#xFF09;&#xFF1A;</p>
+<p><img src="../images/2.4/bm25.png" alt=""></p>
+<p>&#x540C;&#x65F6;$1-b+b\frac{d}{avdl}&#x200B;$&#x7684;&#x4F5C;&#x7528;&#x662F;&#x7528;&#x6765;&#x5BF9;&#x6587;&#x672C;&#x7684;&#x957F;&#x5EA6;&#x8FDB;&#x884C;&#x5F52;&#x4E00;&#x5316;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#x5728;&#x8003;&#x8651;&#x6574;&#x4E2A;&#x53E5;&#x5B50;&#x7684;tdidf&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x53E5;&#x5B50;&#x7684;&#x957F;&#x5EA6;&#x592A;&#x77ED;&#xFF0C;&#x90A3;&#x4E48;&#x8BA1;&#x7B97;&#x7684;&#x603B;&#x7684;tdidf&#x7684;&#x503C;&#x662F;&#x8981;&#x6BD4;&#x957F;&#x53E5;&#x5B50;&#x7684;tdidf&#x7684;&#x503C;&#x8981;&#x4F4E;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x5BF9;&#x53E5;&#x5B50;&#x7684;&#x957F;&#x5EA6;&#x8FDB;&#x884C;&#x5F52;&#x4E00;&#x5316;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F53;&#x53E5;&#x5B50;&#x7684;&#x957F;&#x5EA6;&#x8D8A;&#x77ED;&#xFF0C;$1-b+b\frac{|d|}{avdl}$&#x7684;&#x503C;&#x662F;&#x8D8A;&#x5C0F;&#xFF0C;&#x4F5C;&#x4E3A;&#x5206;&#x6BCD;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F1A;&#x8BA9;&#x6574;&#x4E2A;&#x7B2C;&#x4E8C;&#x9879;&#x8D8A;&#x5927;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x63D0;&#x9AD8;&#x77ED;&#x6587;&#x672C;&#x53E5;&#x5B50;&#x7684;BM25&#x7684;&#x503C;&#x7684;&#x6548;&#x679C;&#x3002;&#x5F53;b&#x7684;&#x503C;&#x4E3A;0&#xFF0C;&#x53EF;&#x4EE5;&#x7981;&#x7528;&#x5F52;&#x4E00;&#x5316;&#xFF0C;<code>b&#x5F80;&#x5F80;&#x53D6;&#x503C;0.75</code></p>
+<p>&#x5176;&#x53D8;&#x5316;&#x6548;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="../images/2.4/bm25_2.png" alt=""></p>
+<h3 id="22-bm25&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;">2.2 BM25&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;</h3>
+<p>&#x901A;&#x8FC7;&#x524D;&#x9762;&#x7684;&#x5B66;&#x4E60;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5176;&#x5B9E;BM25&#x548C;Tfidf&#x7684;&#x533A;&#x522B;&#x4E0D;&#x5927;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x4E4B;&#x524D;sciket-learn&#x7684;TfidfVectorizer&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x7684;BM25&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x4E3B;&#x8981;&#x4E5F;&#x662F;&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;<code>fit</code>&#x65B9;&#x6CD5;&#x548C;<code>transform</code>&#x65B9;&#x6CD5;</p>
+<p>&#x5728;sklearn&#x7684;<code>TfidfVectorizer&#x4E2D;</code>&#xFF0C;&#x9996;&#x5148;&#x63A5;&#x53D7;&#x53C2;&#x6570;&#xFF0C;&#x5176;&#x6B21;&#x4F1A;&#x8C03;&#x7528;<code>TfidfTransformer</code>&#x6765;&#x5B8C;&#x6210;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;</p>
+<ol>
+<li><p>&#x7EE7;&#x627F;TfidfVectorizer&#x5B8C;&#x6210; &#x53C2;&#x6570;&#x7684;&#x63A5;&#x53D7;</p>
+<pre><code class="lang-python">
+<span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> TfidfVectorizer,TfidfTransformer,_document_frequency
+<span class="hljs-keyword">from</span> sklearn.base <span class="hljs-keyword">import</span> BaseEstimator,TransformerMixin
+<span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> normalize
+<span class="hljs-keyword">from</span> sklearn.utils.validation <span class="hljs-keyword">import</span> check_is_fitted
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> scipy.sparse <span class="hljs-keyword">as</span> sp
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bm25Vectorizer</span><span class="hljs-params">(CountVectorizer)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,k=<span class="hljs-number">1.2</span>,b=<span class="hljs-number">0.75</span>, norm=<span class="hljs-string">&quot;l2&quot;</span>, use_idf=True, smooth_idf=True,sublinear_tf=False,*args,**kwargs)</span>:</span>
+        super(Bm25Vectorizer,self).__init__(*args,**kwargs)
+        self._tfidf = Bm25Transformer(k=k,b=b,norm=norm, use_idf=use_idf,
+                                       smooth_idf=smooth_idf,
+                                       sublinear_tf=sublinear_tf)
+
+<span class="hljs-decorator">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">k</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._tfidf.k
+
+<span class="hljs-decorator">    @k.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">k</span><span class="hljs-params">(self, value)</span>:</span>
+        self._tfidf.k = value
+
+<span class="hljs-decorator">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._tfidf.b
+
+<span class="hljs-decorator">    @b.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-params">(self, value)</span>:</span>
+        self._tfidf.b = value
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit</span><span class="hljs-params">(self, raw_documents, y=None)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Learn vocabulary and idf from training set.
+        &quot;&quot;&quot;</span>
+        X = super(Bm25Vectorizer, self).fit_transform(raw_documents)
+        self._tfidf.fit(X)
+        <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit_transform</span><span class="hljs-params">(self, raw_documents, y=None)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Learn vocabulary and idf, return term-document matrix.
+        &quot;&quot;&quot;</span>
+        X = super(Bm25Vectorizer, self).fit_transform(raw_documents)
+        self._tfidf.fit(X)
+        <span class="hljs-keyword">return</span> self._tfidf.transform(X, copy=<span class="hljs-keyword">False</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform</span><span class="hljs-params">(self, raw_documents, copy=True)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Transform documents to document-term matrix.
+        &quot;&quot;&quot;</span>
+        check_is_fitted(self, <span class="hljs-string">&apos;_tfidf&apos;</span>, <span class="hljs-string">&apos;The tfidf vector is not fitted&apos;</span>)
+
+        X = super(Bm25Vectorizer, self).transform(raw_documents)
+        <span class="hljs-keyword">return</span> self._tfidf.transform(X, copy=<span class="hljs-keyword">False</span>)
+</code></pre>
+</li>
+</ol>
+<ol>
+<li><p>&#x5B8C;&#x6210;&#x81EA;&#x5DF1;&#x7684;<code>Bm25transformer</code>,&#x53EA;&#x9700;&#x8981;&#x518D;&#x539F;&#x6765;&#x57FA;&#x7840;&#x7684;&#x4EE3;&#x7801;&#x4E0A;&#x8FDB;&#x5FC3;&#x4FEE;&#x6539;&#x90E8;&#x5206;&#x5373;&#x53EF;&#x3002;sklearn&#x4E2D;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#x8981;&#x6C42;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x5DF2;&#x6709;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x7C7B;</p>
+<pre><code class="lang-python">
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bm25Transformer</span><span class="hljs-params">(BaseEstimator, TransformerMixin)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,k=<span class="hljs-number">1.2</span>,b=<span class="hljs-number">0.75</span>, norm=<span class="hljs-string">&apos;l2&apos;</span>, use_idf=True, smooth_idf=True,
+                 sublinear_tf=False)</span>:</span>
+        self.k = k
+        self.b = b
+        <span class="hljs-comment">##################&#x4EE5;&#x4E0B;&#x662F;TFIDFtransform&#x4EE3;&#x7801;##########################</span>
+        self.norm = norm
+        self.use_idf = use_idf
+        self.smooth_idf = smooth_idf
+        self.sublinear_tf = sublinear_tf
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit</span><span class="hljs-params">(self, X, y=None)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Learn the idf vector (global term weights)
+
+        Parameters
+        ----------
+        X : sparse matrix, [n_samples, n_features]
+            a matrix of term/token counts
+        &quot;&quot;&quot;</span>
+        _X = X.toarray()
+        self.avdl = _X.sum()/_X.shape[<span class="hljs-number">0</span>] <span class="hljs-comment">#&#x53E5;&#x5B50;&#x7684;&#x5E73;&#x5747;&#x957F;&#x5EA6;</span>
+        <span class="hljs-comment"># print(&quot;&#x539F;&#x6765;&#x7684;fit&#x7684;&#x6570;&#x636E;&#xFF1A;\n&quot;,X)</span>
+
+        <span class="hljs-comment">#&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x8BCD;&#x8BED;&#x7684;tf&#x7684;&#x503C;</span>
+        self.tf = _X.sum(<span class="hljs-number">0</span>)/_X.sum()  <span class="hljs-comment">#[M] #M&#x8868;&#x793A;&#x603B;&#x8BCD;&#x8BED;&#x7684;&#x6570;&#x91CF;</span>
+        self.tf = self.tf.reshape([<span class="hljs-number">1</span>,self.tf.shape[<span class="hljs-number">0</span>]]) <span class="hljs-comment">#[1,M]</span>
+        <span class="hljs-comment"># print(&quot;tf\n&quot;,self.tf)</span>
+        <span class="hljs-comment">##################&#x4EE5;&#x4E0B;&#x662F;TFIDFtransform&#x4EE3;&#x7801;##########################</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> sp.issparse(X):
+            X = sp.csc_matrix(X)
+        <span class="hljs-keyword">if</span> self.use_idf:
+            n_samples, n_features = X.shape
+            df = _document_frequency(X)
+
+            <span class="hljs-comment"># perform idf smoothing if required</span>
+            df += int(self.smooth_idf)
+            n_samples += int(self.smooth_idf)
+
+            <span class="hljs-comment"># log+1 instead of log makes sure terms with zero idf don&apos;t get</span>
+            <span class="hljs-comment"># suppressed entirely.</span>
+            idf = np.log(float(n_samples) / df) + <span class="hljs-number">1.0</span>
+            self._idf_diag = sp.spdiags(idf, diags=<span class="hljs-number">0</span>, m=n_features,
+                                        n=n_features, format=<span class="hljs-string">&apos;csr&apos;</span>)
+
+        <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform</span><span class="hljs-params">(self, X, copy=True)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Transform a count matrix to a tf or tf-idf representation
+
+        Parameters
+        ----------
+        X : sparse matrix, [n_samples, n_features]
+            a matrix of term/token counts
+
+        copy : boolean, default True
+            Whether to copy X and operate on the copy or perform in-place
+            operations.
+
+        Returns
+        -------
+        vectors : sparse matrix, [n_samples, n_features]
+        &quot;&quot;&quot;</span>
+         <span class="hljs-comment">########### &#x8BA1;&#x7B97;&#x4E2D;&#x95F4;&#x9879;  ###############</span>
+        cur_tf = np.multiply(self.tf, X.toarray()) <span class="hljs-comment">#[N,M] #N&#x8868;&#x793A;&#x6570;&#x636E;&#x7684;&#x6761;&#x6570;&#xFF0C;M&#x8868;&#x793A;&#x603B;&#x8BCD;&#x8BED;&#x7684;&#x6570;&#x91CF;</span>
+        norm_lenght = <span class="hljs-number">1</span> - self.b + self.b*(X.toarray().sum(-<span class="hljs-number">1</span>)/self.avdl) <span class="hljs-comment">#[N] #N&#x8868;&#x793A;&#x6570;&#x636E;&#x7684;&#x6761;&#x6570;</span>
+        norm_lenght = norm_lenght.reshape([norm_lenght.shape[<span class="hljs-number">0</span>],<span class="hljs-number">1</span>]) <span class="hljs-comment">#[N,1]</span>
+        middle_part = (self.k+<span class="hljs-number">1</span>)*cur_tf /(cur_tf +self.k*norm_lenght)
+        <span class="hljs-comment">############# &#x7ED3;&#x7B97;&#x7ED3;&#x675F;  ################</span>
+
+        <span class="hljs-keyword">if</span> hasattr(X, <span class="hljs-string">&apos;dtype&apos;</span>) <span class="hljs-keyword">and</span> np.issubdtype(X.dtype, np.floating):
+            <span class="hljs-comment"># preserve float family dtype</span>
+            X = sp.csr_matrix(X, copy=copy)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-comment"># convert counts or binary occurrences to floats</span>
+            X = sp.csr_matrix(X, dtype=np.float64, copy=copy)
+
+        n_samples, n_features = X.shape
+
+        <span class="hljs-keyword">if</span> self.sublinear_tf:
+            np.log(X.data, X.data)
+            X.data += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span> self.use_idf:
+            check_is_fitted(self, <span class="hljs-string">&apos;_idf_diag&apos;</span>, <span class="hljs-string">&apos;idf vector is not fitted&apos;</span>)
+
+            expected_n_features = self._idf_diag.shape[<span class="hljs-number">0</span>]
+            <span class="hljs-keyword">if</span> n_features != expected_n_features:
+                <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;Input has n_features=%d while the model&quot;</span>
+                                 <span class="hljs-string">&quot; has been trained with n_features=%d&quot;</span> % (
+                                     n_features, expected_n_features))
+            <span class="hljs-comment"># *= doesn&apos;t work</span>
+            X = X * self._idf_diag
+
+        <span class="hljs-comment">############# &#x4E2D;&#x95F4;&#x9879;&#x548C;&#x7ED3;&#x679C;&#x76F8;&#x4E58;  ############</span>
+        X = X.toarray()*middle_part
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> sp.issparse(X):
+            X = sp.csr_matrix(X, dtype=np.float64)
+        <span class="hljs-comment">############# #########</span>
+
+        <span class="hljs-keyword">if</span> self.norm:
+            X = normalize(X, norm=self.norm, copy=<span class="hljs-keyword">False</span>)
+
+        <span class="hljs-keyword">return</span> X
+
+<span class="hljs-decorator">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">idf_</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment">##################&#x4EE5;&#x4E0B;&#x662F;TFIDFtransform&#x4EE3;&#x7801;##########################</span>
+        <span class="hljs-comment"># if _idf_diag is not set, this will raise an attribute error,</span>
+        <span class="hljs-comment"># which means hasattr(self, &quot;idf_&quot;) is False</span>
+        <span class="hljs-keyword">return</span> np.ravel(self._idf_diag.sum(axis=<span class="hljs-number">0</span>))
+</code></pre>
+<p>&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#x53C2;&#x8003;&#xFF1A;<code>https://github.com/SpringMagnolia/Bm25Vectorzier/blob/master/BM25Vectorizer.py</code></p>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x7B80;&#x5355;&#x4F7F;&#x7528;&#xFF0C;&#x89C2;&#x5BDF;&#x548C;tdidf&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<p>```python
+from BM25Vectorizer import Bm25Vectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer</p>
+</li>
+</ol>
+<p>   if <strong>name</strong> == &apos;<strong>main</strong>&apos;:</p>
+<pre><code>   # format_weibo(word=False)
+   # format_xiaohuangji_corpus(word=True)
+   bm_vec = Bm25Vectorizer()
+   tf_vec = TfidfVectorizer()
+   # 1. &#x539F;&#x59CB;&#x6570;&#x636E;
+   data = [
+       &apos;hello world&apos;,
+       &apos;oh hello there&apos;,
+       &apos;Play it&apos;,
+       &apos;Play it again Sam,24343,123&apos;,
+   ]
+
+   # 2. &#x539F;&#x59CB;&#x6570;&#x636E;&#x5411;&#x91CF;&#x5316;
+   bm_vec.fit(data)
+   tf_vec.fit(data)
+   features_vec_bm = bm_vec.transform(data)
+   features_vec_tf = tf_vec.transform(data)
+   print(&quot;Bm25 result:&quot;,features_vec_bm.toarray())
+   print(&quot;*&quot;*100)
+   print(&quot;Tfidf result:&quot;,features_vec_tf.toarray())
+</code></pre><pre><code>
+
+
+   &#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF1A;
+
+   ```python
+   Bm25 result: [[0.         0.         0.         0.47878333 0.         0.
+     0.         0.         0.         0.8779331 ]
+    [0.         0.         0.         0.35073401 0.         0.66218791
+     0.         0.         0.66218791 0.        ]
+    [0.         0.         0.         0.         0.70710678 0.
+     0.70710678 0.         0.         0.        ]
+    [0.47038081 0.47038081 0.47038081 0.         0.23975776 0.
+     0.23975776 0.47038081 0.         0.        ]]
+   **********************************************************************************
+   Tfidf result: [[0.         0.         0.         0.6191303  0.         0.
+     0.         0.         0.         0.78528828]
+    [0.         0.         0.         0.48693426 0.         0.61761437
+     0.         0.         0.61761437 0.        ]
+    [0.         0.         0.         0.         0.70710678 0.
+     0.70710678 0.         0.         0.        ]
+    [0.43671931 0.43671931 0.43671931 0.         0.34431452 0.
+     0.34431452 0.43671931 0.         0.        ]]
+</code></pre><h3 id="23-&#x4FEE;&#x6539;&#x4E4B;&#x524D;&#x7684;&#x53EC;&#x56DE;&#x4EE3;&#x7801;">2.3 &#x4FEE;&#x6539;&#x4E4B;&#x524D;&#x7684;&#x53EC;&#x56DE;&#x4EE3;&#x7801;</h3>
+<p>   &#x4FEE;&#x6539;&#x4E4B;&#x524D;&#x53EC;&#x56DE;&#x7684;&#x4EE3;&#x7801;&#x53EA;&#x9700;&#x8981;&#x628A;&#x8C03;&#x7528;tfidfvectorizer&#x6539;&#x6210;&#x8C03;&#x7528;Bm25vectorizer</p>
+<h2 id="3-&#x4F7F;&#x7528;fasttext&#x5B9E;&#x73B0;&#x83B7;&#x53D6;&#x53E5;&#x5B50;&#x5411;&#x91CF;">3. &#x4F7F;&#x7528;Fasttext&#x5B9E;&#x73B0;&#x83B7;&#x53D6;&#x53E5;&#x5B50;&#x5411;&#x91CF;</h2>
+<h3 id="31-&#x57FA;&#x7840;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;">3.1 &#x57FA;&#x7840;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;</h3>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;fasttext&#xFF0C;word2vector&#x7B49;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x83B7;&#x53D6;&#x8BCD;&#x5411;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8BCD;&#x8BED;&#x7684;&#x8BCD;&#x5411;&#x91CF;&#x8FDB;&#x884C;&#x5E73;&#x5747;&#xFF0C;&#x83B7;&#x53D6;&#x6574;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x5411;&#x91CF;&#x8868;&#x793A;&#xFF0C;&#x5373;<code>sentence Vector</code>&#xFF0C;&#x8BE5;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5728;fasttext&#x548C;Word2vector&#x4E2D;&#x5747;&#x6709;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x4E14;&#x901A;&#x8FC7;&#x53C2;&#x6570;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x5B9E;&#x73B0;N-garm&#x7684;&#x6548;&#x679C;</p>
+<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x6587;&#x672C;<code>a.txt</code>&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-text">&#x6211; &#x5F88; &#x559C;&#x6B22; &#x5979; 
+&#x4ECA;&#x5929; &#x5929;&#x6C14; &#x4E0D;&#x9519;
+&#x6211; &#x7231; &#x6DF1;&#x5EA6;&#x5B66;&#x4E60;
+</code></pre>
+<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x83B7;&#x53D6;&#x53E5;&#x5B50;&#x5411;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> fastText <span class="hljs-keyword">import</span> FastText
+<span class="hljs-comment">#&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x8BBE;&#x7F6E;n-garm=2</span>
+model = FastText.train_unsupervised(input=<span class="hljs-string">&quot;./a.txt&quot;</span>,minCount=<span class="hljs-number">1</span>,wordNgrams=<span class="hljs-number">2</span>)
+<span class="hljs-comment">#&#x83B7;&#x53D6;&#x53E5;&#x5B50;&#x5411;&#x91CF;&#xFF0C;&#x662F;&#x5BF9;&#x8BCD;&#x5411;&#x91CF;&#x7684;&#x5E73;&#x5747;</span>
+model.get_sentence_vector(<span class="hljs-string">&quot;&#x6211; &#x662F; &#x8C01;&quot;</span>)
+</code></pre>
+<h3 id="32-&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x548C;&#x5C01;&#x88C5;&#x4EE3;&#x7801;">3.2 &#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x548C;&#x5C01;&#x88C5;&#x4EE3;&#x7801;</h3>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x91C7;&#x96C6;&#x7684;&#x76F8;&#x4F3C;&#x6587;&#x672C;&#x6570;&#x636E;&#x4F5C;&#x4E3A;&#x8BAD;&#x7EC3;&#x6837;&#x672C;</p>
+<p>&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x8FDB;&#x884C;&#x5206;&#x8BCD;&#x4E4B;&#x540E;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x4E2D;</li>
+<li>&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x7684;&#x8BAD;&#x7EC3;</li>
+<li>&#x4F7F;&#x7528;&#x6A21;&#x578B;&#x83B7;&#x53D6;&#x53E5;&#x5B50;&#x5411;&#x91CF;&#xFF0C;&#x5E76;&#x4E14;&#x5C01;&#x88C5;&#x4EE3;&#x7801;</li>
+<li>&#x5C06;&#x4E4B;&#x524D;&#x7684;BM25&#x7684;&#x4EE3;&#x7801;&#x66FF;&#x6362;&#x4E3A;&#x8BE5;&#x4EE3;&#x7801;</li>
+</ol>
+<h4 id="321-&#x5206;&#x8BCD;&#x5199;&#x5165;&#x6587;&#x4EF6;">3.2.1 &#x5206;&#x8BCD;&#x5199;&#x5165;&#x6587;&#x4EF6;</h4>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5355;&#x4E2A;&#x5B57;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x82F1;&#x6587;&#x4F7F;&#x7528;&#x5355;&#x4E2A;&#x8BCD;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;</p>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot;
+&#x4F7F;&#x7528;&#x5355;&#x4E2A;&#x5B57;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#xFF0C;&#x8FDB;&#x884C;fasttext&#x8BAD;&#x7EC3;&#xFF0C;&#x6700;&#x540E;&#x5C01;&#x88C5;&#x4EE3;&#x7801;&#x83B7;&#x53D6;&#x53EC;&#x56DE;&#x7ED3;&#x679C;
+&quot;&quot;&quot;</span>
+<span class="hljs-keyword">import</span> string
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">word_split</span><span class="hljs-params">(line)</span>:</span>
+    <span class="hljs-comment">#&#x5BF9;&#x4E2D;&#x6587;&#x6309;&#x7167;&#x5B57;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5BF9;&#x82F1;&#x6587;&#x4E0D;&#x5206;&#x4E3A;&#x5B57;&#x6BCD;</span>
+    <span class="hljs-comment">#&#x5373; I&#x7231;python --&gt; i &#x7231; python</span>
+    letters = string.ascii_lowercase+<span class="hljs-string">&quot;+&quot;</span>+<span class="hljs-string">&quot;/&quot;</span>  <span class="hljs-comment">#c++,ui/ue</span>
+    result = []
+    temp = <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> line:
+        <span class="hljs-keyword">if</span> word.lower() <span class="hljs-keyword">in</span> letters:
+            temp+=word.lower()
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> temp !=<span class="hljs-string">&quot;&quot;</span>:
+                result.append(temp)
+                temp = <span class="hljs-string">&quot;&quot;</span>
+            result.append(word)
+    <span class="hljs-keyword">if</span> temp!=<span class="hljs-string">&quot;&quot;</span>:
+        result.append(temp)
+    <span class="hljs-keyword">return</span> result
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_data</span><span class="hljs-params">()</span>:</span>
+    path1 = <span class="hljs-string">r&quot;corpus\final_data\merged_q.txt&quot;</span>
+    path2 = <span class="hljs-string">r&quot;corpus\final_data\merged_sim_q.txt&quot;</span>
+    save_path =  <span class="hljs-string">r&quot;corpus\recall_fasttext_data\data.txt&quot;</span>
+
+    filter = set()
+    <span class="hljs-keyword">with</span> open(path1) <span class="hljs-keyword">as</span> f,open(save_path,<span class="hljs-string">&quot;a&quot;</span>) <span class="hljs-keyword">as</span> save_f:
+        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:
+            line = line.strip()
+            <span class="hljs-keyword">if</span> line <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> filter:
+                filter.add(line)
+                _temp = <span class="hljs-string">&quot; &quot;</span>.join(word_split(line))
+                save_f.write(_temp+<span class="hljs-string">&quot;\n&quot;</span>)
+
+    <span class="hljs-keyword">with</span> open(path2) <span class="hljs-keyword">as</span> f,open(save_path,<span class="hljs-string">&quot;a&quot;</span>) <span class="hljs-keyword">as</span> save_f:
+        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:
+            line = line.strip()
+            <span class="hljs-keyword">if</span> line <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> filter:
+                filter.add(line)
+                _temp = <span class="hljs-string">&quot; &quot;</span>.join(word_split(line))
+                save_f.write(_temp+<span class="hljs-string">&quot;\n&quot;</span>)
+</code></pre>
+<h4 id="322-&#x8BAD;&#x7EC3;&#x6A21;&#x578B;">3.2.2 &#x8BAD;&#x7EC3;&#x6A21;&#x578B;</h4>
+<ol>
+<li><p>&#x8BAD;&#x7EC3;fasttext&#x7684;model,&#x7528;&#x6765;&#x751F;&#x6210;&#x8BCD;&#x5411;&#x91CF;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">train_model</span><span class="hljs-params">(fasttext_model_path)</span>:</span>
+ logging.basicConfig(format=<span class="hljs-string">&apos;%(asctime)s : %(levelname)s : %(message)s&apos;</span>, level=logging.INFO)
+ save_path =  <span class="hljs-string">r&quot;corpus\recall_fasttext_data\data.txt&quot;</span>
+
+ model = FastText.train_unsupervised(save_path,epoch=<span class="hljs-number">20</span>,minCount=<span class="hljs-number">3</span>,wordNgrams=<span class="hljs-number">2</span>)
+ model.save_model(fasttext_model_path)
+</code></pre>
+</li>
+<li><p>&#x5BF9;&#x73B0;&#x6709;&#x7684;QA&#x95EE;&#x7B54;&#x5BF9;&#xFF0C;&#x751F;&#x6210;&#x5411;&#x91CF;&#xFF0C;&#x4F20;&#x5165;pysparnn&#x4E2D;&#x6784;&#x5EFA;&#x7D22;&#x5F15;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_base_text_vectors</span><span class="hljs-params">(cp_dump_path,model)</span>:</span>
+    <span class="hljs-comment">#&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5730;pkl&#x6587;&#x4EF6;&#xFF0C;&#x9632;&#x6B62;&#x6BCF;&#x6B21;&#x90FD;&#x751F;&#x6210;&#x4E00;&#x6B21;</span>
+    <span class="hljs-keyword">if</span> os.path.exists(cp_dump_path):
+        cp = pickle.load(open(cp_dump_path,<span class="hljs-string">&quot;rb&quot;</span>))
+    <span class="hljs-keyword">else</span>:
+        print(QA_dict)
+        q_lines = [q <span class="hljs-keyword">for</span> q <span class="hljs-keyword">in</span> QA_dict]
+        q_cuted_list = [<span class="hljs-string">&quot; &quot;</span>.join(word_split(i)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> q_lines]
+        lines_vectors = []
+        <span class="hljs-keyword">for</span> q_cuted <span class="hljs-keyword">in</span> q_cuted_list:
+            lines_vectors.append(model.get_sentence_vector(q_cuted))
+        cp = ci.MultiClusterIndex(lines_vectors,q_lines)
+        pickle.dump(cp,open(cp_dump_path,<span class="hljs-string">&quot;wb&quot;</span>))
+    <span class="hljs-keyword">return</span> cp
+</code></pre>
+</li>
+<li><p>&#x4F20;&#x5165;&#x7528;&#x6237;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8FDB;&#x884C;&#x5206;&#x8BCD;&#x548C;&#x53E5;&#x5B50;&#x5411;&#x91CF;&#x7684;&#x83B7;&#x53D6;&#xFF0C;&#x83B7;&#x53D6;&#x641C;&#x7D22;&#x7684;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_search_vectors</span><span class="hljs-params">(cp,model,search_line)</span>:</span>
+    line_cuted = <span class="hljs-string">&quot; &quot;</span>.join(word_split(search_line))
+    line_vec = model.get_sentence_vector(line_cuted)
+    <span class="hljs-comment">#&#x8FD9;&#x91CC;&#x7684;line_vec&#x4E2D;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x5411;&#x91CF;&#x8868;&#x793A;&#xFF0C;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x6BCF;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x641C;&#x7D22;&#x7ED3;&#x679C;</span>
+    cp_search_list = cp.search(line_vec,k=<span class="hljs-number">10</span>,k_clusters=<span class="hljs-number">10</span>,return_distance=<span class="hljs-keyword">True</span>)
+    <span class="hljs-comment">#TODO &#x5BF9;&#x641C;&#x7D22;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x5173;&#x952E;&#x5B57;&#x7684;&#x8FC7;&#x6EE4;</span>
+    <span class="hljs-keyword">return</span> cp_search_list
+</code></pre>
+</li>
+</ol>
+<ol>
+<li><p>&#x6D4B;&#x8BD5;&#x6A21;&#x578B;&#x7684;&#x6548;&#x679C;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> fastext_vectors <span class="hljs-keyword">import</span> get_search_vectors,train_model,get_base_text_vectors
+<span class="hljs-keyword">import</span> fastText
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    fasttext_model_path = <span class="hljs-string">&quot;corpus/build_questions/fasttext_recall.model&quot;</span>
+    cp_dump_path = <span class="hljs-string">&quot;corpus/build_questions/cp_recall.pkl&quot;</span>
+
+    <span class="hljs-comment"># train_model(fasttext_model_path)</span>
+
+    model = fastText.load_model(fasttext_model_path)
+
+    cp = get_base_text_vectors(cp_dump_path,model)
+
+    ret = get_search_vectors(cp,model,<span class="hljs-string">&quot;&#x5973;&#x5B69;&#x5B66;python&#x5BB9;&#x6613;&#x4E48;&#xFF1F;&quot;</span>)
+    print(ret)
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python">[[(<span class="hljs-string">&apos;0.0890376&apos;</span>, <span class="hljs-string">&apos;&#x5B66;&#x4E60;Python&#x9700;&#x8981;&#x4EC0;&#x4E48;&#x57FA;&#x7840;&#xFF0C;&#x5B66;&#x8D77;&#x6765;&#x66F4;&#x5BB9;&#x6613;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.090688944&apos;</span>, <span class="hljs-string">&apos;&#x5B66;&#x4E60;PHP&#x7684;&#x5973;&#x751F;&#x591A;&#x5417;&#xFF1F;&#x5973;&#x751F;&#x53EF;&#x4EE5;&#x5B66;&#x5417;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.092773676&apos;</span>, <span class="hljs-string">&apos;Python&#x9002;&#x5408;&#x4EC0;&#x4E48;&#x4EBA;&#x5B66;&#x4E60;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.09416294&apos;</span>, <span class="hljs-string">&apos;Python&#x8BED;&#x8A00;&#x9002;&#x5408;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x4EBA;&#x5B66;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.102790296&apos;</span>, <span class="hljs-string">&apos;python&#x8BED;&#x8A00;&#x5BB9;&#x6613;&#x5B66;&#x4E60;&#x5417;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.1050359&apos;</span>, <span class="hljs-string">&apos;&#x5B66;&#x4E60;&#x6D4B;&#x8BD5;&#x7684;&#x5973;&#x751F;&#x591A;&#x5417;&#xFF1F;&#x5973;&#x751F;&#x53EF;&#x4EE5;&#x5B66;&#x5417;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.10546541&apos;</span>, <span class="hljs-string">&apos;Python&#x597D;&#x5B66;&#x5417;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.11058545&apos;</span>, <span class="hljs-string">&apos;&#x5B66;&#x4E60;Python&#x600E;&#x6837;&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.11080605&apos;</span>, <span class="hljs-string">&apos;&#x600E;&#x6837;&#x5B66;&#x597D;Python&#xFF1F;&apos;</span>), 
+  (<span class="hljs-string">&apos;0.11124289&apos;</span>, <span class="hljs-string">&apos;&#x5B66;&#x751F;&#x600E;&#x4E48;&#x4E0A;&#x8BFE;&#x7684;&#xFF1F;&apos;</span>)]]
+</code></pre>
+</li>
+</ol>
+<h3 id="323--&#x57FA;&#x7840;&#x5C01;&#x88C5;">3.2.3  &#x57FA;&#x7840;&#x5C01;&#x88C5;</h3>
+<pre><code class="lang-python"><span class="hljs-comment">#lib/SentenceVectorizer</span>
+<span class="hljs-string">&quot;&quot;&quot;
+&#x4F7F;&#x7528;fasttext &#x5B9E;&#x73B0;sentence to vector
+&quot;&quot;&quot;</span>
+<span class="hljs-keyword">import</span> fastText
+<span class="hljs-keyword">from</span> fastText <span class="hljs-keyword">import</span> FastText
+<span class="hljs-keyword">import</span> config
+<span class="hljs-keyword">from</span> lib <span class="hljs-keyword">import</span> cut
+<span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> os
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SentenceVectorizer</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> os.path.exists(config.recall_fasttext_model_path):
+            self.model = fastText.load_model(config.recall_fasttext_model_path)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-comment"># self.process_data()</span>
+            self.model = self.build_model()
+
+        self.fited = <span class="hljs-keyword">False</span>
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit_transform</span><span class="hljs-params">(self,sentences)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x5904;&#x7406;&#x5168;&#x90E8;&#x95EE;&#x9898;&#x6570;&#x636E;&quot;&quot;&quot;</span>
+        lines_vectors = self.fit(sentences)
+        <span class="hljs-keyword">return</span> lines_vectors
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit</span><span class="hljs-params">(self,lines)</span>:</span>
+        lines_vectors = []
+        <span class="hljs-keyword">for</span> q_cuted <span class="hljs-keyword">in</span> lines:
+            lines_vectors.append(self.model.get_sentence_vector(q_cuted))
+        self.fited = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">return</span> lines_vectors
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform</span><span class="hljs-params">(self,sentence)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x5904;&#x7406;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">assert</span> self.fited = <span class="hljs-keyword">True</span>
+        line_vec = self.model.get_sentence_vector(<span class="hljs-string">&quot; &quot;</span>.join(sentence))
+        <span class="hljs-keyword">return</span> line_vec
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build_model</span><span class="hljs-params">(self)</span>:</span>
+        logging.basicConfig(format=<span class="hljs-string">&apos;%(asctime)s : %(levelname)s : %(message)s&apos;</span>, level=logging.INFO)
+        model = FastText.train_unsupervised(config.recall_fasttext_data_path, epoch=<span class="hljs-number">20</span>, minCount=<span class="hljs-number">3</span>, wordNgrams=<span class="hljs-number">2</span>)
+        model.save_model(config.recall_fasttext_model_path)
+        <span class="hljs-keyword">return</span> model
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_data</span><span class="hljs-params">(self)</span>:</span>
+        path1 = <span class="hljs-string">r&quot;corpus\final_data\merged_q.txt&quot;</span>
+        path2 = <span class="hljs-string">r&quot;corpus\final_data\merged_sim_q.txt&quot;</span>
+        save_path =  <span class="hljs-string">r&quot;corpus\recall_fasttext_data\data.txt&quot;</span>
+
+        filter = set()
+        <span class="hljs-keyword">with</span> open(path1) <span class="hljs-keyword">as</span> f, open(save_path, <span class="hljs-string">&quot;a&quot;</span>) <span class="hljs-keyword">as</span> save_f:
+            <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:
+                line = line.strip()
+                <span class="hljs-keyword">if</span> line <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> filter:
+                    filter.add(line)
+                    _temp = <span class="hljs-string">&quot; &quot;</span>.join(cut(line,by_word=<span class="hljs-keyword">True</span>))
+                    save_f.write(_temp + <span class="hljs-string">&quot;\n&quot;</span>)
+
+        <span class="hljs-keyword">with</span> open(path2) <span class="hljs-keyword">as</span> f, open(save_path, <span class="hljs-string">&quot;a&quot;</span>) <span class="hljs-keyword">as</span> save_f:
+            <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:
+                line = line.strip()
+                <span class="hljs-keyword">if</span> line <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> filter:
+                    filter.add(line)
+                    _temp = <span class="hljs-string">&quot; &quot;</span>.join(cut(line,by_word=<span class="hljs-keyword">True</span>))
+                    save_f.write(_temp + <span class="hljs-string">&quot;\n&quot;</span>)
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../2.4 QA机器人/2.4.2 QA机器人的召回.html" class="navigation navigation-prev " aria-label="Previous page: QA机器人的召回.md"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../2.4 QA机器人/2.4.4 QA机器人排序模型.html" class="navigation navigation-next " aria-label="Next page: QA机器人排序模型.md"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,58 @@
+# === IDE & Editor ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# === OS Generated ===
+.DS_Store
+._.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# === Jupyter Notebook ===
+.ipynb_checkpoints/
+
+# === Virtual Environment ===
+.env
+.venv
+env/
+venv/
+ENV/
+
+# === Problematic filenames (too long / invalid chars for Windows) ===
+04-机器学习/算法/images/timg*
+04-机器学习/算法/images/math?formula=*
+
+# === Misc ===
+*.log
+*.tmp
+*.bak
+
+
+# [Auto] Large files managed by HuggingFace
+03-数据分析/01-数据分析基础/5-第五章-TableauPPT .pptx
+03-数据分析/Excel/Excel课件.pptx
+03-数据分析/Excel/业务原数据.rar

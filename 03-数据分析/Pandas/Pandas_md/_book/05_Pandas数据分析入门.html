@@ -1,0 +1,1503 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Pandas数据分析入门 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toc2/toc2.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-tbfed-pagefooter/footer.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./第3章-06-09_Pandas数据清洗.html" />
+    
+    
+    <link rel="prev" href="./04_Pandas_数据结构.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.3"
+        data-chapter-title="Pandas数据分析入门"
+        data-filepath="05_Pandas数据分析入门.md"
+        data-basepath="."
+        data-revision="Tue Apr 20 2021 11:46:25 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="第1章-01-02_介绍及环境搭建.html">
+            
+                
+                    <a href="./第1章-01-02_介绍及环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Python数据分析介绍及环境搭建
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01_Python数据分析简介.html">
+            
+                
+                    <a href="./01_Python数据分析简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Python数据分析简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="02_Python数据分析开发环境搭建.html">
+            
+                
+                    <a href="./02_Python数据分析开发环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Python数据分析环境搭建
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="第2章-03-05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./第2章-03-05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="03_Pandas的DataFrame.html">
+            
+                
+                    <a href="./03_Pandas的DataFrame.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Pandas的DataFrame
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="04_Pandas_数据结构.html">
+            
+                
+                    <a href="./04_Pandas_数据结构.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Pandas_数据结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="第3章-06-09_Pandas数据清洗.html">
+            
+                
+                    <a href="./第3章-06-09_Pandas数据清洗.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Pandas数据清洗
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="06_数据组合.html">
+            
+                
+                    <a href="./06_数据组合.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        数据组合
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="07_缺失数据处理.html">
+            
+                
+                    <a href="./07_缺失数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        缺失数据处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="08_整理数据.html">
+            
+                
+                    <a href="./08_整理数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        数据整理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="09_Pandas数据类型.html">
+            
+                
+                    <a href="./09_Pandas数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Pandas数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="第4章-10-13_Pandas数据处理.html">
+            
+                
+                    <a href="./第4章-10-13_Pandas数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Pandas数据处理
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="10_Apply自定义函数.html">
+            
+                
+                    <a href="./10_Apply自定义函数.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Apply自定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="11_数据分组.html">
+            
+                
+                    <a href="./11_数据分组.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        数据分组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="12_数据透视表.html">
+            
+                
+                    <a href="./12_数据透视表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        数据透视表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="13_datetime数据类型.html">
+            
+                
+                    <a href="./13_datetime数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        datetime数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="第5章-14-17_Python数据可视化.html">
+            
+                
+                    <a href="./第5章-14-17_Python数据可视化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Python数据可视化
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="14_Matplotlib绘图.html">
+            
+                
+                    <a href="./14_Matplotlib绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Matplotlib绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="15_Pandas绘图.html">
+            
+                
+                    <a href="./15_Pandas绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Pandas绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="16_Seaborn绘图.html">
+            
+                
+                    <a href="./16_Seaborn绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Seaborn绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="17_Pyecharts绘图.html">
+            
+                
+                    <a href="./17_Pyecharts绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        Pyecharts绘图
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="第6章-18-20_综合案例.html">
+            
+                
+                    <a href="./第6章-18-20_综合案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        综合案例
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="18_综合案例_Appstore数据分析.html">
+            
+                
+                    <a href="./18_综合案例_Appstore数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        综合案例_Appstore数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="19_综合案例_优衣库销售数据分析.html">
+            
+                
+                    <a href="./19_综合案例_优衣库销售数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        综合案例_优衣库销售数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="20_综合案例_RFM用户分群.html">
+            
+                
+                    <a href="./20_综合案例_RFM用户分群.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        综合案例_RFM用户分群
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="pandas-&#x6570;&#x636E;&#x5206;&#x6790;&#x5165;&#x95E8;">Pandas &#x6570;&#x636E;&#x5206;&#x6790;&#x5165;&#x95E8;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x638C;&#x63E1;&#x5728;Pandas&#x4E2D;&#x8BA1;&#x7B97;&#x5E38;&#x7528;&#x7EDF;&#x8BA1;&#x91CF;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x719F;&#x7EC3;&#x4F7F;&#x7528;pandas&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x6392;&#x5E8F;&#x3001;&#x5206;&#x7EC4;&#x3001;&#x805A;&#x5408;&#x7B49;&#x8BA1;&#x7B97;</li>
+</ul>
+<h2 id="1-&#x8BA1;&#x7B97;&#x5E38;&#x7528;&#x7EDF;&#x8BA1;&#x503C;">1 &#x8BA1;&#x7B97;&#x5E38;&#x7528;&#x7EDF;&#x8BA1;&#x503C;</h2>
+<ul>
+<li><p>&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x5206;&#x4F4D;&#x6570;&#xFF0C;&#x65B9;&#x5DEE;&#x7B49;&#x65B9;&#x5F0F;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x5206;&#x5E03;&#x60C5;&#x51B5;&#x505A;&#x57FA;&#x672C;&#x4E86;&#x89E3;</p>
+<pre><code class="lang-python">college = pd.read_csv(<span class="hljs-string">&apos;data/college.csv&apos;</span>)
+college.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|     | INSTNM                              | CITY       | STABBR | HBCU | MENONLY | WOMENONLY | RELAFFIL | SATVRMID | SATMTMID | DISTANCEONLY | ... | UGDS_2MOR | UGDS_NRA | UGDS_UNKN | PPTUG_EF | CURROPER | PCTPELL | PCTFLOAN | UG25ABV | MD_EARN_WNE_P10 | GRAD_DEBT_MDN_SUPP |
+| ---:| -----------------------------------:| ----------:| ------:| ----:| -------:| ---------:| --------:| --------:| --------:| ------------:| ---:| ---------:| --------:| ---------:| --------:| --------:| -------:| --------:| -------:| ---------------:| ------------------ |
+| 0   | Alabama A &amp; M University            | Normal     | AL     | 1.0  | 0.0     | 0.0       | 0        | 424.0    | 420.0    | 0.0          | ... | 0.0000    | 0.0059   | 0.0138    | 0.0656   | 1        | 0.7356  | 0.8284   | 0.1049  | 30300           | 33888              |
+| 1   | University of Alabama at Birmingham | Birmingham | AL     | 0.0  | 0.0     | 0.0       | 0        | 570.0    | 565.0    | 0.0          | ... | 0.0368    | 0.0179   | 0.0100    | 0.2607   | 1        | 0.3460  | 0.5214   | 0.2422  | 39700           | 21941.5            |
+| 2   | Amridge University                  | Montgomery | AL     | 0.0  | 0.0     | 0.0       | 1        | NaN      | NaN      | 1.0          | ... | 0.0000    | 0.0000   | 0.2715    | 0.4536   | 1        | 0.6801  | 0.7795   | 0.8540  | 40100           | 23370              |
+| 3   | University of Alabama in Huntsville | Huntsville | AL     | 0.0  | 0.0     | 0.0       | 0        | 595.0    | 590.0    | 0.0          | ... | 0.0172    | 0.0332   | 0.0350    | 0.2146   | 1        | 0.3072  | 0.4596   | 0.2640  | 45500           | 24097              |
+| 4   | Alabama State University            | Montgomery | AL     | 1.0  | 0.0     | 0.0       | 0        | 425.0    | 430.0    | 0.0          | ... | 0.0098    | 0.0243   | 0.0137    | 0.0892   | 1        | 0.7347  | 0.7554   | 0.1270  | 26600           | 33118.5            |</p>
+<p>5 rows &#xD7; 27 columns</p>
+</blockquote>
+<ul>
+<li>&#x6570;&#x636E;&#x5B57;&#x6BB5;&#x8BF4;&#x660E;</li>
+</ul>
+<pre><code class="lang-python">college.columns
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">Index([&apos;INSTNM&apos;, &apos;CITY&apos;, &apos;STABBR&apos;, &apos;HBCU&apos;, &apos;MENONLY&apos;, &apos;WOMENONLY&apos;, &apos;RELAFFIL&apos;,
+      &apos;SATVRMID&apos;, &apos;SATMTMID&apos;, &apos;DISTANCEONLY&apos;, &apos;UGDS&apos;, &apos;UGDS_WHITE&apos;,
+      &apos;UGDS_BLACK&apos;, &apos;UGDS_HISP&apos;, &apos;UGDS_ASIAN&apos;, &apos;UGDS_AIAN&apos;, &apos;UGDS_NHPI&apos;,
+      &apos;UGDS_2MOR&apos;, &apos;UGDS_NRA&apos;, &apos;UGDS_UNKN&apos;, &apos;PPTUG_EF&apos;, &apos;CURROPER&apos;, &apos;PCTPELL&apos;,
+      &apos;PCTFLOAN&apos;, &apos;UG25ABV&apos;, &apos;MD_EARN_WNE_P10&apos;, &apos;GRAD_DEBT_MDN_SUPP&apos;],
+     dtype=&apos;object&apos;)
+</code></pre>
+</blockquote>
+<p>| &#x5217;&#x540D;                 | &#x5B57;&#x6BB5;&#x542B;&#x4E49;               |
+| ------------------ | ------------------ |
+| INSTNM             | &#x5927;&#x5B66;&#x540D;&#x79F0;               |
+| CITY               | &#x6240;&#x5728;&#x57CE;&#x5E02;               |
+| STABBR             | &#x6240;&#x5728;&#x5DDE;&#x7B80;&#x79F0;              |
+| HBCU               | &#x5386;&#x53F2;&#x4E0A;&#x7684;&#x9ED1;&#x4EBA;&#x5B66;&#x5458;&#x548C;&#x5927;&#x5B66;        |
+| MENONLY            | 0/1 &#x53EA;&#x6709;&#x7537;&#x5B66;&#x751F;          |
+| WOMENONLY          | 0/1 &#x53EA;&#x6709;&#x5973;&#x5B66;&#x751F;          |
+| RELAFFIL           | 0/1 &#x5B97;&#x6559;&#x4FE1;&#x4EF0;           |
+| SATVRMID           | SAT&#x8003;&#x8BD5; Verbal&#x5206;&#x6570;&#x4E2D;&#x4F4D;&#x6570;  |
+| SATMTMID           | SAT&#x8003;&#x8BD5; &#x6570;&#x5B66;&#x5206;&#x6570;&#x4E2D;&#x4F4D;&#x6570;      |
+| DISTANCEONLY       | &#x53EA;&#x63A5;&#x53D7;&#x8FDC;&#x7A0B;&#x6559;&#x80B2;&#x5B66;&#x751F;          |
+| UGDS               | &#x672C;&#x79D1;&#x62DB;&#x751F;               |
+| UGDS_WHITE         | &#x672C;&#x79D1;&#x751F;&#x767D;&#x4EBA;&#x6BD4;&#x4F8B;            |
+| UGDS_BLACK         | &#x672C;&#x79D1;&#x751F;&#x9ED1;&#x4EBA;&#x6BD4;&#x4F8B;            |
+| UGDS_HISP          | &#x672C;&#x79D1;&#x751F;&#x62C9;&#x4E01;&#x88D4;&#x6BD4;&#x4F8B;           |
+| UGDS_ASIAN         | &#x672C;&#x79D1;&#x751F;&#x4E9A;&#x88D4;&#x6BD4;&#x4F8B;            |
+| UGDS_AIAN          | &#x672C;&#x79D1;&#x751F;&#x7F8E;&#x6D32;&#x5370;&#x7B2C;&#x5B89;&#x4EBA;/&#x963F;&#x62C9;&#x65AF;&#x52A0;&#x571F;&#x8457;&#x6BD4;&#x4F8B; |
+| UGDS_NHPI          | &#x672C;&#x79D1;&#x751F;&#x590F;&#x5A01;&#x5937;/&#x592A;&#x5E73;&#x6D0B;&#x7FA4;&#x5C9B;&#x571F;&#x8457;&#x6BD4;&#x4F8B;   |
+| UGDS_2MOR          | &#x672C;&#x79D1;&#x751F;&#x6DF7;&#x8840;&#x6BD4;&#x4F8B;            |
+| UGDS_NRA           | &#x672C;&#x79D1;&#x751F;&#x4E2D;&#x7559;&#x5B66;&#x751F;&#x6BD4;&#x4F8B;          |
+| UGDS_UNKN          | &#x672C;&#x79D1;&#x751F;&#x672A;&#x77E5;&#x65CF;&#x88D4;&#x6BD4;&#x4F8B;          |
+| PPTUG_EF           | &#x975E;&#x5168;&#x65E5;&#x5236;&#x5B66;&#x751F;&#x6BD4;&#x4F8B;           |
+| CURROPER           | 0/1 &#x6B63;&#x5728;&#x8FD0;&#x8425;           |
+| PCTPELL            | &#x4F69;&#x5C14;&#x8D44;&#x52A9;&#x8BA1;&#x5212;&#x5B66;&#x751F;&#x6BD4;&#x4F8B;         |
+| PCTFLOAN           | &#x5B66;&#x8D39;&#x8D37;&#x6B3E;&#x5B66;&#x751F;&#x6BD4;&#x4F8B;           |
+| UG25ABV            | &#x5E74;&#x9F84;&#x5927;&#x4E8E;25&#x5C81;&#x7684;&#x5B66;&#x751F;&#x6BD4;&#x4F8B;       |
+| MD_EARN_WNE_P10    | &#x5165;&#x5B66;10&#x5E74;&#x540E;&#x6536;&#x5165;&#x4E2D;&#x4F4D;&#x6570;        |
+| GRAD_DEBT_MDN_SUPP | &#x6BD5;&#x4E1A;&#x751F;&#x503A;&#x52A1;&#x4E2D;&#x4F4D;&#x6570;           |
+| - &#x67E5;&#x770B;&#x6570;&#x636E;&#x884C;&#x5217;&#x6570;          |                    |</p>
+<pre><code class="lang-python">college.shape
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">(7535, 27)
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x7EDF;&#x8BA1;&#x6570;&#x503C;&#x5217;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x8F6C;&#x7F6E;</li>
+</ul>
+<pre><code class="lang-python">college.describe().T
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|              | count  | mean        | std         | min   | 25%        | 50%       | 75%         | max         |
+| ------------:| ------:| -----------:| -----------:| -----:| ----------:| ---------:| -----------:| -----------:|
+| HBCU         | 7164.0 | 0.014238    | 0.118478    | 0.0   | 0.000000   | 0.00000   | 0.000000    | 1.0000      |
+| MENONLY      | 7164.0 | 0.009213    | 0.095546    | 0.0   | 0.000000   | 0.00000   | 0.000000    | 1.0000      |
+| WOMENONLY    | 7164.0 | 0.005304    | 0.072642    | 0.0   | 0.000000   | 0.00000   | 0.000000    | 1.0000      |
+| RELAFFIL     | 7535.0 | 0.190975    | 0.393096    | 0.0   | 0.000000   | 0.00000   | 0.000000    | 1.0000      |
+| SATVRMID     | 1185.0 | 522.819409  | 68.578862   | 290.0 | 475.000000 | 510.00000 | 555.000000  | 765.0000    |
+| SATMTMID     | 1196.0 | 530.765050  | 73.469767   | 310.0 | 482.000000 | 520.00000 | 565.000000  | 785.0000    |
+| DISTANCEONLY | 7164.0 | 0.005583    | 0.074519    | 0.0   | 0.000000   | 0.00000   | 0.000000    | 1.0000      |
+| UGDS         | 6874.0 | 2356.837940 | 5474.275871 | 0.0   | 117.000000 | 412.50000 | 1929.500000 | 151558.0000 |
+| UGDS_WHITE   | 6874.0 | 0.510207    | 0.286958    | 0.0   | 0.267500   | 0.55570   | 0.747875    | 1.0000      |
+| UGDS_BLACK   | 6874.0 | 0.189997    | 0.224587    | 0.0   | 0.036125   | 0.10005   | 0.257700    | 1.0000      |
+| UGDS_HISP    | 6874.0 | 0.161635    | 0.221854    | 0.0   | 0.027600   | 0.07140   | 0.198875    | 1.0000      |
+| UGDS_ASIAN   | 6874.0 | 0.033544    | 0.073777    | 0.0   | 0.002500   | 0.01290   | 0.032700    | 0.9727      |
+| UGDS_AIAN    | 6874.0 | 0.013813    | 0.070196    | 0.0   | 0.000000   | 0.00260   | 0.007300    | 1.0000      |
+| UGDS_NHPI    | 6874.0 | 0.004569    | 0.033125    | 0.0   | 0.000000   | 0.00000   | 0.002500    | 0.9983      |
+| UGDS_2MOR    | 6874.0 | 0.023950    | 0.031288    | 0.0   | 0.000000   | 0.01750   | 0.033900    | 0.5333      |
+| UGDS_NRA     | 6874.0 | 0.016086    | 0.050172    | 0.0   | 0.000000   | 0.00000   | 0.011700    | 0.9286      |
+| UGDS_UNKN    | 6874.0 | 0.045181    | 0.093440    | 0.0   | 0.000000   | 0.01430   | 0.045400    | 0.9027      |
+| PPTUG_EF     | 6853.0 | 0.226639    | 0.246470    | 0.0   | 0.000000   | 0.15040   | 0.376900    | 1.0000      |
+| CURROPER     | 7535.0 | 0.923291    | 0.266146    | 0.0   | 1.000000   | 1.00000   | 1.000000    | 1.0000      |
+| PCTPELL      | 6849.0 | 0.530643    | 0.225544    | 0.0   | 0.357800   | 0.52150   | 0.712900    | 1.0000      |
+| PCTFLOAN     | 6849.0 | 0.522211    | 0.283616    | 0.0   | 0.332900   | 0.58330   | 0.745000    | 1.0000      |
+| UG25ABV      | 6718.0 | 0.410021    | 0.228939    | 0.0   | 0.241500   | 0.40075   | 0.572275    | 1.0000      |</p>
+</blockquote>
+<ul>
+<li>&#x7EDF;&#x8BA1;&#x5BF9;&#x8C61;&#x548C;&#x7C7B;&#x578B;&#x5217; <ul>
+<li>pandas &#x57FA;&#x4E8E; numpy&#xFF0C;numpy&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;pandas&#x90FD;&#x652F;&#x6301;</li>
+<li>np.object &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</li>
+<li>pd.Categorical &#x7C7B;&#x522B;&#x7C7B;&#x578B;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+college.describe(include=[np.object, pd.Categorical]).T
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|                    | count | unique | top                                               | freq |
+| ------------------:| -----:| ------:|:------------------------------------------------- |:---- |
+| INSTNM             | 7535  | 7535   | Institute of American Indian and Alaska Native... | 1    |
+| CITY               | 7535  | 2514   | New York                                          | 87   |
+| STABBR             | 7535  | 59     | CA                                                | 773  |
+| MD_EARN_WNE_P10    | 6413  | 598    | PrivacySuppressed                                 | 822  |
+| GRAD_DEBT_MDN_SUPP | 7503  | 2038   | PrivacySuppressed                                 | 1510 |</p>
+</blockquote>
+</li>
+<li><p>&#x901A;&#x8FC7;info &#x65B9;&#x6CD5;&#x4E86;&#x89E3;&#x4E0D;&#x540C;&#x5B57;&#x6BB5;&#x7684;&#x6761;&#x76EE;&#x6570;&#x91CF;&#xFF0C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x662F;&#x5426;&#x7F3A;&#x5931;&#x53CA;&#x5185;&#x5B58;&#x5360;&#x7528;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-python">college.info()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell"><class 'pandas.core.frame.DataFrame'="">
+RangeIndex: 7535 entries, 0 to 7534
+Data columns (total 27 columns):
+INSTNM                7535 non-null object
+CITY                  7535 non-null object
+STABBR                7535 non-null object
+HBCU                  7164 non-null float64
+MENONLY               7164 non-null float64
+WOMENONLY             7164 non-null float64
+RELAFFIL              7535 non-null int64
+SATVRMID              1185 non-null float64
+SATMTMID              1196 non-null float64
+DISTANCEONLY          7164 non-null float64
+UGDS                  6874 non-null float64
+UGDS_WHITE            6874 non-null float64
+UGDS_BLACK            6874 non-null float64
+UGDS_HISP             6874 non-null float64
+UGDS_ASIAN            6874 non-null float64
+UGDS_AIAN             6874 non-null float64
+UGDS_NHPI             6874 non-null float64
+UGDS_2MOR             6874 non-null float64
+UGDS_NRA              6874 non-null float64
+UGDS_UNKN             6874 non-null float64
+PPTUG_EF              6853 non-null float64
+CURROPER              7535 non-null int64
+PCTPELL               6849 non-null float64
+PCTFLOAN              6849 non-null float64
+UG25ABV               6718 non-null float64
+MD_EARN_WNE_P10       6413 non-null object
+GRAD_DEBT_MDN_SUPP    7503 non-null object
+dtypes: float64(20), int64(2), object(5)
+memory usage: 1.6+ MB
+</class></code></pre>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-&#x5E38;&#x7528;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;">2 &#x5E38;&#x7528;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;</h2>
+<h3 id="21-&#x4ECE;&#x6700;&#x5927;&#x7684;n&#x4E2A;&#x503C;&#x4E2D;&#x9009;&#x53D6;&#x6700;&#x5C0F;&#x503C;&#x2014;&#x2014;&#x627E;&#x5230;&#x5C0F;&#x6210;&#x672C;&#x9AD8;&#x53E3;&#x7891;&#x7535;&#x5F71;">2.1 &#x4ECE;&#x6700;&#x5927;&#x7684;N&#x4E2A;&#x503C;&#x4E2D;&#x9009;&#x53D6;&#x6700;&#x5C0F;&#x503C;&#x2014;&#x2014;&#x627E;&#x5230;&#x5C0F;&#x6210;&#x672C;&#x9AD8;&#x53E3;&#x7891;&#x7535;&#x5F71;</h3>
+<pre><code class="lang-python">movie = pd.read_csv(<span class="hljs-string">&apos;data/movie.csv&apos;</span>)
+movie2 = movie[[<span class="hljs-string">&apos;movie_title&apos;</span>, <span class="hljs-string">&apos;imdb_score&apos;</span>, <span class="hljs-string">&apos;budget&apos;</span>]]
+movie2.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:left">movie_title</th>
+<th style="text-align:left">imdb_score</th>
+<th style="text-align:left">budget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:left">Avatar</td>
+<td style="text-align:left">7.9</td>
+<td style="text-align:left">237000000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Pirates of the Caribbean: At World&apos;s End</td>
+<td style="text-align:left">7.1</td>
+<td style="text-align:left">300000000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Spectre</td>
+<td style="text-align:left">6.8</td>
+<td style="text-align:left">245000000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">The Dark Knight Rises</td>
+<td style="text-align:left">8.5</td>
+<td style="text-align:left">250000000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:left">Star Wars: Episode VII - The Force Awakens</td>
+<td style="text-align:left">7.1</td>
+<td style="text-align:left">NaN</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>&#x7528;nlargest&#x65B9;&#x6CD5;&#xFF0C;&#x9009;&#x51FA;imdb_score&#x5206;&#x6570;&#x6700;&#x9AD8;&#x7684;100&#x4E2A;</li>
+</ul>
+<pre><code class="lang-python">movie2.nlargest(<span class="hljs-number">100</span>, <span class="hljs-string">&apos;imdb_score&apos;</span>).head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">movie_title</th>
+<th style="text-align:left">imdb_score</th>
+<th style="text-align:left">budget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2725</td>
+<td style="text-align:left">Towering Inferno</td>
+<td style="text-align:left">9.5</td>
+<td style="text-align:left">NaN</td>
+</tr>
+<tr>
+<td style="text-align:left">1920</td>
+<td style="text-align:left">The Shawshank Redemption</td>
+<td style="text-align:left">9.3</td>
+<td style="text-align:left">25000000.0</td>
+</tr>
+<tr>
+<td style="text-align:left">3402</td>
+<td style="text-align:left">The Godfather</td>
+<td style="text-align:left">9.2</td>
+<td style="text-align:left">6000000.0</td>
+</tr>
+<tr>
+<td style="text-align:left">2779</td>
+<td style="text-align:left">Dekalog</td>
+<td style="text-align:left">9.1</td>
+<td style="text-align:left">NaN</td>
+</tr>
+<tr>
+<td style="text-align:left">4312</td>
+<td style="text-align:left">Kickboxer: Vengeance</td>
+<td style="text-align:left">9.1</td>
+<td style="text-align:left">17000000.0</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>&#x4F7F;&#x7528;nsmallest&#x65B9;&#x6CD5;&#x518D;&#x4ECE;&#x4E2D;&#x6311;&#x51FA;&#x9884;&#x7B97;&#x6700;&#x5C0F;&#x7684;&#x4E94;&#x90E8;</li>
+</ul>
+<pre><code class="lang-python">movie2.nlargest(<span class="hljs-number">100</span>, <span class="hljs-string">&apos;imdb_score&apos;</span>).nsmallest(<span class="hljs-number">5</span>, <span class="hljs-string">&apos;budget&apos;</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">movie_title</th>
+<th style="text-align:left">imdb_score</th>
+<th style="text-align:left">budget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">4804</td>
+<td style="text-align:left">Butterfly Girl</td>
+<td style="text-align:left">8.7</td>
+<td style="text-align:left">180000.0</td>
+</tr>
+<tr>
+<td style="text-align:left">4801</td>
+<td style="text-align:left">Children of Heaven</td>
+<td style="text-align:left">8.5</td>
+<td style="text-align:left">180000.0</td>
+</tr>
+<tr>
+<td style="text-align:left">4706</td>
+<td style="text-align:left">12 Angry Men</td>
+<td style="text-align:left">8.9</td>
+<td style="text-align:left">350000.0</td>
+</tr>
+<tr>
+<td style="text-align:left">4550</td>
+<td style="text-align:left">A Separation</td>
+<td style="text-align:left">8.4</td>
+<td style="text-align:left">500000.0</td>
+</tr>
+<tr>
+<td style="text-align:left">4636</td>
+<td style="text-align:left">The Other Dream Team</td>
+<td style="text-align:left">8.4</td>
+<td style="text-align:left">500000.0</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="22-&#x901A;&#x8FC7;&#x6392;&#x5E8F;&#x9009;&#x53D6;&#x6BCF;&#x7EC4;&#x7684;&#x6700;&#x5927;&#x503C;&#x2014;&#x2014;&#x627E;&#x5230;&#x6BCF;&#x5E74;imdb&#x8BC4;&#x5206;&#x6700;&#x9AD8;&#x7684;&#x7535;&#x5F71;">2.2 &#x901A;&#x8FC7;&#x6392;&#x5E8F;&#x9009;&#x53D6;&#x6BCF;&#x7EC4;&#x7684;&#x6700;&#x5927;&#x503C;&#x2014;&#x2014;&#x627E;&#x5230;&#x6BCF;&#x5E74;imdb&#x8BC4;&#x5206;&#x6700;&#x9AD8;&#x7684;&#x7535;&#x5F71;</h3>
+<ul>
+<li>sort_values &#x6309;&#x7167;&#x5E74;&#x6392;&#x5E8F;&#xFF0C;ascending &#x5347;&#x5E8F;&#x6392;&#x5217;</li>
+</ul>
+<pre><code class="lang-python">movie2 = movie[[<span class="hljs-string">&apos;movie_title&apos;</span>, <span class="hljs-string">&apos;title_year&apos;</span>, <span class="hljs-string">&apos;imdb_score&apos;</span>]]
+movie2.sort_values(<span class="hljs-string">&apos;title_year&apos;</span>, ascending=<span class="hljs-keyword">False</span>).head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">movie_title</th>
+<th style="text-align:left">title_year</th>
+<th style="text-align:left">imdb_score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">3884</td>
+<td style="text-align:left">The Veil</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">4.7</td>
+</tr>
+<tr>
+<td style="text-align:left">2375</td>
+<td style="text-align:left">My Big Fat Greek Wedding 2</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">6.1</td>
+</tr>
+<tr>
+<td style="text-align:left">2794</td>
+<td style="text-align:left">Miracles from Heaven</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">6.8</td>
+</tr>
+<tr>
+<td style="text-align:left">92</td>
+<td style="text-align:left">Independence Day: Resurgence</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">5.5</td>
+</tr>
+<tr>
+<td style="text-align:left">153</td>
+<td style="text-align:left">Kung Fu Panda 3</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">7.2</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>&#x540C;&#x65F6;&#x5BF9;&apos;title_year&apos;,&apos;imdb_score&apos; &#x4E24;&#x5217;&#x8FDB;&#x884C;&#x6392;&#x5E8F;</li>
+</ul>
+<pre><code class="lang-python">movie3 = movie2.sort_values([<span class="hljs-string">&apos;title_year&apos;</span>,<span class="hljs-string">&apos;imdb_score&apos;</span>], ascending=<span class="hljs-keyword">False</span>)
+movie3.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:left">movie_title</th>
+<th style="text-align:left">title_year</th>
+<th style="text-align:left">imdb_score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4312</td>
+<td style="text-align:left">Kickboxer: Vengeance</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">9.1</td>
+</tr>
+<tr>
+<td style="text-align:right">4277</td>
+<td style="text-align:left">A Beginner&apos;s Guide to Snuff</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">8.7</td>
+</tr>
+<tr>
+<td style="text-align:right">3798</td>
+<td style="text-align:left">Airlift</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">8.5</td>
+</tr>
+<tr>
+<td style="text-align:right">27</td>
+<td style="text-align:left">Captain America: Civil War</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">8.2</td>
+</tr>
+<tr>
+<td style="text-align:right">98</td>
+<td style="text-align:left">Godzilla Resurgence</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">8.2</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>&#x7528;drop_duplicates&#x53BB;&#x91CD;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x6BCF;&#x5E74;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x6570;&#x636E;</li>
+</ul>
+<pre><code class="lang-python">movie_top_year = movie3.drop_duplicates(subset=<span class="hljs-string">&apos;title_year&apos;</span>)
+movie_top_year.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:left">movie_title</th>
+<th style="text-align:left">title_year</th>
+<th style="text-align:left">imdb_score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4312</td>
+<td style="text-align:left">Kickboxer: Vengeance</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">9.1</td>
+</tr>
+<tr>
+<td style="text-align:right">3745</td>
+<td style="text-align:left">Running Forever</td>
+<td style="text-align:left">2015.0</td>
+<td style="text-align:left">8.6</td>
+</tr>
+<tr>
+<td style="text-align:right">4369</td>
+<td style="text-align:left">Queen of the Mountains</td>
+<td style="text-align:left">2014.0</td>
+<td style="text-align:left">8.7</td>
+</tr>
+<tr>
+<td style="text-align:right">3935</td>
+<td style="text-align:left">Batman: The Dark Knight Returns, Part 2</td>
+<td style="text-align:left">2013.0</td>
+<td style="text-align:left">8.4</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">The Dark Knight Rises</td>
+<td style="text-align:left">2012.0</td>
+<td style="text-align:left">8.5</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="23-&#x63D0;&#x53D6;&#x51FA;&#x6BCF;&#x5E74;&#xFF0C;&#x6BCF;&#x79CD;&#x7535;&#x5F71;&#x5206;&#x7EA7;&#x4E2D;&#x9884;&#x7B97;&#x5C11;&#x7684;&#x7535;&#x5F71;&#x2014;&#x2014;sortvalues&#x591A;&#x5217;&#x6392;&#x5E8F;">2.3 &#x63D0;&#x53D6;&#x51FA;&#x6BCF;&#x5E74;&#xFF0C;&#x6BCF;&#x79CD;&#x7535;&#x5F71;&#x5206;&#x7EA7;&#x4E2D;&#x9884;&#x7B97;&#x5C11;&#x7684;&#x7535;&#x5F71;&#x2014;&#x2014;sort_values&#x591A;&#x5217;&#x6392;&#x5E8F;</h3>
+<ul>
+<li>&#x591A;&#x5217;&#x6392;&#x5E8F;&#x65F6;&#xFF0C;ascending &#x53C2;&#x6570;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#xFF0C;&#x6392;&#x5E8F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;</li>
+</ul>
+<pre><code class="lang-python">movie4 = movie[[<span class="hljs-string">&apos;movie_title&apos;</span>, <span class="hljs-string">&apos;title_year&apos;</span>, <span class="hljs-string">&apos;content_rating&apos;</span>, <span class="hljs-string">&apos;budget&apos;</span>]]
+<span class="hljs-comment"># &#x591A;&#x5217;&#x6392;&#x5E8F;&#xFF0C;ascending=[False, False, True] &#x964D;&#x5E8F;&#xFF0C;&#x964D;&#x5E8F;&#xFF0C;&#x5347;&#x5E8F;</span>
+movie4_sorted = movie4.sort_values([<span class="hljs-string">&apos;title_year&apos;</span>, <span class="hljs-string">&apos;content_rating&apos;</span>, <span class="hljs-string">&apos;budget&apos;</span>], ascending=[<span class="hljs-keyword">False</span>, <span class="hljs-keyword">False</span>, <span class="hljs-keyword">True</span>])
+<span class="hljs-comment"># &#x53BB;&#x91CD;&#xFF0C;&#x5220;&#x9664;&apos;title_year&apos;, &apos;content_rating&apos;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;</span>
+movie4_sorted.drop_duplicates(subset=[<span class="hljs-string">&apos;title_year&apos;</span>, <span class="hljs-string">&apos;content_rating&apos;</span>]).head(<span class="hljs-number">10</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:left">movie_title</th>
+<th style="text-align:left">title_year</th>
+<th style="text-align:left">content_rating</th>
+<th style="text-align:left">budget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4026</td>
+<td style="text-align:left">Compadres</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">3000000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">4658</td>
+<td style="text-align:left">Fight to the Finish</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">PG-13</td>
+<td style="text-align:left">150000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">4661</td>
+<td style="text-align:left">Rodeo Girl</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">PG</td>
+<td style="text-align:left">500000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">3252</td>
+<td style="text-align:left">The Wailing</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">Not Rated</td>
+<td style="text-align:left">NaN</td>
+</tr>
+<tr>
+<td style="text-align:right">4659</td>
+<td style="text-align:left">Alleluia! The Devil&apos;s Carnival</td>
+<td style="text-align:left">2016.0</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">500000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">4731</td>
+<td style="text-align:left">Bizarre</td>
+<td style="text-align:left">2015.0</td>
+<td style="text-align:left">Unrated</td>
+<td style="text-align:left">500000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">812</td>
+<td style="text-align:left">The Ridiculous 6</td>
+<td style="text-align:left">2015.0</td>
+<td style="text-align:left">TV-14</td>
+<td style="text-align:left">NaN</td>
+</tr>
+<tr>
+<td style="text-align:right">4831</td>
+<td style="text-align:left">The Gallows</td>
+<td style="text-align:left">2015.0</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">100000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">4825</td>
+<td style="text-align:left">Romantic Schemer</td>
+<td style="text-align:left">2015.0</td>
+<td style="text-align:left">PG-13</td>
+<td style="text-align:left">125000.0</td>
+</tr>
+<tr>
+<td style="text-align:right">3796</td>
+<td style="text-align:left">R.L. Stine&apos;s Monsterville: The Cabinet of Souls</td>
+<td style="text-align:left">2015.0</td>
+<td style="text-align:left">PG</td>
+<td style="text-align:left">4400000.0</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="3-&#x7B80;&#x5355;&#x6570;&#x636E;&#x5206;&#x6790;&#x7EC3;&#x4E60;&#xFF08;&#x79DF;&#x623F;&#x6570;&#x636E;&#xFF09;">3 &#x7B80;&#x5355;&#x6570;&#x636E;&#x5206;&#x6790;&#x7EC3;&#x4E60;&#xFF08;&#x79DF;&#x623F;&#x6570;&#x636E;&#xFF09;</h2>
+<ul>
+<li><p>&#x8F7D;&#x5165;&#x6570;&#x636E;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+house_data = pd.read_csv(<span class="hljs-string">&apos;data/LJdata.csv&apos;</span>)
+</code></pre>
+</li>
+<li><p>&#x628A;&#x5217;&#x540D;&#x66FF;&#x6362;&#x6210;&#x82F1;&#x6587;</p>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x67E5;&#x770B;&#x539F;&#x59CB;&#x5217;&#x540D;</span>
+house_data.columns
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">Index([&apos;&#x533A;&#x57DF;&apos;, &apos;&#x5730;&#x5740;&apos;, &apos;&#x6807;&#x9898;&apos;, &apos;&#x6237;&#x578B;&apos;, &apos;&#x9762;&#x79EF;&apos;, &apos;&#x4EF7;&#x683C;&apos;, &apos;&#x697C;&#x5C42;&apos;, &apos;&#x5EFA;&#x9020;&#x65F6;&#x95F4;&apos;, &apos;&#x671D;&#x5411;&apos;, &apos;&#x66F4;&#x65B0;&#x65F6;&#x95F4;&apos;, &apos;&#x770B;&#x623F;&#x4EBA;&#x6570;&apos;,&apos;&#x5907;&#x6CE8;&apos;, &apos;&#x94FE;&#x63A5;&#x5730;&#x5740;&apos;],dtype=&apos;object&apos;)
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">house_data.columns = [<span class="hljs-string">&apos;district&apos;</span>, <span class="hljs-string">&apos;address&apos;</span>, <span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;house_type&apos;</span>, <span class="hljs-string">&apos;area&apos;</span>, <span class="hljs-string">&apos;price&apos;</span>, <span class="hljs-string">&apos;floor&apos;</span>, <span class="hljs-string">&apos;build_time&apos;</span>, <span class="hljs-string">&apos;direction&apos;</span>, <span class="hljs-string">&apos;update_time&apos;</span>, <span class="hljs-string">&apos;view_num&apos;</span>, <span class="hljs-string">&apos;extra_info&apos;</span>, <span class="hljs-string">&apos;link&apos;</span>]
+</code></pre>
+</li>
+<li><p>&#x67E5;&#x770B;&#x6570;&#x636E;&#x57FA;&#x672C;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-python">house_data.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|     | district | address | title                       | house_type | area  | price | floor     | build_time | direction | update_time | view_num | extra_info                       | link                                            |
+| ---:| --------:| -------:| ---------------------------:| ----------:| -----:| -----:| ---------:| ----------:| ---------:| -----------:| --------:| --------------------------------:| -----------------------------------------------:|
+| 0   | &#x71D5;&#x838E;&#x79DF;&#x623F;     | &#x65B0;&#x6E90;&#x8857;     | &#x4EAE;&#x9A6C;&#x6865; &#x65B0;&#x6E90;&#x8857; &#x7CBE;&#x88C5;&#x4E24;&#x5C45; &#x4EA4;&#x901A;&#x4FBF;&#x5229; &#x770B;&#x623F;&#x65B9;&#x4FBF; &#x968F;&#x65F6;&#x5165;&#x4F4F; | 2&#x5BA4;1&#x5385;       | 50&#x5E73;&#x7C73;  | 5800  | &#x4E2D;&#x697C;&#x5C42;(&#x5171;6&#x5C42;)  | 1981&#x5E74;&#x5EFA;&#x677F;&#x697C;   | &#x5357;         | 2017.07.21  | 26       | &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x96C6;&#x4E2D;&#x4F9B;&#x6696;                    | <a href="https://bj.lianjia.com/zufang/101101803342.html" target="_blank">https://bj.lianjia.com/zufang/101101803342.html</a> |
+| 1   | &#x671B;&#x4EAC;&#x79DF;&#x623F;     | &#x6FB3;&#x6D32;&#x5EB7;&#x90FD;    | &#x6FB3;&#x6D32;&#x5EB7;&#x90FD;&#x4E1C;&#x5411;&#x7CBE;&#x81F4;&#x4E24;&#x5C45;&#x5BA4;...........      | 2&#x5BA4;1&#x5385;       | 79&#x5E73;&#x7C73;  | 7800  | &#x4E2D;&#x697C;&#x5C42;(&#x5171;28&#x5C42;) | 2005&#x5E74;&#x5EFA;&#x677F;&#x5854;&#x7ED3;&#x5408; | &#x4E1C;         | 2017.07.23  | 33       | &#x8DDD;&#x79BB;14&#x53F7;&#x7EBF;(&#x4E1C;&#x6BB5;)&#x4E1C;&#x6E56;&#x6E20;&#x7AD9;731&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x96C6;&#x4E2D;&#x4F9B;&#x6696; | <a href="https://bj.lianjia.com/zufang/101101753126.html" target="_blank">https://bj.lianjia.com/zufang/101101753126.html</a> |
+| 2   | &#x5E7F;&#x5B89;&#x95E8;&#x79DF;&#x623F;    | &#x8FDC;&#x89C1;&#x540D;&#x82D1;    | &#x8FDC;&#x89C1;&#x540D;&#x82D1; &#x4E1C;&#x5411;&#x4E24;&#x5C45;&#x5BA4; &#x72EC;&#x7ACB;&#x5C0F;&#x533A;&#x73AF;&#x5883; &#x9002;&#x5408;&#x5C45;&#x5BB6;      | 2&#x5BA4;1&#x5385;       | 86&#x5E73;&#x7C73;  | 8000  | &#x4F4E;&#x697C;&#x5C42;(&#x5171;25&#x5C42;) | 2006&#x5E74;&#x5EFA;&#x5854;&#x697C;   | &#x4E1C;         | 2017.07.20  | 34       | &#x8DDD;&#x79BB;7&#x53F7;&#x7EBF;&#x8FBE;&#x5B98;&#x8425;&#x7AD9;684&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x81EA;&#x4F9B;&#x6696;       | <a href="https://bj.lianjia.com/zufang/101101756753.html" target="_blank">https://bj.lianjia.com/zufang/101101756753.html</a> |
+| 3   | &#x5929;&#x901A;&#x82D1;&#x79DF;&#x623F;    | &#x5929;&#x901A;&#x82D1;&#x5317;&#x4E00;&#x533A;  | &#x5317;&#x4E00;&#x533A;&#x7B80;&#x88C5;&#x4E24;&#x5C45;&#xFF0C;&#x91C7;&#x5149;&#x597D;&#xFF0C;&#x89C6;&#x91CE;&#x7F8E;&#xFF0C;&#x51FA;&#x884C;&#x65B9;&#x4FBF;        | 2&#x5BA4;1&#x5385;       | 103&#x5E73;&#x7C73; | 5300  | &#x4F4E;&#x697C;&#x5C42;(&#x5171;13&#x5C42;) | 2004&#x5E74;&#x5EFA;&#x677F;&#x697C;   | &#x4E1C;&#x5357;        | 2017.07.25  | 30       | &#x8DDD;&#x79BB;5&#x53F7;&#x7EBF;&#x5929;&#x901A;&#x82D1;&#x7AD9;927&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x96C6;&#x4E2D;&#x4F9B;&#x6696;      | <a href="https://bj.lianjia.com/zufang/101101780034.html" target="_blank">https://bj.lianjia.com/zufang/101101780034.html</a> |
+| 4   | &#x56E2;&#x7ED3;&#x6E56;&#x79DF;&#x623F;    | &#x56E2;&#x7ED3;&#x6E56;&#x5317;&#x53E3;   | &#x56E2;&#x7ED3;&#x6E56;&#x5317;&#x53E3;&#x8FD1;&#x5730;&#x94C1;&#x9AD8;&#x697C;&#x5C42;&#x671D;&#x5357;&#x5411;&#x7CBE;&#x88C5;&#x4FEE;&#x6B63;&#x89C4;&#x4E24;&#x5C45;&#x5BA4;      | 2&#x5BA4;1&#x5385;       | 63&#x5E73;&#x7C73;  | 6400  | &#x9AD8;&#x697C;&#x5C42;(&#x5171;16&#x5C42;) | 1982&#x5E74;&#x5EFA;&#x5854;&#x697C;   | &#x5357;         | 2017.07.26  | 30       | &#x8DDD;&#x79BB;10&#x53F7;&#x7EBF;&#x56E2;&#x7ED3;&#x6E56;&#x7AD9;88&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x96C6;&#x4E2D;&#x4F9B;&#x6696;      | <a href="https://bj.lianjia.com/zufang/101101781083.html" target="_blank">https://bj.lianjia.com/zufang/101101781083.html</a> |</p>
+</blockquote>
+<pre><code class="lang-python">house_data.info()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell"><class 'pandas.core.frame.DataFrame'="">
+RangeIndex: 2760 entries, 0 to 2759
+Data columns (total 13 columns):
+district       2760 non-null object
+address        2760 non-null object
+title          2760 non-null object
+house_type     2760 non-null object
+area           2760 non-null object
+price          2760 non-null int64
+floor          2760 non-null object
+build_time     2758 non-null object
+direction      2760 non-null object
+update_time    2760 non-null object
+view_num       2760 non-null int64
+extra_info     2760 non-null object
+link           2760 non-null object
+dtypes: int64(2), object(11)
+memory usage: 280.4+ KB
+</class></code></pre>
+</blockquote>
+<pre><code class="lang-python">house_data.shape
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">(2760, 13)
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">house_data.describe()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|       | price         | view_num    |
+| -----:| -------------:| -----------:|
+| count | 2760.000000   | 2760.000000 |
+| mean  | 7570.800725   | 13.448913   |
+| std   | 6316.204986   | 12.746202   |
+| min   | 1300.000000   | 0.000000    |
+| 25%   | 4500.000000   | 4.000000    |
+| 50%   | 6000.000000   | 10.000000   |
+| 75%   | 8500.000000   | 19.000000   |
+| max   | 210000.000000 | 122.000000  |</p>
+</blockquote>
+</li>
+<li><p>&#x627E;&#x5230;&#x79DF;&#x91D1;&#x6700;&#x4F4E;&#xFF0C;&#x548C;&#x79DF;&#x91D1;&#x6700;&#x9AD8;&#x7684;&#x623F;&#x5B50;</p>
+<pre><code class="lang-python">house_data.loc[house_data[<span class="hljs-string">&apos;price&apos;</span>]==<span class="hljs-number">210000</span>]
+house_data.loc[house_data[<span class="hljs-string">&apos;price&apos;</span>]==<span class="hljs-number">1300</span>]
+house_data[house_data[<span class="hljs-string">&apos;price&apos;</span>]==house_data[<span class="hljs-string">&apos;price&apos;</span>].min()]
+house_data[house_data[<span class="hljs-string">&apos;price&apos;</span>]==house_data[<span class="hljs-string">&apos;price&apos;</span>].max()]
+</code></pre>
+</li>
+<li><p>sort_values&#x6309;&#x7167;&#x503C;&#x6392;&#x5E8F; &#x53C2;&#x6570;by &#x4F20;&#x5165;&#x5217;&#x540D; &#x53C2;&#x6570; ascending&#xFF08;&#x5347;&#x5E8F;&#xFF09;</p>
+<pre><code class="lang-python">house_data.sort_values(by=<span class="hljs-string">&apos;price&apos;</span>).head(<span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|      | district | address | title               | house_type | area | price | floor    | build_time | direction | update_time | view_num | extra_info | link |
+| ----:| --------:| -------:| -------------------:| ----------:| ----:| -----:| --------:| ----------:| ---------:| -----------:| --------:| ----------:| ---- |
+| 2527 | &#x826F;&#x4E61;&#x79DF;&#x623F;     | &#x4F1F;&#x4E1A;&#x5609;&#x56ED;&#x897F;&#x91CC;  | &#x534A;&#x5730;&#x4E0B;&#x5BA4; &#x5BB6;&#x7535;&#x9F50;&#x5168; &#x96C6;&#x4E2D;&#x4F9B;&#x6696; &#x7B80;&#x5355;&#x88C5;&#x4FEE; | 1&#x5BA4;1&#x5385;       | 46&#x5E73;&#x7C73; | 1300  | &#x5730;&#x4E0B;&#x5BA4;(&#x5171;5&#x5C42;) | 2005&#x5E74;&#x5EFA;     | &#x5357;         | 2017.07.19  | 14       | &#x968F;&#x65F6;&#x770B;&#x623F; &#x96C6;&#x4E2D;&#x4F9B;&#x6696;  |      |</p>
+</blockquote>
+<pre><code class="lang-python">house_data.sort_values(by=<span class="hljs-string">&apos;price&apos;</span>).tail(<span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|      | district | address | title              | house_type | area  | price  | floor    | build_time | direction | update_time | view_num | extra_info              | link |
+| ----:| --------:| -------:| ------------------:| ----------:| -----:| ------:| --------:| ----------:| ---------:| -----------:| --------:| -----------------------:| ---- |
+| 2658 | &#x548C;&#x5E73;&#x91CC;&#x79DF;&#x623F;    | &#x96CD;&#x548C;&#x5BB6;&#x56ED;&#x4E8C;&#x671F;  | &#x96CD;&#x548C;&#x5BB6;&#x56ED; &#x5E95;&#x5546;&#x51FA;&#x79DF; &#x4F7F;&#x7528;&#x9762;&#x79EF;720&#x7C73; | 6&#x5BA4;3&#x5385;       | 720&#x5E73;&#x7C73; | 210000 | &#x4F4E;&#x697C;&#x5C42;(&#x5171;6&#x5C42;) | 2005&#x5E74;&#x5EFA;&#x677F;&#x697C;   | &#x5357;         | 2017.07.26  | 21       | &#x8DDD;&#x79BB;2&#x53F7;&#x7EBF;&#x96CD;&#x548C;&#x5BAB;&#x7AD9;293&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x96C6;&#x4E2D;&#x4F9B;&#x6696; |      |</p>
+</blockquote>
+</li>
+<li><p>&#x627E;&#x5230;&#x6700;&#x8FD1;&#x65B0;&#x4E0A;&#x7684;10&#x5957;&#x623F;&#x6E90;</p>
+<pre><code class="lang-python">house_data.sort_values(by=<span class="hljs-string">&apos;update_time&apos;</span>, ascending=<span class="hljs-keyword">False</span>).head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|      | district | address | title                        | house_type | area  | price | floor     | build_time | direction | update_time | view_num | extra_info                   | link                                            |
+| ----:| --------:| -------:| ----------------------------:| ----------:| -----:| -----:| ---------:| ----------:| ---------:| -----------:| --------:| ----------------------------:| -----------------------------------------------:|
+| 347  | &#x52B2;&#x677E;&#x79DF;&#x623F;     | &#x6B66;&#x5723;&#x897F;&#x91CC;    | &#x6B66;&#x5723;&#x897F;&#x91CC;&#x6B63;&#x89C4;&#x4E09;&#x5C45;&#x5BA4;,&#x4F4E;&#x697C;&#x5C42;,&#x770B;&#x623F;&#x65B9;&#x4FBF;           | 3&#x5BA4;1&#x5385;       | 73&#x5E73;&#x7C73;  | 6500  | &#x4F4E;&#x697C;&#x5C42;(&#x5171;6&#x5C42;)  | 1986&#x5E74;&#x5EFA;&#x677F;&#x697C;   | &#x4E1C;&#x5357; &#x5317;      | 2017.07.27  | 0        | &#x8DDD;&#x79BB;10&#x53F7;&#x7EBF;&#x6F58;&#x5BB6;&#x56ED;&#x7AD9;965&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F;          | <a href="https://bj.lianjia.com/zufang/101101862495.html" target="_blank">https://bj.lianjia.com/zufang/101101862495.html</a> |
+| 1790 | &#x5E7F;&#x5B89;&#x95E8;&#x79DF;&#x623F;    | &#x6052;&#x660C;&#x82B1;&#x56ED;    | &#x5E7F;&#x5B89;&#x95E8;&#x6052;&#x660C;&#x82B1;&#x56ED;&#x897F;&#x5411;&#x4E09;&#x5C45;&#x5BA4;&#x96C6;&#x4E2D;&#x4F9B;&#x6696;             | 3&#x5BA4;2&#x5385;       | 159&#x5E73;&#x7C73; | 13500 | &#x9AD8;&#x697C;&#x5C42;(&#x5171;28&#x5C42;) | 1999&#x5E74;&#x5EFA;&#x5854;&#x697C;   | &#x897F;         | 2017.07.27  | 12       | &#x8DDD;&#x79BB;7&#x53F7;&#x7EBF;&#x8FBE;&#x5B98;&#x8425;&#x7AD9;292&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x96C6;&#x4E2D;&#x4F9B;&#x6696;      | <a href="https://bj.lianjia.com/zufang/101101692254.html" target="_blank">https://bj.lianjia.com/zufang/101101692254.html</a> |
+| 2405 | &#x6B66;&#x5937;&#x82B1;&#x56ED;&#x79DF;&#x623F;   | &#x6708;&#x4EAE;&#x57CE;&#x5821;    | &#x6708;&#x4EAE;&#x57CE;&#x5821;&#x7CBE;&#x88C5;&#x4FEE;&#x6B63;&#x89C4;&#x4E00;&#x5C45; &#x5357;&#x5317;&#x901A;&#x900F; &#x6237;&#x578B;&#x597D;         | 1&#x5BA4;1&#x5385;       | 102&#x5E73;&#x7C73; | 4500  | &#x4F4E;&#x697C;&#x5C42;(&#x5171;11&#x5C42;) | 2005&#x5E74;&#x5EFA;&#x677F;&#x5854;&#x7ED3;&#x5408; | &#x5357; &#x5317;       | 2017.07.27  | 28       | &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x96C6;&#x4E2D;&#x4F9B;&#x6696;                | <a href="https://bj.lianjia.com/zufang/101101495373.html" target="_blank">https://bj.lianjia.com/zufang/101101495373.html</a> |
+| 2639 | &#x5E38;&#x8425;&#x79DF;&#x623F;     | &#x5317;&#x4EAC;&#x50CF;&#x7D20;&#x5357;&#x533A;  | &#x5317;&#x4EAC;&#x50CF;&#x7D20; &#x5730;&#x94C1;6&#x53F7;&#x7EBF;&#x8349;&#x623F; &#x5317;&#x5411;&#x5F00;&#x95F4;            | 1&#x623F;&#x95F4;1&#x536B;      | 48&#x5E73;&#x7C73;  | 3750  | &#x4F4E;&#x697C;&#x5C42;(&#x5171;23&#x5C42;) | 2012&#x5E74;&#x5EFA;&#x677F;&#x5854;&#x7ED3;&#x5408; | &#x5317;         | 2017.07.27  | 3        | &#x8DDD;&#x79BB;6&#x53F7;&#x7EBF;&#x8349;&#x623F;&#x7AD9;66&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x96C6;&#x4E2D;&#x4F9B;&#x6696;    | <a href="https://bj.lianjia.com/zufang/101101852394.html" target="_blank">https://bj.lianjia.com/zufang/101101852394.html</a> |
+| 2366 | &#x9A6C;&#x7538;&#x79DF;&#x623F;     | &#x5317;&#x592A;&#x5E73;&#x5E84;&#x8DEF;   | &#x7261;&#x4E39;&#x56ED;&#x7CBE;&#x88C5;&#x4E00;&#x5C45;&#x5BA4; &#x53EF;&#x5F53;&#x4E24;&#x5C45; 350&#x7C73;&#x5230;10&#x53F7;&#x7EBF; &#x5357;&#x5317;&#x901A;&#x900F; | 1&#x5BA4;1&#x5385;       | 33&#x5E73;&#x7C73;  | 4000  | &#x4F4E;&#x697C;&#x5C42;(&#x5171;5&#x5C42;)  | 1985&#x5E74;&#x5EFA;&#x677F;&#x697C;   | &#x5357;         | 2017.07.27  | 24       | &#x8DDD;&#x79BB;10&#x53F7;&#x7EBF;&#x7261;&#x4E39;&#x56ED;&#x7AD9;335&#x7C73; &#x968F;&#x65F6;&#x770B;&#x623F; &#x7CBE;&#x88C5;&#x4FEE; &#x96C6;&#x4E2D;&#x4F9B;&#x6696; | <a href="https://bj.lianjia.com/zufang/101101622752.html" target="_blank">https://bj.lianjia.com/zufang/101101622752.html</a> |</p>
+</blockquote>
+</li>
+<li><p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x66F4;&#x65B0;&#x65F6;&#x95F4;</p>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x67E5;&#x770B;&#x6240;&#x6709;&#x66F4;&#x65B0;&#x65F6;&#x95F4;</span>
+house_data[<span class="hljs-string">&apos;update_time&apos;</span>].unique()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">array([&apos;2017.07.21&apos;, &apos;2017.07.23&apos;, &apos;2017.07.20&apos;, &apos;2017.07.25&apos;,
+      &apos;2017.07.26&apos;, &apos;2017.07.16&apos;, &apos;2017.07.22&apos;, &apos;2017.07.24&apos;,
+      &apos;2017.07.27&apos;, &apos;2017.07.19&apos;, &apos;2017.07.14&apos;, &apos;2017.07.15&apos;,
+      &apos;2017.07.17&apos;, &apos;2017.07.18&apos;], dtype=object)
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x770B;&#x623F;&#x4EBA;&#x6570;</p>
+<pre><code class="lang-python">house_data[<span class="hljs-string">&apos;view_num&apos;</span>].mean() <span class="hljs-comment">#&#x5E73;&#x5747;&#x503C;</span>
+house_data[<span class="hljs-string">&apos;view_num&apos;</span>].median() <span class="hljs-comment">#&#x4E2D;&#x4F4D;&#x6570;</span>
+</code></pre>
+<ul>
+<li>&#x4E0D;&#x540C;&#x770B;&#x623F;&#x4EBA;&#x6570;&#x7684;&#x623F;&#x6E90;&#x6570;&#x91CF;&#xFF0C;as_index = False &#x5206;&#x7EC4;&#x5B57;&#x6BB5;&#x4E0D;&#x4F5C;&#x4E3A;&#x884C;&#x7D22;&#x5F15;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;True)</li>
+</ul>
+<pre><code class="lang-python">tmp_df = house_data.groupby(<span class="hljs-string">&apos;view_num&apos;</span>,as_index=<span class="hljs-keyword">False</span>)[<span class="hljs-string">&apos;district&apos;</span>].count()
+tmp_df.columns = [<span class="hljs-string">&apos;view_num&apos;</span>, <span class="hljs-string">&apos;count&apos;</span>]
+tmp_df.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|     | view_num | count |
+| ---:| --------:| -----:|
+| 0   | 0        | 152   |
+| 1   | 1        | 149   |
+| 2   | 2        | 143   |
+| 3   | 3        | 129   |
+| 4   | 4        | 147   |</p>
+</blockquote>
+<ul>
+<li>&#x753B;&#x56FE; %matplotlib inline &#x529F;&#x80FD;&#x662F;&#x5728;jupyter notebook&#x4E2D;&#x5185;&#x5D4C;&#x7ED8;&#x56FE;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x6389; plt.show()</li>
+</ul>
+<pre><code class="lang-python">%matplotlib inline
+tmp_df[<span class="hljs-string">&apos;count&apos;</span>].plot(kind=<span class="hljs-string">&apos;bar&apos;</span>,figsize=(<span class="hljs-number">20</span>,<span class="hljs-number">10</span>))
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14e1763fc88&gt;
+</code></pre><p><img src="data:image/png;base64,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" alt="img"></p>
+</blockquote>
+</li>
+<li><p>&#x623F;&#x79DF;&#x4EF7;&#x683C;&#x7684;&#x5206;&#x5E03;</p>
+<pre><code class="lang-python">print(house_data[<span class="hljs-string">&apos;price&apos;</span>].mean())   <span class="hljs-comment">#&#x5E73;&#x5747;&#x503C;</span>
+print(house_data[<span class="hljs-string">&apos;price&apos;</span>].std())    <span class="hljs-comment">#&#x6807;&#x51C6;&#x5DEE;</span>
+print(house_data[<span class="hljs-string">&apos;price&apos;</span>].median())  <span class="hljs-comment">#&#x4E2D;&#x4F4D;&#x6570;</span>
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">7570.800724637681
+6316.204986067457
+6000.0
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x770B;&#x623F;&#x4EBA;&#x6570;&#x6700;&#x591A;&#x7684;&#x671D;&#x5411;</p>
+<pre><code class="lang-python">popular_direction = house_data.groupby(<span class="hljs-string">&apos;direction&apos;</span>,as_index=<span class="hljs-keyword">False</span>)[[<span class="hljs-string">&apos;view_num&apos;</span>]].sum()
+popular_direction[popular_direction[<span class="hljs-string">&apos;view_num&apos;</span>]==popular_direction[<span class="hljs-string">&apos;view_num&apos;</span>].max()]
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|     | direction | view_num |
+|:--- |:--------- |:-------- |
+| 23  | &#x5357; &#x5317;       | 11785    |</p>
+</blockquote>
+</li>
+<li><p>&#x623F;&#x578B;&#x5206;&#x5E03;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-python">house_type_dis = house_data.groupby([<span class="hljs-string">&apos;house_type&apos;</span>]).count()
+%matplotlib inline
+house_type_dis[<span class="hljs-string">&apos;district&apos;</span>].plot(kind=<span class="hljs-string">&apos;bar&apos;</span>) <span class="hljs-comment">#&#x67F1;&#x72B6;&#x56FE;</span>
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14e17db17b8&gt;
+</code></pre><p><img src="data:image/png;base64,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" alt="img"></p>
+</blockquote>
+</li>
+<li><p>&#x6700;&#x53D7;&#x6B22;&#x8FCE;&#x7684;&#x623F;&#x578B;</p>
+<pre><code class="lang-python">tmp = house_data.groupby(<span class="hljs-string">&apos;house_type&apos;</span>,as_index=<span class="hljs-keyword">False</span>).agg({<span class="hljs-string">&apos;view_num&apos;</span>:<span class="hljs-string">&apos;sum&apos;</span>})
+tmp[tmp[<span class="hljs-string">&apos;view_num&apos;</span>]==tmp[<span class="hljs-string">&apos;view_num&apos;</span>].max()]
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|     | house_type | view_num |
+|:--- |:---------- |:-------- |
+| 5   | 2&#x5BA4;1&#x5385;       | 17589    |</p>
+</blockquote>
+</li>
+<li><p>&#x623F;&#x5B50;&#x7684;&#x5E73;&#x5747;&#x79DF;&#x623F;&#x4EF7;&#x683C; &#xFF08;&#x5143;/&#x5E73;&#x7C73;&#xFF09;</p>
+<pre><code class="lang-python">house_data.loc[:,<span class="hljs-string">&apos;price_per_m2&apos;</span>] = house_data[<span class="hljs-string">&apos;price&apos;</span>]/house_data[<span class="hljs-string">&apos;area&apos;</span>]
+house_data[<span class="hljs-string">&apos;price_per_m2&apos;</span>].mean()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">87.72268429900454
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x70ED;&#x95E8;&#x5C0F;&#x533A;</p>
+<pre><code class="lang-python">address_df = house_data[[<span class="hljs-string">&apos;address&apos;</span>,<span class="hljs-string">&apos;view_num&apos;</span>]].groupby([<span class="hljs-string">&apos;address&apos;</span>],as_index=<span class="hljs-keyword">False</span>).sum()
+address_df.sort_values(by=<span class="hljs-string">&apos;view_num&apos;</span>, ascending=<span class="hljs-keyword">False</span>).head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|      | address | view_num |
+|:---- |:------- |:-------- |
+| 951  | &#x6E05;&#x82B7;&#x56ED;     | 246      |
+| 369  | &#x5361;&#x5E03;&#x5176;&#x8BFA;    | 245      |
+| 938  | &#x6DA6;&#x67AB;&#x6C34;&#x5C1A;    | 217      |
+| 1149 | &#x828D;&#x836F;&#x5C45;&#x5317;&#x91CC;   | 194      |
+| 743  | &#x65B0;&#x5EB7;&#x56ED;     | 186      |</p>
+</blockquote>
+</li>
+<li><p>&#x51FA;&#x79DF;&#x623F;&#x6E90;&#x6700;&#x591A;&#x7684;&#x5C0F;&#x533A;</p>
+<pre><code class="lang-python">tmp_df2 = house_data[[<span class="hljs-string">&apos;address&apos;</span>,<span class="hljs-string">&apos;view_num&apos;</span>]].groupby([<span class="hljs-string">&apos;address&apos;</span>],as_index=<span class="hljs-keyword">False</span>).count()
+tmp_df2.columns =  [<span class="hljs-string">&apos;address&apos;</span>,<span class="hljs-string">&apos;count&apos;</span>]
+tmp_df2.nlargest(columns=<span class="hljs-string">&apos;count&apos;</span>, n=<span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>|      | address | count |
+|:---- |:------- | ----- |
+| 1288 | &#x8FDC;&#x6D0B;&#x5C71;&#x6C34;    | 19    |</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h2>
+<ul>
+<li>&#x638C;&#x63E1;&#x5728;Pandas&#x4E2D;&#x8BA1;&#x7B97;&#x5E38;&#x7528;&#x7EDF;&#x8BA1;&#x91CF;&#x7684;&#x65B9;&#x6CD5;<ul>
+<li>info &#x4E86;&#x89E3;&#x4E0D;&#x540C;&#x5B57;&#x6BB5;&#x7684;&#x6761;&#x76EE;&#x6570;&#x91CF;&#xFF0C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x662F;&#x5426;&#x7F3A;&#x5931;&#x53CA;&#x5185;&#x5B58;&#x5360;&#x7528;&#x60C5;&#x51B5;</li>
+<li>describe &#x8BA1;&#x7B97;&#x6570;&#x503C;&#x7C7B;&#x578B;&#x6570;&#x636E;&#x7684;&#x5E38;&#x7528;&#x7EDF;&#x8BA1;&#x91CF;</li>
+</ul>
+</li>
+<li>&#x719F;&#x7EC3;&#x4F7F;&#x7528;pandas&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x6392;&#x5E8F;&#x3001;&#x5206;&#x7EC4;&#x3001;&#x805A;&#x5408;&#x7B49;&#x8BA1;&#x7B97;<ul>
+<li>nlargest              &#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x7684;&#x524D;n&#x4E2A;&#x6700;&#x5927;&#x503C;</li>
+<li>nsmallest           &#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x7684;&#x524D;n&#x4E2A;&#x6700;&#x5C0F;&#x503C;</li>
+<li>sort_values        &#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#xFF0C;&#x6309;&#x503C;&#x6392;&#x5E8F;</li>
+<li>groupby             &#x6309;&#x5B57;&#x6BB5;&#x5206;&#x7EC4;</li>
+<li>agg                     &#x5206;&#x7EC4;&#x4E4B;&#x540E;&#x805A;&#x5408; </li>
+</ul>
+</li>
+</ul>
+<footer class="page-footer"><span class="copyright">&#xA9;2021.4 &#x539F;&#x6EE1; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-04-20 10:28:12
+</span></footer>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./04_Pandas_数据结构.html" class="navigation navigation-prev " aria-label="Previous page: Pandas_数据结构"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./第3章-06-09_Pandas数据清洗.html" class="navigation navigation-next " aria-label="Next page: Pandas数据清洗"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-toc2/toc2.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"expandable-chapters-small":{},"toc2":{"addClass":true,"className":"toc"},"tbfed-pagefooter":{"copyright":"©2021.4 原满","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"back-to-top-button":{},"chapter-fold":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,1604 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>数据组合 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toc2/toc2.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-tbfed-pagefooter/footer.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./07_缺失数据处理.html" />
+    
+    
+    <link rel="prev" href="./第3章-06-09_Pandas数据清洗.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.1"
+        data-chapter-title="数据组合"
+        data-filepath="06_数据组合.md"
+        data-basepath="."
+        data-revision="Tue Apr 20 2021 11:46:25 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="第1章-01-02_介绍及环境搭建.html">
+            
+                
+                    <a href="./第1章-01-02_介绍及环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Python数据分析介绍及环境搭建
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01_Python数据分析简介.html">
+            
+                
+                    <a href="./01_Python数据分析简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Python数据分析简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="02_Python数据分析开发环境搭建.html">
+            
+                
+                    <a href="./02_Python数据分析开发环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Python数据分析环境搭建
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="第2章-03-05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./第2章-03-05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="03_Pandas的DataFrame.html">
+            
+                
+                    <a href="./03_Pandas的DataFrame.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Pandas的DataFrame
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="04_Pandas_数据结构.html">
+            
+                
+                    <a href="./04_Pandas_数据结构.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Pandas_数据结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="第3章-06-09_Pandas数据清洗.html">
+            
+                
+                    <a href="./第3章-06-09_Pandas数据清洗.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Pandas数据清洗
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.1" data-path="06_数据组合.html">
+            
+                
+                    <a href="./06_数据组合.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        数据组合
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="07_缺失数据处理.html">
+            
+                
+                    <a href="./07_缺失数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        缺失数据处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="08_整理数据.html">
+            
+                
+                    <a href="./08_整理数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        数据整理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="09_Pandas数据类型.html">
+            
+                
+                    <a href="./09_Pandas数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Pandas数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="第4章-10-13_Pandas数据处理.html">
+            
+                
+                    <a href="./第4章-10-13_Pandas数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Pandas数据处理
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="10_Apply自定义函数.html">
+            
+                
+                    <a href="./10_Apply自定义函数.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Apply自定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="11_数据分组.html">
+            
+                
+                    <a href="./11_数据分组.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        数据分组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="12_数据透视表.html">
+            
+                
+                    <a href="./12_数据透视表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        数据透视表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="13_datetime数据类型.html">
+            
+                
+                    <a href="./13_datetime数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        datetime数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="第5章-14-17_Python数据可视化.html">
+            
+                
+                    <a href="./第5章-14-17_Python数据可视化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Python数据可视化
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="14_Matplotlib绘图.html">
+            
+                
+                    <a href="./14_Matplotlib绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Matplotlib绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="15_Pandas绘图.html">
+            
+                
+                    <a href="./15_Pandas绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Pandas绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="16_Seaborn绘图.html">
+            
+                
+                    <a href="./16_Seaborn绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Seaborn绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="17_Pyecharts绘图.html">
+            
+                
+                    <a href="./17_Pyecharts绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        Pyecharts绘图
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="第6章-18-20_综合案例.html">
+            
+                
+                    <a href="./第6章-18-20_综合案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        综合案例
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="18_综合案例_Appstore数据分析.html">
+            
+                
+                    <a href="./18_综合案例_Appstore数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        综合案例_Appstore数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="19_综合案例_优衣库销售数据分析.html">
+            
+                
+                    <a href="./19_综合案例_优衣库销售数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        综合案例_优衣库销售数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="20_综合案例_RFM用户分群.html">
+            
+                
+                    <a href="./20_综合案例_RFM用户分群.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        综合案例_RFM用户分群
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x6570;&#x636E;&#x7EC4;&#x5408;">&#x6570;&#x636E;&#x7EC4;&#x5408;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x719F;&#x7EC3;&#x4F7F;&#x7528;Pandas&#x8FDE;&#x63A5;&#x6570;&#x636E;</li>
+<li>&#x719F;&#x7EC3;&#x4F7F;&#x7528;Pandas&#x5408;&#x5E76;&#x6570;&#x636E;&#x96C6;</li>
+</ul>
+<h2 id="1-&#x7B80;&#x4ECB;">1 &#x7B80;&#x4ECB;</h2>
+<ul>
+<li>&#x5728;&#x52A8;&#x624B;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5206;&#x6790;&#x5DE5;&#x4F5C;&#x4E4B;&#x524D;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;&#xFF0C;&#x6570;&#x636E;&#x6E05;&#x7406;&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x6807;&#x662F;<ul>
+<li>&#x6BCF;&#x4E2A;&#x89C2;&#x6D4B;&#x503C;&#x6210;&#x4E00;&#x884C;</li>
+<li>&#x6BCF;&#x4E2A;&#x53D8;&#x91CF;&#x6210;&#x4E00;&#x5217;</li>
+<li>&#x6BCF;&#x79CD;&#x89C2;&#x6D4B;&#x5355;&#x5143;&#x6784;&#x6210;&#x4E00;&#x5F20;&#x8868;&#x683C;</li>
+</ul>
+</li>
+<li>&#x6570;&#x636E;&#x6574;&#x7406;&#x597D;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x591A;&#x5F20;&#x8868;&#x683C;&#x7EC4;&#x5408;&#x5230;&#x4E00;&#x8D77;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x67D0;&#x4E9B;&#x95EE;&#x9898;&#x7684;&#x5206;&#x6790;<ul>
+<li>&#x4E00;&#x5F20;&#x8868;&#x4FDD;&#x5B58;&#x516C;&#x53F8;&#x540D;&#x79F0;&#xFF0C;&#x53E6;&#x4E00;&#x5F20;&#x8868;&#x4FDD;&#x5B58;&#x80A1;&#x7968;&#x4EF7;&#x683C;</li>
+<li>&#x5355;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x5206;&#x5272;&#x6210;&#x591A;&#x4E2A;&#xFF0C;&#x6BD4;&#x5982;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x6BCF;&#x4E2A;&#x65E5;&#x671F;&#x53EF;&#x80FD;&#x518D;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6587;&#x4EF6;&#x4E2D;</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-&#x8FDE;&#x63A5;&#x6570;&#x636E;">2 &#x8FDE;&#x63A5;&#x6570;&#x636E;</h2>
+<ul>
+<li>&#x7EC4;&#x5408;&#x6570;&#x636E;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;&#x201C;&#x8FDE;&#x63A5;&#x201D;&#xFF08;concatenation)<ul>
+<li>&#x8FDE;&#x63A5;&#x662F;&#x6307;&#x628A;&#x67D0;&#x884C;&#x6216;&#x67D0;&#x5217;&#x8FFD;&#x52A0;&#x5230;&#x6570;&#x636E;&#x4E2D;</li>
+<li>&#x6570;&#x636E;&#x88AB;&#x5206;&#x6210;&#x4E86;&#x591A;&#x4EFD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FDE;&#x63A5;&#x628A;&#x6570;&#x636E;&#x62FC;&#x63A5;&#x8D77;&#x6765;</li>
+<li>&#x628A;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x8FFD;&#x52A0;&#x5230;&#x73B0;&#x6709;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FDE;&#x63A5;</li>
+</ul>
+</li>
+</ul>
+<h3 id="21-&#x6DFB;&#x52A0;&#x884C;">2.1 &#x6DFB;&#x52A0;&#x884C;</h3>
+<ul>
+<li><p>&#x52A0;&#x8F7D;&#x591A;&#x4EFD;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x8FDE;&#x63A5;&#x8D77;&#x6765;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+df1 = pd.read_csv(<span class="hljs-string">&apos;data/concat_1.csv&apos;</span>)
+df2 = pd.read_csv(<span class="hljs-string">&apos;data/concat_2.csv&apos;</span>)
+df3 = pd.read_csv(<span class="hljs-string">&apos;data/concat_3.csv&apos;</span>)
+print(df1)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(df2)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D
+0  a4  b4  c4  d4
+1  a5  b5  c5  d5
+2  a6  b6  c6  d6
+3  a7  b7  c7  d7
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(df3)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">        A    B    C    D
+0   a8   b8   c8   d8
+1   a9   b9   c9   d9
+2  a10  b10  c10  d10
+3  a11  b11  c11  d11
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;concat&#x51FD;&#x6570;&#x5C06;&#x4E0A;&#x9762;3&#x4E2A;DataFrame&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x9700;&#x5C06;3&#x4E2A;DataFrame&#x653E;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x4E2D;</li>
+</ul>
+<pre><code class="lang-python">row_concat = pd.concat([df1,df2,df3])
+print(row_concat)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">        A    B    C    D
+0   a0   b0   c0   d0
+1   a1   b1   c1   d1
+2   a2   b2   c2   d2
+3   a3   b3   c3   d3
+0   a4   b4   c4   d4
+1   a5   b5   c5   d5
+2   a6   b6   c6   d6
+3   a7   b7   c7   d7
+0   a8   b8   c8   d8
+1   a9   b9   c9   d9
+2  a10  b10  c10  d10
+3  a11  b11  c11  d11
+</code></pre>
+<ul>
+<li>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;concat&#x51FD;&#x6570;&#x628A;3&#x4E2A;DataFrame&#x8FDE;&#x63A5;&#x5728;&#x4E86;&#x4E00;&#x8D77;&#xFF08;&#x7B80;&#x5355;&#x5806;&#x53E0;&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; iloc ,loc&#x7B49;&#x65B9;&#x6CD5;&#x53D6;&#x51FA;&#x8FDE;&#x63A5;&#x540E;&#x7684;&#x6570;&#x636E;&#x7684;&#x5B50;&#x96C6;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">row_concat.iloc[<span class="hljs-number">3</span>,]
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">A    a3
+B    b3
+C    c3
+D    d3
+Name: 3, dtype: object
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">row_concat.loc[<span class="hljs-number">3</span>,]
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">    A    B    C    D
+3   a3   b3   c3   d3
+3   a7   b7   c7   d7
+3  a11  b11  c11  d11
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x4F7F;&#x7528;concat&#x8FDE;&#x63A5;DataFrame&#x548C;Series</p>
+<pre><code class="lang-python">new_series = pd.Series([<span class="hljs-string">&apos;n1&apos;</span>,<span class="hljs-string">&apos;n2&apos;</span>,<span class="hljs-string">&apos;n3&apos;</span>,<span class="hljs-string">&apos;n4&apos;</span>])
+print(new_series)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">0    n1
+1    n2
+2    n3
+3    n4
+dtype: object
+</code></pre>
+<pre><code class="lang-python">pd.concat([df1,new_series])
+</code></pre>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | A    | B    | C    | D    | 0    |
+| ---: | :--- | :--- | :--- | :--- | ---- |
+|    0 | a0   | b0   | c0   | d0   | NaN  |
+|    1 | a1   | b1   | c1   | d1   | NaN  |
+|    2 | a2   | b2   | c2   | d2   | NaN  |
+|    3 | a3   | b3   | c3   | d3   | NaN  |
+|    0 | NaN  | NaN  | NaN  | NaN  | n1   |
+|    1 | NaN  | NaN  | NaN  | NaN  | n2   |
+|    2 | NaN  | NaN  | NaN  | NaN  | n3   |
+|    3 | NaN  | NaN  | NaN  | NaN  | n4   |</p>
+</blockquote>
+<ul>
+<li>&#x4E0A;&#x9762;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x5305;&#x542B;NaN&#x503C;&#xFF0C;NaN&#x662F;Python&#x7528;&#x4E8E;&#x8868;&#x793A;&#x201C;&#x7F3A;&#x5931;&#x503C;&#x201D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x7531;&#x4E8E;Series&#x662F;&#x5217;&#x6570;&#x636E;&#xFF0C;concat&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x662F;&#x6DFB;&#x52A0;&#x884C;&#xFF0C;&#x7531;&#x4E8E;Series&#x6570;&#x636E;&#x6CA1;&#x6709;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x6240;&#x4EE5;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x5217;&#xFF0C;&#x7F3A;&#x5931;&#x7684;&#x6570;&#x636E;&#x7528;NaN&#x586B;&#x5145;</li>
+<li>&#x5982;&#x679C;&#x60F3;&#x5C06;[&apos;n1&apos;,&apos;n2&apos;,&apos;n3&apos;,&apos;n4&apos;]&#x4F5C;&#x4E3A;&#x884C;&#x8FDE;&#x63A5;&#x5230;df1&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;DataFrame&#x5E76;&#x6307;&#x5B9A;&#x5217;&#x540D;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x6CE8;&#x610F;[[&apos;n1&apos;,&apos;n2&apos;,&apos;n3&apos;,&apos;n4&apos;]] &#x662F;&#x4E24;&#x4E2A;&#x4E2D;&#x62EC;&#x53F7;</span>
+new_row_df = pd.DataFrame([[<span class="hljs-string">&apos;n1&apos;</span>,<span class="hljs-string">&apos;n2&apos;</span>,<span class="hljs-string">&apos;n3&apos;</span>,<span class="hljs-string">&apos;n4&apos;</span>]],columns=[<span class="hljs-string">&apos;A&apos;</span>,<span class="hljs-string">&apos;B&apos;</span>,<span class="hljs-string">&apos;C&apos;</span>,<span class="hljs-string">&apos;D&apos;</span>])
+print(new_row_df)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">       A   B   C   D
+0  n1  n2  n3  n4
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(pd.concat([df1,new_row_df]))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">       A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+0  n1  n2  n3  n4
+</code></pre>
+</blockquote>
+</li>
+<li><p>concat&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x9700;&#x8981;&#x5411;&#x73B0;&#x6709;DataFrame&#x8FFD;&#x52A0;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;append&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-python">print(df1.append(df2))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code>      A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+0  a4  b4  c4  d4
+1  a5  b5  c5  d5
+2  a6  b6  c6  d6
+3  a7  b7  c7  d7
+</code></pre></blockquote>
+<pre><code class="lang-python">print(df1.append(new_row_df))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+0  n1  n2  n3  n4
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528;Python&#x5B57;&#x5178;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#x884C;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">data_dict = {<span class="hljs-string">&apos;A&apos;</span>:<span class="hljs-string">&apos;n1&apos;</span>,<span class="hljs-string">&apos;B&apos;</span>:<span class="hljs-string">&apos;n2&apos;</span>,<span class="hljs-string">&apos;C&apos;</span>:<span class="hljs-string">&apos;n3&apos;</span>,<span class="hljs-string">&apos;D&apos;</span>:<span class="hljs-string">&apos;n4&apos;</span>}
+df1.append(data_dict,ignore_index=<span class="hljs-keyword">True</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+4  n1  n2  n3  n4
+</code></pre>
+<ul>
+<li>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5411;DataFrame&#x4E2D;append&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FC5;&#x987B;&#x4F20;&#x5165;ignore_index = True</li>
+<li>&#x5982;&#x679C;&#x662F;&#x4E24;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;DataFrame&#x8FDE;&#x63A5;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;ignore_index = True&#x53C2;&#x6570;&#xFF0C;&#x5FFD;&#x7565;&#x540E;&#x9762;DataFrame&#x7684;&#x7D22;&#x5F15;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">row_concat_ignore_index = pd.concat([df1,df2,df3],ignore_index=<span class="hljs-keyword">True</span>)
+print(row_concat_ignore_index)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">         A    B    C    D
+0    a0   b0   c0   d0
+1    a1   b1   c1   d1
+2    a2   b2   c2   d2
+3    a3   b3   c3   d3
+4    a4   b4   c4   d4
+5    a5   b5   c5   d5
+6    a6   b6   c6   d6
+7    a7   b7   c7   d7
+8    a8   b8   c8   d8
+9    a9   b9   c9   d9
+10  a10  b10  c10  d10
+11  a11  b11  c11  d11
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="22-&#x6DFB;&#x52A0;&#x5217;">2.2 &#x6DFB;&#x52A0;&#x5217;</h3>
+<ul>
+<li><p>&#x4F7F;&#x7528;concat&#x51FD;&#x6570;&#x6DFB;&#x52A0;&#x5217;&#xFF0C;&#x4E0E;&#x6DFB;&#x52A0;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#xFF0C;&#x9700;&#x8981;&#x591A;&#x4F20;&#x4E00;&#x4E2A;axis&#x53C2;&#x6570; axis&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x662F;index &#x6309;&#x884C;&#x6DFB;&#x52A0;&#xFF0C;&#x4F20;&#x5165;&#x53C2;&#x6570; axis = columns &#x5373;&#x53EF;&#x6309;&#x5217;&#x6DFB;&#x52A0;</p>
+<pre><code class="lang-python">col_concat = pd.concat([df1,df2,df3],axis=<span class="hljs-number">1</span>)
+print(col_concat)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D   A   B   C   D    A    B    C    D
+0  a0  b0  c0  d0  a4  b4  c4  d4   a8   b8   c8   d8
+1  a1  b1  c1  d1  a5  b5  c5  d5   a9   b9   c9   d9
+2  a2  b2  c2  d2  a6  b6  c6  d6  a10  b10  c10  d10
+3  a3  b3  c3  d3  a7  b7  c7  d7  a11  b11  c11  d11
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x901A;&#x8FC7;&#x5217;&#x540D;&#x83B7;&#x53D6;&#x5B50;&#x96C6;</li>
+</ul>
+<pre><code class="lang-python">print(col_concat[<span class="hljs-string">&apos;A&apos;</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code>      A   A    A
+0  a0  a4   a8
+1  a1  a5   a9
+2  a2  a6  a10
+3  a3  a7  a11
+</code></pre><ul>
+<li>&#x5411;DataFrame&#x6DFB;&#x52A0;&#x4E00;&#x5217;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;dataframe[&apos;&#x5217;&#x540D;&apos;] = [&apos;&#x503C;&apos;] &#x5373;&#x53EF;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">col_concat[<span class="hljs-string">&apos;new_col&apos;</span>] = [<span class="hljs-string">&apos;n1&apos;</span>,<span class="hljs-string">&apos;n2&apos;</span>,<span class="hljs-string">&apos;n3&apos;</span>,<span class="hljs-string">&apos;n4&apos;</span>]
+print(col_concat)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code>      A   B   C   D   A   B   C   D    A    B    C    D   new_col
+0  a0  b0  c0  d0  a4  b4  c4  d4   a8   b8   c8   d8      n1
+1  a1  b1  c1  d1  a5  b5  c5  d5   a9   b9   c9   d9      n2
+2  a2  b2  c2  d2  a6  b6  c6  d6  a10  b10  c10  d10      n3
+3  a3  b3  c3  d3  a7  b7  c7  d7  a11  b11  c11  d11      n4
+</code></pre><ul>
+<li>&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;dataframe[&apos;&#x5217;&#x540D;&apos;] = Series&#x5BF9;&#x8C61; &#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6DFB;&#x52A0;&#x4E00;&#x5217;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">col_concat[<span class="hljs-string">&apos;new_col_series&apos;</span>] = pd.Series([<span class="hljs-string">&apos;n1&apos;</span>,<span class="hljs-string">&apos;n2&apos;</span>,<span class="hljs-string">&apos;n3&apos;</span>,<span class="hljs-string">&apos;n4&apos;</span>])
+col_concat
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D   A   B   C   D    A    B    C    D   new_col  new_col_series
+0  a0  b0  c0  d0  a4  b4  c4  d4   a8   b8   c8   d8      n1             n1
+1  a1  b1  c1  d1  a5  b5  c5  d5   a9   b9   c9   d9      n2             n2
+2  a2  b2  c2  d2  a6  b6  c6  d6  a10  b10  c10  d10      n3             n3
+3  a3  b3  c3  d3  a7  b7  c7  d7  a11  b11  c11  d11      n4             n4
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x6309;&#x5217;&#x5408;&#x5E76;&#x6570;&#x636E;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x91CD;&#x7F6E;&#x5217;&#x7D22;&#x5F15;&#xFF0C;&#x83B7;&#x5F97;&#x6709;&#x5E8F;&#x7D22;&#x5F15;</li>
+</ul>
+<pre><code class="lang-python">print(pd.concat([df1,df2,df3],axis = <span class="hljs-string">&apos;columns&apos;</span>,ignore_index=<span class="hljs-keyword">True</span>))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code>     0   1   2   3   4   5   6   7    8    9    10   11
+0  a0  b0  c0  d0  a4  b4  c4  d4   a8   b8   c8   d8
+1  a1  b1  c1  d1  a5  b5  c5  d5   a9   b9   c9   d9
+2  a2  b2  c2  d2  a6  b6  c6  d6  a10  b10  c10  d10
+3  a3  b3  c3  d3  a7  b7  c7  d7  a11  b11  c11  d11
+</code></pre></blockquote>
+</li>
+</ul>
+<h3 id="23-concat&#x8FDE;&#x63A5;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x884C;&#x5217;&#x7D22;&#x5F15;&#x7684;&#x6570;&#x636E;">2.3 concat&#x8FDE;&#x63A5;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x884C;&#x5217;&#x7D22;&#x5F15;&#x7684;&#x6570;&#x636E;</h3>
+<ul>
+<li><p>&#x5C06;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;&#x505A;&#x8C03;&#x6574;&#xFF0C;&#x4FEE;&#x6539;&#x5217;&#x540D;</p>
+<pre><code class="lang-python">df1.columns = [<span class="hljs-string">&apos;A&apos;</span>,<span class="hljs-string">&apos;B&apos;</span>,<span class="hljs-string">&apos;C&apos;</span>,<span class="hljs-string">&apos;D&apos;</span>]
+df2.columns = [<span class="hljs-string">&apos;E&apos;</span>,<span class="hljs-string">&apos;F&apos;</span>,<span class="hljs-string">&apos;G&apos;</span>,<span class="hljs-string">&apos;H&apos;</span>]
+df3.columns = [<span class="hljs-string">&apos;A&apos;</span>,<span class="hljs-string">&apos;C&apos;</span>,<span class="hljs-string">&apos;F&apos;</span>,<span class="hljs-string">&apos;H&apos;</span>]
+</code></pre>
+<pre><code class="lang-python">print(df1)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(df2)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      E   F   G   H
+0  a4  b4  c4  d4
+1  a5  b5  c5  d5
+2  a6  b6  c6  d6
+3  a7  b7  c7  d7
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(df3)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">        A    C    F    H
+0   a8   b8   c8   d8
+1   a9   b9   c9   d9
+2  a10  b10  c10  d10
+3  a11  b11  c11  d11
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528;concat&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#xFF0C;&#x6570;&#x636E;&#x4F1A;&#x5806;&#x53E0;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x5217;&#x540D;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x4F1A;&#x5408;&#x5E76;&#x5230;&#x4E00;&#x5217;&#xFF0C;&#x5408;&#x5E76;&#x540E;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6570;&#x636E;&#x4F1A;&#x7528;NaN&#x586B;&#x5145;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">row_concat = pd.concat([df1,df2,df3])
+print(row_concat)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">        A    B    C    D    E    F    G    H
+0   a0   b0   c0   d0  NaN  NaN  NaN  NaN
+1   a1   b1   c1   d1  NaN  NaN  NaN  NaN
+2   a2   b2   c2   d2  NaN  NaN  NaN  NaN
+3   a3   b3   c3   d3  NaN  NaN  NaN  NaN
+0  NaN  NaN  NaN  NaN   a4   b4   c4   d4
+1  NaN  NaN  NaN  NaN   a5   b5   c5   d5
+2  NaN  NaN  NaN  NaN   a6   b6   c6   d6
+3  NaN  NaN  NaN  NaN   a7   b7   c7   d7
+0   a8  NaN   b8  NaN  NaN   c8  NaN   d8
+1   a9  NaN   b9  NaN  NaN   c9  NaN   d9
+2  a10  NaN  b10  NaN  NaN  c10  NaN  d10
+3  a11  NaN  b11  NaN  NaN  c11  NaN  d11
+</code></pre>
+<ul>
+<li>&#x5982;&#x679C;&#x5728;&#x8FDE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x60F3;&#x4FDD;&#x7559;&#x6240;&#x6709;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x90FD;&#x6709;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;join&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&apos;outer&apos;&#x4FDD;&#x7559;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;&apos;inner&apos; &#x53EA;&#x4FDD;&#x7559;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x5171;&#x6709;&#x90E8;&#x5206;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">print(pd.concat([df1,df2,df3],join=<span class="hljs-string">&apos;inner&apos;</span>))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">Empty DataFrame
+Columns: []
+Index: [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(pd.concat([df1,df3],join=<span class="hljs-string">&apos;inner&apos;</span>))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">        A    C
+0   a0   c0
+1   a1   c1
+2   a2   c2
+3   a3   c3
+0   a8   b8
+1   a9   b9
+2  a10  b10
+3  a11  b11
+</code></pre>
+<ul>
+<li>&#x8FDE;&#x63A5;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x884C;&#x7D22;&#x5F15;&#x7684;&#x6570;&#x636E;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">df1.index = [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+df2.index = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]
+df3.index = [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>]
+</code></pre>
+<pre><code class="lang-python">print(df1)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">       A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(df2)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      E   F   G   H
+4  a4  b4  c4  d4
+5  a5  b5  c5  d5
+6  a6  b6  c6  d6
+7  a7  b7  c7  d7
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">print(df3)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">        A    C    F    H
+0   a8   b8   c8   d8
+2   a9   b9   c9   d9
+5  a10  b10  c10  d10
+7  a11  b11  c11  d11
+</code></pre>
+<ul>
+<li>&#x4F20;&#x5165;axis = &apos;columns&apos; &#xFF0C;&#x8FDE;&#x63A5;&#x540E;&#x7684;DataFrame&#x6309;&#x5217;&#x6DFB;&#x52A0;&#xFF0C;&#x5E76;&#x5339;&#x914D;&#x5404;&#x81EA;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x7F3A;&#x5931;&#x503C;&#x7528;NaN&#x8868;&#x793A;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">col_concat = pd.concat([df1,df2,df3],axis=<span class="hljs-string">&apos;columns&apos;</span>)
+print(col_concat)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">        A    B    C    D    E    F    G    H    A    C    F    H
+0   a0   b0   c0   d0  NaN  NaN  NaN  NaN   a8   b8   c8   d8
+1   a1   b1   c1   d1  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN
+2   a2   b2   c2   d2  NaN  NaN  NaN  NaN   a9   b9   c9   d9
+3   a3   b3   c3   d3  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN
+4  NaN  NaN  NaN  NaN   a4   b4   c4   d4  NaN  NaN  NaN  NaN
+5  NaN  NaN  NaN  NaN   a5   b5   c5   d5  a10  b10  c10  d10
+6  NaN  NaN  NaN  NaN   a6   b6   c6   d6  NaN  NaN  NaN  NaN
+7  NaN  NaN  NaN  NaN   a7   b7   c7   d7  a11  b11  c11  d11
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x4F7F;&#x7528;join = &apos;inner&apos;&#x53C2;&#x6570;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x7D22;&#x5F15;&#x5339;&#x914D;&#x7684;&#x7ED3;&#x679C;</li>
+</ul>
+<pre><code class="lang-python">print(pd.concat([df1,df3],axis = <span class="hljs-number">1</span>,join = <span class="hljs-string">&apos;inner&apos;</span>))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">      A   B   C   D   A   C   F   H
+0  a0  b0  c0  d0  a8  b8  c8  d8
+2  a2  b2  c2  d2  a9  b9  c9  d9
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-&#x5408;&#x5E76;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x96C6;">3 &#x5408;&#x5E76;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x96C6;</h2>
+<ul>
+<li><p>&#x5728;&#x4F7F;&#x7528;concat&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x6D89;&#x53CA;&#x5230;&#x4E86;&#x53C2;&#x6570;join&#xFF08;join = &apos;inner&apos;,join = &apos;outer&apos;&#xFF09;</p>
+</li>
+<li><p>&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x53EF;&#x4EE5;&#x4F9D;&#x636E;&#x5171;&#x6709;&#x6570;&#x636E;&#x628A;&#x4E24;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x8868;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x5373;join&#x64CD;&#x4F5C;</p>
+</li>
+<li><p>DataFrame &#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x6570;&#x636E;&#x5E93;&#x7684;join&#x64CD;&#x4F5C;</p>
+</li>
+<li><p>Pandas&#x53EF;&#x4EE5;&#x901A;&#x8FC7;pd.join&#x547D;&#x4EE4;&#x7EC4;&#x5408;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;pd.merge&#x547D;&#x4EE4;&#x7EC4;&#x5408;&#x6570;&#x636E;</p>
+<ul>
+<li>merge&#x66F4;&#x7075;&#x6D3B;</li>
+<li>&#x5982;&#x679C;&#x60F3;&#x4F9D;&#x636E;&#x884C;&#x7D22;&#x5F15;&#x6765;&#x5408;&#x5E76;DataFrame&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528;join&#x51FD;&#x6570;</li>
+</ul>
+</li>
+<li><p>&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sqlalchemy <span class="hljs-keyword">import</span> create_engine
+<span class="hljs-comment">#&#x9700;&#x8981;&#x5B89;&#x88C5;sqlalchemy  pip install sqlalchemy</span>
+engine = create_engine(<span class="hljs-string">&apos;sqlite:///data/chinook.db&apos;</span>)
+<span class="hljs-comment">#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</span>
+tracks = pd.read_sql_table(<span class="hljs-string">&apos;tracks&apos;</span>, engine)
+tracks.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | TrackId |                                    Name | AlbumId | MediaTypeId | GenreId |                                          Composer | Milliseconds |    Bytes | UnitPrice |
+| ---: | ------: | --------------------------------------: | ------: | ----------: | ------: | ------------------------------------------------: | -----------: | -------: | --------: |
+|    0 |       1 | For Those About To Rock (We Salute You) |       1 |           1 |       1 |         Angus Young, Malcolm Young, Brian Johnson |       343719 | 11170334 |      0.99 |
+|    1 |       2 |                       Balls to the Wall |       2 |           2 |       1 |                                              None |       342562 |  5510424 |      0.99 |
+|    2 |       3 |                         Fast As a Shark |       3 |           2 |       1 | F. Baltes, S. Kaufman, U. Dirkscneider &amp; W. Ho... |       230619 |  3990994 |      0.99 |
+|    3 |       4 |                       Restless and Wild |       3 |           2 |       1 | F. Baltes, R.A. Smith-Diesel, S. Kaufman, U. D... |       252051 |  4331779 |      0.99 |
+|    4 |       5 |                    Princess of the Dawn |       3 |           2 |       1 |                        Deaffy &amp; R.A. Smith-Diesel |       375418 |  6290521 |      0.99 |</p>
+</blockquote>
+<ul>
+<li>read_sql_table&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x8BFB;&#x53D6;&#x8868;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x8868;&#x540D;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;</li>
+</ul>
+<pre><code class="lang-python">genres = pd.read_sql_table(<span class="hljs-string">&apos;genres&apos;</span>, engine)
+print(genres)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">   GenreId                Name
+0         1                Rock
+1         2                Jazz
+2         3               Metal
+3         4  Alternative &amp; Punk
+4         5       Rock And Roll
+5         6               Blues
+6         7               Latin
+7         8              Reggae
+8         9                 Pop
+9        10          Soundtrack
+10       11          Bossa Nova
+11       12      Easy Listening
+12       13         Heavy Metal
+13       14            R&amp;B/Soul
+14       15   Electronica/Dance
+15       16               World
+16       17         Hip Hop/Rap
+17       18     Science Fiction
+18       19            TV Shows
+19       20    Sci Fi &amp; Fantasy
+20       21               Drama
+21       22              Comedy
+22       23         Alternative
+23       24           Classical
+24       25               Opera
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="31-&#x4E00;&#x5BF9;&#x4E00;&#x5408;&#x5E76;">3.1 &#x4E00;&#x5BF9;&#x4E00;&#x5408;&#x5E76;</h3>
+<ul>
+<li><p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x5408;&#x5E76;&#x53EA;&#x6D89;&#x53CA;&#x4E24;&#x4E2A;DataFrame&#x2014;&#x2014;&#x628A;&#x4E00;&#x5217;&#x4E0E;&#x53E6;&#x4E00;&#x5217;&#x8FDE;&#x63A5;&#xFF0C;&#x4E14;&#x8981;&#x8FDE;&#x63A5;&#x7684;&#x5217;&#x4E0D;&#x542B;&#x4EFB;&#x4F55;&#x91CD;&#x590D;&#x503C;</p>
+<ul>
+<li>&#x5148;&#x4ECE;tracks&#x4E2D;&#x63D0;&#x53D6;&#x90E8;&#x5206;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x5176;&#x4E0D;&#x542B;&#x91CD;&#x590D;&#x7684;&apos;GenreId&apos;&#x503C;</li>
+</ul>
+<pre><code class="lang-python">tracks_subset = tracks.loc[[<span class="hljs-number">0</span>,<span class="hljs-number">62</span>,<span class="hljs-number">76</span>,<span class="hljs-number">98</span>,<span class="hljs-number">110</span>,<span class="hljs-number">193</span>,<span class="hljs-number">204</span>,<span class="hljs-number">281</span>,<span class="hljs-number">322</span>,<span class="hljs-number">359</span>],]
+tracks_subset
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | TrackId |                                    Name | AlbumId | MediaTypeId | GenreId |                                          Composer | Milliseconds |    Bytes | UnitPrice |
+| ---: | ------: | --------------------------------------: | ------: | ----------: | ------: | ------------------------------------------------: | -----------: | -------: | --------- |
+|    0 |       1 | For Those About To Rock (We Salute You) |       1 |           1 |       1 |         Angus Young, Malcolm Young, Brian Johnson |       343719 | 11170334 | 0.99      |
+|   62 |      63 |                              Desafinado |       8 |           1 |       2 |                                              None |       185338 |  5990473 | 0.99      |
+|   76 |      77 |                           Enter Sandman |       9 |           1 |       3 |                                      Apocalyptica |       221701 |  7286305 | 0.99      |
+|   98 |      99 |                      Your Time Has Come |      11 |           1 |       4 |                Cornell, Commerford, Morello, Wilk |       255529 |  8273592 | 0.99      |
+|  110 |     111 |                                   Money |      12 |           1 |       5 |                   Berry Gordy, Jr./Janie Bradford |       147591 |  2365897 | 0.99      |
+|  193 |     194 |              First Time I Met The Blues |      20 |           1 |       6 |                                Eurreal Montgomery |       140434 |  4604995 | 0.99      |
+|  204 |     205 |                      Jorge Da Capad&#xF3;cia |      21 |           1 |       7 |                                         Jorge Ben |       177397 |  5842196 | 0.99      |
+|  281 |     282 |                                Girassol |      26 |           1 |       8 | Bino Farias/Da Gama/Laz&#xE3;o/Pedro Luis/Toni Garrido |       249808 |  8327676 | 0.99      |
+|  322 |     323 |          Dig-Dig, Lambe-Lambe (Ao Vivo) |      29 |           1 |       9 |    Cassiano Costa/Cintia Maviane/J.F./Lucas Costa |       205479 |  6892516 | 0.99      |
+|  359 |     360 |                            Vai-Vai 2001 |      32 |           1 |      10 |                                              None |       276349 |  9402241 | 0.99      |</p>
+</blockquote>
+<ul>
+<li>&#x901A;&#x8FC7;&apos;GenreId&apos;&#x5217;&#x5408;&#x5E76;&#x6570;&#x636E;&#xFF0C;how&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;<ul>
+<li>how = &#x2019;left&#x2018; &#x5BF9;&#x5E94;SQL&#x4E2D;&#x7684; <strong>left outer</strong>  &#x4FDD;&#x7559;&#x5DE6;&#x4FA7;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;key</li>
+<li>how = &#x2019;right&#x2018; &#x5BF9;&#x5E94;SQL&#x4E2D;&#x7684; <strong>right outer</strong>  &#x4FDD;&#x7559;&#x53F3;&#x4FA7;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;key</li>
+<li>how = &apos;outer&apos; &#x5BF9;&#x5E94;SQL&#x4E2D;&#x7684; <strong>full outer</strong>   &#x4FDD;&#x7559;&#x5DE6;&#x53F3;&#x4E24;&#x4FA7;&#x4FA7;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;key</li>
+<li>how = &apos;inner&apos; &#x5BF9;&#x5E94;SQL&#x4E2D;&#x7684; <strong>inner</strong>  &#x53EA;&#x4FDD;&#x7559;&#x5DE6;&#x53F3;&#x4E24;&#x4FA7;&#x90FD;&#x6709;&#x7684;key</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python">genre_track = genres.merge(tracks_subset[[<span class="hljs-string">&apos;TrackId&apos;</span>,<span class="hljs-string">&apos;GenreId&apos;</span>, <span class="hljs-string">&apos;Milliseconds&apos;</span>]], on=<span class="hljs-string">&apos;GenreId&apos;</span>, how=<span class="hljs-string">&apos;left&apos;</span>)                           
+print(genre_track)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">   GenreId                Name  TrackId  Milliseconds
+0         1                Rock      1.0      343719.0
+1         2                Jazz     63.0      185338.0
+2         3               Metal     77.0      221701.0
+3         4  Alternative &amp; Punk     99.0      255529.0
+4         5       Rock And Roll    111.0      147591.0
+5         6               Blues    194.0      140434.0
+6         7               Latin    205.0      177397.0
+7         8              Reggae    282.0      249808.0
+8         9                 Pop    323.0      205479.0
+9        10          Soundtrack    360.0      276349.0
+10       11          Bossa Nova      NaN           NaN
+11       12      Easy Listening      NaN           NaN
+12       13         Heavy Metal      NaN           NaN
+13       14            R&amp;B/Soul      NaN           NaN
+14       15   Electronica/Dance      NaN           NaN
+15       16               World      NaN           NaN
+16       17         Hip Hop/Rap      NaN           NaN
+17       18     Science Fiction      NaN           NaN
+18       19            TV Shows      NaN           NaN
+19       20    Sci Fi &amp; Fantasy      NaN           NaN
+20       21               Drama      NaN           NaN
+21       22              Comedy      NaN           NaN
+22       23         Alternative      NaN           NaN
+23       24           Classical      NaN           NaN
+24       25               Opera      NaN           NaN
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">genre_track = genres.merge(tracks_subset[[<span class="hljs-string">&apos;TrackId&apos;</span>,<span class="hljs-string">&apos;GenreId&apos;</span>, <span class="hljs-string">&apos;Milliseconds&apos;</span>]], on=<span class="hljs-string">&apos;GenreId&apos;</span>, how=<span class="hljs-string">&apos;right&apos;</span>)                           
+print(genre_track)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code>  GenreId                Name  TrackId  Milliseconds
+0        1                Rock        1        343719
+1        2                Jazz       63        185338
+2        3               Metal       77        221701
+3        4  Alternative &amp; Punk       99        255529
+4        5       Rock And Roll      111        147591
+5        6               Blues      194        140434
+6        7               Latin      205        177397
+7        8              Reggae      282        249808
+8        9                 Pop      323        205479
+9       10          Soundtrack      360        276349
+</code></pre></blockquote>
+</li>
+</ul>
+<h3 id="32-&#x591A;&#x5BF9;&#x4E00;&#x5408;&#x5E76;">3.2 &#x591A;&#x5BF9;&#x4E00;&#x5408;&#x5E76;</h3>
+<ul>
+<li><p>&#x4E0E;&#x4E0A;&#x4E00;&#x5C0F;&#x8282;&#x7684;&#x4EE3;&#x7801;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x6B21;&#x4E0D;&#x4F7F;&#x7528;tracks&#x7684;&#x5B50;&#x96C6;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x4F7F;&#x7528;tracks&#x7684;&#x5168;&#x90E8;&#x6570;&#x636E;</p>
+<pre><code class="lang-python">genre_track = genres.merge(tracks[[<span class="hljs-string">&apos;TrackId&apos;</span>,<span class="hljs-string">&apos;GenreId&apos;</span>, <span class="hljs-string">&apos;Milliseconds&apos;</span>]], on=<span class="hljs-string">&apos;GenreId&apos;</span>, how=<span class="hljs-string">&apos;left&apos;</span>)                           
+print(genre_track)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">          GenreId       Name  TrackId  Milliseconds
+0           1       Rock        1        343719
+1           1       Rock        2        342562
+2           1       Rock        3        230619
+3           1       Rock        4        252051
+4           1       Rock        5        375418
+5           1       Rock        6        205662
+6           1       Rock        7        233926
+7           1       Rock        8        210834
+8           1       Rock        9        203102
+9           1       Rock       10        263497
+10          1       Rock       11        199836
+11          1       Rock       12        263288
+12          1       Rock       13        205688
+13          1       Rock       14        270863
+14          1       Rock       15        331180
+15          1       Rock       16        215196
+16          1       Rock       17        366654
+17          1       Rock       18        267728
+18          1       Rock       19        325041
+19          1       Rock       20        369319
+20          1       Rock       21        254380
+21          1       Rock       22        323761
+22          1       Rock       23        295680
+23          1       Rock       24        321828
+24          1       Rock       25        264698
+25          1       Rock       26        310622
+26          1       Rock       27        264855
+27          1       Rock       28        330736
+28          1       Rock       29        309263
+29          1       Rock       30        356519
+...       ...        ...      ...           ...
+3473       24  Classical     3449        120000
+3474       24  Classical     3450        253422
+3475       24  Classical     3452        101293
+3476       24  Classical     3453        253281
+3477       24  Classical     3454        362933
+3478       24  Classical     3479        339567
+3479       24  Classical     3480        299350
+3480       24  Classical     3481        387826
+3481       24  Classical     3482        225933
+3482       24  Classical     3483        110266
+3483       24  Classical     3484        289388
+3484       24  Classical     3485        567494
+3485       24  Classical     3486        364296
+3486       24  Classical     3487        385506
+3487       24  Classical     3488        142081
+3488       24  Classical     3489        376510
+3489       24  Classical     3490        285673
+3490       24  Classical     3491        234746
+3491       24  Classical     3492        133768
+3492       24  Classical     3493        333669
+3493       24  Classical     3494        286998
+3494       24  Classical     3495        265541
+3495       24  Classical     3496         51780
+3496       24  Classical     3497        261849
+3497       24  Classical     3498        493573
+3498       24  Classical     3499        286741
+3499       24  Classical     3500        139200
+3500       24  Classical     3501         66639
+3501       24  Classical     3502        221331
+3502       25      Opera     3451        174813
+</code></pre>
+</blockquote>
+<ul>
+<li><p>&#x5982;&#x4E0A;&#x9762;&#x7ED3;&#x679C;&#x6240;&#x793A;&#xFF0C;Name&#x7684;&#x503C;&#x5728;&#x5408;&#x5E76;&#x540E;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x88AB;&#x590D;&#x5236;&#x4E86; </p>
+</li>
+<li><p>&#x8BA1;&#x7B97;&#x6BCF;&#x79CD;&#x7C7B;&#x578B;&#x97F3;&#x4E50;&#x7684;&#x5E73;&#x5747;&#x65F6;&#x957F;</p>
+<ul>
+<li>to_timedelta  &#x5C06;Milliseconds&#x5217;&#x8F6C;&#x53D8;&#x4E3A;timedelta&#x6570;&#x636E;&#x7C7B;&#x578B;</li>
+<li>&#x53C2;&#x6570;unit=&apos;ms&apos; &#x65F6;&#x95F4;&#x5355;&#x4F4D;</li>
+<li>dt.floor(&apos;s&apos;)   dt.floor() &#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x6309;&#x6307;&#x5B9A;&#x5355;&#x4F4D;&#x622A;&#x65AD;&#x6570;&#x636E;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python">genre_time = genre_track.groupby(<span class="hljs-string">&apos;Name&apos;</span>)[<span class="hljs-string">&apos;Milliseconds&apos;</span>].mean()
+pd.to_timedelta(genre_time, unit=<span class="hljs-string">&apos;ms&apos;</span>).dt.floor(<span class="hljs-string">&apos;s&apos;</span>).sort_values()
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">Name
+Alternative          00:04:24
+Alternative &amp; Punk   00:03:54
+Blues                00:04:30
+Bossa Nova           00:03:39
+Classical            00:04:53
+Comedy               00:26:25
+Drama                00:42:55
+Easy Listening       00:03:09
+Electronica/Dance    00:05:02
+Heavy Metal          00:04:57
+Hip Hop/Rap          00:02:58
+Jazz                 00:04:51
+Latin                00:03:52
+Metal                00:05:09
+Opera                00:02:54
+Pop                  00:03:49
+R&amp;B/Soul             00:03:40
+Reggae               00:04:07
+Rock                 00:04:43
+Rock And Roll        00:02:14
+Sci Fi &amp; Fantasy     00:48:31
+Science Fiction      00:43:45
+Soundtrack           00:04:04
+TV Shows             00:35:45
+World                00:03:44
+Name: Milliseconds, dtype: timedelta64[ns]
+</code></pre>
+<ul>
+<li>&#x8BA1;&#x7B97;&#x6BCF;&#x540D;&#x7528;&#x6237;&#x7684;&#x5E73;&#x5747;&#x6D88;&#x8D39;<ul>
+<li>&#x4ECE;&#x4E09;&#x5F20;&#x8868;&#x4E2D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x8868;&#x83B7;&#x53D6;&#x7528;&#x6237;id,&#x59D3;&#x540D;</li>
+<li>&#x53D1;&#x7968;&#x8868;&#xFF0C;&#x83B7;&#x53D6;&#x53D1;&#x8868;id&#xFF0C;&#x7528;&#x6237;id</li>
+<li>&#x53D1;&#x7968;&#x8BE6;&#x60C5;&#x8868;&#xFF0C;&#x83B7;&#x53D6;&#x53D1;&#x7968;id,&#x5355;&#x4EF7;&#xFF0C;&#x6570;&#x91CF;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">cust = pd.read_sql_table(<span class="hljs-string">&apos;customers&apos;</span>,engine,columns=[<span class="hljs-string">&apos;CustomerId&apos;</span>, <span class="hljs-string">&apos;FirstName&apos;</span>, <span class="hljs-string">&apos;LastName&apos;</span>])
+invoice = pd.read_sql_table(<span class="hljs-string">&apos;invoices&apos;</span>,engine,columns=[<span class="hljs-string">&apos;InvoiceId&apos;</span>,<span class="hljs-string">&apos;CustomerId&apos;</span>])
+ii = pd.read_sql_table(<span class="hljs-string">&apos;invoice_items&apos;</span>,engine,columns=[<span class="hljs-string">&apos;InvoiceId&apos;</span>, <span class="hljs-string">&apos;UnitPrice&apos;</span>, <span class="hljs-string">&apos;Quantity&apos;</span>])
+</code></pre>
+<ul>
+<li>&#x6839;&#x636E;&#x7528;&#x6237;Id(&apos;CustomerId&apos;)&#x5408;&#x5E76;&#x7528;&#x6237;&#x8868;&#x548C;&#x53D1;&#x7968;&#x8868;&#xFF0C;&#x6839;&#x636E;&#x53D1;&#x7968;Id (&apos;InvoiceId&apos;)&#x5408;&#x5E76;&#x53D1;&#x7968;&#x548C;&#x53D1;&#x7968;&#x8BE6;&#x60C5;&#x8868;</li>
+</ul>
+<pre><code class="lang-python">cust_inv = cust.merge(invoice, on=<span class="hljs-string">&apos;CustomerId&apos;</span>).merge(ii, on=<span class="hljs-string">&apos;InvoiceId&apos;</span>)
+print(cust_inv.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell">  CustomerId FirstName   LastName  InvoiceId  UnitPrice  Quantity
+0           1      Lu&#xED;s  Gon&#xE7;alves         98       1.99         1
+1           1      Lu&#xED;s  Gon&#xE7;alves         98       1.99         1
+2           1      Lu&#xED;s  Gon&#xE7;alves        121       0.99         1
+3           1      Lu&#xED;s  Gon&#xE7;alves        121       0.99         1
+4           1      Lu&#xED;s  Gon&#xE7;alves        121       0.99         1
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x8BA1;&#x7B97;&#x7528;&#x6237;&#x6BCF;&#x7B14;&#x6D88;&#x8D39;&#x7684;&#x603B;&#x91D1;&#x989D;<ul>
+<li>DataFrame&#x7684;assign&#x65B9;&#x6CD5; &#x521B;&#x5EFA;&#x65B0;&#x5217;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python">total = cust_inv[<span class="hljs-string">&apos;Quantity&apos;</span>] * cust_inv[<span class="hljs-string">&apos;UnitPrice&apos;</span>]
+cust_inv = cust_inv.assign(Total = total)
+print(cust_inv.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code class="lang-shell"> CustomerId FirstName   LastName  InvoiceId  UnitPrice  Quantity  Total
+0           1      Lu&#xED;s  Gon&#xE7;alves         98       1.99         1   1.99
+1           1      Lu&#xED;s  Gon&#xE7;alves         98       1.99         1   1.99
+2           1      Lu&#xED;s  Gon&#xE7;alves        121       0.99         1   0.99
+3           1      Lu&#xED;s  Gon&#xE7;alves        121       0.99         1   0.99
+4           1      Lu&#xED;s  Gon&#xE7;alves        121       0.99         1   0.99
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x6309;&#x7167;&#x7528;&#x6237;Id&#xFF0C;&#x59D3;&#x540D;&#x5206;&#x7EC4;&#xFF0C;&#x5206;&#x7EC4;&#x540E;&#x5BF9;&#x603B;&#x91D1;&#x989D;&#x6C42;&#x548C;&#xFF0C;&#x5E76;&#x6392;&#x5E8F;</li>
+</ul>
+<pre><code class="lang-python">cols = [<span class="hljs-string">&apos;CustomerId&apos;</span>, <span class="hljs-string">&apos;FirstName&apos;</span>, <span class="hljs-string">&apos;LastName&apos;</span>]
+cust_inv.groupby(cols)[<span class="hljs-string">&apos;Total&apos;</span>].sum().sort_values(ascending=<span class="hljs-keyword">False</span>).head()
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<pre><code>CustomerId  FirstName  LastName  
+6           Helena     Hol&#xFD;          49.62
+26          Richard    Cunningham    47.62
+57          Luis       Rojas         46.62
+46          Hugh       O&apos;Reilly      45.62
+45          Ladislav   Kov&#xE1;cs        45.62
+Name: Total, dtype: float64
+</code></pre></blockquote>
+</li>
+</ul>
+<h3 id="33-join&#x5408;&#x5E76;">3.3 join&#x5408;&#x5E76;</h3>
+<ul>
+<li><p>&#x4F7F;&#x7528;join&#x5408;&#x5E76;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x4F9D;&#x636E;&#x4E24;&#x4E2A;DataFrame&#x7684;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x6216;&#x8005;&#x4E00;&#x4E2A;DataFrame&#x7684;&#x884C;&#x7D22;&#x5F15;&#x53E6;&#x4E00;&#x4E2A;DataFrame&#x7684;&#x5217;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5408;&#x5E76;</p>
+<ul>
+<li>&#x52A0;&#x8F7D;&#x6570;&#x636E;</li>
+</ul>
+<pre><code class="lang-python">stocks_2016 = pd.read_csv(<span class="hljs-string">&apos;data/stocks_2016.csv&apos;</span>)
+stocks_2017 = pd.read_csv(<span class="hljs-string">&apos;data/stocks_2017.csv&apos;</span>)
+stocks_2018 = pd.read_csv(<span class="hljs-string">&apos;data/stocks_2018.csv&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">stocks_2016
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | Symbol | Shares | Low  | High |
+| ---: | :----- | :----- | :--- | :--- |
+|    0 | AAPL   | 80     | 95   | 110  |
+|    1 | TSLA   | 50     | 80   | 130  |
+|    2 | WMT    | 40     | 55   | 70   |</p>
+</blockquote>
+<pre><code class="lang-python">stocks_2017
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | Symbol | Shares | Low  | High |
+| ---: | :----- | :----- | :--- | :--- |
+|    0 | AAPL   | 50     | 120  | 140  |
+|    1 | GE     | 100    | 30   | 40   |
+|    2 | IBM    | 87     | 75   | 95   |
+|    3 | SLB    | 20     | 55   | 85   |
+|    4 | TXN    | 500    | 15   | 23   |
+|    5 | TSLA   | 100    | 100  | 300  |</p>
+<pre><code class="lang-python">stocks_2018
+</code></pre>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | Symbol | Shares | Low  | High |
+| ---: | :----- | :----- | :--- | :--- |
+|    0 | AAPL   | 40     | 135  | 170  |
+|    1 | AMZN   | 8      | 900  | 1125 |
+|    2 | TSLA   | 50     | 220  | 400  |</p>
+<ul>
+<li>join&#x5408;&#x5E76;&#xFF0C;&#x4F9D;&#x636E;&#x4E24;&#x4E2A;DataFrame&#x7684;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x5982;&#x679C;&#x5408;&#x5E76;&#x7684;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5217;&#x540D;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;lsuffix&#xFF0C;&#x548C;rsuffix&#xFF0C;&#x6307;&#x5B9A;&#x5408;&#x5E76;&#x540E;&#x7684;&#x5217;&#x540D;&#x7684;&#x540E;&#x7F00;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">stocks_2016.join(stocks_2017, lsuffix=<span class="hljs-string">&apos;_2016&apos;</span>, rsuffix=<span class="hljs-string">&apos;_2017&apos;</span>, how=<span class="hljs-string">&apos;outer&apos;</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | Symbol_2016 | Shares_2016 | Low_2016 | High_2016 | Symbol_2017 | Shares_2017 | Low_2017 | High_2017 |
+| ---: | ----------: | ----------: | -------: | --------: | ----------: | ----------: | -------: | --------: |
+|    0 |        AAPL |        80.0 |     95.0 |     110.0 |        AAPL |          50 |      120 |       140 |
+|    1 |        TSLA |        50.0 |     80.0 |     130.0 |          GE |         100 |       30 |        40 |
+|    2 |         WMT |        40.0 |     55.0 |      70.0 |         IBM |          87 |       75 |        95 |
+|    3 |         NaN |         NaN |      NaN |       NaN |         SLB |          20 |       55 |        85 |
+|    4 |         NaN |         NaN |      NaN |       NaN |         TXN |         500 |       15 |        23 |
+|    5 |         NaN |         NaN |      NaN |       NaN |        TSLA |         100 |      100 |       300 |</p>
+<ul>
+<li>&#x5C06;&#x4E24;&#x4E2A;DataFrame&#x7684;Symbol&#x8BBE;&#x7F6E;&#x4E3A;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x518D;&#x6B21;join&#x6570;&#x636E;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">stocks_2016.set_index(<span class="hljs-string">&apos;Symbol&apos;</span>).join(stocks_2018.set_index(<span class="hljs-string">&apos;Symbol&apos;</span>),lsuffix=<span class="hljs-string">&apos;_2016&apos;</span>, rsuffix=<span class="hljs-string">&apos;_2018&apos;</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|        | Shares_2016 | Low_2016 | High_2016 | Shares_2018 | Low_2018 | High_2018 |
+| -----: | ----------: | -------: | --------: | ----------: | -------: | --------: |
+| Symbol |             |          |           |             |          |           |
+|   AAPL |          80 |       95 |       110 |        40.0 |    135.0 |     170.0 |
+|   TSLA |          50 |       80 |       130 |        50.0 |    220.0 |     400.0 |
+|    WMT |          40 |       55 |        70 |         NaN |      NaN |       NaN |</p>
+<ul>
+<li>&#x5C06;&#x4E00;&#x4E2A;DataFrame&#x7684;Symbol&#x5217;&#x8BBE;&#x7F6E;&#x4E3A;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x4E0E;&#x53E6;&#x4E00;&#x4E2A;DataFrame&#x7684;Symbol&#x5217;&#x8FDB;&#x884C;join</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">stocks_2016.join(stocks_2018.set_index(<span class="hljs-string">&apos;Symbol&apos;</span>),lsuffix=<span class="hljs-string">&apos;_2016&apos;</span>, rsuffix=<span class="hljs-string">&apos;_2018&apos;</span>,on=<span class="hljs-string">&apos;Symbol&apos;</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF1A;</font>
+
+<p>|      | Symbol | Shares_2016 | Low_2016 | High_2016 | Shares_2018 | Low_2018 | High_2018 |
+| ---: | -----: | ----------: | -------: | --------: | ----------: | -------: | --------: |
+|    0 |   AAPL |          80 |       95 |       110 |        40.0 |    135.0 |     170.0 |
+|    1 |   TSLA |          50 |       80 |       130 |        50.0 |    220.0 |     400.0 |
+|    2 |    WMT |          40 |       55 |        70 |         NaN |      NaN |       NaN |</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h2>
+<p><strong>concat, join, &#x548C;merge&#x7684;&#x533A;&#x522B;</strong></p>
+<p><code>concat</code>&#xFF1A;</p>
+<ul>
+<li>Pandas&#x51FD;&#x6570;</li>
+<li>&#x53EF;&#x4EE5;&#x5782;&#x76F4;&#x548C;&#x6C34;&#x5E73;&#x5730;&#x8FDE;&#x63A5;&#x4E24;&#x4E2A;&#x6216;&#x591A;&#x4E2A;pandas&#x5BF9;&#x8C61;</li>
+<li>&#x53EA;&#x7528;&#x7D22;&#x5F15;&#x5BF9;&#x9F50;</li>
+<li>&#x9ED8;&#x8BA4;&#x662F;&#x5916;&#x8FDE;&#x63A5;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x4E3A;&#x5185;&#x8FDE;&#x63A5;&#xFF09;</li>
+</ul>
+<p><code>join</code>&#xFF1A;</p>
+<ul>
+<li>DataFrame&#x65B9;&#x6CD5;</li>
+<li>&#x53EA;&#x80FD;&#x6C34;&#x5E73;&#x8FDE;&#x63A5;&#x4E24;&#x4E2A;&#x6216;&#x591A;&#x4E2A;pandas&#x5BF9;&#x8C61;</li>
+<li>&#x5BF9;&#x9F50;&#x662F;&#x9760;&#x88AB;&#x8C03;&#x7528;&#x7684;DataFrame&#x7684;&#x5217;&#x7D22;&#x5F15;&#x6216;&#x884C;&#x7D22;&#x5F15;&#x548C;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x884C;&#x7D22;&#x5F15;&#xFF08;&#x4E0D;&#x80FD;&#x662F;&#x5217;&#x7D22;&#x5F15;&#xFF09;</li>
+<li>&#x9ED8;&#x8BA4;&#x662F;&#x5DE6;&#x8FDE;&#x63A5;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x4E3A;&#x5185;&#x8FDE;&#x63A5;&#x3001;&#x5916;&#x8FDE;&#x63A5;&#x548C;&#x53F3;&#x8FDE;&#x63A5;&#xFF09;</li>
+</ul>
+<p><code>merge</code>&#xFF1A;</p>
+<ul>
+<li>DataFrame&#x65B9;&#x6CD5;</li>
+<li>&#x53EA;&#x80FD;&#x6C34;&#x5E73;&#x8FDE;&#x63A5;&#x4E24;&#x4E2A;DataFrame&#x5BF9;&#x8C61;</li>
+<li>&#x5BF9;&#x9F50;&#x662F;&#x9760;&#x88AB;&#x8C03;&#x7528;&#x7684;DataFrame&#x7684;&#x5217;&#x6216;&#x884C;&#x7D22;&#x5F15;&#x548C;&#x53E6;&#x4E00;&#x4E2A;DataFrame&#x7684;&#x5217;&#x6216;&#x884C;&#x7D22;&#x5F15;</li>
+<li>&#x9ED8;&#x8BA4;&#x662F;&#x5185;&#x8FDE;&#x63A5;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x4E3A;&#x5DE6;&#x8FDE;&#x63A5;&#x3001;&#x5916;&#x8FDE;&#x63A5;&#x3001;&#x53F3;&#x8FDE;&#x63A5;&#xFF09; </li>
+</ul>
+<footer class="page-footer"><span class="copyright">&#xA9;2021.4 &#x539F;&#x6EE1; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-09-28 10:24:28
+</span></footer>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./第3章-06-09_Pandas数据清洗.html" class="navigation navigation-prev " aria-label="Previous page: Pandas数据清洗"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./07_缺失数据处理.html" class="navigation navigation-next " aria-label="Next page: 缺失数据处理"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-toc2/toc2.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"expandable-chapters-small":{},"toc2":{"addClass":true,"className":"toc"},"tbfed-pagefooter":{"copyright":"©2021.4 原满","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"back-to-top-button":{},"chapter-fold":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

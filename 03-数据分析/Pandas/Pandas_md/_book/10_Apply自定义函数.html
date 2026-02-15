@@ -1,0 +1,1206 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Apply自定义函数 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toc2/toc2.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-tbfed-pagefooter/footer.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./11_数据分组.html" />
+    
+    
+    <link rel="prev" href="./第4章-10-13_Pandas数据处理.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4.1"
+        data-chapter-title="Apply自定义函数"
+        data-filepath="10_Apply自定义函数.md"
+        data-basepath="."
+        data-revision="Tue Apr 20 2021 11:46:25 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="第1章-01-02_介绍及环境搭建.html">
+            
+                
+                    <a href="./第1章-01-02_介绍及环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Python数据分析介绍及环境搭建
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01_Python数据分析简介.html">
+            
+                
+                    <a href="./01_Python数据分析简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Python数据分析简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="02_Python数据分析开发环境搭建.html">
+            
+                
+                    <a href="./02_Python数据分析开发环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Python数据分析环境搭建
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="第2章-03-05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./第2章-03-05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="03_Pandas的DataFrame.html">
+            
+                
+                    <a href="./03_Pandas的DataFrame.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Pandas的DataFrame
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="04_Pandas_数据结构.html">
+            
+                
+                    <a href="./04_Pandas_数据结构.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Pandas_数据结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="第3章-06-09_Pandas数据清洗.html">
+            
+                
+                    <a href="./第3章-06-09_Pandas数据清洗.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Pandas数据清洗
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="06_数据组合.html">
+            
+                
+                    <a href="./06_数据组合.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        数据组合
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="07_缺失数据处理.html">
+            
+                
+                    <a href="./07_缺失数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        缺失数据处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="08_整理数据.html">
+            
+                
+                    <a href="./08_整理数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        数据整理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="09_Pandas数据类型.html">
+            
+                
+                    <a href="./09_Pandas数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Pandas数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="第4章-10-13_Pandas数据处理.html">
+            
+                
+                    <a href="./第4章-10-13_Pandas数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Pandas数据处理
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="4.1" data-path="10_Apply自定义函数.html">
+            
+                
+                    <a href="./10_Apply自定义函数.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Apply自定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="11_数据分组.html">
+            
+                
+                    <a href="./11_数据分组.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        数据分组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="12_数据透视表.html">
+            
+                
+                    <a href="./12_数据透视表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        数据透视表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="13_datetime数据类型.html">
+            
+                
+                    <a href="./13_datetime数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        datetime数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="第5章-14-17_Python数据可视化.html">
+            
+                
+                    <a href="./第5章-14-17_Python数据可视化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Python数据可视化
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="14_Matplotlib绘图.html">
+            
+                
+                    <a href="./14_Matplotlib绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Matplotlib绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="15_Pandas绘图.html">
+            
+                
+                    <a href="./15_Pandas绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Pandas绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="16_Seaborn绘图.html">
+            
+                
+                    <a href="./16_Seaborn绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Seaborn绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="17_Pyecharts绘图.html">
+            
+                
+                    <a href="./17_Pyecharts绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        Pyecharts绘图
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="第6章-18-20_综合案例.html">
+            
+                
+                    <a href="./第6章-18-20_综合案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        综合案例
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="18_综合案例_Appstore数据分析.html">
+            
+                
+                    <a href="./18_综合案例_Appstore数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        综合案例_Appstore数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="19_综合案例_优衣库销售数据分析.html">
+            
+                
+                    <a href="./19_综合案例_优衣库销售数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        综合案例_优衣库销售数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="20_综合案例_RFM用户分群.html">
+            
+                
+                    <a href="./20_综合案例_RFM用户分群.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        综合案例_RFM用户分群
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="apply-&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;">apply &#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x638C;&#x63E1;apply&#x7684;&#x7528;&#x6CD5;</li>
+<li>&#x77E5;&#x9053;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x5411;&#x91CF;&#x5316;&#x51FD;&#x6570;</li>
+</ul>
+<h2 id="1-&#x7B80;&#x4ECB;">1 &#x7B80;&#x4ECB;</h2>
+<ul>
+<li>Pandas&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x591A;&#x6570;&#x636E;&#x5904;&#x7406;&#x7684;API,&#x4F46;&#x5F53;&#x63D0;&#x4F9B;&#x7684;API&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x7684;&#x65F6;&#x5019;,&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x6570;&#x636E;&#x5904;&#x7406;&#x51FD;&#x6570;, &#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;apply&#x51FD;&#x6570;</li>
+<li>apply&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;, &#x53EF;&#x4EE5;&#x5C06;DataFrame&#x7684;&#x884C;/&#x5217;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x5904;&#x7406;</li>
+<li>apply&#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#x4E8E;&#x7F16;&#x5199;&#x4E00;&#x4E2A;for&#x5FAA;&#x73AF;, &#x904D;&#x5386;&#x884C;/&#x5217;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;,&#x4F46;&#x6BD4;&#x4F7F;&#x7528;for&#x5FAA;&#x73AF;&#x6548;&#x7387;&#x9AD8;&#x5F88;&#x591A;</li>
+</ul>
+<h2 id="2-series&#x7684;apply&#x65B9;&#x6CD5;">2 Series&#x7684;apply&#x65B9;&#x6CD5;</h2>
+<ul>
+<li>&#x6570;&#x636E;&#x51C6;&#x5907;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+df = pd.DataFrame({<span class="hljs-string">&apos;a&apos;</span>:[<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>],<span class="hljs-string">&apos;b&apos;</span>:[<span class="hljs-number">20</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>]})
+df
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">a</th>
+<th style="text-align:right">b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">20</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">30</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">40</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_sq</span><span class="hljs-params">(x)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x6C42;&#x5E73;&#x65B9;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> x**<span class="hljs-number">2</span>
+</code></pre>
+<ul>
+<li>Series&#x6709;&#x4E00;&#x4E2A;apply&#x65B9;&#x6CD5;, &#x8BE5;&#x65B9;&#x6CD5;&#x6709;&#x4E00;&#x4E2A;func&#x53C2;&#x6570;,&#x5F53;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x540E;,apply&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x628A;&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x5E94;&#x7528;&#x4E8E;Series&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;</li>
+</ul>
+<pre><code class="lang-python">sq = df[<span class="hljs-string">&apos;a&apos;</span>].apply(my_sq)
+sq
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">0    100
+1    400
+2    900
+Name: a, dtype: int64
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x6CE8;&#x610F;,&#x628A;my_sq&#x4F20;&#x9012;&#x7ED9;apply&#x7684;&#x65F6;&#x5019;,&#x4E0D;&#x8981;&#x52A0;&#x4E0A;&#x5706;&#x62EC;&#x53F7;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_exp</span><span class="hljs-params">(x,e)</span>:</span>
+    <span class="hljs-keyword">return</span> x**e
+my_exp(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code>8
+</code></pre></blockquote>
+<ul>
+<li>apply &#x4F20;&#x5165; &#x9700;&#x8981;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;</li>
+</ul>
+<pre><code class="lang-python">ex = df[<span class="hljs-string">&apos;a&apos;</span>].apply(my_exp,e=<span class="hljs-number">2</span>)
+ex
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">0    100
+1    400
+2    900
+Name: a, dtype: int64
+</code></pre>
+</blockquote>
+<h2 id="3-dataframe&#x7684;apply&#x65B9;&#x6CD5;">3 DataFrame&#x7684;apply&#x65B9;&#x6CD5;</h2>
+<ul>
+<li>&#x628A;&#x4E0A;&#x9762;&#x521B;&#x5EFA;&#x7684;my_sq, &#x76F4;&#x63A5;&#x5E94;&#x7528;&#x5230;&#x6574;&#x4E2A;DataFrame&#x4E2D;</li>
+</ul>
+<pre><code class="lang-python">df.apply(my_sq)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">a</th>
+<th style="text-align:right">b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">400</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">400</td>
+<td style="text-align:right">900</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">900</td>
+<td style="text-align:right">1600</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>dataframe&#x662F;&#x4E8C;&#x7EF4;&#x6570;&#x636E;, </li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x7F16;&#x5199;&#x51FD;&#x6570;&#x8BA1;&#x7B97;&#x5217;&#x7684;&#x5E73;&#x5747;&#x503C;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">avg_3</span><span class="hljs-params">(x,y,z)</span>:</span>
+    <span class="hljs-keyword">return</span> (x+y+z)/<span class="hljs-number">3</span>
+df.apply(avg_3)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-39-3a016d8b8964> in <module>
+     1 def avg_3(x,y,z):
+     2     return (x+y+z)/3
+----&gt; 3 df.apply(avg_3)
+
+~\anaconda3\lib\site-packages\pandas\core\frame.py in apply(self, func, axis, raw, result_type, args, **kwds)
+  6876             kwds=kwds,
+  6877         )
+-&gt; 6878         return op.get_result()
+  6879 
+  6880     def applymap(self, func) -&gt; &quot;DataFrame&quot;:
+
+~\anaconda3\lib\site-packages\pandas\core\apply.py in get_result(self)
+   184             return self.apply_raw()
+   185 
+--&gt; 186         return self.apply_standard()
+   187 
+   188     def apply_empty_result(self):
+
+~\anaconda3\lib\site-packages\pandas\core\apply.py in apply_standard(self)
+   294             try:
+   295                 result = libreduction.compute_reduction(
+--&gt; 296                     values, self.f, axis=self.axis, dummy=dummy, labels=labels
+   297                 )
+   298             except ValueError as err:
+
+pandas\_libs\reduction.pyx in pandas._libs.reduction.compute_reduction()
+
+pandas\_libs\reduction.pyx in pandas._libs.reduction.Reducer.get_result()
+
+TypeError: avg_3() missing 2 required positional arguments: &apos;y&apos; and &apos;z&apos;
+</module></ipython-input-39-3a016d8b8964></code></pre>
+</blockquote>
+<ul>
+<li>&#x4ECE;&#x62A5;&#x9519;&#x7684;&#x4FE1;&#x606F;&#x4E2D;&#x770B;&#x5230;,&#x5B9E;&#x9645;&#x4E0A;&#x4F20;&#x5165;avg_3&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;,&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x662F;DataFrame&#x7684;&#x884C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;DataFrame&#x7684;&#x5217;, &#x4F7F;&#x7528;apply&#x7684;&#x65F6;&#x5019;,&#x53EF;&#x4EE5;&#x901A;&#x8FC7;axis&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x6309;&#x884C;/ &#x6309;&#x5217; &#x4F20;&#x5165;&#x6570;&#x636E;<ul>
+<li>axis = 0 (&#x9ED8;&#x8BA4;) &#x6309;&#x5217;&#x5904;&#x7406;</li>
+<li>axis = 1  &#x6309;&#x884C;&#x5904;&#x7406;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4FEE;&#x6539;avg_3&#x51FD;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">avg_3_apply</span><span class="hljs-params">(col)</span>:</span>
+    x = col[<span class="hljs-number">0</span>]
+    y = col[<span class="hljs-number">1</span>]
+    z = col[<span class="hljs-number">2</span>]
+    <span class="hljs-keyword">return</span> (x+y+z)/<span class="hljs-number">3</span>
+df.apply(avg_3_apply)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">a    20.0
+b    30.0
+dtype: float64
+</code></pre>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4F20;&#x5165;axis =0 &#x6548;&#x679C;&#x8DDF;&#x4E0D;&#x4F20;&#x662F;&#x4E00;&#x6837;&#x7684;</span>
+df.apply(avg_3_apply,axis=<span class="hljs-number">0</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">a    20.0
+b    30.0
+dtype: float64
+</code></pre>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x6309;&#x884C;&#x5904;&#x7406;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">avg_2_apply</span><span class="hljs-params">(row)</span>:</span>
+    x = row[<span class="hljs-number">0</span>]
+    y = row[<span class="hljs-number">1</span>]
+    <span class="hljs-keyword">return</span> (x+y)/<span class="hljs-number">2</span>
+df.apply(avg_2_apply,axis=<span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">0    15.0
+1    25.0
+2    35.0
+dtype: float64
+</code></pre>
+</blockquote>
+<h2 id="4-apply-&#x4F7F;&#x7528;&#x6848;&#x4F8B;">4 apply &#x4F7F;&#x7528;&#x6848;&#x4F8B;</h2>
+<ul>
+<li>&#x63A5;&#x4E0B;&#x6765;&#x4F7F;&#x7528;titanic&#x6570;&#x636E;&#x96C6;&#x6765;&#x4ECB;&#x7ECD;apply&#x7684;&#x7528;&#x6CD5;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x52A0;&#x8F7D;&#x6570;&#x636E;,&#x4F7F;&#x7528;info&#x67E5;&#x770B;&#x8BE5;&#x6570;&#x636E;&#x96C6;&#x7684;&#x57FA;&#x672C;&#x7279;&#x5F81;</span>
+titanic = pd.read_csv(<span class="hljs-string">&apos;data/titanic.csv&apos;</span>)
+titanic.info()
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell"><class 'pandas.core.frame.DataFrame'="">
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 15 columns):
+#   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+0   survived     891 non-null    int64  
+1   pclass       891 non-null    int64  
+2   sex          891 non-null    object 
+3   age          714 non-null    float64
+4   sibsp        891 non-null    int64  
+5   parch        891 non-null    int64  
+6   fare         891 non-null    float64
+7   embarked     889 non-null    object 
+8   class        891 non-null    object 
+9   who          891 non-null    object 
+10  adult_male   891 non-null    bool   
+11  deck         203 non-null    object 
+12  embark_town  889 non-null    object 
+13  alive        891 non-null    object 
+14  alone        891 non-null    bool   
+dtypes: bool(2), float64(2), int64(4), object(7)
+memory usage: 92.4+ KB
+</class></code></pre>
+</blockquote>
+<ul>
+<li><p>&#x8BE5;&#x6570;&#x636E;&#x96C6;&#x6709;891&#x884C;,15&#x5217;, &#x5176;&#x4E2D;age &#x548C; deck &#x4E24;&#x5217;&#x4E2D;&#x5305;&#x542B;&#x7F3A;&#x5931;&#x503C;.&#x53EF;&#x4EE5;&#x4F7F;&#x7528;apply&#x8BA1;&#x7B97;&#x6570;&#x636E;&#x4E2D;&#x6709;&#x591A;&#x5C11;null &#x6216; NaN&#x503C;</p>
+<ul>
+<li>&#x7F3A;&#x5931;&#x503C;&#x6570;&#x76EE;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_missing</span><span class="hljs-params">(vec)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x4E2D;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x4E2A;&#x6570;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment">#&#x6839;&#x636E;&#x503C;&#x662F;&#x5426;&#x7F3A;&#x5931;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x7531;True/False&#x7EC4;&#x6210;&#x7684;&#x5411;&#x91CF;</span>
+    null_vec = pd.isnull(vec)
+    <span class="hljs-comment"># &#x5F97;&#x5230;null_vec&#x4E2D;null&#x503C;&#x7684;&#x4E2A;&#x6570;</span>
+    <span class="hljs-comment"># null&#x503C;&#x5BF9;&#x5E94;True, True&#x4E3A;1</span>
+    null_count = np.sum(null_vec)
+    <span class="hljs-comment">#&#x8FD4;&#x56DE;&#x5411;&#x91CF;&#x4E2D;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x4E2A;&#x6570;</span>
+    <span class="hljs-keyword">return</span> null_count
+</code></pre>
+<ul>
+<li>&#x7F3A;&#x5931;&#x503C;&#x5360;&#x6BD4;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prop_missing</span><span class="hljs-params">(vec)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x5411;&#x91CF;&#x4E2D;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5360;&#x6BD4;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x4E2A;&#x6570;</span>
+    <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x521A;&#x521A;&#x7F16;&#x5199;&#x7684;count_missing&#x51FD;&#x6570;</span>
+    num = count_missing(vec)
+    <span class="hljs-comment">#&#x83B7;&#x5F97;&#x5411;&#x91CF;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;</span>
+    <span class="hljs-comment">#&#x4E5F;&#x9700;&#x8981;&#x7EDF;&#x8BA1;&#x7F3A;&#x5931;&#x503C;&#x4E2A;&#x6570;</span>
+    dem = vec.size
+    <span class="hljs-keyword">return</span> num/dem
+</code></pre>
+<ul>
+<li>&#x975E;&#x7F3A;&#x5931;&#x503C;&#x5360;&#x6BD4;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prop_complete</span><span class="hljs-params">(vec)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x5411;&#x91CF;&#x4E2D;&#x975E;&#x7F3A;&#x5931;&#x503C;(&#x5B8C;&#x6574;&#x503C;)&#x7684;&#x5360;&#x6BD4;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment">#&#x5148;&#x8BA1;&#x7B97;&#x7F3A;&#x5931;&#x503C;&#x5360;&#x7684;&#x6BD4;&#x4F8B;</span>
+    <span class="hljs-comment">#&#x7136;&#x540E;&#x7528;1&#x51CF;&#x53BB;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5360;&#x6BD4;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>-prop_missing(vec)
+</code></pre>
+</li>
+<li><p>&#x628A;&#x524D;&#x9762;&#x5B9A;&#x4E49;&#x597D;&#x7684;&#x51FD;&#x6570;&#x5E94;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x5404;&#x5217;</p>
+<pre><code class="lang-python">titanic.apply(count_missing)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">survived         0
+pclass           0
+sex              0
+age            177
+sibsp            0
+parch            0
+fare             0
+embarked         2
+class            0
+who              0
+adult_male       0
+deck           688
+embark_town      2
+alive            0
+alone            0
+dtype: int64
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">titanic.apply(prop_missing)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">survived       0.000000
+pclass         0.000000
+sex            0.000000
+age            0.198653
+sibsp          0.000000
+parch          0.000000
+fare           0.000000
+embarked       0.002245
+class          0.000000
+who            0.000000
+adult_male     0.000000
+deck           0.772166
+embark_town    0.002245
+alive          0.000000
+alone          0.000000
+dtype: float64
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">titanic.apply(prop_complete)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">survived       1.000000
+pclass         1.000000
+sex            1.000000
+age            0.801347
+sibsp          1.000000
+parch          1.000000
+fare           1.000000
+embarked       0.997755
+class          1.000000
+who            1.000000
+adult_male     1.000000
+deck           0.227834
+embark_town    0.997755
+alive          1.000000
+alone          1.000000
+dtype: float64
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x6309;&#x884C;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-python">titanic.apply(count_missing,axis = <span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">0      1
+1      0
+2      1
+3      0
+4      1
+     ..
+886    1
+887    0
+888    2
+889    0
+890    1
+Length: 891, dtype: int64
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">titanic.apply(prop_missing,axis = <span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">0      0.066667
+1      0.000000
+2      0.066667
+3      0.000000
+4      0.066667
+        ...   
+886    0.066667
+887    0.000000
+888    0.133333
+889    0.000000
+890    0.066667
+Length: 891, dtype: float64
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">titanic.apply(prop_complete,axis = <span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">0      0.933333
+1      1.000000
+2      0.933333
+3      1.000000
+4      0.933333
+        ...   
+886    0.933333
+887    1.000000
+888    0.866667
+889    1.000000
+890    0.933333
+Length: 891, dtype: float64
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">titanic.apply(count_missing,axis = <span class="hljs-number">1</span>).value_counts()
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">1    549
+0    182
+2    160
+dtype: int64
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h2 id="5-&#x5411;&#x91CF;&#x5316;&#x51FD;&#x6570;">5 &#x5411;&#x91CF;&#x5316;&#x51FD;&#x6570;</h2>
+<ul>
+<li><p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;DataFrame</p>
+<pre><code class="lang-python">df = pd.DataFrame({<span class="hljs-string">&apos;a&apos;</span>:[<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>],<span class="hljs-string">&apos;b&apos;</span>:[<span class="hljs-number">20</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>]})
+df
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<p>|      |    a |    b |
+| ---: | ---: | ---: |
+|    0 |   10 |   20 |
+|    1 |   20 |   30 |
+|    2 |   30 |   40 |</p>
+</blockquote>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x51FD;&#x6570;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">avg_2</span><span class="hljs-params">(x,y)</span>:</span>
+    <span class="hljs-keyword">return</span> (x+y)/<span class="hljs-number">2</span>
+avg_2(df[<span class="hljs-string">&apos;a&apos;</span>],df[<span class="hljs-string">&apos;b&apos;</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">0    15.0
+1    25.0
+2    35.0
+dtype: float64
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x4FEE;&#x6539;&#x51FD;&#x6570;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">avg_2_mod</span><span class="hljs-params">(x,y)</span>:</span>
+    <span class="hljs-keyword">if</span>(x==<span class="hljs-number">20</span>):
+        <span class="hljs-keyword">return</span> (np.NaN)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> (x+y)/<span class="hljs-number">2</span>
+avg_2_mod(df[<span class="hljs-string">&apos;a&apos;</span>],df[<span class="hljs-string">&apos;b&apos;</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-71-760ddffd820b> in <module>
+----&gt; 1 avg_2_mod(df[&apos;a&apos;],df[&apos;b&apos;])
+
+<ipython-input-70-ec94cdbae859> in avg_2_mod(x, y)
+     1 def avg_2_mod(x,y):
+----&gt; 2     if(x==20):
+     3         return (np.NaN)
+     4     else:
+     5         return (x+y)/2
+
+~\anaconda3\lib\site-packages\pandas\core\generic.py in __nonzero__(self)
+  1477     def __nonzero__(self):
+  1478         raise ValueError(
+-&gt; 1479             f&quot;The truth value of a {type(self).__name__} is ambiguous. &quot;
+  1480             &quot;Use a.empty, a.bool(), a.item(), a.any() or a.all().&quot;
+  1481         )
+
+ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+</ipython-input-70-ec94cdbae859></module></ipython-input-71-760ddffd820b></code></pre>
+</blockquote>
+</li>
+<li><p>&#x4E0A;&#x9762;&#x51FD;&#x6570;&#x4E2D;, x==20 , x &#x662F;&#x5411;&#x91CF;, &#x4F46;20&#x662F;&#x6807;&#x91CF;, &#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x8BA1;&#x7B97;. &#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;np.vectorize&#x5C06;&#x51FD;&#x6570;&#x5411;&#x91CF;&#x5316;</p>
+<pre><code class="lang-python">avg_2_mod_vec = np.vectorize(avg_2_mod)
+avg_2_mod_vec(df[<span class="hljs-string">&apos;a&apos;</span>],df[<span class="hljs-string">&apos;b&apos;</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">array([15., nan, 35.])
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;</p>
+<pre><code class="lang-python"><span class="hljs-decorator">@np.vectorize</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">vec_avg_2_mod</span><span class="hljs-params">(x,y)</span>:</span>
+    <span class="hljs-keyword">if</span>(x==<span class="hljs-number">20</span>):
+        <span class="hljs-keyword">return</span> (np.NaN)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> (x+y)/<span class="hljs-number">2</span>
+vec_avg_2_mod(df[<span class="hljs-string">&apos;a&apos;</span>],df[<span class="hljs-string">&apos;b&apos;</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<pre><code class="lang-shell">array([15., nan, 35.])
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h2 id="6-lambda&#x51FD;&#x6570;">6 lambda&#x51FD;&#x6570;</h2>
+<ul>
+<li><p>&#x5F53;&#x51FD;&#x6570;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x65F6;&#x5019;, &#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;def &#x4E00;&#x4E2A;&#x51FD;&#x6570;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528;lambda&#x8868;&#x8FBE;&#x5F0F;&#x521B;&#x5EFA;&#x533F;&#x540D;&#x51FD;&#x6570;</p>
+<pre><code class="lang-python">df.apply(<span class="hljs-keyword">lambda</span> x: x+<span class="hljs-number">1</span>)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;:</font>
+
+<p>|      |    a |    b |
+| ---: | ---: | ---: |
+|    0 |   11 |   21 |
+|    1 |   21 |   31 |
+|    2 |   31 |   41 |</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h2>
+<ul>
+<li>Series&#x548C;DataFrame&#x5747;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;apply&#x4F20;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</li>
+<li>&#x6709;&#x4E9B;&#x65F6;&#x5019;&#x9700;&#x8981;&#x901A;&#x8FC7;np&#x7684;vectorize&#x51FD;&#x6570;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x5411;&#x91CF;&#x5316;&#x8BA1;&#x7B97; </li>
+</ul>
+<footer class="page-footer"><span class="copyright">&#xA9;2021.4 &#x539F;&#x6EE1; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-08-16 23:28:27
+</span></footer>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./第4章-10-13_Pandas数据处理.html" class="navigation navigation-prev " aria-label="Previous page: Pandas数据处理"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./11_数据分组.html" class="navigation navigation-next " aria-label="Next page: 数据分组"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-toc2/toc2.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"expandable-chapters-small":{},"toc2":{"addClass":true,"className":"toc"},"tbfed-pagefooter":{"copyright":"©2021.4 原满","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"back-to-top-button":{},"chapter-fold":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

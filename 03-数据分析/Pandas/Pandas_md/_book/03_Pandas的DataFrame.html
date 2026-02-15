@@ -1,0 +1,1573 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Pandas的DataFrame | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toc2/toc2.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-tbfed-pagefooter/footer.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./04_Pandas_数据结构.html" />
+    
+    
+    <link rel="prev" href="./第2章-03-05_Pandas数据分析入门.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.1"
+        data-chapter-title="Pandas的DataFrame"
+        data-filepath="03_Pandas的DataFrame.md"
+        data-basepath="."
+        data-revision="Tue Apr 20 2021 11:46:25 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="第1章-01-02_介绍及环境搭建.html">
+            
+                
+                    <a href="./第1章-01-02_介绍及环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Python数据分析介绍及环境搭建
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01_Python数据分析简介.html">
+            
+                
+                    <a href="./01_Python数据分析简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Python数据分析简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="02_Python数据分析开发环境搭建.html">
+            
+                
+                    <a href="./02_Python数据分析开发环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Python数据分析环境搭建
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="第2章-03-05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./第2章-03-05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1" data-path="03_Pandas的DataFrame.html">
+            
+                
+                    <a href="./03_Pandas的DataFrame.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Pandas的DataFrame
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="04_Pandas_数据结构.html">
+            
+                
+                    <a href="./04_Pandas_数据结构.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Pandas_数据结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="05_Pandas数据分析入门.html">
+            
+                
+                    <a href="./05_Pandas数据分析入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Pandas数据分析入门
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="第3章-06-09_Pandas数据清洗.html">
+            
+                
+                    <a href="./第3章-06-09_Pandas数据清洗.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Pandas数据清洗
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="06_数据组合.html">
+            
+                
+                    <a href="./06_数据组合.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        数据组合
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="07_缺失数据处理.html">
+            
+                
+                    <a href="./07_缺失数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        缺失数据处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="08_整理数据.html">
+            
+                
+                    <a href="./08_整理数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        数据整理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="09_Pandas数据类型.html">
+            
+                
+                    <a href="./09_Pandas数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Pandas数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="第4章-10-13_Pandas数据处理.html">
+            
+                
+                    <a href="./第4章-10-13_Pandas数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Pandas数据处理
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="10_Apply自定义函数.html">
+            
+                
+                    <a href="./10_Apply自定义函数.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Apply自定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="11_数据分组.html">
+            
+                
+                    <a href="./11_数据分组.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        数据分组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="12_数据透视表.html">
+            
+                
+                    <a href="./12_数据透视表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        数据透视表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="13_datetime数据类型.html">
+            
+                
+                    <a href="./13_datetime数据类型.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        datetime数据类型
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="第5章-14-17_Python数据可视化.html">
+            
+                
+                    <a href="./第5章-14-17_Python数据可视化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Python数据可视化
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="14_Matplotlib绘图.html">
+            
+                
+                    <a href="./14_Matplotlib绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Matplotlib绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="15_Pandas绘图.html">
+            
+                
+                    <a href="./15_Pandas绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Pandas绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="16_Seaborn绘图.html">
+            
+                
+                    <a href="./16_Seaborn绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Seaborn绘图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="17_Pyecharts绘图.html">
+            
+                
+                    <a href="./17_Pyecharts绘图.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        Pyecharts绘图
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="第6章-18-20_综合案例.html">
+            
+                
+                    <a href="./第6章-18-20_综合案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        综合案例
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="18_综合案例_Appstore数据分析.html">
+            
+                
+                    <a href="./18_综合案例_Appstore数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        综合案例_Appstore数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="19_综合案例_优衣库销售数据分析.html">
+            
+                
+                    <a href="./19_综合案例_优衣库销售数据分析.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        综合案例_优衣库销售数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="20_综合案例_RFM用户分群.html">
+            
+                
+                    <a href="./20_综合案例_RFM用户分群.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        综合案例_RFM用户分群
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="pandas-dataframe-&#x5165;&#x95E8;">Pandas DataFrame &#x5165;&#x95E8;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x638C;&#x63E1;DataFrame&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x77E5;&#x9053;&#x5982;&#x4F55;&#x52A0;&#x8F7D;&#x90E8;&#x5206;&#x6570;&#x636E;</li>
+<li>&#x77E5;&#x9053;&#x5982;&#x4F55;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7684;&#x5206;&#x7EC4;&#x805A;&#x5408;&#x64CD;&#x4F5C;</li>
+</ul>
+<h2 id="1-pandas-dataframe&#x7B80;&#x4ECB;">1 Pandas DataFrame&#x7B80;&#x4ECB;</h2>
+<ul>
+<li>Pandas&#x662F;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x5206;&#x6790;&#x7684;&#x5F00;&#x6E90;Python&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x52A0;&#x8F7D;&#xFF0C;&#x6E05;&#x6D17;&#xFF0C;&#x8F6C;&#x6362;&#xFF0C;&#x7EDF;&#x8BA1;&#x5904;&#x7406;&#xFF0C;&#x53EF;&#x89C6;&#x5316;&#x7B49;&#x529F;&#x80FD;</li>
+<li>DataFrame&#x548C;Series&#x662F;Pandas&#x6700;&#x57FA;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;</li>
+<li>DataFrame&#x7528;&#x6765;&#x5904;&#x7406;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#xFF08;SQL&#x6570;&#x636E;&#x8868;&#xFF0C;Excel&#x8868;&#x683C;&#xFF09;</li>
+<li>Series&#x7528;&#x6765;&#x5904;&#x7406;&#x5355;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;DataFrame&#x770B;&#x4F5C;&#x7531;Series&#x5BF9;&#x8C61;&#x7EC4;&#x6210;&#x7684;&#x5B57;&#x5178;&#x6216;&#x96C6;&#x5408;</li>
+</ul>
+<h2 id="2-&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x96C6;">2 &#x52A0;&#x8F7D;&#x6570;&#x636E;&#x96C6;</h2>
+<ul>
+<li><p>&#x505A;&#x6570;&#x636E;&#x5206;&#x6790;&#x9996;&#x5148;&#x8981;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x67E5;&#x770B;&#x5176;&#x7ED3;&#x6784;&#x548C;&#x5185;&#x5BB9;&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x6709;&#x521D;&#x6B65;&#x7684;&#x4E86;&#x89E3;</p>
+<ul>
+<li>&#x67E5;&#x770B;&#x884C;&#xFF0C;&#x5217;</li>
+<li>&#x67E5;&#x770B;&#x6BCF;&#x4E00;&#x5217;&#x4E2D;&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x7684;&#x7C7B;&#x578B;</li>
+</ul>
+</li>
+<li><p>Pandas &#x5E76;&#x4E0D;&#x662F; Python &#x6807;&#x51C6;&#x5E93;&#xFF0C;&#x6240;&#x4EE5;&#x5148;&#x5BFC;&#x5165;Pandas</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+</code></pre>
+</li>
+<li><p>&#x5BFC;&#x5165;Pandas&#x5E93;&#x4E4B;&#x540E;&#xFF0C;&#x901A;&#x8FC7;read_csv&#x52A0;&#x8F7D;&#x6587;&#x4EF6;</p>
+<ul>
+<li><p>&#x52A0;&#x8F7D;CSV&#x6587;&#x4EF6;</p>
+<ul>
+<li><em>csv&#x6587;&#x4EF6; Comma-Separated Values</em></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python">df = pd.read_csv(<span class="hljs-string">&apos;data/movie.csv&apos;</span>) <span class="hljs-comment"># &#x52A0;&#x8F7D;movie.csv&#x6587;&#x4EF6;</span>
+df.head() <span class="hljs-comment"># &#x5C55;&#x793A;&#x524D;5&#x6761;&#x6570;&#x636E;</span>
+</code></pre>
+<p><img src="img/dataframe1.png" alt="image-20200429173111068"></p>
+<ul>
+<li>&#x52A0;&#x8F7D;TSV&#x6587;&#x4EF6;</li>
+</ul>
+</li>
+<li><em>tsv&#x6587;&#x4EF6; Tab-Separated Values</em></li>
+</ul>
+<pre><code class="lang-python">  <span class="hljs-comment"># &#x53C2;&#x6570;1 &#x8981;&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF0C;&#x53C2;&#x6570;2sep &#x4F20;&#x5165;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&apos;,&apos;  &apos;\t&apos;&#x5236;&#x8868;&#x7B26;</span>
+  df = pd.read_csv(<span class="hljs-string">&apos;data/gapminder.tsv&apos;</span>,sep=<span class="hljs-string">&apos;\t&apos;</span>)  
+  print(df)
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">         country continent  year  lifeExp       pop   gdpPercap
+0     Afghanistan      Asia  1952   28.801   8425333  779.445314
+1     Afghanistan      Asia  1957   30.332   9240934  820.853030
+2     Afghanistan      Asia  1962   31.997  10267083  853.100710
+3     Afghanistan      Asia  1967   34.020  11537966  836.197138
+4     Afghanistan      Asia  1972   36.088  13079460  739.981106
+...           ...       ...   ...      ...       ...         ...
+1699     Zimbabwe    Africa  1987   62.351   9216418  706.157306
+1700     Zimbabwe    Africa  1992   60.377  10704340  693.420786
+1701     Zimbabwe    Africa  1997   46.809  11404948  792.449960
+1702     Zimbabwe    Africa  2002   39.989  11926563  672.038623
+1703     Zimbabwe    Africa  2007   43.487  12311143  469.709298
+
+[1704 rows x 6 columns]
+</code></pre>
+</blockquote>
+<ul>
+<li><p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Python&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;type&#x67E5;&#x770B;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
+<pre><code>type(df)
+</code></pre><blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">pandas.core.frame.DataFrame
+</code></pre>
+<ul>
+<li>&#x6BCF;&#x4E2A;dataframe&#x90FD;&#x6709;&#x4E00;&#x4E2A;<strong>shape&#x5C5E;&#x6027;</strong>&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;DataFrame&#x7684;&#x884C;&#x6570;&#xFF0C;&#x5217;&#x6570;</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><em>&#x6CE8;&#xFF1A;shape&#x662F;&#x5C5E;&#x6027; &#x4E0D;&#x662F;&#x65B9;&#x6CD5; &#x4E0D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;df.shape() &#x4F1A;&#x62A5;&#x9519;</em></p>
+<pre><code class="lang-python">df.shape
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">(1704, 6)
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;DataFrame&#x7684;<strong>columns&#x5C5E;&#x6027;</strong> &#x83B7;&#x53D6;DataFrame&#x4E2D;&#x7684;&#x5217;&#x540D;</p>
+<pre><code class="lang-python">df.columns
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">Index([&apos;country&apos;, &apos;continent&apos;, &apos;year&apos;, &apos;lifeExp&apos;, &apos;pop&apos;, &apos;gdpPercap&apos;], dtype=&apos;object&apos;)
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x6BCF;&#x4E00;&#x5217;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1F;</p>
+</li>
+<li><p>&#x4E0E;SQL&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8868;&#x7C7B;&#x4F3C;&#xFF0C;DataFrame&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x5217;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x76F8;&#x540C;&#xFF0C;&#x4E0D;&#x540C;&#x5217;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x4E0D;&#x540C;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<strong>dtypes&#x5C5E;&#x6027;</strong>&#xFF0C;&#x6216;&#x8005;<strong>info()</strong>&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x7C7B;&#x578B;</li>
+</ul>
+<pre><code class="lang-python">  df.dtypes
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">country       object
+continent     object
+year           int64
+lifeExp      float64
+pop            int64
+gdpPercap    float64
+dtype: object
+</code></pre>
+<pre><code class="lang-python">df.info()
+</code></pre>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell"><class 'pandas.core.frame.DataFrame'="">
+RangeIndex: 1704 entries, 0 to 1703
+Data columns (total 6 columns):
+#   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+0   country    1704 non-null   object 
+1   continent  1704 non-null   object 
+2   year       1704 non-null   int64  
+3   lifeExp    1704 non-null   float64
+4   pop        1704 non-null   int64  
+5   gdpPercap  1704 non-null   float64
+dtypes: float64(2), int64(2), object(2)
+memory usage: 80.0+ KB
+</class></code></pre>
+</blockquote>
+</li>
+<li><p>Pandas&#x4E0E;Python&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5BF9;&#x7167;</p>
+</li>
+</ul>
+<table>
+  <tr>
+    <td>Pandas&#x7C7B;&#x578B;</td><td>Python&#x7C7B;&#x578B;</td><td>&#x8BF4;&#x660E;</td>
+  </tr>
+  <tr>
+    <td>Object</td><td>string</td><td>&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</td>
+  </tr>
+  <tr>
+    <td>int64</td><td>int</td><td>&#x6574;&#x5F62;</td>
+  </tr>
+  <tr>
+    <td>float64</td><td>float</td><td>&#x6D6E;&#x70B9;&#x578B;</td>
+  </tr>
+  <tr>
+    <td>datetime64</td><td>datetime</td><td>&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#xFF0C;python&#x4E2D;&#x9700;&#x8981;&#x52A0;&#x8F7D;</td>
+  </tr>
+</table>
+
+</li>
+</ul>
+<h2 id="3-&#x67E5;&#x770B;&#x90E8;&#x5206;&#x6570;&#x636E;">3 &#x67E5;&#x770B;&#x90E8;&#x5206;&#x6570;&#x636E;</h2>
+<h3 id="31-&#x6839;&#x636E;&#x5217;&#x540D;&#x52A0;&#x8F7D;&#x90E8;&#x5206;&#x5217;&#x6570;&#x636E;">3.1 &#x6839;&#x636E;&#x5217;&#x540D;&#x52A0;&#x8F7D;&#x90E8;&#x5206;&#x5217;&#x6570;&#x636E;</h3>
+<ul>
+<li><p>&#x52A0;&#x8F7D;&#x4E00;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x901A;&#x8FC7;df[&apos;&#x5217;&#x540D;&apos;]&#x65B9;&#x5F0F;&#x83B7;&#x53D6;</p>
+<pre><code class="lang-python">country_df = df[<span class="hljs-string">&apos;country&apos;</span>]
+<span class="hljs-comment">#&#x83B7;&#x53D6;&#x6570;&#x636E;&#x524D;5&#x884C;</span>
+country_df.head()
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">0    Afghanistan
+1    Afghanistan
+2    Afghanistan
+3    Afghanistan
+4    Afghanistan
+Name: country, dtype: object
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>&#x901A;&#x8FC7;&#x5217;&#x540D;&#x52A0;&#x8F7D;&#x591A;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x901A;&#x8FC7;df[[&apos;&#x5217;&#x540D;1&apos;,&apos;&#x5217;&#x540D;2&apos;,...]]</p>
+<ul>
+<li>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;&#x4E24;&#x5C42;[] &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A; df[&#x5217;&#x540D;&#x7684;list]</li>
+</ul>
+<pre><code class="lang-python">subset = df[[<span class="hljs-string">&apos;country&apos;</span>,<span class="hljs-string">&apos;continent&apos;</span>,<span class="hljs-string">&apos;year&apos;</span>]]
+<span class="hljs-comment">#&#x6253;&#x5370;&#x540E;&#x4E94;&#x884C;&#x6570;&#x636E;</span>
+print(subset.tail())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">       country continent  year
+1699  Zimbabwe    Africa  1987
+1700  Zimbabwe    Africa  1992
+1701  Zimbabwe    Africa  1997
+1702  Zimbabwe    Africa  2002
+1703  Zimbabwe    Africa  2007
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="32-&#x6309;&#x884C;&#x52A0;&#x8F7D;&#x90E8;&#x5206;&#x6570;&#x636E;">3.2 &#x6309;&#x884C;&#x52A0;&#x8F7D;&#x90E8;&#x5206;&#x6570;&#x636E;</h3>
+<ul>
+<li><p>loc&#xFF1A;&#x901A;&#x8FC7;&#x884C;&#x7D22;&#x5F15;&#x6807;&#x7B7E;&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;&#x6570;&#x636E;</p>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x5148;&#x6253;&#x5370;&#x524D;5&#x884C;&#x6570;&#x636E; &#x89C2;&#x5BDF;&#x7B2C;&#x4E00;&#x5217;</span>
+print(df.head())
+</code></pre>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">       country continent  year  lifeExp       pop   gdpPercap
+0  Afghanistan      Asia  1952   28.801   8425333  779.445314
+1  Afghanistan      Asia  1957   30.332   9240934  820.853030
+2  Afghanistan      Asia  1962   31.997  10267083  853.100710
+3  Afghanistan      Asia  1967   34.020  11537966  836.197138
+4  Afghanistan      Asia  1972   36.088  13079460  739.981106
+</code></pre>
+<ul>
+<li>&#x4E0A;&#x8FF0;&#x7ED3;&#x679C;&#x4E2D;&#x53D1;&#x73B0;&#xFF0C;&#x6700;&#x5DE6;&#x8FB9;&#x4E00;&#x5217;&#x662F;&#x884C;&#x53F7;&#xFF0C;&#x8FD9;&#x4E00;&#x5217;&#x6CA1;&#x6709;&#x5217;&#x540D;&#x7684;&#x6570;&#x636E;&#x662F;DataFrame&#x7684;<strong>&#x884C;&#x7D22;&#x5F15;</strong>&#xFF0C;Pandas&#x4F1A;&#x4F7F;&#x7528;&#x884C;&#x53F7;&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x7D22;&#x5F15;&#x3002;</li>
+<li>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; .loc &#x65B9;&#x6CD5;&#x4F20;&#x5165;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x6765;&#x83B7;&#x53D6;DataFrame&#x7684;&#x90E8;&#x5206;&#x6570;&#x636E;&#xFF08;&#x4E00;&#x884C;&#xFF0C;&#x6216;&#x591A;&#x884C;&#xFF09;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x83B7;&#x53D6;&#x7B2C;&#x4E00;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6253;&#x5370;</span>
+print(df.loc[<span class="hljs-number">0</span>])
+</code></pre>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">country      Afghanistan
+continent           Asia
+year                1952
+lifeExp           28.801
+pop              8425333
+gdpPercap        779.445
+Name: 0, dtype: object
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x83B7;&#x53D6;&#x7B2C;100&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6253;&#x5370;</span>
+print(df.loc[<span class="hljs-number">99</span>])
+</code></pre>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">country      Bangladesh
+continent          Asia
+year               1967
+lifeExp          43.453
+pop            62821884
+gdpPercap       721.186
+Name: 99, dtype: object
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;  &#x901A;&#x8FC7;shape &#x83B7;&#x53D6;&#x4E00;&#x5171;&#x6709;&#x591A;&#x5C11;&#x884C;</span>
+number_of_rows = df.shape[<span class="hljs-number">0</span>]
+<span class="hljs-comment"># &#x603B;&#x884C;&#x6570;-1 &#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;&#x884C;&#x7D22;&#x5F15;</span>
+last_row_index = number_of_rows - <span class="hljs-number">1</span> 
+<span class="hljs-comment"># &#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6253;&#x5370;</span>
+print(df.loc[last_row_index])
+</code></pre>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">country      Zimbabwe
+continent      Africa
+year             2007
+lifeExp        43.487
+pop          12311143
+gdpPercap     469.709
+Name: 1703, dtype: object
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528;tail&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6570;&#x636E;</li>
+</ul>
+<pre><code class="lang-python">print(df.tail(n=<span class="hljs-number">1</span>)) <span class="hljs-comment">#tail&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x4E00;&#x884C; &#x4F20;&#x5165;n=1&#x63A7;&#x5236;&#x53EA;&#x663E;&#x793A;1&#x884C;</span>
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">    country continent  year  lifeExp       pop   gdpPercap
+1703  Zimbabwe    Africa  2007   43.487  12311143  469.709298
+</code></pre>
+</blockquote>
+<ul>
+<li><p>&#x6CE8;&#x610F;&#xFF1A;df.loc &#x548C; df.tail &#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x83B7;&#x5F97;&#x7684;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6570;&#x636E;&#x6709;&#x4E9B;&#x4E0D;&#x540C;</p>
+<ul>
+<li>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x4E24;&#x79CD;&#x7ED3;&#x679C;&#x7684;&#x7C7B;&#x578B;</li>
+</ul>
+<pre><code class="lang-python">subset_loc = df.loc[<span class="hljs-number">0</span>] 
+subset_head = df.head(n=<span class="hljs-number">1</span>) 
+print(type(subset_loc))
+print(type(subset_head))
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell"><class 'pandas.core.series.Series'="">
+<class ’pandas.core.frame.DataFrame’="">
+</class></class></code></pre>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>loc&#xFF1A;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x6807;&#x7B7E;&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x591A;&#x884C;&#x6570;&#x636E;</p>
+<pre><code class="lang-python">print(df.loc[[<span class="hljs-number">0</span>, <span class="hljs-number">99</span>, <span class="hljs-number">999</span>]])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">         country continent  year  lifeExp       pop    gdpPercap
+0    Afghanistan      Asia  1952   28.801   8425333   779.445314
+99    Bangladesh      Asia  1967   43.453  62821884   721.186086
+999     Mongolia      Asia  1967   51.253   1149500  1226.041130
+</code></pre>
+</blockquote>
+</li>
+<li><p>iloc : &#x901A;&#x8FC7;&#x884C;&#x53F7;&#x83B7;&#x53D6;&#x884C;&#x6570;&#x636E;</p>
+<ul>
+<li>&#x5728;&#x5F53;&#x524D;&#x6848;&#x4F8B;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;iloc &#x548C; loc&#x6548;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;</li>
+<li>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;iloc&#x4F20;&#x5165;&#x7684;&#x662F;&#x7D22;&#x5F15;&#x7684;&#x5E8F;&#x53F7;&#xFF0C;loc&#x662F;&#x7D22;&#x5F15;&#x7684;&#x6807;&#x7B7E;<ul>
+<li>&#x5728;&#x5F53;&#x524D;&#x6848;&#x4F8B;&#x4E2D;&#xFF0C;&#x7D22;&#x5F15;&#x6807;&#x7B7E;&#x548C;&#x7D22;&#x5F15;&#x5E8F;&#x53F7;&#x521A;&#x597D;&#x76F8;&#x540C;</li>
+<li>&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x60C5;&#x51B5;&#x4E0B;&#x7D22;&#x5F15;&#x6807;&#x7B7E;=&#x7D22;&#x5F15;&#x5E8F;&#x53F7;</li>
+<li>&#x4F8B;&#x5982;&#xFF1A;&#x5728;&#x505A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x65E5;&#x671F;&#x4F5C;&#x4E3A;&#x884C;&#x7D22;&#x5F15;<ul>
+<li>&#x6B64;&#x65F6;&#x7D22;&#x5F15;&#x6807;&#x7B7E;&#x65E5;&#x671F;</li>
+<li>&#x7D22;&#x5F15;&#x5E8F;&#x53F7;&#x4F9D;&#x7136;&#x662F;0&#xFF0C;1&#xFF0C;2&#xFF0C;3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x83B7;&#x53D6;&#x7B2C;&#x4E00;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6253;&#x5370;</span>
+print(df.iloc[<span class="hljs-number">0</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>country      Afghanistan
+continent           Asia
+year                1952
+lifeExp           28.801
+pop              8425333
+gdpPercap        779.445
+Name: 0, dtype: object</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x83B7;&#x53D6;&#x7B2C;100&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6253;&#x5370;</span>
+print(df.iloc[<span class="hljs-number">99</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>country      Bangladesh
+continent          Asia
+year               1967
+lifeExp          43.453
+pop            62821884
+gdpPercap       721.186
+Name: 99, dtype: object</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;  &#x901A;&#x8FC7;shape &#x83B7;&#x53D6;&#x4E00;&#x5171;&#x6709;&#x591A;&#x5C11;&#x884C;</span>
+number_of_rows = df.shape[<span class="hljs-number">0</span>]
+<span class="hljs-comment"># &#x603B;&#x884C;&#x6570;-1 &#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;&#x884C;&#x7D22;&#x5F15;</span>
+last_row_index = number_of_rows - <span class="hljs-number">1</span> 
+<span class="hljs-comment"># &#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6253;&#x5370;</span>
+print(df.iloc[[<span class="hljs-number">0</span>, <span class="hljs-number">99</span>, <span class="hljs-number">999</span>]])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>&#x200B;            country continent  year  lifeExp       pop    gdpPercap</p>
+<p>0    Afghanistan      Asia  1952   28.801   8425333   779.445314
+99    Bangladesh      Asia  1967   43.453  62821884   721.186086
+999     Mongolia      Asia  1967   51.253   1149500  1226.041130</p>
+</blockquote>
+<ul>
+<li>&#x4F7F;&#x7528;iloc&#x65F6;&#x4F20;&#x5165;-1&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6570;&#x636E;</li>
+</ul>
+<pre><code class="lang-python">print(df.iloc[-<span class="hljs-number">1</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<p>country      Zimbabwe
+continent      Africa
+year             2007
+lifeExp        43.487
+pop          12311143
+gdpPercap     469.709
+Name: 1703, dtype: object</p>
+</blockquote>
+<ul>
+<li><strong>&#x6CE8;&#x610F;</strong> &#x4F7F;&#x7528;iloc&#x65F6;&#x53EF;&#x4EE5;&#x4F20;&#x5165;-1&#x6765;&#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;loc&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x884C; </li>
+</ul>
+</li>
+<li><p><strong>Pandas V0.20 &#x5F00;&#x59CB;&#x4E0D;&#x518D;&#x652F;&#x6301;&#x4F7F;&#x7528; <em>ix</em> &#x83B7;&#x53D6;&#x6570;&#x636E;</strong></p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x628A;ix&#x770B;&#x4F5C;loc &#x548C; iloc&#x7684;&#x7ED3;&#x5408;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x6216;&#x8005;&#x6574;&#x6570;&#x53D6;&#x5B50;&#x96C6;</li>
+<li>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x4F1A;&#x641C;&#x7D22;&#x6807;&#x7B7E;&#xFF0C;&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x6807;&#x7B7E;&#xFF0C;&#x5C31;&#x4F1A;&#x6539;&#x7528;&#x6574;&#x6570;&#x7D22;&#x5F15;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x6DF7;&#x4E71;</li>
+<li>&#x4F7F;&#x7528;ix&#x65F6;&#x4E0E;&#x4F7F;&#x7528;loc&#x6216;iloc&#x65F6;&#x7684;&#x4EE3;&#x7801;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x662F;&#x5C06;loc&#x6216;&#x8005;iloc&#x6362;&#x6210;ix</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#x53EA;&#x80FD;&#x5728;pandas &#x7248;&#x672C;&#x4F4E;&#x4E8E;0.20&#x7684;&#x65F6;&#x5019;&#x624D;&#x80FD;&#x6210;&#x529F;&#x8FD0;&#x884C;</span>
+df.ix[<span class="hljs-number">0</span>] <span class="hljs-comment">#&#x83B7;&#x53D6;&#x7B2C;&#x4E00;&#x884C;&#x6570;&#x636E;</span>
+df.ix[<span class="hljs-number">99</span>] <span class="hljs-comment"># &#x83B7;&#x53D6;&#x7B2C;100&#x884C;&#x6570;&#x636E;</span>
+df.ix[[<span class="hljs-number">0</span>,<span class="hljs-number">99</span>,<span class="hljs-number">999</span>]] <span class="hljs-comment"># &#x83B7;&#x53D6;&#x7B2C;1&#x884C;&#xFF0C;&#x7B2C;100&#x884C;&#xFF0C;&#x7B2C;1000&#x884C;&#x6570;&#x636E;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="33-&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;&#x5217;&#x6570;&#x636E;">3.3 &#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;/&#x5217;&#x6570;&#x636E;</h3>
+<ul>
+<li><p>loc&#x548C;iloc&#x5C5E;&#x6027;&#x65E2;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x884C;&#x6570;&#x636E;</p>
+<ul>
+<li>df.loc[[&#x884C;]&#xFF0C;[&#x5217;]]</li>
+<li>df.iloc[[&#x884C;]&#xFF0C;[&#x5217;]]</li>
+</ul>
+</li>
+<li><p>&#x4F7F;&#x7528; loc &#x83B7;&#x53D6;&#x6570;&#x636E;&#x4E2D;&#x7684;1&#x5217;/&#x51E0;&#x5217;</p>
+<ul>
+<li>df.loc[[&#x6240;&#x6709;&#x884C;],[&#x5217;&#x540D;]] </li>
+<li>&#x53D6;&#x51FA;&#x6240;&#x6709;&#x884C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5207;&#x7247;&#x8BED;&#x6CD5; df.loc[ : , [&#x5217;&#x540D;]]</li>
+</ul>
+<pre><code class="lang-python">subset = df.loc[:,[<span class="hljs-string">&apos;year&apos;</span>,<span class="hljs-string">&apos;pop&apos;</span>]] 
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">  year       pop
+0  1952   8425333
+1  1957   9240934
+2  1962  10267083
+3  1967  11537966
+4  1972  13079460
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x4F7F;&#x7528; iloc &#x83B7;&#x53D6;&#x6570;&#x636E;&#x4E2D;&#x7684;1&#x5217;/&#x51E0;&#x5217;</p>
+<ul>
+<li>df.iloc[:,[&#x5217;&#x5E8F;&#x53F7;]]  # &#x5217;&#x5E8F;&#x53F7;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;-1&#x4EE3;&#x8868;&#x6700;&#x540E;&#x4E00;&#x5217;</li>
+</ul>
+<pre><code class="lang-python">subset = df.iloc[:,[<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,-<span class="hljs-number">1</span>]]
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code>  year       pop   gdpPercap
+0  1952   8425333  779.445314
+1  1957   9240934  820.853030
+2  1962  10267083  853.100710
+3  1967  11537966  836.197138
+4  1972  13079460  739.981106
+</code></pre></blockquote>
+</li>
+<li><p>&#x5982;&#x679C;loc &#x548C; iloc &#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x5F04;&#x6DF7;&#x4E86;&#xFF0C;&#x4F1A;&#x62A5;&#x9519;</p>
+<ul>
+<li>loc &#x53EA;&#x80FD;&#x63A5;&#x53D7;&#x884C;/&#x5217; &#x7684;&#x540D;&#x5B57;&#xFF0C; &#x4E0D;&#x80FD;&#x4F20;&#x5165;&#x7D22;&#x5F15;</li>
+</ul>
+<pre><code class="lang-python">subset = df.loc[:,[<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,-<span class="hljs-number">1</span>]]
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">KeyError: &quot;None of [Int64Index([2, 4, -1], dtype=&apos;int64&apos;)] are in the [columns]&quot;
+</code></pre>
+<ul>
+<li>iloc&#x53EA;&#x80FD;&#x63A5;&#x53D7;&#x884C;/&#x5217;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x4E0D;&#x80FD;&#x4F20;&#x5165;&#x884C;&#x540D;&#xFF0C;&#x6216;&#x8005;&#x5217;&#x540D;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">subset = df.loc[:,[<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,-<span class="hljs-number">1</span>]]
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">IndexError: .iloc requires numeric indexers, got [&apos;year&apos; &apos;pop&apos;]
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x901A;&#x8FC7;range &#x751F;&#x6210;&#x5E8F;&#x53F7;&#xFF0C;&#x7ED3;&#x5408;iloc &#x83B7;&#x53D6;&#x8FDE;&#x7EED;&#x591A;&#x5217;&#x6570;&#x636E;</p>
+<pre><code class="lang-python">tmp_range = list(range(<span class="hljs-number">5</span>))
+print(tmp_range)
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">[0, 1, 2, 3, 4]
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">subset = df.iloc[:,tmp_range]
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">      country continent  year  lifeExp       pop
+0  Afghanistan      Asia  1952   28.801   8425333
+1  Afghanistan      Asia  1957   30.332   9240934
+2  Afghanistan      Asia  1962   31.997  10267083
+3  Afghanistan      Asia  1967   34.020  11537966
+4  Afghanistan      Asia  1972   36.088  13079460
+</code></pre>
+<pre><code class="lang-python">tmp_range = list(range(<span class="hljs-number">3</span>,<span class="hljs-number">5</span>))
+print(tmp_range)
+</code></pre>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">[3, 4]
+</code></pre>
+</blockquote>
+<pre><code class="lang-python">subset = df.iloc[:,tmp_range]
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">  lifeExp       pop
+0   28.801   8425333
+1   30.332   9240934
+2   31.997  10267083
+3   34.020  11537966
+4   36.088  13079460
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x5728; iloc&#x4E2D;&#x4F7F;&#x7528;&#x5207;&#x7247;&#x8BED;&#x6CD5;&#x83B7;&#x53D6;&#x51E0;&#x5217;&#x6570;&#x636E;</p>
+<ul>
+<li>&#x4F7F;&#x7528;&#x5207;&#x7247;&#x8BED;&#x6CD5;&#x83B7;&#x53D6;&#x524D;&#x4E09;&#x5217;</li>
+</ul>
+<pre><code class="lang-python">subset = df.iloc[:,<span class="hljs-number">3</span>:<span class="hljs-number">6</span>]
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">  lifeExp       pop   gdpPercap
+0   28.801   8425333  779.445314
+1   30.332   9240934  820.853030
+2   31.997  10267083  853.100710
+3   34.020  11537966  836.197138
+4   36.088  13079460  739.981106
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x83B7;&#x53D6;&#x7B2C;0,2,4&#x5217;</li>
+</ul>
+<pre><code class="lang-python">subset = df.iloc[:,<span class="hljs-number">0</span>:<span class="hljs-number">6</span>:<span class="hljs-number">2</span>]
+print(subset.head())
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">      country  year       pop
+0  Afghanistan  1952   8425333
+1  Afghanistan  1957   9240934
+2  Afghanistan  1962  10267083
+3  Afghanistan  1967  11537966
+4  Afghanistan  1972  13079460
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x4F7F;&#x7528; loc/iloc &#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;&#xFF0C;&#x6307;&#x5B9A;&#x5217;&#x7684;&#x6570;&#x636E;</p>
+<ul>
+<li>&#x4F7F;&#x7528;loc</li>
+</ul>
+<pre><code class="lang-python">print(df.loc[<span class="hljs-number">42</span>,<span class="hljs-string">&apos;country&apos;</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code>Angola
+</code></pre><ul>
+<li>&#x4F7F;&#x7528;iloc</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">print(df.iloc[<span class="hljs-number">42</span>,<span class="hljs-number">0</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code>Angola
+</code></pre></blockquote>
+<ul>
+<li>&#x4E0D;&#x8981;&#x6DF7;&#x6DC6;loc&#x548C;iloc&#xFF0C;df.loc[42,0] &#x4F1A;&#x62A5;&#x9519;</li>
+</ul>
+<pre><code class="lang-python">print(df.loc[<span class="hljs-number">42</span>,<span class="hljs-number">0</span>])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">TypeError: cannot do label indexing on <class 'pandas.core.indexes.base.Index'=""> with these indexers [0] of <class 'int'="">
+</class></class></code></pre>
+</blockquote>
+</li>
+<li><p>&#x83B7;&#x53D6;&#x591A;&#x884C;&#x591A;&#x5217;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x628A;&#x83B7;&#x53D6;&#x5355;&#x884C;&#x5355;&#x5217;&#x7684;&#x8BED;&#x6CD5;&#x548C;&#x83B7;&#x53D6;&#x591A;&#x884C;&#x591A;&#x5217;&#x7684;&#x8BED;&#x6CD5;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x4F7F;&#x7528;</li>
+<li>&#x83B7;&#x53D6; &#x7B2C;&#x4E00;&#x5217;&#xFF0C;&#x7B2C;&#x56DB;&#x5217;&#xFF0C;&#x7B2C;&#x516D;&#x5217;&#xFF08;country,lifeExp,gdpPercap) &#x6570;&#x636E;&#x4E2D;&#x7684;&#x7B2C;1&#x884C;&#xFF0C;&#x7B2C;100&#x884C;&#x548C;&#x7B2C;1000&#x884C;</li>
+</ul>
+<pre><code class="lang-python">print(df.iloc[[<span class="hljs-number">0</span>,<span class="hljs-number">99</span>,<span class="hljs-number">999</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>]])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">        country  lifeExp    gdpPercap
+0    Afghanistan   28.801   779.445314
+99    Bangladesh   43.453   721.186086
+999     Mongolia   51.253  1226.041130
+</code></pre>
+<ul>
+<li>&#x5728;&#x5B9E;&#x9645;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x83B7;&#x53D6;&#x67D0;&#x51E0;&#x5217;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F20;&#x5165;&#x5B9E;&#x9645;&#x7684;&#x5217;&#x540D;&#xFF0C;&#x4F7F;&#x7528;&#x5217;&#x540D;&#x7684;&#x597D;&#x5904;&#xFF1A;<ul>
+<li>&#x589E;&#x52A0;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;</li>
+<li>&#x907F;&#x514D;&#x56E0;&#x5217;&#x987A;&#x5E8F;&#x7684;&#x53D8;&#x5316;&#x5BFC;&#x81F4;&#x53D6;&#x51FA;&#x9519;&#x8BEF;&#x7684;&#x5217;&#x6570;&#x636E;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">print(df.loc[[<span class="hljs-number">0</span>,<span class="hljs-number">99</span>,<span class="hljs-number">999</span>],[<span class="hljs-string">&apos;country&apos;</span>,<span class="hljs-string">&apos;lifeExp&apos;</span>,<span class="hljs-string">&apos;gdpPercap&apos;</span>]])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">        country  lifeExp    gdpPercap
+0    Afghanistan   28.801   779.445314
+99    Bangladesh   43.453   721.186086
+999     Mongolia   51.253  1226.041130
+</code></pre>
+</blockquote>
+<ul>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x53EF;&#x4EE5;&#x5728;loc &#x548C; iloc &#x5C5E;&#x6027;&#x7684;&#x884C;&#x90E8;&#x5206;&#x4F7F;&#x7528;&#x5207;&#x7247;&#x83B7;&#x53D6;&#x6570;&#x636E;</li>
+</ul>
+<pre><code class="lang-python">print(df.loc[<span class="hljs-number">2</span>:<span class="hljs-number">6</span>,[<span class="hljs-string">&apos;country&apos;</span>,<span class="hljs-string">&apos;lifeExp&apos;</span>,<span class="hljs-string">&apos;gdpPercap&apos;</span>]])
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">      country  lifeExp   gdpPercap
+2  Afghanistan   31.997  853.100710
+3  Afghanistan   34.020  836.197138
+4  Afghanistan   36.088  739.981106
+5  Afghanistan   38.438  786.113360
+6  Afghanistan   39.854  978.011439
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h2 id="4-&#x5206;&#x7EC4;&#x548C;&#x805A;&#x5408;&#x8BA1;&#x7B97;">4 &#x5206;&#x7EC4;&#x548C;&#x805A;&#x5408;&#x8BA1;&#x7B97;</h2>
+<ul>
+<li><p>&#x5728;&#x6211;&#x4EEC;&#x4F7F;&#x7528;Excel&#x6216;&#x8005;SQL&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5904;&#x7406;&#x65F6;&#xFF0C;Excel&#x548C;SQL&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x7EDF;&#x8BA1;&#x8BA1;&#x7B97;&#x529F;&#x80FD;</p>
+</li>
+<li><p>&#x5F53;&#x6211;&#x4EEC;&#x518D;&#x6B21;&#x67E5;&#x770B;gapminder&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x6570;&#x636E;&#x63D0;&#x51FA;&#x51E0;&#x4E2A;&#x95EE;&#x9898;</p>
+<pre><code class="lang-python">print(df.head(<span class="hljs-number">10</span>))
+</code></pre>
+<blockquote>
+<font color="red">&#x8F93;&#x51FA;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">       country continent  year  lifeExp       pop   gdpPercap
+0  Afghanistan      Asia  1952   28.801   8425333  779.445314
+1  Afghanistan      Asia  1957   30.332   9240934  820.853030
+2  Afghanistan      Asia  1962   31.997  10267083  853.100710
+3  Afghanistan      Asia  1967   34.020  11537966  836.197138
+4  Afghanistan      Asia  1972   36.088  13079460  739.981106
+5  Afghanistan      Asia  1977   38.438  14880372  786.113360
+6  Afghanistan      Asia  1982   39.854  12881816  978.011439
+7  Afghanistan      Asia  1987   40.822  13867957  852.395945
+8  Afghanistan      Asia  1992   41.674  16317921  649.341395
+9  Afghanistan      Asia  1997   41.763  22227415  635.341351
+</code></pre>
+</blockquote>
+<p>&#x2460; &#x6BCF;&#x4E00;&#x5E74;&#x7684;&#x5E73;&#x5747;&#x9884;&#x671F;&#x5BFF;&#x547D;&#x662F;&#x591A;&#x5C11;&#xFF1F;&#x6BCF;&#x4E00;&#x5E74;&#x7684;&#x5E73;&#x5747;&#x4EBA;&#x53E3;&#x548C;&#x5E73;&#x5747;GDP&#x662F;&#x591A;&#x5C11;&#xFF1F;</p>
+<p>&#x2461; &#x5982;&#x679C;&#x6211;&#x4EEC;&#x6309;&#x7167;&#x5927;&#x6D32;&#x6765;&#x8BA1;&#x7B97;&#xFF0C;&#x6BCF;&#x5E74;&#x4E2A;&#x5927;&#x6D32;&#x7684;&#x5E73;&#x5747;&#x9884;&#x671F;&#x5BFF;&#x547D;&#xFF0C;&#x5E73;&#x5747;&#x4EBA;&#x53E3;&#xFF0C;&#x5E73;&#x5747;GDP&#x60C5;&#x51B5;&#x53C8;&#x5982;&#x4F55;&#xFF1F;</p>
+<p>&#x2462; &#x5728;&#x6570;&#x636E;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x5927;&#x6D32;&#x5217;&#x51FA;&#x4E86;&#x591A;&#x5C11;&#x4E2A;&#x56FD;&#x5BB6;&#x548C;&#x5730;&#x533A;&#xFF1F;</p>
+</li>
+</ul>
+<h3 id="41-&#x5206;&#x7EC4;&#x65B9;&#x5F0F;">4.1 &#x5206;&#x7EC4;&#x65B9;&#x5F0F;</h3>
+<ul>
+<li><p>&#x5BF9;&#x4E8E;&#x4E0A;&#x9762;&#x63D0;&#x51FA;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5206;&#x7EC4;-&#x805A;&#x5408;&#x8BA1;&#x7B97;</p>
+<ul>
+<li>&#x5148;&#x5C06;&#x6570;&#x636E;&#x5206;&#x7EC4;&#xFF08;&#x6BCF;&#x4E00;&#x5E74;&#x7684;&#x5E73;&#x5747;&#x9884;&#x671F;&#x5BFF;&#x547D;&#x95EE;&#x9898; &#x6309;&#x7167;&#x5E74;&#x4EFD;&#x5C06;&#x76F8;&#x540C;&#x5E74;&#x4EFD;&#x7684;&#x6570;&#x636E;&#x5206;&#x6210;&#x4E00;&#x7EC4;&#xFF09; </li>
+<li>&#x5BF9;&#x6BCF;&#x7EC4;&#x7684;&#x6570;&#x636E;&#x518D;&#x53BB;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;&#x8BA1;&#x7B97;&#x5982;&#xFF0C;&#x6C42;&#x5E73;&#x5747;&#xFF0C;&#x6C42;&#x6BCF;&#x7EC4;&#x6570;&#x636E;&#x6761;&#x76EE;&#x6570;&#xFF08;&#x9891;&#x6570;&#xFF09;&#x7B49;</li>
+<li>&#x518D;&#x5C06;&#x6BCF;&#x4E00;&#x7EC4;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x5408;&#x5E76;&#x8D77;&#x6765;</li>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;DataFrame&#x7684;groupby&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x5206;&#x7EC4;/&#x805A;&#x5408;&#x8BA1;&#x7B97;</li>
+</ul>
+<pre><code class="lang-python">print(df.groupby(<span class="hljs-string">&apos;year&apos;</span>)[<span class="hljs-string">&apos;lifeExp&apos;</span>].mean())
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">year
+1952    49.057620
+1957    51.507401
+1962    53.609249
+1967    55.678290
+1972    57.647386
+1977    59.570157
+1982    61.533197
+1987    63.212613
+1992    64.160338
+1997    65.014676
+2002    65.694923
+2007    67.007423
+Name: lifeExp, dtype: float64
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x6211;&#x4EEC;&#x5C06;&#x4E0A;&#x9762;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x62C6;&#x5F00;&#xFF0C;&#x9010;&#x6B65;&#x5206;&#x6790;</p>
+<ul>
+<li>&#x901A;&#x8FC7;df.groupby(&apos;year&apos;)&#x5148;&#x521B;&#x4E00;&#x4E2A;&#x5206;&#x7EC4;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x6253;&#x5370;&#x8FD9;&#x4E2A;&#x5206;&#x7EC4;&#x7684;DataFrame&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5730;&#x5740;</li>
+</ul>
+<pre><code class="lang-python">grouped_year_df = df.groupby(<span class="hljs-string">&apos;year&apos;</span>)
+print(type(grouped_year_df))
+print(grouped_year_df)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell"><class 'pandas.core.groupby.generic.DataFrameGroupBy'="">
+<pandas.core.groupby.generic.DataFrameGroupBy object="" at="" 0x123493f10="">
+</pandas.core.groupby.generic.DataFrameGroupBy></class></code></pre>
+</blockquote>
+<ul>
+<li>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x5206;&#x7EC4;&#x4E4B;&#x540E;&#x7684;&#x6570;&#x636E;DataFrameGroupBy&#x4E2D;&#xFF0C;&#x4F20;&#x5165;&#x5217;&#x540D;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x8BA1;&#x7B97;<ul>
+<li>&#x8BA1;&#x7B97;&#x6BCF;&#x4E00;&#x5E74;&#x7684;&#x5E73;&#x5747;&#x9884;&#x671F;&#x5BFF;&#x547D;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;&#x5230; <em>lifeExp</em>  &#x8FD9;&#x4E00;&#x5217;</li>
+<li>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0A;&#x4E00;&#x5C0F;&#x8282;&#x4ECB;&#x7ECD;&#x7684;&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5206;&#x7EC4;&#x4E4B;&#x540E;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x4E00;&#x5217;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python">grouped_year_df_lifeExp = grouped_year_df[<span class="hljs-string">&apos;lifeExp&apos;</span>]
+print(type(grouped_year_df_lifeExp)) 
+print(grouped_year_df_lifeExp)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell"><class 'pandas.core.groupby.generic.SeriesGroupBy'="">
+<pandas.core.groupby.generic.SeriesGroupBy object="" at="" 0x000001E1938D0710="">
+</pandas.core.groupby.generic.SeriesGroupBy></class></code></pre>
+</blockquote>
+<ul>
+<li>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A;&#x4E00;&#x4E2A; SeriesGroupBy &#xFF08;&#x53EA;&#x83B7;&#x53D6;&#x4E86;DataFrameGroupBy&#x4E2D;&#x7684;&#x4E00;&#x5217;&#xFF09;&#xFF0C;&#x5176;&#x5185;&#x5BB9;&#x662F;&#x5206;&#x7EC4;&#x540E;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x5BF9;&#x5206;&#x7EC4;&#x540E;&#x7684;&#x6570;&#x636E;&#x8BA1;&#x7B97;&#x5E73;&#x5747;&#x503C;</li>
+</ul>
+<pre><code class="lang-python">mean_lifeExp_by_year = grouped_year_df_lifeExp.mean()
+print(mean_lifeExp_by_year)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">year
+1952    49.057620
+1957    51.507401
+1962    53.609249
+1967    55.678290
+1972    57.647386
+1977    59.570157
+1982    61.533197
+1987    63.212613
+1992    64.160338
+1997    65.014676
+2002    65.694923
+2007    67.007423
+Name: lifeExp, dtype: float64
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x53EA;&#x662F;&#x5BF9;&#x4E00;&#x5217; <em>lifeExp</em> &#x8FDB;&#x884C;&#x4E86;&#x5206;&#x7EC4;&#x6C42;&#x5E73;&#x5747;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x5BF9;&#x591A;&#x5217;&#x503C;&#x8FDB;&#x884C;&#x5206;&#x7EC4;&#x805A;&#x5408;&#x4EE3;&#x7801;&#x4E5F;&#x7C7B;&#x4F3C;</p>
+<pre><code class="lang-python">print(df.groupby([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;continent&apos;</span>])[[<span class="hljs-string">&apos;lifeExp&apos;</span>,<span class="hljs-string">&apos;gdpPercap&apos;</span>]].mean())
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">                 lifeExp     gdpPercap
+year continent                         
+1952 Africa     39.135500   1252.572466
+    Americas   53.279840   4079.062552
+    Asia       46.314394   5195.484004
+    Europe     64.408500   5661.057435
+    Oceania    69.255000  10298.085650
+1957 Africa     41.266346   1385.236062
+    Americas   55.960280   4616.043733
+    Asia       49.318544   5787.732940
+    Europe     66.703067   6963.012816
+    Oceania    70.295000  11598.522455
+1962 Africa     43.319442   1598.078825
+    Americas   58.398760   4901.541870
+    Asia       51.563223   5729.369625
+    Europe     68.539233   8365.486814
+    Oceania    71.085000  12696.452430
+1967 Africa     45.334538   2050.363801
+    Americas   60.410920   5668.253496
+    Asia       54.663640   5971.173374
+    Europe     69.737600  10143.823757
+    Oceania    71.310000  14495.021790
+1972 Africa     47.450942   2339.615674
+    Americas   62.394920   6491.334139
+    Asia       57.319269   8187.468699
+    Europe     70.775033  12479.575246
+    Oceania    71.910000  16417.333380
+1977 Africa     49.580423   2585.938508
+    Americas   64.391560   7352.007126
+    Asia       59.610556   7791.314020
+    Europe     71.937767  14283.979110
+    Oceania    72.855000  17283.957605
+1982 Africa     51.592865   2481.592960
+    Americas   66.228840   7506.737088
+    Asia       62.617939   7434.135157
+    Europe     72.806400  15617.896551
+    Oceania    74.290000  18554.709840
+1987 Africa     53.344788   2282.668991
+    Americas   68.090720   7793.400261
+    Asia       64.851182   7608.226508
+    Europe     73.642167  17214.310727
+    Oceania    75.320000  20448.040160
+1992 Africa     53.629577   2281.810333
+    Americas   69.568360   8044.934406
+    Asia       66.537212   8639.690248
+    Europe     74.440100  17061.568084
+    Oceania    76.945000  20894.045885
+1997 Africa     53.598269   2378.759555
+    Americas   71.150480   8889.300863
+    Asia       68.020515   9834.093295
+    Europe     75.505167  19076.781802
+    Oceania    78.190000  24024.175170
+2002 Africa     53.325231   2599.385159
+    Americas   72.422040   9287.677107
+    Asia       69.233879  10174.090397
+    Europe     76.700600  21711.732422
+    Oceania    79.740000  26938.778040
+2007 Africa     54.806038   3089.032605
+    Americas   73.608120  11003.031625
+    Asia       70.728485  12473.026870
+    Europe     77.648600  25054.481636
+    Oceania    80.719500  29810.188275
+</code></pre>
+<ul>
+<li>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6309;&#x5E74;&#x4EFD;&#x548C;&#x5927;&#x6D32;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x7EC4;&#xFF0C;&#x9488;&#x5BF9;&#x6BCF;&#x4E00;&#x7EC4;&#x6570;&#x636E;&#x8BA1;&#x7B97;&#x4E86;&#x5BF9;&#x5E94;&#x7684;&#x5E73;&#x5747;&#x9884;&#x671F;&#x5BFF;&#x547D; <em>lifeExp</em> &#x548C; &#x5E73;&#x5747;GDP</li>
+<li>&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x4E2D;  year continent &#x548C; lifeExp gdpPercap &#x4E0D;&#x5728;&#x540C;&#x4E00;&#x884C;&#xFF0C; year continent&#x4E24;&#x4E2A;&#x884C;&#x7D22;&#x5F15;&#x5B58;&#x5728;&#x5C42;&#x7EA7;&#x7ED3;&#x6784;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x7AE0;&#x8282;&#x4F1A;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x8FD9;&#x79CD;&#x590D;&#x5408;&#x7D22;&#x5F15;&#x7684;&#x7528;&#x6CD5;</li>
+<li>&#x5982;&#x679C;&#x60F3;&#x53BB;&#x6389; year continent&#x7684;&#x5C42;&#x7EA7;&#x7ED3;&#x6784;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;reset_index&#x65B9;&#x6CD5;&#xFF08;&#x91CD;&#x7F6E;&#x884C;&#x7D22;&#x5F15;&#xFF09;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">multi_group_var = df.groupby([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;continent&apos;</span>])[[<span class="hljs-string">&apos;lifeExp&apos;</span>,<span class="hljs-string">&apos;gdpPercap&apos;</span>]].mean()
+flat = multi_group_var.reset_index()
+print(flat.head(<span class="hljs-number">15</span>))
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-python">   year continent    lifeExp     gdpPercap
+<span class="hljs-number">0</span>   <span class="hljs-number">1952</span>    Africa  <span class="hljs-number">39.135500</span>   <span class="hljs-number">1252.572466</span>
+<span class="hljs-number">1</span>   <span class="hljs-number">1952</span>  Americas  <span class="hljs-number">53.279840</span>   <span class="hljs-number">4079.062552</span>
+<span class="hljs-number">2</span>   <span class="hljs-number">1952</span>      Asia  <span class="hljs-number">46.314394</span>   <span class="hljs-number">5195.484004</span>
+<span class="hljs-number">3</span>   <span class="hljs-number">1952</span>    Europe  <span class="hljs-number">64.408500</span>   <span class="hljs-number">5661.057435</span>
+<span class="hljs-number">4</span>   <span class="hljs-number">1952</span>   Oceania  <span class="hljs-number">69.255000</span>  <span class="hljs-number">10298.085650</span>
+<span class="hljs-number">5</span>   <span class="hljs-number">1957</span>    Africa  <span class="hljs-number">41.266346</span>   <span class="hljs-number">1385.236062</span>
+<span class="hljs-number">6</span>   <span class="hljs-number">1957</span>  Americas  <span class="hljs-number">55.960280</span>   <span class="hljs-number">4616.043733</span>
+<span class="hljs-number">7</span>   <span class="hljs-number">1957</span>      Asia  <span class="hljs-number">49.318544</span>   <span class="hljs-number">5787.732940</span>
+<span class="hljs-number">8</span>   <span class="hljs-number">1957</span>    Europe  <span class="hljs-number">66.703067</span>   <span class="hljs-number">6963.012816</span>
+<span class="hljs-number">9</span>   <span class="hljs-number">1957</span>   Oceania  <span class="hljs-number">70.295000</span>  <span class="hljs-number">11598.522455</span>
+<span class="hljs-number">10</span>  <span class="hljs-number">1962</span>    Africa  <span class="hljs-number">43.319442</span>   <span class="hljs-number">1598.078825</span>
+<span class="hljs-number">11</span>  <span class="hljs-number">1962</span>  Americas  <span class="hljs-number">58.398760</span>   <span class="hljs-number">4901.541870</span>
+<span class="hljs-number">12</span>  <span class="hljs-number">1962</span>      Asia  <span class="hljs-number">51.563223</span>   <span class="hljs-number">5729.369625</span>
+<span class="hljs-number">13</span>  <span class="hljs-number">1962</span>    Europe  <span class="hljs-number">68.539233</span>   <span class="hljs-number">8365.486814</span>
+<span class="hljs-number">14</span>  <span class="hljs-number">1962</span>   Oceania  <span class="hljs-number">71.085000</span>  <span class="hljs-number">12696.452430</span>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="42-&#x5206;&#x7EC4;&#x9891;&#x6570;&#x8BA1;&#x7B97;">4.2 &#x5206;&#x7EC4;&#x9891;&#x6570;&#x8BA1;&#x7B97;</h3>
+<ul>
+<li><p>&#x5728;&#x6570;&#x636E;&#x5206;&#x6790;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x8BA1;&#x7B97;&#x9891;&#x6570;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>nunique</em> &#x65B9;&#x6CD5; &#x8BA1;&#x7B97;Pandas Series&#x7684;&#x552F;&#x4E00;&#x503C;&#x8BA1;&#x6570;</li>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>value_counts</em> &#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;Pandas Series &#x7684;&#x9891;&#x6570;&#x7EDF;&#x8BA1;</li>
+<li>&#x5728;&#x6570;&#x636E;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x5927;&#x6D32;&#x5217;&#x51FA;&#x4E86;&#x591A;&#x5C11;&#x4E2A;&#x56FD;&#x5BB6;&#x548C;&#x5730;&#x533A;&#xFF1F;</li>
+</ul>
+<pre><code class="lang-python">df.groupby(<span class="hljs-string">&apos;continent&apos;</span>)[<span class="hljs-string">&apos;country&apos;</span>].nunique()
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code>continent
+Africa      52
+Americas    25
+Asia        33
+Europe      30
+Oceania      2
+Name: country, dtype: int64
+</code></pre></blockquote>
+</li>
+</ul>
+<h2 id="5-&#x57FA;&#x672C;&#x7ED8;&#x56FE;">5 &#x57FA;&#x672C;&#x7ED8;&#x56FE;</h2>
+<ul>
+<li><p>&#x53EF;&#x89C6;&#x5316;&#x5728;&#x6570;&#x636E;&#x5206;&#x6790;&#x7684;&#x6BCF;&#x4E2A;&#x6B65;&#x9AA4;&#x4E2D;&#x90FD;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x5728;&#x7406;&#x89E3;&#x6216;&#x6E05;&#x7406;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x53EF;&#x89C6;&#x5316;&#x6709;&#x52A9;&#x4E8E;&#x8BC6;&#x522B;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x8D8B;&#x52BF;</p>
+<pre><code class="lang-python">global_yearly_life_expectancy = df.groupby(<span class="hljs-string">&apos;year&apos;</span>)[<span class="hljs-string">&apos;lifeExp&apos;</span>].mean()
+print(global_yearly_life_expectancy)
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell">year
+1952    49.057620
+1957    51.507401
+1962    53.609249
+1967    55.678290
+1972    57.647386
+1977    59.570157
+1982    61.533197
+1987    63.212613
+1992    64.160338
+1997    65.014676
+2002    65.694923
+2007    67.007423
+Name: lifeExp, dtype: float64
+</code></pre>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;plot&#x753B;&#x56FE;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python">global_yearly_life_expectancy.plot()
+</code></pre>
+<blockquote>
+<font color="red">&#x663E;&#x793A;&#x7ED3;&#x679C;</font>
+
+<pre><code class="lang-shell"><matplotlib.axes._subplots.AxesSubplot at="" 0x1e196e73f98="">
+</matplotlib.axes._subplots.AxesSubplot></code></pre>
+<p><img src="data:image/png;base64,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" alt="img"></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h2>
+<ul>
+<li><p>&#x672C;&#x8282;&#x8BFE;&#x7A0B;&#x4ECB;&#x7ECD;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;Pandas&#x7684;DataFrame&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4ECB;&#x7ECD;&#x4E86;&#x5982;&#x4F55;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7684;&#x5206;&#x7EC4;&#x805A;&#x5408;</p>
+<pre><code class="lang-python">pd.read_csv <span class="hljs-comment"># &#x52A0;&#x8F7D;CSV&#x6587;&#x4EF6;</span>
+pd.loc      <span class="hljs-comment"># &#x4ECE;DataFrame&#x4E2D;&#x83B7;&#x53D6;&#x90E8;&#x5206;&#x6570;&#x636E;&#xFF0C;&#x4F20;&#x5165;&#x7D22;&#x5F15;&#x540D;&#x5B57;</span>
+pd.iloc     <span class="hljs-comment"># &#x4ECE;DataFrame&#x4E2D;&#x83B7;&#x53D6;&#x90E8;&#x5206;&#x6570;&#x636E;&#xFF0C;&#x4F20;&#x5165;&#x7D22;&#x5F15;&#x5E8F;&#x53F7;</span>
+pd.groupby  <span class="hljs-comment"># &#x5206;&#x7EC4;</span>
+</code></pre>
+</li>
+</ul>
+<footer class="page-footer"><span class="copyright">&#xA9;2021.4 &#x539F;&#x6EE1; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-09-18 13:48:33
+</span></footer>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./第2章-03-05_Pandas数据分析入门.html" class="navigation navigation-prev " aria-label="Previous page: Pandas数据分析入门"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./04_Pandas_数据结构.html" class="navigation navigation-next " aria-label="Next page: Pandas_数据结构"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-back-to-top-button/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-toc2/toc2.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"expandable-chapters-small":{},"toc2":{"addClass":true,"className":"toc"},"tbfed-pagefooter":{"copyright":"©2021.4 原满","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"back-to-top-button":{},"chapter-fold":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
