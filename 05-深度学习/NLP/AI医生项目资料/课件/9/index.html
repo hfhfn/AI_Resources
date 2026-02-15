@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>第九章:系统联调与测试 - DOCTOR</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7b2c\u4e5d\u7ae0:\u7cfb\u7edf\u8054\u8c03\u4e0e\u6d4b\u8bd5";
+    var mkdocs_page_input_path = "9.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'mkdocs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DOCTOR</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../1/">第一章:背景介绍与Unit的使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2/">第二章:在线医生的总体架构与工具介绍</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3/">第三章:neo4j图数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4/">第四章:离线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5/">第五章:命名实体审核任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6/">第六章:命名实体识别任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7/">第七章:在线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8/">第八章:句子主题相关任务</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">第九章:系统联调与测试</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#91">9.1 系统联调与测试</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10/">附录:环境安装部署手册</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DOCTOR</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>第九章:系统联调与测试</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="91">9.1 系统联调与测试</h2>
+<hr />
+<ul>
+<li>学习目标:<ul>
+<li>掌握如何启动系统在线部分的服务.</li>
+<li>掌握对运行服务分别进行测试的过程.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>系统架构图:</li>
+</ul>
+<p><img style="margin: 0px 30px 0px -30px" src="../img/doctorAI_online.png"></p>
+<hr />
+<ul>
+<li>系统在线部分的主要服务:<ul>
+<li>werobot服务</li>
+<li>主要逻辑服务</li>
+<li>句子相关模型服务</li>
+<li>redis服务(会话管理)</li>
+<li>neo4j服务(图数据查询)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>说明: 系统联调与测试是对系统在线部分服务的联调与测试, 不包含离线部分的内容.</li>
+</ul>
+<hr />
+<ul>
+<li>启动系统在线部分的服务:<ul>
+<li>以挂起的方式启动werobot服务</li>
+<li>使用supervisor启动主要逻辑服务及其redis服务</li>
+<li>以挂起的方式启动子相关模型服务</li>
+<li>启动和查看neo4j服务(默认已启动)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>以挂起的方式启动werobot服务:</li>
+</ul>
+<pre><code>nohup python /data/wr.py &amp;
+</code></pre>
+
+<hr />
+<ul>
+<li>运行位置: /dara/目录下.</li>
+</ul>
+<hr />
+<ul>
+<li>通过端口查看挂起的服务进程:</li>
+</ul>
+<pre><code># 通过yum安装lsof命令
+sudo yum install lsof -y
+
+
+# 查看80端口的进程
+lsof -i:80
+</code></pre>
+
+<hr />
+<ul>
+<li>使用supervisor启动主要逻辑服务及其redis服务</li>
+</ul>
+<blockquote>
+<ul>
+<li>supervisor配置文件简要分析:</li>
+</ul>
+</blockquote>
+<pre><code>...
+
+; 使用gunicorn启动基于Flask框架的主要逻辑服务 
+[program:main_server]
+command=gunicorn -w 1 -b 0.0.0.0:5000 app:app                    ; the program (relative uses PATH, can take args)
+stopsignal=QUIT               ; signal used to kill process (default TERM)
+stopasgroup=false             ; send stop signal to the UNIX process group (default false)
+killasgroup=false             ; SIGKILL the UNIX process group (def false)
+stdout_logfile=./log/main_server_out      ; stdout log path, NONE for none; default AUTO
+stdout_logfile_maxbytes=1MB   ; max # logfile bytes b4 rotation (default 50MB)
+stderr_logfile=./log/main_server_error        ; stderr log path, NONE for none; default AUTO
+stderr_logfile_maxbytes=1MB   ; max # logfile bytes b4 rotation (default 50MB)
+
+; 启动redis服务，作为会话管理数据库
+[program:redis]
+command=redis-server
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>文件位置: /data/doctor_online/main_serve/supervisor.conf</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>启动服务:</li>
+</ul>
+</blockquote>
+<pre><code># 使用supervisord命令, 读取指定目录下的文件
+supervisord -c /data/doctor_online/main_serve/supervisor.conf
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>查看启动的服务状态</li>
+</ul>
+</blockquote>
+<pre><code>supervisorctl status all
+</code></pre>
+
+<blockquote>
+<ul>
+<li>输出效果:</li>
+</ul>
+</blockquote>
+<pre><code>main_server                      RUNNING   pid 31609, uptime 0:32:20
+redis                            RUNNING   pid 31613, uptime 0:32:18
+</code></pre>
+
+<hr />
+<ul>
+<li>以挂起的方式启动句子相关模型服务:</li>
+</ul>
+<blockquote>
+<ul>
+<li>编写启动脚本start.sh</li>
+</ul>
+</blockquote>
+<pre><code># 脚本中是使用gunicorn启动服务的命令
+gunicorn -w 1 -b 0.0.0.0:5001 app:app
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/doctor_online/bert_serve/start.sh</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>以挂起的方式启动服务</li>
+</ul>
+</blockquote>
+<pre><code>nohup sh /data/doctor_online/bert_serve/start.sh &amp;
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>运行位置: /data/doctor_online/bert_serve/目录下.</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>通过端口查看挂起的服务进程</li>
+</ul>
+</blockquote>
+<pre><code># 通过yum安装lsof命令
+sudo yum install lsof -y
+
+
+# 查看5001端口的进程
+lsof -i:5001
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>启动和查看neo4j服务(图数据查询):</li>
+</ul>
+</blockquote>
+<pre><code># neo4j服务在之前应该一直处在启动状态
+neo4j start
+
+
+# 查看服务启动状态:
+neo4j status
+</code></pre>
+
+<hr />
+<ul>
+<li>进行测试:<ul>
+<li>第一步: 明确测试说明.</li>
+<li>第二步: 添加打印测试内容.</li>
+<li>第三步: 重新启动主要逻辑服务.</li>
+<li>第四步: 进行数据流测试并查看打印日志.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 测试说明<ul>
+<li>因为主要逻辑服务是所有在线服务的中心服务(该服务将接收或发送请求给其他服务), 因此我们的测试打印信息都在主要逻辑服务中进行.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第二步: 添加打印测试内容</li>
+</ul>
+<pre><code>class Handler(object):
+    &quot;&quot;&quot;主要逻辑服务的处理类&quot;&quot;&quot;
+    def __init__(self, uid, text, r, reply):
+        &quot;&quot;&quot;
+        :param uid: 用户唯一标示uid
+        :param text: 该用户本次输入的文本
+        :param r: redis数据库的连接对象
+        :param reply: 规则对话模版加载到内存的对象(字典)
+        &quot;&quot;&quot;
+        self.uid = uid
+        self.text = text
+        self.r = r
+        self.reply = reply
+
+    def non_first_sentence(self, previous):
+        &quot;&quot;&quot;
+        description: 非首句处理函数
+        :param previous: 该用户当前句(输入文本)的上一句文本
+        :return: 根据逻辑图返回非首句情况下的输出语句
+        &quot;&quot;&quot;
+        # 尝试请求模型服务, 若失败则打印错误结果
+        ###################################################
+        # 能够打印该信息, 说明已经进入非首句处理函数.
+        print(&quot;准备请求句子相关模型服务!&quot;)
+        ###################################################
+        try:
+            data = {&quot;text1&quot;: previous, &quot;text2&quot;: self.text}
+            result = requests.post(model_serve_url, data=data)
+            if not result.text: return unit_chat(self.text)
+            ###################################################
+            # 能够打印该信息, 说明句子相关模型服务请求成功.
+            print(&quot;句子相关模型服务请求成功, 返回结果为:&quot;, result.text)
+            ###################################################
+        except Exception as e:
+            print(&quot;模型服务异常:&quot;, e)
+            return unit_chat(self.text)
+
+        ###################################################
+        # 能够打印该信息, 说明开始准备请求neo4j查询服务.
+        print(&quot;请求模型服务后, 准备请求neo4j查询服务!&quot;)
+        ###################################################
+        # 继续查询图数据库, 并获得结果
+        s = query_neo4j(self.text)
+        ###################################################
+        # 能够打印该信息, 说明neo4j查询成功.
+        print(&quot;neo4j查询服务请求成功, 返回结果:&quot;, s)
+        ###################################################
+        # 判断结果为空列表, 则直接使用UnitAPI返回
+        if not s: return unit_chat(self.text)
+        # 若结果不为空, 获取上一次已回复的疾病old_disease
+        old_disease = self.r.hget(str(self.uid), &quot;previous_d&quot;)
+        if old_disease:
+            # new_disease是本次需要存储的疾病, 是已经存储的疾病与本次查询到疾病的并集
+            new_disease = list(set(s) | set(eval(old_disease)))
+            # res是需要返回的疾病, 是本次查询到的疾病与已经存储的疾病的差集
+            res = list(set(s) - set(eval(old_disease)))
+        else:
+            # 如果old_disease为空, 则它们相同都是本次查询结果s
+            res = new_disease = list(set(s))
+
+        # 存储new_disease覆盖之前的old_disease
+        self.r.hset(str(self.uid), &quot;previous_d&quot;, str(new_disease))
+        # 设置过期时间
+        self.r.expire(str(self.uid), ex_time)
+        # 将列表转化为字符串, 添加到规则对话模版中返回
+        res = &quot;,&quot;.join(s)
+        ###################################################
+        # 能够打印该信息, 说明neo4j查询后有结果并将使用规则对话模版.
+        print(&quot;使用规则对话模版进行返回对话的生成!&quot;)
+        ###################################################
+        print(&quot;###################################################&quot;)
+        return self.reply[&quot;2&quot;] %res
+
+    def first_sentence(self):
+        &quot;&quot;&quot;首句处理函数&quot;&quot;&quot;
+        # 直接查询图数据库, 并获得结果
+        ###################################################
+        # 能够打印该信息, 说明进入了首句处理函数并马上进行neo4j查询
+        print(&quot;该用户近期首次发言, 不必请求模型服务, 准备请求neo4j查询服务!&quot;)
+        ###################################################
+        s = query_neo4j(self.text)
+        ###################################################
+        # 能够打印该信息, 说明已经完成neo4j查询.
+        print(&quot;neo4j查询服务请求成功, 返回结果为:&quot;, s)
+        ###################################################
+        # 判断结果为空列表, 则直接使用UnitAPI返回
+        if not s: return unit_chat(self.text)
+        # 将s存储为&quot;上一次返回的疾病&quot;
+        self.r.hset(str(self.uid), &quot;previous_d&quot;, str(s))
+        # 设置过期时间
+        self.r.expire(str(self.uid), ex_time)
+        # 将列表转化为字符串, 添加到规则对话模版中返回
+        res = &quot;,&quot;.join(s)
+        ###################################################
+        # 能够打印该信息, 说明neo4j查询后有结果并将使用规则对话模版.
+        print(&quot;使用规则对话生成模版进行返回对话的生成!&quot;)
+        ###################################################
+        print(&quot;###################################################&quot;)
+        return self.reply[&quot;2&quot;] %res
+
+
+
+# 设定主要逻辑服务的路由和请求方法
+@app.route('/v1/main_serve/', methods=[&quot;POST&quot;])
+def main_serve():
+    ###################################################
+    # 能够打印该信息, 说明werobot服务发送请求成功.
+    print(&quot;已经进入主要逻辑服务, werobot服务运行正常!&quot;)
+    ###################################################
+    # 接收来自werobot服务的字段
+    uid = request.form['uid']
+    text = request.form['text']
+    # 从redis连接池中获得一个活跃连接
+    r = redis.StrictRedis(connection_pool=pool)
+    # 根据该uid获取他的上一句话(可能不存在)
+    previous = r.hget(str(uid), &quot;previous&quot;)
+    # 将当前输入的文本设置成上一句
+    r.hset(str(uid), &quot;previous&quot;, text)
+    ###################################################
+    # 能够打印该信息, 说明redis能够正常读取和写入数据.
+    print(&quot;已经完成初次会话管理, redis运行正常!&quot;)
+    ###################################################
+    # 读取规则对话模版内容到内存
+    reply = json.load(open(reply_path, &quot;r&quot;))
+    # 实例化主要逻辑处理对象
+    handler = Handler(uid, text, r, reply)
+    # 如果previous存在, 说明不是第一句话
+    if previous:
+        # 调用non_first_sentence方法
+        return handler.non_first_sentence(previous)
+    else:
+        # 否则调用first_sentence()方法
+        return handler.first_sentence()
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/doctor_online/main_serve/app.py</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>第三步: 重新启动主要逻辑服务</li>
+</ul>
+<pre><code>supervisorctl restart all
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>运行位置: /data/doctor_online/main_serve</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>第四步: 进行数据流测试并查看打印日志<ul>
+<li>测试请求1: 用户关注公众号后首次发送一些症状描述.</li>
+<li>测试请求2: 首次发送后用户继续发送一些症状描述.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<blockquote>
+<ul>
+<li>测试请求1: <ul>
+<li>用户关注公众号后首次发送一些症状描述.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>对应数据流:<ul>
+<li>werobot服务--&gt;请求主要逻辑服务--&gt;主要逻辑服务中请求redis服务--&gt;请求neo4j查询服务--&gt;使用规则对话模版/UnitAPI.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>对应操作: <ul>
+<li>关注公众号(使用新用户), 发送"我最近有些腹痛".</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>查看主要逻辑服务日志:</li>
+</ul>
+</blockquote>
+<pre><code>cat /data/doctor_online/main_serve/log/main_server_out
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>日志打印结果:</li>
+</ul>
+</blockquote>
+<pre><code>## 打印如下结果说明测试成功!
+已经进入主要逻辑服务, werobot服务运行正常!
+已经完成初次会话管理, redis运行正常!
+该用户近期首次发言, 不必请求模型服务, 准备请求neo4j查询服务!
+neo4j查询服务请求成功, 返回结果为: ['癫痫', '小儿糖尿病', '肾上腺危象', '异位急性阑尾炎', '急性胆囊炎']
+使用规则对话模版进行返回生成的对话!
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>测试请求2: <ul>
+<li>首次发送后用户继续发送一些症状描述.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>对应数据流:<ul>
+<li>werobot服务--&gt;请求主要逻辑服务--&gt;主要逻辑服务中请求redis服务--&gt;请求句子相关模型服务--&gt;请求neo4j查询服务--&gt;使用规则对话模版/UnitAPI.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>对应操作: <ul>
+<li>发送"我最近有些腹痛"后, 继续发送"并且左腹部有一些红点".</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>查看主要逻辑服务日志:</li>
+</ul>
+</blockquote>
+<pre><code>cat /data/doctor_online/main_serve/log/main_server_out
+
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>日志打印结果:</li>
+</ul>
+</blockquote>
+<pre><code>## 打印如下结果说明测试成功!(使用UnitAPI返回结果)
+已经进入主要逻辑服务, werobot服务运行正常!
+已经完成初次会话管理, redis运行正常!
+准备请求句子相关模型服务!
+句子相关模型服务请求成功, 返回结果为: 1
+请求模型服务后, 准备请求neo4j查询服务!
+neo4j查询服务请求成功, 返回结果: []
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>注意: 打印日志若不能即时出现, 重新启动主要逻辑服务即可. </li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>
+<p>本章总结:</p>
+<ul>
+<li>学习了掌握如何启动系统在线部分的服务:<ul>
+<li>以挂起的方式启动werobot服务</li>
+<li>使用supervisor启动主要逻辑服务及其redis服务</li>
+<li>以挂起的方式启动子相关模型服务</li>
+<li>启动和查看neo4j服务(默认已启动)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>学习了如何进行测试:<ul>
+<li>第一步: 明确测试说明.</li>
+<li>第二步: 添加打印测试内容.</li>
+<li>第三步: 重新启动主要逻辑服务.</li>
+<li>第四步: 进行数据流测试并查看打印日志.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 测试说明<ul>
+<li>因为主要逻辑服务是所有在线服务的中心服务(该服务将接收或发送请求给其他服务), 因此我们的测试打印信息都在主要逻辑服务中进行.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第二步: 添加打印测试内容</li>
+</ul>
+<hr />
+<ul>
+<li>第三步: 重新启动主要逻辑服务</li>
+</ul>
+<hr />
+<ul>
+<li>第四步: 进行数据流测试并查看打印日志<ul>
+<li>测试请求1: 用户关注公众号后首次发送一些症状描述.</li>
+<li>测试请求2: 首次发送后用户继续发送一些症状描述.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../10/" class="btn btn-neutral float-right" title="附录:环境安装部署手册">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../8/" class="btn btn-neutral" title="第八章:句子主题相关任务"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>©Copyright 2019, itcast.cn.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../8/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../10/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

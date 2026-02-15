@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>第一章:背景介绍与Unit的使用 - DOCTOR</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7b2c\u4e00\u7ae0:\u80cc\u666f\u4ecb\u7ecd\u4e0eUnit\u7684\u4f7f\u7528";
+    var mkdocs_page_input_path = "1.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'mkdocs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DOCTOR</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">第一章:背景介绍与Unit的使用</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#11">1.1 背景介绍</a></li>
+    
+
+    <li class="toctree-l2"><a href="#12-unitapi">1.2 Unit对话API的使用</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2/">第二章:在线医生的总体架构与工具介绍</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3/">第三章:neo4j图数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4/">第四章:离线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5/">第五章:命名实体审核任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6/">第六章:命名实体识别任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7/">第七章:在线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8/">第八章:句子主题相关任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9/">第九章:系统联调与测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10/">附录:环境安装部署手册</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DOCTOR</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>第一章:背景介绍与Unit的使用</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="11">1.1 背景介绍</h2>
+<hr />
+<ul>
+<li>学习目标:<ul>
+<li>了解智能对话系统的相关背景知识.</li>
+<li>掌握使用Unit对话API.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>什么是智能对话系统？<ul>
+<li>随着人工智能技术的发展, 聊天机器人, 语音助手等应用在生活中随处可见, 比如百度的小度, 阿里的小蜜, 微软的小冰等等. 其目的在于通过人工智能技术让机器像人类一样能够进行智能回复, 解决现实中的各种问题.</li>
+</ul>
+</li>
+</ul>
+<p><center><img src="../img/image8.gif" height="200px" width="200px"></center></p>
+<hr />
+<ul>
+<li>从处理问题的角度来区分, 智能对话系统可分为:<ul>
+<li>任务导向型: 完成具有明确指向性的任务, 比如预定酒店咨询,  在线问诊等等.</li>
+<li>非任务导向型: 没有明确目的, 比如算算术, 播放音乐, 回答问题.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>我们的在线医生项目就是任务导向型的智能对话系统.</li>
+</ul>
+<hr />
+<h2 id="12-unitapi">1.2 Unit对话API的使用</h2>
+<hr />
+<ul>
+<li>学习目标:<ul>
+<li>了解Unit平台的相关知识.</li>
+<li>掌握调用Unit API的实现过程.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Unit平台的相关知识:<ul>
+<li>Unit平台是百度大脑开放的智能对话定制与服务平台, 也是当前最大的中文领域对话开放平台之一. Unit对注册用户提供免费的对话接口服务, 比如中文闲聊API, 百科问答API, 诗句生成API等, 通过这些API我们可以感受一下智能对话的魅力, 同时它也可以作为任务导向型对话系统无法匹配用户输入时的最终选择.</li>
+</ul>
+</li>
+</ul>
+<p><center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_4_baiduunit_reg.png" height="auto" width="auto"></center></p>
+<hr />
+<ul>
+<li>Unit闲聊API演示:</li>
+</ul>
+<pre><code>用户输入 &gt;&gt;&gt; &quot;你好&quot;
+Unit回复 &gt;&gt;&gt; &quot;你好,想聊什么呢~&quot;
+用户输入 &gt;&gt;&gt; &quot;我想有一个女朋友!&quot;
+Unit回复 &gt;&gt;&gt; &quot;我也是想要一个女朋友~&quot;
+用户输入 &gt;&gt;&gt; &quot;晚吃啥呢想想&quot;
+Unit回复 &gt;&gt;&gt; &quot;想吃火锅&quot;
+</code></pre>
+
+<hr />
+<ul>
+<li>调用Unit API的实现过程:<ul>
+<li>第一步: 注册登录百度账户, 进入Unit控制台创建自己的机器人.</li>
+<li>第二步: 进行相关配置, 获得请求API接口需要的API Key与Secret Key.</li>
+<li>第三步: 在服务器上编写API调用脚本并进行测试.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 注册登录百度账户, 进入Unit控制台创建自己的机器人.</li>
+</ul>
+<p><center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_4_create_robot_for_baiduunit_01.png" height="auto" width="auto"></center></p>
+<hr />
+<ul>
+<li>第二步: 进行相关配置, 获得请求API接口需要的API Key与Secret Key.</li>
+</ul>
+<blockquote>
+<ul>
+<li>点击获取API Key进入百度云应用管理页面.
+<center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_4_create_robot_for_baiduunit_10_1.png" height="auto" width="auto"></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>点击创建应用, 进入应用信息表单填写页面.
+<center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_4_create_robot_for_baiduunit_10_2.png" height="auto" width="auto"></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>填写完毕后, 点击立即创建, 成功后会提示创建完毕.
+<center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_4_create_robot_for_baiduunit_11.png" height="auto" width="auto"></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>点击返回应用列表.
+<center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_4_create_robot_for_baiduunit_12.png" height="auto" width="auto"></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>可以看到创建的API Key和Secret Key, 至此创建流程结束.
+<center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_4_create_robot_for_baiduunit_13.png" height="auto" width="auto"></center></li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>第三步: 在服务器上编写API调用脚本并进行测试</li>
+</ul>
+<pre><code>import json
+import random
+import requests
+
+# client_id 为官网获取的AK， client_secret 为官网获取的SK
+client_id = &quot;1xhPonkmHqwolDt3GCICLX39&quot;
+client_secret = &quot;SRYsfjMGNuW8G265paMXLEjDTjO6O4RC&quot;
+
+
+def unit_chat(chat_input, user_id=&quot;88888&quot;):
+    &quot;&quot;&quot;
+    description:调用百度UNIT接口，回复聊天内容
+    Parameters
+      ----------
+      chat_input : str
+          用户发送天内容
+      user_id : str
+          发起聊天用户ID，可任意定义
+    Return
+      ----------
+      返回unit回复内容
+    &quot;&quot;&quot;
+    # 设置默认回复内容,  一旦接口出现异常, 回复该内容
+    chat_reply = &quot;不好意思，俺们正在学习中，随后回复你。&quot;
+    # 根据 client_id 与 client_secret 获取access_token
+    url = &quot;https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&amp;client_id=%s&amp;client_secret=%s&quot; % (
+    client_id, client_secret)
+    res = requests.get(url)
+    access_token = eval(res.text)[&quot;access_token&quot;]
+    # 根据 access_token 获取聊天机器人接口数据
+    unit_chatbot_url = &quot;https://aip.baidubce.com/rpc/2.0/unit/service/chat?access_token=&quot; + access_token
+    # 拼装聊天接口对应请求发送数据，主要是填充 query 值
+    post_data = {
+                &quot;log_id&quot;: str(random.random()),
+                &quot;request&quot;: {
+                    &quot;query&quot;: chat_input,
+                    &quot;user_id&quot;: user_id
+                },
+                &quot;session_id&quot;: &quot;&quot;,
+                &quot;service_id&quot;: &quot;S23245&quot;,
+                &quot;version&quot;: &quot;2.0&quot;
+            }
+    # 将封装好的数据作为请求内容, 发送给Unit聊天机器人接口, 并得到返回结果
+    res = requests.post(url=unit_chatbot_url, json=post_data)
+
+
+    # 获取聊天接口返回数据
+    unit_chat_obj = json.loads(res.content)
+    # print(unit_chat_obj)
+    # 打印返回的结果
+    # 判断聊天接口返回数据是否出错 error_code == 0 则表示请求正确
+    if unit_chat_obj[&quot;error_code&quot;] != 0: return chat_reply
+    # 解析聊天接口返回数据，找到返回文本内容 result -&gt; response_list -&gt; schema -&gt; intent_confidence(&gt;0) -&gt; action_list -&gt; say
+    unit_chat_obj_result = unit_chat_obj[&quot;result&quot;]
+    unit_chat_response_list = unit_chat_obj_result[&quot;response_list&quot;]
+    # 随机选取一个&quot;意图置信度&quot;[+response_list[].schema.intent_confidence]不为0的技能作为回答
+    unit_chat_response_obj = random.choice(
+       [unit_chat_response for unit_chat_response in unit_chat_response_list if
+        unit_chat_response[&quot;schema&quot;][&quot;intent_confidence&quot;] &gt; 0.0])
+    unit_chat_response_action_list = unit_chat_response_obj[&quot;action_list&quot;]
+    unit_chat_response_action_obj = random.choice(unit_chat_response_action_list)
+    unit_chat_response_say = unit_chat_response_action_obj[&quot;say&quot;]
+    return unit_chat_response_say
+
+
+if __name__ == '__main__':
+    while True:
+        chat_input = input(&quot;请输入:&quot;)
+        print(chat_input)
+        chat_reply = unit_chat(chat_input)
+        print(&quot;用户输入 &gt;&gt;&gt;&quot;, chat_input)
+        print(&quot;Unit回复 &gt;&gt;&gt;&quot;, chat_reply)
+        if chat_input == 'Q' or chat_input == 'q':
+            break
+
+</code></pre>
+
+<hr />
+<ul>
+<li>代码位置: /data/doctor_online/main_serve/unit.py</li>
+</ul>
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>python unit.py
+
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>请输入:你好啊
+你好啊
+用户输入 &gt;&gt;&gt; 你好啊
+Unit回复 &gt;&gt;&gt; 你也好啊~
+请输入:今天天气棒棒哒
+今天天气棒棒哒
+用户输入 &gt;&gt;&gt; 今天天气棒棒哒
+Unit回复 &gt;&gt;&gt; 必须的
+请输入:晚饭吃点什么?
+晚饭吃点什么?
+用户输入 &gt;&gt;&gt; 晚饭吃点什么?
+Unit回复 &gt;&gt;&gt; 晚饭没吃，减肥
+请输入:
+
+</code></pre>
+
+<hr />
+<ul>
+<li>
+<p>本章总结:</p>
+<ul>
+<li>学习了智能对话系统的相关背景知识:<ul>
+<li>什么是智能对话系统</li>
+<li>从处理问题的目的来区分, 智能对话系统的分类</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>我们的在线医生项目就是任务导向型的智能对话系统.</li>
+</ul>
+<hr />
+<ul>
+<li>学习了Unit平台的相关知识:<ul>
+<li>Unit平台是百度大脑开放的智能对话定制与服务平台, 也是当前最大的中文领域对话开放平台之一. </li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>学习了调用Unit API的实现过程:<ul>
+<li>第一步: 注册登录百度账户, 进入Unit控制台创建自己的机器人.</li>
+<li>第二步: 进行相关配置, 获得请求API接口需要的API Key与Secret Key.</li>
+<li>第三步: 在服务器上编写API调用脚本并进行测试.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2/" class="btn btn-neutral float-right" title="第二章:在线医生的总体架构与工具介绍">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>©Copyright 2019, itcast.cn.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="../2/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

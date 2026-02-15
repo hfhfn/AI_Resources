@@ -1,0 +1,135 @@
+body{
+	margin:0px;
+	background:url(../images/bg.png) repeat-x #5acbdb;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+
+.sys_title{
+	height:100px;
+	background:url(../images/sname.png) center center no-repeat;
+}
+.video_bg{
+	width:570px;
+	height:432px;
+	border-radius:4px;
+	margin:0px auto;
+	background:rgba(255,255,255,0.3);
+	overflow:hidden;
+	position:relative;
+}
+
+.video_show{
+	width:550px;
+	height:420px;
+	display:block;
+	margin:5px auto 0px;
+}
+
+.btns_con{
+	width:570px;
+	height:50px;
+	margin:35px auto 0px;
+}
+
+.btns_con a{
+	width:240px;
+	height:50px;
+	border:0px;
+	background:#bed225;
+	text-align:center;
+	line-height:50px;
+	text-decoration:none;
+	font-size:20px;
+	color:#fff;
+	border-radius:6px;
+}
+
+.btns_con a:hover{
+	background:#d2e637;
+}
+
+.tkpicture{
+	width:60px;
+	height:60px;
+	position:absolute;
+	left:50%;
+	margin-left:-30px;
+	border-radius:30px;
+	bottom:20px;
+	border:1px solid #fff;
+	outline:none;
+	background:rgba(255,255,255,0.6);
+	font-size:16px;
+	color:#000;
+	cursor:pointer;
+}
+
+.tkpicture:hover{
+	background:rgba(255,255,255,0.2);
+}
+
+.reg_form{
+	width:570px;
+	margin:10px auto 0px;
+	overflow:hidden;
+}
+
+.reg_form .form_group{
+	width:285px;
+	height:40px;
+	float:left;
+}
+
+.form_group label{
+	width:60px;
+	line-height:24px;
+	float:left;
+}
+
+.input_txt{
+	width:210px;
+	height:24px;
+	outline:none;
+	text-indent:10px;
+	border-radius:4px;
+	border:1px solid #ddd;
+	float:left;
+}
+
+.ml10{
+	margin-left:10px
+}
+
+.btn_sub{
+	width:240px;
+	height:36px;
+	border:0px;
+	background:#bed225;
+	text-align:center;
+	line-height:36px;
+	text-decoration:none;
+	font-size:16px;
+	color:#fff;
+	border-radius:6px;
+	display:block;
+	margin:0px auto;
+}
+
+.btn_sub:hover{
+	background:#d2e637;
+}
+
+.show_result{
+	width:540px;
+	height:100px;
+	margin:10px auto 0px;
+	border:1px solid #40a4b3;
+	padding:15px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}

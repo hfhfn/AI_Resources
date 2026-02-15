@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+<body>
+
+<div class="sys_title"></div>
+
+<div class="video_bg">
+    <video id="video" autoplay="autoplay" class="video_show"></video>
+</div>
+
+<div class="btns_con">
+    <a href="register" class="fl">注 册</a>
+    <a href="clockin" class="fr">打 卡</a>
+</div>
+
+<script type="text/javascript">
+    var video = document.getElementById("video");
+    var errocb = function (code) {
+        alert(code);
+    };
+    if (navigator.getUserMedia) { // 标准的API
+        navigator.getUserMedia({"video": true}, function (stream) {
+            video.src = window.webkitURL.createObjectURL(stream);//stream;
+            video.play();
+        }, errocb);
+    } else if (navigator.webkitGetUserMedia) { // WebKit 核心的API
+
+        console.log(navigator.webkitGetUserMedia);
+        navigator.webkitGetUserMedia({"video": true}, function (stream) {
+            video.src = window.webkitURL.createObjectURL(stream);
+            video.play();
+        }, errocb);
+    }
+</script>
+
+<script>
+var localVideo        = document.querySelector("video.local");
+var localMediaStream  = null;
+var localMediaURL     = null;
+
+function getUserMedia(callback) {
+  if (navigator.getUserMedia === undefined) {
+    navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    if (navigator.getUserMedia === undefined) {
+      console.error('getUserMedia not supported.')
+      return false;
+    }
+  }
+  navigator.getUserMedia({ video: true, audio: true }, callback, function(e) {
+    console.error('getUserMedia failed: ' + e.message);
+  });
+}
+
+getUserMedia(function(stream) {
+  localMediaStream = stream;
+  localVideo.src = localMediaURL = URL.createObjectURL(localMediaStream);
+});
+
+</script>
+
+</body>
+</html>

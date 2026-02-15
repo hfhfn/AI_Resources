@@ -1,0 +1,1781 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>文字识别 | 百度人工智能课程</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../03_chapter/index.html" />
+    
+    
+    <link rel="prev" href="../02_chapter/02_image.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.3"
+        data-chapter-title="文字识别"
+        data-filepath="02_chapter/03_character.md"
+        data-basepath=".."
+        data-revision="Fri Aug 10 2018 12:34:43 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        百度人工智能课程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="01_chapter/index.html">
+            
+                
+                    <a href="../01_chapter/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        平台介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01_chapter/00_intro.html">
+            
+                
+                    <a href="../01_chapter/00_intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        总体介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01_chapter/01_bml.html">
+            
+                
+                    <a href="../01_chapter/01_bml.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        机器学习平台介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="01_chapter/02_bdl.html">
+            
+                
+                    <a href="../01_chapter/02_bdl.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        深度学习平台介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="01_chapter/03_ai.html">
+            
+                
+                    <a href="../01_chapter/03_ai.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        人工智能平台介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="02_chapter/index.html">
+            
+                
+                    <a href="../02_chapter/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        人工智能平台视觉技术
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="02_chapter/01_face.html">
+            
+                
+                    <a href="../02_chapter/01_face.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        人脸识别
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="02_chapter/02_image.html">
+            
+                
+                    <a href="../02_chapter/02_image.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        图像识别
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="02_chapter/03_character.html">
+            
+                
+                    <a href="../02_chapter/03_character.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        文字识别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="03_chapter/index.html">
+            
+                
+                    <a href="../03_chapter/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        人工智能平台语音技术
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="03_chapter/01_语音识别.html">
+            
+                
+                    <a href="../03_chapter/01_语音识别.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        语音识别
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="03_chapter/02_语音合成.html">
+            
+                
+                    <a href="../03_chapter/02_语音合成.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        语音合成
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="04_chapter/index.html">
+            
+                
+                    <a href="../04_chapter/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        人工智能平台自然语言
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="04_chapter/01_语言处理基础技术.html">
+            
+                
+                    <a href="../04_chapter/01_语言处理基础技术.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        自然语言处理基础技术
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="04_chapter/02_理解与交互技术.html">
+            
+                
+                    <a href="../04_chapter/02_理解与交互技术.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        理解与交互技术UNIT
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="05_chapter/index.html">
+            
+                
+                    <a href="../05_chapter/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        案例
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="05_chapter/01_人脸打卡案例.html">
+            
+                
+                    <a href="../05_chapter/01_人脸打卡案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        人脸识别打卡案例
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >百度人工智能课程</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="23-&#x6587;&#x5B57;&#x8BC6;&#x522B;">2.3 &#x6587;&#x5B57;&#x8BC6;&#x522B;</h1>
+<p>&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x573A;&#x666F;&#x4E0B;&#x7CBE;&#x51C6;&#x7684;&#x56FE;&#x50CF;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x6280;&#x672F;&#x670D;&#x52A1; &#x8BA9;&#x5E94;&#x7528;&#x770B;&#x56FE;&#x8BC6;&#x5B57;&#xFF0C;&#x63D0;&#x5347;&#x8F93;&#x5165;&#x6548;&#x7387;&#xFF0C;&#x4F18;&#x5316;&#x7528;&#x6237;&#x4F53;&#x9A8C; </p>
+<h2 id="231-&#x529F;&#x80FD;">2.3.1 &#x529F;&#x80FD;</h2>
+<ul>
+<li><p>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF1A;&#x591A;&#x573A;&#x666F;&#x3001;&#x591A;&#x8BED;&#x79CD;&#xFF08;&#x652F;&#x6301;&#x4E2D;&#x3001;&#x82F1;&#x3001;&#x8461;&#x3001;&#x6CD5;&#x3001;&#x5FB7;&#x3001;&#x610F;&#x3001;&#x897F;&#x3001;&#x4FC4;&#x3001;&#x65E5;&#x3001;&#x97E9;&#x3001;&#x4E2D;&#x82F1;&#x6DF7;&#x5408;&#x8BC6;&#x522B;&#xFF09;&#x7684;&#x6574;&#x4F53;&#x6587;&#x5B57;&#x68C0;&#x6D4B;&#x548C;&#x8BC6;&#x522B;&#xFF0C;&#x540C;&#x65F6;&#x63D0;&#x4F9B;&#x542B;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x7248;&#x3001;&#x542B;&#x751F;&#x50FB;&#x5B57;&#x7248;&#x548C;&#x9AD8;&#x7CBE;&#x5EA6;&#x7248;&#x7684;&#x9AD8;&#x7EA7;&#x670D;&#x52A1; &#x3002;</p>
+<p><img src="images/3_1_&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;.png" alt="&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;"></p>
+</li>
+<li><p>&#x5361;&#x7247;&#x8BC1;&#x7167;&#x8BC6;&#x522B;&#xFF1A;&#x57FA;&#x4E8E;&#x4E1A;&#x754C;&#x9886;&#x5148;&#x7684;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6280;&#x672F;&#xFF0C;&#x63D0;&#x4F9B;&#x5BF9;&#x4E8C;&#x4EE3;&#x5C45;&#x6C11;&#x8EAB;&#x4EFD;&#x8BC1;&#x3001;&#x94F6;&#x884C;&#x5361;&#x3001;&#x673A;&#x52A8;&#x8F66;&#x9A7E;&#x9A76;&#x8BC1;&#x3001;&#x673A;&#x52A8;&#x8F66;&#x884C;&#x9A76;&#x8BC1;&#x3001;&#x4E2D;&#x56FD;&#x5927;&#x9646;&#x62A4;&#x7167;&#x3001;&#x5404;&#x7C7B;&#x540D;&#x7247;&#x7684;&#x8BC6;&#x522B;&#x670D;&#x52A1;&#x3002;</p>
+<p><img src="images/3_2_&#x5361;&#x7247;&#x8BC6;&#x522B;.png" alt="&#x5361;&#x7247;&#x8BC6;&#x522B;"></p>
+</li>
+<li><p>&#x7F51;&#x7EDC;&#x56FE;&#x7247;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF1A;&#x80FD;&#x591F;&#x5FEB;&#x901F;&#x51C6;&#x786E;&#x8BC6;&#x522B;&#x5404;&#x79CD;&#x7F51;&#x7EDC;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#xFF0C;&#x5728;&#x590D;&#x6742;&#x5B57;&#x4F53;&#x548C;&#x590D;&#x6742;&#x80CC;&#x666F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4ECD;&#x80FD;&#x4FDD;&#x6301;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#x8BC6;&#x522B;&#x51C6;&#x786E;&#x7387;&#x3002; </p>
+<p><img src="images/3_3_&#x7F51;&#x7EDC;&#x6587;&#x5B57;&#x8BC6;&#x522B;.png" alt="&#x7F51;&#x7EDC;&#x6587;&#x5B57;&#x8BC6;&#x522B;"></p>
+</li>
+<li><p>&#x8868;&#x683C;&#x6587;&#x5B57;&#x8BC6;&#x522B; : &#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x8868;&#x683C;&#x7EBF;&#x53CA;&#x8868;&#x683C;&#x5185;&#x5BB9;&#xFF0C;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x51FA;&#x8868;&#x5934;&#x3001;&#x8868;&#x5C3E;&#x53CA;&#x6BCF;&#x4E2A;&#x5355;&#x5143;&#x683C;&#x7684;&#x6587;&#x5B57;&#x5185;&#x5BB9; &#x5E2E;&#x52A9;&#x60A8;&#x5FEB;&#x901F;&#x4FBF;&#x6377;&#x5730;&#x5B8C;&#x6210;&#x7EB8;&#x8D28;&#x62A5;&#x8868;&#x5355;&#x636E;&#x7684;&#x7535;&#x5B50;&#x5316;&#x3002;</p>
+<p><img src="images/3_4_&#x8868;&#x683C;&#x8BC6;&#x522B;.png" alt="&#x8868;&#x683C;&#x8BC6;&#x522B;"></p>
+</li>
+<li><p>&#x8425;&#x4E1A;&#x6267;&#x7167;&#x8BC6;&#x522B;: &#x652F;&#x6301;&#x5BF9;&#x8425;&#x4E1A;&#x6267;&#x7167;&#x5173;&#x952E;&#x5B57;&#x6BB5;&#x7684;&#x8BC6;&#x522B;&#xFF0C;&#x5305;&#x62EC;&#x5355;&#x4F4D;&#x540D;&#x79F0;&#x3001;&#x6CD5;&#x4EBA;&#x3001;&#x5730;&#x5740;&#x3001;&#x6709;&#x6548;&#x671F;&#x3001;&#x8BC1;&#x4EF6;&#x7F16;&#x53F7;&#x3001;&#x793E;&#x4F1A;&#x4FE1;&#x7528;&#x4EE3;&#x7801;&#x7B49;&#x3002;</p>
+<p><img src="images/3_5_&#x8425;&#x4E1A;&#x8BC1;&#x8BC6;&#x522B;.png" alt="&#x8425;&#x4E1A;&#x6267;&#x7167;&#x8BC6;&#x522B;"></p>
+</li>
+<li><p>&#x624B;&#x5199;&#x8BC6;&#x522B;&#xFF1A;&#x80FD;&#x591F;&#x5BF9;&#x624B;&#x5199;&#x6C49;&#x5B57;&#x548C;&#x624B;&#x5199;&#x6570;&#x5B57;&#x8FDB;&#x884C;&#x8BC6;&#x522B; </p>
+</li>
+<li><p>&#x4E8C;&#x7EF4;&#x7801;&#x8BC6;&#x522B; &#xFF1A;&#x80FD;&#x591F;&#x8BC6;&#x522B;&#x51FA;&#x4E8C;&#x7EF4;&#x7801;&#x3001;&#x6761;&#x5F62;&#x7801;&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x5185;&#x5BB9;</p>
+</li>
+<li><p>&#x5F69;&#x7968;&#x8BC6;&#x522B;&#xFF1A;&#x80FD;&#x5BF9;&#x5927;&#x4E50;&#x900F;&#x3001;&#x53CC;&#x8272;&#x7403;&#x5F69;&#x7968;&#x8FDB;&#x884C;&#x8BC6;&#x522B; &#x3002;</p>
+</li>
+<li><p>&#x6570;&#x5B57;&#x8BC6;&#x522B;&#xFF1A;&#x8BC6;&#x522B;&#x5E76;&#x8FD4;&#x56DE;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x6570;&#x5B57;&#x5185;&#x5BB9;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x624B;&#x673A;&#x53F7;&#x63D0;&#x53D6;&#x3001;&#x5FEB;&#x9012;&#x5355;&#x53F7;&#x63D0;&#x53D6;&#x3001;&#x5145;&#x503C;&#x53F7;&#x7801;&#x63D0;&#x53D6;&#x7B49;&#x573A;&#x666F;&#x3002;</p>
+</li>
+<li><p>&#x8F66;&#x724C;&#x8BC6;&#x522B;&#xFF1A;&#x652F;&#x6301;&#x5BF9;&#x4E2D;&#x56FD;&#x5927;&#x9646;&#x673A;&#x52A8;&#x8F66;&#x8F66;&#x724C;&#x7684;&#x8BC6;&#x522B;&#xFF0C;&#x5305;&#x62EC;&#x5730;&#x57DF;&#x7F16;&#x53F7;&#x548C;&#x8F66;&#x724C;&#x53F7;&#x3002;</p>
+<p><img src="images/3_6_&#x8F66;&#x724C;.png" alt="&#x8F66;&#x724C;"></p>
+</li>
+<li><p>&#x7968;&#x636E;&#x8BC6;&#x522B;&#xFF1A;&#x652F;&#x6301;&#x5BF9;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x7684;&#x8BC6;&#x522B;&#xFF0C;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1B;&#x5BF9;&#x533B;&#x7597;&#x7968;&#x636E;&#x3001;&#x4FDD;&#x9669;&#x4FDD;&#x5355;&#x3001;&#x94F6;&#x884C;&#x5151;&#x7968;&#x3001;&#x8D2D;&#x7269;&#x5C0F;&#x7968;&#x3001;&#x7684;&#x58EB;&#x53D1;&#x7968;&#x7B49;&#x5404;&#x7C7B;&#x7968;&#x636E;&#x8FDB;&#x884C;&#x901A;&#x7528;&#x8BC6;&#x522B;&#xFF0C;&#x5E76;&#x6309;&#x884C;&#x8F93;&#x51FA;&#x6240;&#x6709;&#x6587;&#x5B57;&#x7ED3;&#x679C;&#x3002;</p>
+<p><img src="images/3_7_&#x7968;&#x636E;.png" alt="&#x7968;&#x636E;"></p>
+</li>
+<li><p>&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF1A;&#x652F;&#x6301;&#x5BF9;&#x5404;&#x7C7B;&#x7968;&#x636E;&#x3001;&#x5361;&#x8BC1;&#x5236;&#x4F5C;&#x81EA;&#x52A9;&#x5316;&#x5236;&#x4F5C;&#x6A21;&#x677F;&#xFF0C;&#x7ED3;&#x6784;&#x5316;&#x62BD;&#x53D6;&#x6570;&#x636E;&#x3002;</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x63A5;&#x53E3;&#x540D;&#x79F0;</th>
+<th>&#x63A5;&#x53E3;&#x80FD;&#x529B;&#x7B80;&#x8981;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x9AD8;&#x7CBE;&#x5EA6;&#x7248;&#xFF09;</td>
+<td>&#x66F4;&#x9AD8;&#x7CBE;&#x5EA6;&#x5730;&#x8BC6;&#x522B;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x7248;&#xFF09;</td>
+<td>&#x8BC6;&#x522B;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;&#xFF08;&#x5305;&#x542B;&#x6587;&#x5B57;&#x533A;&#x57DF;&#x7684;&#x5750;&#x6807;&#x4FE1;&#x606F;&#xFF09;</td>
+</tr>
+<tr>
+<td>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x9AD8;&#x7CBE;&#x5EA6;&#x542B;&#x4F4D;&#x7F6E;&#x7248;&#xFF09;</td>
+<td>&#x66F4;&#x9AD8;&#x7CBE;&#x5EA6;&#x5730;&#x8BC6;&#x522B;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;&#xFF08;&#x5305;&#x542B;&#x6587;&#x5B57;&#x533A;&#x57DF;&#x7684;&#x5750;&#x6807;&#x4FE1;&#x606F;&#xFF09;</td>
+</tr>
+<tr>
+<td>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x751F;&#x50FB;&#x5B57;&#x7248;&#xFF09;</td>
+<td>&#x8BC6;&#x522B;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;&#xFF08;&#x5305;&#x542B;&#x5BF9;&#x5E38;&#x89C1;&#x5B57;&#x548C;&#x751F;&#x50FB;&#x5B57;&#x7684;&#x8BC6;&#x522B;&#xFF09;</td>
+</tr>
+<tr>
+<td>&#x7F51;&#x7EDC;&#x56FE;&#x7247;&#x6587;&#x5B57;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x4E00;&#x4E9B;&#x7F51;&#x7EDC;&#x4E0A;&#x80CC;&#x666F;&#x590D;&#x6742;&#xFF0C;&#x7279;&#x6B8A;&#x5B57;&#x4F53;&#x7684;&#x6587;&#x5B57;</td>
+</tr>
+<tr>
+<td>&#x624B;&#x5199;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x624B;&#x5199;&#x4E2D;&#x6587;&#x6C49;&#x5B57;&#x6216;&#x6570;&#x5B57;</td>
+</tr>
+<tr>
+<td>&#x8EAB;&#x4EFD;&#x8BC1;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x8EAB;&#x4EFD;&#x8BC1;&#x6B63;&#x53CD;&#x9762;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>&#x94F6;&#x884C;&#x5361;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x94F6;&#x884C;&#x5361;&#x7684;&#x5361;&#x53F7;&#x5E76;&#x8FD4;&#x56DE;&#x53D1;&#x5361;&#x884C;&#x548C;&#x5361;&#x7247;&#x6027;&#x8D28;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>&#x9A7E;&#x9A76;&#x8BC1;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x673A;&#x52A8;&#x8F66;&#x9A7E;&#x9A76;&#x8BC1;&#x6240;&#x6709;&#x5173;&#x952E;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>&#x884C;&#x9A76;&#x8BC1;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x673A;&#x52A8;&#x8F66;&#x884C;&#x9A76;&#x8BC1;&#x6240;&#x6709;&#x5173;&#x952E;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>&#x8F66;&#x724C;&#x8BC6;&#x522B;</td>
+<td>&#x5BF9;&#x5927;&#x9646;&#x8F66;&#x724C;&#xFF08;&#x5305;&#x542B;&#x65B0;&#x80FD;&#x6E90;&#x8F66;&#x724C;&#xFF09;&#x8FDB;&#x884C;&#x8BC6;&#x522B;</td>
+</tr>
+<tr>
+<td>&#x8425;&#x4E1A;&#x6267;&#x7167;&#x8BC6;&#x522B;</td>
+<td>&#x5BF9;&#x8425;&#x4E1A;&#x6267;&#x7167;&#x8FDB;&#x884C;&#x8BC6;&#x522B;</td>
+</tr>
+<tr>
+<td>&#x62A4;&#x7167;&#x8BC6;&#x522B;</td>
+<td>&#x652F;&#x6301;&#x5BF9;&#x4E2D;&#x56FD;&#x5927;&#x9646;&#x5C45;&#x6C11;&#x62A4;&#x7167;&#x7684;&#x8D44;&#x6599;&#x9875;&#x8FDB;&#x884C;&#x7ED3;&#x6784;&#x5316;&#x8BC6;&#x522B;&#xFF0C;&#x5305;&#x542B;&#x56FD;&#x5BB6;&#x7801;&#x3001;&#x59D3;&#x540D;&#x3001;&#x6027;&#x522B;&#x3001;&#x62A4;&#x7167;&#x53F7;&#x3001;&#x51FA;&#x751F;&#x65E5;&#x671F;&#x3001;&#x7B7E;&#x53D1;&#x65E5;&#x671F;&#x3001;&#x6709;&#x6548;&#x671F;&#x81F3;&#x3001;&#x7B7E;&#x53D1;&#x5730;&#x70B9;</td>
+</tr>
+<tr>
+<td>&#x540D;&#x7247;&#x8BC6;&#x522B;</td>
+<td>&#x63D0;&#x4F9B;&#x5BF9;&#x5404;&#x7C7B;&#x540D;&#x7247;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x8BC6;&#x522B;&#x529F;&#x80FD;&#xFF0C;&#x63D0;&#x53D6;&#x59D3;&#x540D;&#x3001;&#x90AE;&#x7F16;&#x3001;&#x90AE;&#x7BB1;&#x3001;&#x7535;&#x8BDD;&#x3001;&#x7F51;&#x5740;&#x3001;&#x5730;&#x5740;&#x3001;&#x624B;&#x673A;&#x53F7;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>&#x8868;&#x683C;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#xFF08;&#x5F02;&#x6B65;&#x63A5;&#x53E3;&#xFF09;</td>
+<td>&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x8868;&#x683C;&#x7EBF;&#x53CA;&#x8868;&#x683C;&#x5185;&#x5BB9;&#xFF0C;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x51FA;&#x8868;&#x5934;&#x3001;&#x8868;&#x5C3E;&#x53CA;&#x6BCF;&#x4E2A;&#x5355;&#x5143;&#x683C;&#x7684;&#x6587;&#x5B57;&#x5185;&#x5BB9;&#xFF0C;&#x63D0;&#x4EA4;&#x56FE;&#x50CF;&#x548C;&#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x901A;&#x8FC7;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#xFF0C;&#x7A33;&#x5B9A;&#x6027;&#x66F4;&#x9AD8;</td>
+</tr>
+<tr>
+<td>&#x8868;&#x683C;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#xFF08;&#x540C;&#x6B65;&#x63A5;&#x53E3;&#xFF09;</td>
+<td>&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x8868;&#x683C;&#x7EBF;&#x53CA;&#x8868;&#x683C;&#x5185;&#x5BB9;&#xFF0C;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x51FA;&#x8868;&#x5934;&#x3001;&#x8868;&#x5C3E;&#x53CA;&#x6BCF;&#x4E2A;&#x5355;&#x5143;&#x683C;&#x7684;&#x6587;&#x5B57;&#x5185;&#x5BB9;&#xFF0C;&#x63D0;&#x4EA4;&#x56FE;&#x50CF;&#x540E;&#x5B9E;&#x65F6;&#x83B7;&#x5F97;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x5B9E;&#x6548;&#x6027;&#x66F4;&#x597D;</td>
+</tr>
+<tr>
+<td>&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B;</td>
+<td>&#x5BF9;&#x5404;&#x7C7B;&#x7968;&#x636E;&#x56FE;&#x7247;&#xFF08;&#x533B;&#x7597;&#x7968;&#x636E;&#xFF0C;&#x4FDD;&#x9669;&#x4FDD;&#x5355;&#x7B49;&#xFF09;&#x8FDB;&#x884C;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x6587;&#x5B57;&#x5728;&#x56FE;&#x7247;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x8BC6;&#x522B;</td>
+<td>&#x5BF9;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x8FDB;&#x884C;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF0C;&#x5E76;&#x7ED3;&#x6784;&#x5316;&#x8FD4;&#x56DE;&#x5B57;&#x6BB5;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>&#x4E8C;&#x7EF4;&#x7801;&#x8BC6;&#x522B;</td>
+<td>&#x8BC6;&#x522B;&#x6761;&#x5F62;&#x7801;&#x3001;&#x4E8C;&#x7EF4;&#x7801;&#x4E2D;&#x5305;&#x542B;&#x7684;URL&#x6216;&#x5176;&#x4ED6;&#x4FE1;&#x606F;&#x5185;&#x5BB9;</td>
+</tr>
+<tr>
+<td>&#x6570;&#x5B57;&#x8BC6;&#x522B;</td>
+<td>&#x5BF9;&#x56FE;&#x50CF;&#x4E2D;&#x7684;&#x963F;&#x62C9;&#x4F2F;&#x6570;&#x5B57;&#x8FDB;&#x884C;&#x8BC6;&#x522B;&#x63D0;&#x53D6;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x5FEB;&#x9012;&#x5355;&#x53F7;&#x3001;&#x624B;&#x673A;&#x53F7;&#x3001;&#x5145;&#x503C;&#x7801;&#x63D0;&#x53D6;&#x7B49;&#x573A;&#x666F;</td>
+</tr>
+<tr>
+<td>&#x5F69;&#x7968;&#x8BC6;&#x522B;</td>
+<td>&#x5BF9;&#x5927;&#x4E50;&#x900F;&#x3001;&#x53CC;&#x8272;&#x7403;&#x5F69;&#x7968;&#x8FDB;&#x884C;&#x8BC6;&#x522B;&#xFF0C;&#x5E76;&#x6309;&#x884C;&#x8FD4;&#x56DE;&#x8BC6;&#x522B;&#x7ED3;&#x679C;</td>
+</tr>
+<tr>
+<td>&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;</td>
+<td>&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x81EA;&#x52A9;&#x7684;&#x6A21;&#x677F;&#x5236;&#x4F5C;&#xFF0C;&#x5EFA;&#x7ACB;&#x8D77;&#x952E;&#x503C;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#xFF0C;&#x4E00;&#x6B65;&#x5B8C;&#x6210;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5230;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x8F6C;&#x6362;&#xFF0C;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x5316;&#x7684;&#x6570;&#x636E;&#x5F55;&#x5165;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x76EE;&#x524D;&#x9700;&#x8981;&#x63D0;&#x201C;&#x5546;&#x52A1;&#x54A8;&#x8BE2;&#x201D;&#x5F00;&#x6743;&#x9650;OCR&#x7684;&#x63A5;&#x53E3;&#x6709;&#xFF1A;</strong></p>
+<p>&#x540D;&#x7247;&#x8BC6;&#x522B;&#x3001;&#x62A4;&#x7167;&#x8BC6;&#x522B;&#x3001;&#x8868;&#x683C;&#x6587;&#x5B57;&#xFF08;&#x540C;&#x6B65;&#x63A5;&#x53E3;&#xFF09;&#x3001;&#x624B;&#x5199;&#x8BC6;&#x522B;&#x3001;&#x4E8C;&#x7EF4;&#x7801;&#x8BC6;&#x522B;&#x3001;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x8BC6;&#x522B;&#x3001;&#x5F69;&#x7968;&#x8BC6;&#x522B;&#x3001;&#x6570;&#x5B57;&#x8BC6;&#x522B;</p>
+<h2 id="232-&#x5B89;&#x88C5;ocr-python-sdk">2.3.2 &#x5B89;&#x88C5;OCR Python SDK</h2>
+<p>&#x786E;&#x8BA4;&#x5B89;&#x88C5;&#x7684;&#x4EBA;&#x5DE5;&#x667A;&#x80FD;SDK&#x5305;&#x542B;&#x4E86;&#x6700;&#x65B0;&#x7684;&#x7248;&#x672C;(<a href="https://ai.baidu.com/sdk#ocr)&#x3002;" target="_blank">https://ai.baidu.com/sdk#ocr)&#x3002;</a></p>
+<h2 id="233-&#x521B;&#x5EFA;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x5E94;&#x7528;">2.3.3 &#x521B;&#x5EFA;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x5E94;&#x7528;</h2>
+<ul>
+<li><p>&#x767B;&#x5F55;&#x63A7;&#x5236;&#x53F0;&#xFF0C;&#x9009;&#x62E9;&#x6587;&#x5B57;&#x8BC6;&#x522B;</p>
+<p><img src="images/3_8_&#x521B;&#x5EFA;&#x5E94;&#x7528;.png" alt="&#x521B;&#x5EFA;&#x6587;&#x5B57;&#x8BC6;&#x522B;"></p>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x5E94;&#x7528;</p>
+<p><img src="images/3_9_&#x521B;&#x5EFA;&#x5E94;&#x7528;.png" alt="&#x521B;&#x5EFA;&#x5E94;&#x7528;"></p>
+<ul>
+<li><p>&#x4ECE;&#x5E94;&#x7528;&#x5217;&#x8868;&#x83B7;&#x53D6;App ID, API Key &#x548C;Secret Key.</p>
+<p><img src="images/3_10_&#x5E94;&#x7528;&#x5217;&#x8868;.png" alt="&#x5E94;&#x7528;&#x5217;&#x8868;"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="234-&#x6587;&#x5B57;&#x8BC6;&#x522B;-python-&#x5BA2;&#x6237;&#x7AEF;-aipocr">2.3.4 &#x6587;&#x5B57;&#x8BC6;&#x522B; Python &#x5BA2;&#x6237;&#x7AEF; AipOcr</h2>
+<p>AipOcr&#x662F;OCR&#x7684;Python SDK&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4E3A;&#x4F7F;&#x7528;OCR&#x7684;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x4EA4;&#x4E92;&#x65B9;&#x6CD5;&#x3002; </p>
+<pre><code class="lang-python">  client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
+</code></pre>
+<h2 id="235-&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;">2.3.5 &#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;</h2>
+<h3 id="2351-&#x5E94;&#x7528;&#x573A;&#x666F;">2.3.5.1 &#x5E94;&#x7528;&#x573A;&#x666F;</h3>
+<ul>
+<li>&#x62CD;&#x7167;/&#x6D82;&#x62B9;&#x8BC6;&#x522B; &#xFF1A;&#x5728;&#x4E66;&#x6458;&#x3001;&#x7B14;&#x8BB0;&#x3001;&#x641C;&#x7D22;&#x3001;&#x7FFB;&#x8BD1;&#x7B49;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x5B9E;&#x73B0;&#x62CD;&#x7167;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x6587;&#x5B57;&#x3001;&#x6D82;&#x62B9;&#x8BC6;&#x522B;&#x6307;&#x5B9A;&#x533A;&#x57DF;&#x6587;&#x5B57;&#xFF0C;&#x65B9;&#x4FBF;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x6587;&#x672C;&#x5F55;&#x5165;&#xFF0C;&#x63D0;&#x9AD8;&#x4EA7;&#x54C1;&#x6613;&#x7528;&#x6027;&#x548C;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#x3002;</li>
+<li>&#x5185;&#x5BB9;&#x5BA1;&#x6838;&#x4E0E;&#x76D1;&#x7BA1; &#xFF1A;&#x8BC6;&#x522B;&#x56FE;&#x50CF;&#x548C;&#x89C6;&#x9891;&#x4E2D;&#x7684;&#x8FDD;&#x89C4;&#x6587;&#x5B57;&#x5185;&#x5BB9;&#xFF0C;&#x8FDB;&#x884C;&#x8FDD;&#x89C4;&#x5904;&#x7406;&#x548C;&#x98CE;&#x9669;&#x7BA1;&#x63A7; &#x3002;</li>
+<li>&#x89C6;&#x9891;&#x5185;&#x5BB9;&#x5206;&#x6790; &#xFF1A;&#x8BC6;&#x522B;&#x89C6;&#x9891;&#x4E2D;&#x7684;&#x5B57;&#x5E55;&#x3001;&#x6807;&#x9898;&#x3001;&#x5F39;&#x5E55;&#x3001;&#x753B;&#x9762;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#x4FE1;&#x606F;&#x7B49;&#x5185;&#x5BB9;&#xFF0C;&#x7528;&#x4E8E;&#x89C6;&#x9891;&#x5206;&#x7C7B;&#x548C;&#x6807;&#x7B7E;&#x63D0;&#x53D6;&#x3001;&#x89C6;&#x9891;&#x5185;&#x5BB9;&#x5BA1;&#x6838;&#x3001;&#x8425;&#x9500;&#x5206;&#x6790;&#x7B49;&#x591A;&#x79CD;&#x573A;&#x666F; &#x3002;</li>
+</ul>
+<h3 id="2352-&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;-api-&#x4ECB;&#x7ECD;">2.3.5.2 &#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B; API &#x4ECB;&#x7ECD;</h3>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot; &#x8C03;&#x7528;&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;, &#x56FE;&#x7247;&#x53C2;&#x6570;&#x4E3A;&#x672C;&#x5730;&#x56FE;&#x7247; &quot;&quot;&quot;</span>
+client.basicGeneral(image&#xFF0C;options);
+<span class="hljs-string">&quot;&quot;&quot; &#x8C03;&#x7528;&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;, &#x56FE;&#x7247;&#x53C2;&#x6570;&#x4E3A;&#x8FDC;&#x7A0B;url&#x56FE;&#x7247; &quot;&quot;&quot;</span>
+client.basicGeneralUrl(url, options)
+</code></pre>
+<p><strong>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x53EF;&#x9009;&#x503C;&#x8303;&#x56F4;</th>
+<th>&#x9ED8;&#x8BA4;&#x503C;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td>&#x56FE;&#x50CF;&#x6570;&#x636E;&#xFF0C;base64&#x7F16;&#x7801;&#xFF0C;&#x8981;&#x6C42;base64&#x7F16;&#x7801;&#x540E;&#x5927;&#x5C0F;&#x4E0D;&#x8D85;&#x8FC7;4M&#xFF0C;&#x6700;&#x77ED;&#x8FB9;&#x81F3;&#x5C11;15px&#xFF0C;&#x6700;&#x957F;&#x8FB9;&#x6700;&#x5927;4096px,&#x652F;&#x6301;jpg/png/bmp&#x683C;&#x5F0F;</td>
+</tr>
+<tr>
+<td>url</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td>&#x56FE;&#x7247;&#x5B8C;&#x6574;URL&#xFF0C;URL&#x957F;&#x5EA6;&#x4E0D;&#x8D85;&#x8FC7;1024&#x5B57;&#x8282;&#xFF0C;URL&#x5BF9;&#x5E94;&#x7684;&#x56FE;&#x7247;base64&#x7F16;&#x7801;&#x540E;&#x5927;&#x5C0F;&#x4E0D;&#x8D85;&#x8FC7;4M&#xFF0C;&#x6700;&#x77ED;&#x8FB9;&#x81F3;&#x5C11;15px&#xFF0C;&#x6700;&#x957F;&#x8FB9;&#x6700;&#x5927;4096px,&#x652F;&#x6301;jpg/png/bmp&#x683C;&#x5F0F;&#xFF0C;&#x5F53;image&#x5B57;&#x6BB5;&#x5B58;&#x5728;&#x65F6;url&#x5B57;&#x6BB5;&#x5931;&#x6548;</td>
+</tr>
+<tr>
+<td>language_type</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>CHN_ENG ENG POR FRE GER ITA SPA RUS JAP KOR</td>
+<td>CHN_ENG</td>
+<td>&#x8BC6;&#x522B;&#x8BED;&#x8A00;&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;CHN_ENG&#x3002;&#x53EF;&#x9009;&#x503C;&#x5305;&#x62EC;&#xFF1A; - CHN_ENG&#xFF1A;&#x4E2D;&#x82F1;&#x6587;&#x6DF7;&#x5408;&#xFF1B; - ENG&#xFF1A;&#x82F1;&#x6587;&#xFF1B; - POR&#xFF1A;&#x8461;&#x8404;&#x7259;&#x8BED;&#xFF1B; - FRE&#xFF1A;&#x6CD5;&#x8BED;&#xFF1B; - GER&#xFF1A;&#x5FB7;&#x8BED;&#xFF1B; - ITA&#xFF1A;&#x610F;&#x5927;&#x5229;&#x8BED;&#xFF1B; - SPA&#xFF1A;&#x897F;&#x73ED;&#x7259;&#x8BED;&#xFF1B; - RUS&#xFF1A;&#x4FC4;&#x8BED;&#xFF1B; - JAP&#xFF1A;&#x65E5;&#x8BED;&#xFF1B; - KOR&#xFF1A;&#x97E9;&#x8BED;&#xFF1B;</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>true false</td>
+<td>false</td>
+<td>&#x662F;&#x5426;&#x68C0;&#x6D4B;&#x56FE;&#x50CF;&#x671D;&#x5411;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x68C0;&#x6D4B;&#xFF0C;&#x5373;&#xFF1A;false&#x3002;&#x671D;&#x5411;&#x662F;&#x6307;&#x8F93;&#x5165;&#x56FE;&#x50CF;&#x662F;&#x6B63;&#x5E38;&#x65B9;&#x5411;&#x3001;&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;90/180/270&#x5EA6;&#x3002;&#x53EF;&#x9009;&#x503C;&#x5305;&#x62EC;: - true&#xFF1A;&#x68C0;&#x6D4B;&#x671D;&#x5411;&#xFF1B; - false&#xFF1A;&#x4E0D;&#x68C0;&#x6D4B;&#x671D;&#x5411;&#x3002;</td>
+</tr>
+<tr>
+<td>detect_language</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>true false</td>
+<td>false</td>
+<td>&#x662F;&#x5426;&#x68C0;&#x6D4B;&#x8BED;&#x8A00;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x68C0;&#x6D4B;&#x3002;&#x5F53;&#x524D;&#x652F;&#x6301;&#xFF08;&#x4E2D;&#x6587;&#x3001;&#x82F1;&#x8BED;&#x3001;&#x65E5;&#x8BED;&#x3001;&#x97E9;&#x8BED;&#xFF09;</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>true false</td>
+<td></td>
+<td>&#x662F;&#x5426;&#x8FD4;&#x56DE;&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x4E2D;&#x6BCF;&#x4E00;&#x884C;&#x7684;&#x7F6E;&#x4FE1;&#x5EA6;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x6570;&#x636E;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x5B57;&#x6BB5;</th>
+<th>&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>&#x5426;</td>
+<td>number</td>
+<td>&#x56FE;&#x50CF;&#x65B9;&#x5411;&#xFF0C;&#x5F53;detect_direction=true&#x65F6;&#x5B58;&#x5728;&#x3002; - -1:&#x672A;&#x5B9A;&#x4E49;&#xFF0C; - 0:&#x6B63;&#x5411;&#xFF0C; - 1: &#x9006;&#x65F6;&#x9488;90&#x5EA6;&#xFF0C; - 2:&#x9006;&#x65F6;&#x9488;180&#x5EA6;&#xFF0C; - 3:&#x9006;&#x65F6;&#x9488;270&#x5EA6;</td>
+</tr>
+<tr>
+<td>log_id</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x552F;&#x4E00;&#x7684;log id&#xFF0C;&#x7528;&#x4E8E;&#x95EE;&#x9898;&#x5B9A;&#x4F4D;</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x6570;&#xFF0C;&#x8868;&#x793A;words_result&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>&#x662F;</td>
+<td>array</td>
+<td>&#x5B9A;&#x4F4D;&#x548C;&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x6570;&#x7EC4;</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>+probability</td>
+<td>&#x5426;</td>
+<td>object</td>
+<td>&#x884C;&#x7F6E;&#x4FE1;&#x5EA6;&#x4FE1;&#x606F;&#xFF1B;&#x5982;&#x679C;&#x8F93;&#x5165;&#x53C2;&#x6570; probability = true &#x5219;&#x8F93;&#x51FA;</td>
+</tr>
+<tr>
+<td>++average</td>
+<td>&#x5426;</td>
+<td>number</td>
+<td>&#x884C;&#x7F6E;&#x4FE1;&#x5EA6;&#x5E73;&#x5747;&#x503C;</td>
+</tr>
+<tr>
+<td>++variance</td>
+<td>&#x5426;</td>
+<td>number</td>
+<td>&#x884C;&#x7F6E;&#x4FE1;&#x5EA6;&#x65B9;&#x5DEE;</td>
+</tr>
+<tr>
+<td>++min</td>
+<td>&#x5426;</td>
+<td>number</td>
+<td>&#x884C;&#x7F6E;&#x4FE1;&#x5EA6;&#x6700;&#x5C0F;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x793A;&#x4F8B;</strong></p>
+<pre><code class="lang-python">{<span class="hljs-string">&apos;log_id&apos;</span>: <span class="hljs-number">6286237072820470273</span>,
+ <span class="hljs-string">&apos;words_result_num&apos;</span>: <span class="hljs-number">12</span>,
+ <span class="hljs-string">&apos;words_result&apos;</span>: [{<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x8BFB;&#x8005;&#x670B;&#x53CB;:&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x8C22;&#x4F60;&#x5BF9;&#x300A;&#x5317;&#x4EAC;&#x6613;&#x6377;&#x5929;&#x4E0B;&#x5E7F;&#x544A;&#x6000;&#x67D4;&#x7AD9;&#x300B;&#x4E2D;&#x201C;&#x60C5;&#x8F7C;&#x5899;&#x201C;&#x680F;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x76EE;&#x7684;&#x6DF1;&#x5207;&#x539A;&#x7231;&#x4E0E;&#x70ED;&#x60C5;&#x5173;&#x6CE8;,&#x8FD1;&#x65E5;&#x6765;&#x672C;&#x520A;&#x9646;&#x7EED;&#x6536;&#x5230;&#x8BB8;&#x591A;&#x4EBA;&#x7684;&#x54A8;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x6D77;,&#x53CD;&#x9662;&#x680F;&#x76EE;&#x592A;&#x5C0F;,&#x4F7F;&#x60A8;&#x6709;&#x671B;&#x591A;&#x7684;&#x8BDD;&#x5374;&#x65E0;&#x6CD5;&#x8868;&#x8FF0;&#x6E05;&#x695A;&#x3002;&#x4E3A;&#x5317;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x672C;&#x520A;&#x7279;&#x63A8;&#x51FA;&#x4E00;&#x4E2A;&#x201C;&#x60C5;&#x5C0F;&#x5C4B;&#x201D;&#x680F;&#x76EE;,&#x60A8;&#x53EF;&#x4EE5;&#x4E66;&#x4FE1;&#x7684;&#x5F62;&#x5F0F;&#x4EA4;&#x4E0E;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x6211;&#x4EEC;&#x3002;&#x7ECF;&#x8FC7;&#x6211;&#x4EEC;&#x7CBE;&#x7F8E;&#x7684;&#x8BBE;&#x8BA1;,&#x5728;&#x672C;&#x520A;&#x51FA;,&#x8BA9;&#x5355;(1)&#x4E86;&#x8239;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x4F60;&#x7684;&#x5FC3;&#x58F0;,&#x53D1;&#x73B0;&#x4F60;&#x7684;&#x6D6A;&#x6F2B;&#x4E95;&#x5417;&#x9488;&#x5BF9;&#x60A8;&#x7684;&#x8981;&#x6C42;,&#x65E0;&#x5929;&#x6DAF;&#x6D77;&#x89D2;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x6211;&#x4EEC;&#x80A5;&#x60A8;&#x8868;&#x8FBE;&#x7684;&#x60C5;&#x8FC7;&#x90CE;&#x653F;&#x5FEB;&#x800C;&#x5230;&#x60A8;&#x597D;&#x5FC3;&#x7231;&#x7684;&#x4EBA;&#x624B;&#x4E2D;1&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x5728;,&#x5BF9;&#x6240;&#x6709;&#x520A;&#x9A7B;&#x7684;&#x4E66;&#x4FE1;&#x672C;&#x520A;&#x6709;&#x4FEE;&#x6539;&#x6743;&#x3002;&#x5BF9;&#x4E8E;&#x4F4E;&#x4FD7;&#x8FC7;&#x6FC0;&#x7684;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x8A00;&#x672C;&#x520A;&#x6709;&#x6743;&#x62D2;&#x7EDD;&#x518D;&#x767B;,&#x6BCF;&#x5C01;&#x500D;&#x9650;&#x91CF;&#x591A;1600&#x5B57;&#x5DE6;&#x53F3;,&#x672C;&#x680F;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x65E5;&#x4E3A;&#x888B;&#x670D;&#x52A1;&#x6536;&#x8D35;&#x6807;&#x51C6;&#x81F4;&#x7535;&#x8BDD;:13716834562&#x672C;&#x520A;&#x4FDD;&#x56FE;&#x6B64;&#x680F;&#x76EE;&apos;</span>},
+                  {<span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x7684;&#x91CF;&#x7EC8;&#x89E3;&#x91CA;&#x6743;!&apos;</span>}]
+}
+</code></pre>
+<h3 id="2353-&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x6848;&#x4F8B;">2.3.5.3 &#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x6848;&#x4F8B;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> aip <span class="hljs-keyword">import</span> AipOcr
+<span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">general_ocr</span><span class="hljs-params">(client, image_path)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;
+    :param client: AipOcr&#x5BA2;&#x6237;&#x7AEF;&#x5BF9;&#x8C61;
+    :param image_path: &#x56FE;&#x7247;&#x8DEF;&#x5F84;
+    :return: None
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#x56FE;&#x7247;&#x6587;&#x4EF6;</span>
+    <span class="hljs-keyword">with</span> open(image_path, <span class="hljs-string">&apos;rb&apos;</span>) <span class="hljs-keyword">as</span> f:
+
+        <span class="hljs-comment"># &#x51C6;&#x5907;&#x53C2;&#x6570;</span>
+        options = {}
+        options[<span class="hljs-string">&quot;language_type&quot;</span>] = <span class="hljs-string">&quot;CHN_ENG&quot;</span>
+        options[<span class="hljs-string">&quot;detect_direction&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+        options[<span class="hljs-string">&quot;probability&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+
+        <span class="hljs-comment"># &#x8C03;&#x7528;&#x8BC6;&#x522B;&#x51FD;&#x6570;</span>
+        result = client.basicGeneral(f.read(), options)
+        pprint(result)
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-comment"># &#x5B9E;&#x4F8B;&#x5316;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x7684;&#x5BA2;&#x6237;&#x7AEF; AipOcr</span>
+    aip = AipOcr(<span class="hljs-string">&apos;11560811&apos;</span>, <span class="hljs-string">&apos;gN0pPnWTQsuvDSrGXptq5Zyl&apos;</span>, <span class="hljs-string">&apos;dVae********************SBLKEj&apos;</span>)
+
+    <span class="hljs-comment"># &#x8C03;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;</span>
+    general_ocr(aip, <span class="hljs-string">&apos;./data/images/&#x62A5;&#x7EB8;.png&apos;</span>)
+</code></pre>
+<p>&#x539F;&#x59CB;&#x56FE;&#x7247;</p>
+<p><img src="images/&#x62A5;&#x7EB8;2.png" alt="&#x62A5;&#x7EB8;"></p>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-python">{<span class="hljs-string">&apos;log_id&apos;</span>: <span class="hljs-number">6260790921611607036</span>,
+ <span class="hljs-string">&apos;direction&apos;</span>: <span class="hljs-number">0</span>,
+ <span class="hljs-string">&apos;words_result_num&apos;</span>: <span class="hljs-number">48</span>,
+ <span class="hljs-string">&apos;words_result&apos;</span>: [{<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.642401</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.361678</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.041866</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x8D44;&#x8BAF;&#x2026;&#x8BF4;&#x53F6;&#x628A;&#x975E;:&#x4E8E;&#x5C11;&#x5317;s&#x8DEF;&#x5883;&#x5929;&#x4E0B;&#x5382;&#x544A;&#x5C11;&#x5317;&#x6210;&#x5668;&#x8BBE;&#x5929;&#x4E0B;&#x5E7F;&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.706126</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.573514</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.012142</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;2&#x5934;+&#x224C;&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.550017</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.351237</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.039513</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x4E0A;&#x8F91;&apos;</span>},
+......
+
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.514591</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.398368</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.017167</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x7F50;&#x6574;&#x524D;&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.62518</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.424526</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.037598</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x201C;&#x201C;M&#x4E00;&#x8FD9;&#x66F4;&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.788764</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.425162</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.033539</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x5730;&#x65E0;&#x662F;&#x4E00;&#x4E48;1&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.586831</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.39454</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.036976</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x8981;&#x6837;&apos;</span>}]
+}
+</code></pre>
+<h3 id="2354-&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x9AD8;&#x7CBE;&#x5EA6;&#x7248;&#xFF09;">2.3.5.4 &#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x9AD8;&#x7CBE;&#x5EA6;&#x7248;&#xFF09;</h3>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot; &#x5E26;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x9AD8;&#x7CBE;&#x5EA6;&#x7248;&#xFF09; &quot;&quot;&quot;</span>
+options = {}
+options[<span class="hljs-string">&quot;detect_direction&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+options[<span class="hljs-string">&quot;probability&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+client.basicAccurate(image, options)
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-python">{<span class="hljs-string">&apos;direction&apos;</span>: <span class="hljs-number">0</span>,
+ <span class="hljs-string">&apos;log_id&apos;</span>: <span class="hljs-number">5099671959247167726</span>,
+ <span class="hljs-string">&apos;words_result&apos;</span>: [{<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.998625</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.994716</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">4e-06</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x8BFB;&#x8005;&#x670B;&#x53CB;:&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.858742</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.355289</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.037209</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x611F;&#x8C22;&#x4F60;&#x5BF9;&#x300A;&#x4E03;&#x4EAC;&#x6613;&#x6377;&#x5929;&#x4E0B;&#x5E7F;&#x544A;&#x6000;&#x67D4;&#x7AD9;&#x300B;&#x4E2D;&#x60C5;&#x611F;&#x5899;&#x680F;&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.933207</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.64045</span>,
+......
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x76EE;&#x4E3A;&#x60A8;&#x670D;&#x52A1;&#x6536;&#x8D39;&#x6807;&#x51C6;&#x81F4;&#x7535;&#x8BDD;:13716834562&#x672C;&#x520A;&#x4FDD;&#x56FE;&#x6B64;&#x680F;&#x76EE;&apos;</span>},
+                  {<span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.929817</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.612618</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.016996</span>},
+                   <span class="hljs-string">&apos;words&apos;</span>: <span class="hljs-string">&apos;&#x7684;&#x6700;&#x7EC8;&#x89E3;&#x91CA;&#x6743;!&apos;</span>}],
+ <span class="hljs-string">&apos;words_result_num&apos;</span>: <span class="hljs-number">12</span>}
+</code></pre>
+<h3 id="2354-&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x7248;&#xFF09;">2.3.5.4 &#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x7248;&#xFF09;</h3>
+<p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot; &#x5982;&#x679C;&#x6709;&#x53EF;&#x9009;&#x53C2;&#x6570; &quot;&quot;&quot;</span>
+options = {}
+options[<span class="hljs-string">&quot;recognize_granularity&quot;</span>] = <span class="hljs-string">&quot;big&quot;</span>
+options[<span class="hljs-string">&quot;language_type&quot;</span>] = <span class="hljs-string">&quot;CHN_ENG&quot;</span>
+options[<span class="hljs-string">&quot;detect_direction&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+options[<span class="hljs-string">&quot;detect_language&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+options[<span class="hljs-string">&quot;vertexes_location&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+options[<span class="hljs-string">&quot;probability&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+
+<span class="hljs-string">&quot;&quot;&quot; &#x5E26;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x7248;&#xFF09;, &#x56FE;&#x7247;&#x53C2;&#x6570;&#x4E3A;&#x8FDC;&#x7A0B;url&#x56FE;&#x7247; &quot;&quot;&quot;</span>
+client.general(image, options)
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-python">{
+<span class="hljs-string">&quot;log_id&quot;</span>: <span class="hljs-number">3523983603</span>,
+<span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-number">0</span>, //detect_direction=true&#x65F6;&#x5B58;&#x5728;
+<span class="hljs-string">&quot;words_result_num&quot;</span>: <span class="hljs-number">2</span>,
+<span class="hljs-string">&quot;words_result&quot;</span>: [
+    {
+        <span class="hljs-string">&quot;location&quot;</span>: {
+            <span class="hljs-string">&quot;left&quot;</span>: <span class="hljs-number">35</span>,
+            <span class="hljs-string">&quot;top&quot;</span>: <span class="hljs-number">53</span>,
+            <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">193</span>,
+            <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">109</span>
+        },
+        <span class="hljs-string">&quot;words&quot;</span>: <span class="hljs-string">&quot;&#x611F;&#x52A8;&quot;</span>,
+        <span class="hljs-string">&quot;chars&quot;</span>: [    //recognize_granularity=small&#x65F6;&#x5B58;&#x5728;
+            {
+                <span class="hljs-string">&quot;location&quot;</span>: {
+                    <span class="hljs-string">&quot;left&quot;</span>: <span class="hljs-number">56</span>,
+                    <span class="hljs-string">&quot;top&quot;</span>: <span class="hljs-number">65</span>,
+                    <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">69</span>,
+                    <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">88</span>
+                },
+                <span class="hljs-string">&quot;char&quot;</span>: <span class="hljs-string">&quot;&#x611F;&quot;</span>
+            },
+            {
+                <span class="hljs-string">&quot;location&quot;</span>: {
+                    <span class="hljs-string">&quot;left&quot;</span>: <span class="hljs-number">140</span>,
+                    <span class="hljs-string">&quot;top&quot;</span>: <span class="hljs-number">65</span>,
+                    <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">70</span>,
+                    <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">88</span>
+                },
+                <span class="hljs-string">&quot;char&quot;</span>: <span class="hljs-string">&quot;&#x52A8;&quot;</span>
+            }
+        ]
+    }
+    ...
+]
+}
+</code></pre>
+<h3 id="2355-&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x751F;&#x50FB;&#x5B57;&#x7248;&#xFF09;">2.3.5.5 &#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x751F;&#x50FB;&#x5B57;&#x7248;&#xFF09;</h3>
+<p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot; &#x5982;&#x679C;&#x6709;&#x53EF;&#x9009;&#x53C2;&#x6570; &quot;&quot;&quot;</span>
+options = {}
+options[<span class="hljs-string">&quot;language_type&quot;</span>] = <span class="hljs-string">&quot;CHN_ENG&quot;</span>
+options[<span class="hljs-string">&quot;detect_direction&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+options[<span class="hljs-string">&quot;detect_language&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+options[<span class="hljs-string">&quot;probability&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+
+<span class="hljs-string">&quot;&quot;&quot; &#x5E26;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#xFF08;&#x542B;&#x751F;&#x50FB;&#x5B57;&#x7248;&#xFF09;, &#x56FE;&#x7247;&#x53C2;&#x6570;&#x4E3A;&#x672C;&#x5730;&#x56FE;&#x7247; &quot;&quot;&quot;</span>
+client.enhancedGeneral(image, options)
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-python">{
+<span class="hljs-string">&quot;log_id&quot;</span>: <span class="hljs-number">2471272194</span>,
+<span class="hljs-string">&quot;words_result_num&quot;</span>: <span class="hljs-number">2</span>,
+<span class="hljs-string">&quot;words_result&quot;</span>:
+    [
+        {<span class="hljs-string">&quot;words&quot;</span>: <span class="hljs-string">&quot; TSINGTAO&quot;</span>},
+        {<span class="hljs-string">&quot;words&quot;</span>: <span class="hljs-string">&quot;&#x9752;&#x5CF6;&#x7765;&#x9152;&quot;</span>}
+    ]
+}
+</code></pre>
+<h2 id="236-&#x6C7D;&#x8F66;&#x724C;&#x7167;&#x8BC6;&#x522B;">2.3.6 &#x6C7D;&#x8F66;&#x724C;&#x7167;&#x8BC6;&#x522B;</h2>
+<h3 id="2361-&#x5E94;&#x7528;&#x573A;&#x666F;">2.3.6.1 &#x5E94;&#x7528;&#x573A;&#x666F;</h3>
+<ul>
+<li><p>&#x505C;&#x8F66;&#x573A;&#x95F8;&#x673A;&#x8BC6;&#x522B; &#xFF1A;&#x5728;&#x505C;&#x8F66;&#x573A;&#x7684;&#x95F8;&#x673A;&#x4E0A;&#x4F7F;&#x7528;&#x8F66;&#x724C;&#x8BC6;&#x522B;&#xFF0C;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x8F66;&#x724C;&#x53F7;&#x7801;&#x5B9E;&#x73B0;&#x65E0;&#x5361;&#x3001;&#x65E0;&#x4EBA;&#x7684;&#x505C;&#x8F66;&#x573A;&#x7BA1;&#x7406;&#xFF0C;&#x65B9;&#x4FBF;&#x5FEB;&#x6377; &#x3002;</p>
+</li>
+<li><p>&#x9053;&#x8DEF;&#x8FDD;&#x7AE0;&#x68C0;&#x6D4B; &#xFF1A;&#x5728;&#x4EA4;&#x901A;&#x9053;&#x8DEF;&#x4E0A;&#x7684;&#x6444;&#x50CF;&#x5934;&#x4E2D;&#x52A0;&#x5165;&#x8F66;&#x724C;&#x8BC6;&#x522B;&#x7ED3;&#x5408;&#x8FDD;&#x7AE0;&#x5224;&#x65AD;&#xFF0C;&#x5BF9;&#x8FDD;&#x7AE0;&#x7684;&#x8F66;&#x8F86;&#x53F7;&#x7801;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#xFF0C;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x5316;&#x7684;&#x8FDD;&#x7AE0;&#x5BA1;&#x8BA1; &#x3002;</p>
+</li>
+</ul>
+<h3 id="2362-&#x8F66;&#x724C;&#x8BC6;&#x522B;api-&#x4ECB;&#x7ECD;">2.3.6.2 &#x8F66;&#x724C;&#x8BC6;&#x522B;API &#x4ECB;&#x7ECD;</h3>
+<p>  &#x4EE3;&#x7801;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot; &#x5982;&#x679C;&#x6709;&#x53EF;&#x9009;&#x53C2;&#x6570; &quot;&quot;&quot;</span>
+options = {}
+options[<span class="hljs-string">&quot;multi_detect&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+
+<span class="hljs-string">&quot;&quot;&quot; &#x5E26;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x8F66;&#x724C;&#x8BC6;&#x522B; &quot;&quot;&quot;</span>
+client.licensePlate(image, options)
+</code></pre>
+<p><strong>&#x8F66;&#x724C;&#x8BC6;&#x522B; &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x53EF;&#x9009;&#x503C;&#x8303;&#x56F4;</th>
+<th>&#x9ED8;&#x8BA4;&#x503C;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td>&#x56FE;&#x50CF;&#x6570;&#x636E;&#xFF0C;base64&#x7F16;&#x7801;&#xFF0C;&#x8981;&#x6C42;base64&#x7F16;&#x7801;&#x540E;&#x5927;&#x5C0F;&#x4E0D;&#x8D85;&#x8FC7;4M&#xFF0C;&#x6700;&#x77ED;&#x8FB9;&#x81F3;&#x5C11;15px&#xFF0C;&#x6700;&#x957F;&#x8FB9;&#x6700;&#x5927;4096px,&#x652F;&#x6301;jpg/png/bmp&#x683C;&#x5F0F;</td>
+</tr>
+<tr>
+<td>multi_detect</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>true false</td>
+<td>false</td>
+<td>&#x662F;&#x5426;&#x68C0;&#x6D4B;&#x591A;&#x5F20;&#x8F66;&#x724C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;false&#xFF0C;&#x5F53;&#x7F6E;&#x4E3A;true&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5BF9;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x5185;&#x7684;&#x591A;&#x5F20;&#x8F66;&#x724C;&#x8FDB;&#x884C;&#x8BC6;&#x522B;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x8F66;&#x724C;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x6570;&#x636E;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x987B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_id</td>
+<td>uint64</td>
+<td>&#x662F;</td>
+<td>&#x8BF7;&#x6C42;&#x6807;&#x8BC6;&#x7801;&#xFF0C;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x552F;&#x4E00;&#x3002;</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>string</td>
+<td>&#x662F;</td>
+<td>&#x8F66;&#x724C;&#x989C;&#x8272;</td>
+</tr>
+<tr>
+<td>number</td>
+<td>string</td>
+<td>&#x662F;</td>
+<td>&#x8F66;&#x724C;&#x53F7;&#x7801;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x8F66;&#x724C;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x793A;&#x4F8B;</strong></p>
+<pre><code>{
+    &quot;log_id&quot;: 3583925545,
+    &quot;words_result&quot;: {
+        &quot;color&quot;: &quot;blue&quot;,
+        &quot;number&quot;: &quot;&#x82CF;HS7766&quot;
+    }
+}
+</code></pre><h3 id="2363-&#x8F66;&#x724C;&#x8BC6;&#x522B;&#x4EE3;&#x7801;">2.3.6.3 &#x8F66;&#x724C;&#x8BC6;&#x522B;&#x4EE3;&#x7801;</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plate_ocr</span><span class="hljs-params">(client, image_path)</span>:</span>
+    <span class="hljs-comment"># &#x6253;&#x5F00;&#x56FE;&#x7247;</span>
+    <span class="hljs-keyword">with</span> open(image_path, <span class="hljs-string">&apos;rb&apos;</span>) <span class="hljs-keyword">as</span> f:
+        <span class="hljs-comment"># &#x8C03;&#x7528;&#x8F66;&#x724C;&#x8BC6;&#x522B;&#x51FD;&#x6570;</span>
+        result = client.licensePlate(f.read())
+        pprint(result)
+
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    aip = AipOcr(<span class="hljs-string">&apos;11538347&apos;</span>, <span class="hljs-string">&apos;7ISISvl3VGa0P2vFXrbwsHt1&apos;</span>, <span class="hljs-string">&apos;YvsYc8qxFRtBXsOF254aNbmUQZG3d64L&apos;</span>)
+
+    plate_ocr(aip, <span class="hljs-string">&apos;.\data\images\plate.jpg&apos;</span>)
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-python">{<span class="hljs-string">&apos;log_id&apos;</span>: <span class="hljs-number">7172011679853036679</span>,
+ <span class="hljs-string">&apos;words_result&apos;</span>: {<span class="hljs-string">&apos;color&apos;</span>: <span class="hljs-string">&apos;unknown&apos;</span>,
+                  <span class="hljs-string">&apos;number&apos;</span>: <span class="hljs-string">&apos;&#x4EAC;G88888&apos;</span>,
+                  <span class="hljs-string">&apos;probability&apos;</span>: [<span class="hljs-number">1.0</span>,
+                                  <span class="hljs-number">1.0</span>,
+                                  <span class="hljs-number">0.999980092048645</span>,
+                                  <span class="hljs-number">0.999969482421875</span>,
+                                  <span class="hljs-number">0.9999850988388062</span>,
+                                  <span class="hljs-number">0.9999785423278809</span>,
+                                  <span class="hljs-number">0.9999675750732422</span>],
+                  <span class="hljs-string">&apos;vertexes_location&apos;</span>: [{<span class="hljs-string">&apos;x&apos;</span>: <span class="hljs-number">195</span>, <span class="hljs-string">&apos;y&apos;</span>: <span class="hljs-number">267</span>},
+                                        {<span class="hljs-string">&apos;x&apos;</span>: <span class="hljs-number">383</span>, <span class="hljs-string">&apos;y&apos;</span>: <span class="hljs-number">270</span>},
+                                        {<span class="hljs-string">&apos;x&apos;</span>: <span class="hljs-number">382</span>, <span class="hljs-string">&apos;y&apos;</span>: <span class="hljs-number">316</span>},
+                                        {<span class="hljs-string">&apos;x&apos;</span>: <span class="hljs-number">195</span>, <span class="hljs-string">&apos;y&apos;</span>: <span class="hljs-number">313</span>}]}}
+</code></pre>
+<h2 id="237-&#x7968;&#x636E;&#x8BC6;&#x522B;&#xFF1A;&#x901A;&#x7528;&#x7968;&#x636E;&#x548C;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;">2.3.7 &#x7968;&#x636E;&#x8BC6;&#x522B;&#xFF1A;&#x901A;&#x7528;&#x7968;&#x636E;&#x548C;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;</h2>
+<h3 id="2371-&#x4ECB;&#x7ECD;">2.3.7.1 &#x4ECB;&#x7ECD;</h3>
+<p>&#x5BF9;&#x533B;&#x7597;&#x7968;&#x636E;&#x3001;&#x4FDD;&#x9669;&#x4FDD;&#x5355;&#x3001;&#x94F6;&#x884C;&#x5151;&#x7968;&#x3001;&#x8D2D;&#x7269;&#x5C0F;&#x7968;&#x3001;&#x7684;&#x58EB;&#x53D1;&#x7968;&#x7B49;&#x5404;&#x7C7B;&#x7968;&#x636E;&#x8FDB;&#x884C;&#x901A;&#x7528;&#x8BC6;&#x522B;&#xFF0C;&#x5E76;&#x6309;&#x884C;&#x8F93;&#x51FA;&#x6240;&#x6709;&#x6587;&#x5B57;&#x7ED3;&#x679C; &#x3002;&#x652F;&#x6301;&#x5BF9;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x7684;&#x8BC6;&#x522B;&#xFF0C;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF0C;&#x9700;&#x8981;&#x7533;&#x8BF7;&#x5408;&#x4F5C;&#x3002;</p>
+<ul>
+<li><p>&#x901A;&#x7528;&#x7968;&#x636E;</p>
+<p><img src="images/3_12_&#x7968;&#x636E;&#x6548;&#x679C;.png" alt="&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B;&#x6548;&#x679C;"></p>
+</li>
+<li><p>&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;</p>
+<p><img src="images/3_7_&#x7968;&#x636E;.png" alt="&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x8BC6;&#x522B;"></p>
+</li>
+</ul>
+<h3 id="2372-&#x901A;&#x7528;&#x7968;&#x636E;sdk-api">2.3.7.2 &#x901A;&#x7528;&#x7968;&#x636E;SDK API</h3>
+<pre><code class="lang-python">
+<span class="hljs-string">&quot;&quot;&quot; &#x5982;&#x679C;&#x6709;&#x53EF;&#x9009;&#x53C2;&#x6570; &quot;&quot;&quot;</span>
+options = {}
+options[<span class="hljs-string">&quot;recognize_granularity&quot;</span>] = <span class="hljs-string">&quot;big&quot;</span>
+options[<span class="hljs-string">&quot;probability&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+options[<span class="hljs-string">&quot;accuracy&quot;</span>] = <span class="hljs-string">&quot;normal&quot;</span>
+options[<span class="hljs-string">&quot;detect_direction&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+
+<span class="hljs-string">&quot;&quot;&quot; &#x5E26;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B; &quot;&quot;&quot;</span>
+client.receipt(image, options)
+</code></pre>
+<p><strong>&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B; &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x53EF;&#x9009;&#x503C;&#x8303;&#x56F4;</th>
+<th>&#x9ED8;&#x8BA4;&#x503C;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td>&#x56FE;&#x50CF;&#x6570;&#x636E;&#xFF0C;base64&#x7F16;&#x7801;&#xFF0C;&#x8981;&#x6C42;base64&#x7F16;&#x7801;&#x540E;&#x5927;&#x5C0F;&#x4E0D;&#x8D85;&#x8FC7;4M&#xFF0C;&#x6700;&#x77ED;&#x8FB9;&#x81F3;&#x5C11;15px&#xFF0C;&#x6700;&#x957F;&#x8FB9;&#x6700;&#x5927;4096px,&#x652F;&#x6301;jpg/png/bmp&#x683C;&#x5F0F;</td>
+</tr>
+<tr>
+<td>recognize_granularity</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>big - &#x4E0D;&#x5B9A;&#x4F4D;&#x5355;&#x5B57;&#x7B26;&#x4F4D;&#x7F6E; small - &#x5B9A;&#x4F4D;&#x5355;&#x5B57;&#x7B26;&#x4F4D;&#x7F6E;</td>
+<td>small</td>
+<td>&#x662F;&#x5426;&#x5B9A;&#x4F4D;&#x5355;&#x5B57;&#x7B26;&#x4F4D;&#x7F6E;&#xFF0C;big&#xFF1A;&#x4E0D;&#x5B9A;&#x4F4D;&#x5355;&#x5B57;&#x7B26;&#x4F4D;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1B;small&#xFF1A;&#x5B9A;&#x4F4D;&#x5355;&#x5B57;&#x7B26;&#x4F4D;&#x7F6E;</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>true false</td>
+<td></td>
+<td>&#x662F;&#x5426;&#x8FD4;&#x56DE;&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x4E2D;&#x6BCF;&#x4E00;&#x884C;&#x7684;&#x7F6E;&#x4FE1;&#x5EA6;</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>normal - &#x4F7F;&#x7528;&#x5FEB;&#x901F;&#x670D;&#x52A1;</td>
+<td></td>
+<td>normal &#x4F7F;&#x7528;&#x5FEB;&#x901F;&#x670D;&#x52A1;&#xFF0C;1200ms&#x5DE6;&#x53F3;&#x65F6;&#x5EF6;&#xFF1B;&#x7F3A;&#x7701;&#x6216;&#x5176;&#x5B83;&#x503C;&#x4F7F;&#x7528;&#x9AD8;&#x7CBE;&#x5EA6;&#x670D;&#x52A1;&#xFF0C;1600ms&#x5DE6;&#x53F3;&#x65F6;&#x5EF6;</td>
+</tr>
+<tr>
+<td>detect_direction</td>
+<td>&#x5426;</td>
+<td>string</td>
+<td>true false</td>
+<td>false</td>
+<td>&#x662F;&#x5426;&#x68C0;&#x6D4B;&#x56FE;&#x50CF;&#x671D;&#x5411;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x68C0;&#x6D4B;&#xFF0C;&#x5373;&#xFF1A;false&#x3002;&#x671D;&#x5411;&#x662F;&#x6307;&#x8F93;&#x5165;&#x56FE;&#x50CF;&#x662F;&#x6B63;&#x5E38;&#x65B9;&#x5411;&#x3001;&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;90/180/270&#x5EA6;&#x3002;&#x53EF;&#x9009;&#x503C;&#x5305;&#x62EC;: - true&#xFF1A;&#x68C0;&#x6D4B;&#x671D;&#x5411;&#xFF1B; - false&#xFF1A;&#x4E0D;&#x68C0;&#x6D4B;&#x671D;&#x5411;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x6570;&#x636E;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x5B57;&#x6BB5;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_id</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x552F;&#x4E00;&#x7684;log id&#xFF0C;&#x7528;&#x4E8E;&#x95EE;&#x9898;&#x5B9A;&#x4F4D;</td>
+</tr>
+<tr>
+<td>words_result_num</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x6570;&#xFF0C;&#x8868;&#x793A;words_result&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;</td>
+</tr>
+<tr>
+<td>words_result</td>
+<td>&#x662F;</td>
+<td>array()</td>
+<td>&#x5B9A;&#x4F4D;&#x548C;&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x6570;&#x7EC4;</td>
+</tr>
+<tr>
+<td>+location</td>
+<td>&#x662F;</td>
+<td>object</td>
+<td>&#x4F4D;&#x7F6E;&#x6570;&#x7EC4;&#xFF08;&#x5750;&#x6807;0&#x70B9;&#x4E3A;&#x5DE6;&#x4E0A;&#x89D2;&#xFF09;</td>
+</tr>
+<tr>
+<td>++left</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x5B9A;&#x4F4D;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x5DE6;&#x4E0A;&#x9876;&#x70B9;&#x7684;&#x6C34;&#x5E73;&#x5750;&#x6807;</td>
+</tr>
+<tr>
+<td>++top</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x5B9A;&#x4F4D;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x5DE6;&#x4E0A;&#x9876;&#x70B9;&#x7684;&#x5782;&#x76F4;&#x5750;&#x6807;</td>
+</tr>
+<tr>
+<td>++width</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x5B9A;&#x4F4D;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x7684;&#x5BBD;&#x5EA6;</td>
+</tr>
+<tr>
+<td>++height</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x5B9A;&#x4F4D;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x7684;&#x9AD8;&#x5EA6;</td>
+</tr>
+<tr>
+<td>+words</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td>&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>+chars</td>
+<td>&#x5426;</td>
+<td>array()</td>
+<td>&#x5355;&#x5B57;&#x7B26;&#x7ED3;&#x679C;&#xFF0C;recognize_granularity=small&#x65F6;&#x5B58;&#x5728;</td>
+</tr>
+<tr>
+<td>++location</td>
+<td>&#x662F;</td>
+<td>array()</td>
+<td>&#x4F4D;&#x7F6E;&#x6570;&#x7EC4;&#xFF08;&#x5750;&#x6807;0&#x70B9;&#x4E3A;&#x5DE6;&#x4E0A;&#x89D2;&#xFF09;</td>
+</tr>
+<tr>
+<td>+++left</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x5B9A;&#x4F4D;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x5DE6;&#x4E0A;&#x9876;&#x70B9;&#x7684;&#x6C34;&#x5E73;&#x5750;&#x6807;</td>
+</tr>
+<tr>
+<td>+++top</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x5B9A;&#x4F4D;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x5DE6;&#x4E0A;&#x9876;&#x70B9;&#x7684;&#x5782;&#x76F4;&#x5750;&#x6807;</td>
+</tr>
+<tr>
+<td>+++width</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x5B9A;&#x4F4D;&#x5B9A;&#x4F4D;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x7684;&#x5BBD;&#x5EA6;</td>
+</tr>
+<tr>
+<td>+++height</td>
+<td>&#x662F;</td>
+<td>number</td>
+<td>&#x8868;&#x793A;&#x4F4D;&#x7F6E;&#x7684;&#x957F;&#x65B9;&#x5F62;&#x7684;&#x9AD8;&#x5EA6;</td>
+</tr>
+<tr>
+<td>+++char</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td>&#x5355;&#x5B57;&#x7B26;&#x8BC6;&#x522B;&#x7ED3;&#x679C;</td>
+</tr>
+<tr>
+<td>+probability</td>
+<td>&#x5426;</td>
+<td>object</td>
+<td>&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x4E2D;&#x6BCF;&#x4E00;&#x884C;&#x7684;&#x7F6E;&#x4FE1;&#x5EA6;&#x503C;&#xFF0C;&#x5305;&#x542B;average&#xFF1A;&#x884C;&#x7F6E;&#x4FE1;&#x5EA6;&#x5E73;&#x5747;&#x503C;&#xFF0C;variance&#xFF1A;&#x884C;&#x7F6E;&#x4FE1;&#x5EA6;&#x65B9;&#x5DEE;&#xFF0C;min&#xFF1A;&#x884C;&#x7F6E;&#x4FE1;&#x5EA6;&#x6700;&#x5C0F;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x793A;&#x4F8B;</strong></p>
+<pre><code>{
+    &quot;log_id&quot;: 2661573626,
+    &quot;words_result&quot;: [
+        {
+            &quot;location&quot;: {
+                &quot;left&quot;: 10,
+                &quot;top&quot;: 3,
+                &quot;width&quot;: 121,
+                &quot;height&quot;: 24
+            },
+            &quot;words&quot;: &quot;&#x59D3;&#x540D;:&#x5C0F;&#x660E;&#x660E;&quot;,
+            &quot;chars&quot;: [
+                {
+                    &quot;location&quot;: {
+                        &quot;left&quot;: 16,
+                        &quot;top&quot;: 6,
+                        &quot;width&quot;: 17,
+                        &quot;height&quot;: 20
+                    },
+                    &quot;char&quot;: &quot;&#x59D3;&quot;
+                }
+                ...
+            ]
+        },
+        {
+            &quot;location&quot;: {
+                &quot;left&quot;: 212,
+                &quot;top&quot;: 3,
+                &quot;width&quot;: 738,
+                &quot;height&quot;: 24
+            },
+            &quot;words&quot;: &quot;&#x5361;&#x53F7;/&#x75C5;&#x6848;&#x53F7;:105353990&#x6807;&#x672C;&#x7F16;&#x53F7;:150139071&#x9001;&#x68C0;&#x79D1;&#x5BA4;:&#x8840;&#x6DB2;&#x900F;&#x6790;&#x95E8;&#x8BCA;&#x75C5;&#x623F;&quot;,
+            &quot;chars&quot;: [
+                {
+                    &quot;location&quot;: {
+                        &quot;left&quot;: 218,
+                        &quot;top&quot;: 6,
+                        &quot;width&quot;: 18,
+                        &quot;height&quot;: 21
+                    },
+                    &quot;char&quot;: &quot;&#x5361;&quot;
+                }
+                ...
+            ]
+        }
+    ],
+    &quot;words_result_num&quot;: 2
+}
+</code></pre><h3 id="2373-&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B;&#x4EE3;&#x7801;">2.3.7.3 &#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B;&#x4EE3;&#x7801;</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5B9A;&#x4E49;&#x8BC6;&#x522B;&#x51FD;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">receipt_ocr</span><span class="hljs-params">(client, image_path)</span>:</span>
+    <span class="hljs-comment"># &#x6253;&#x5F00;&#x56FE;&#x7247;</span>
+    <span class="hljs-keyword">with</span> open(image_path, <span class="hljs-string">&apos;rb&apos;</span>) <span class="hljs-keyword">as</span> f:
+        <span class="hljs-string">&quot;&quot;&quot; &#x5982;&#x679C;&#x6709;&#x53EF;&#x9009;&#x53C2;&#x6570; &quot;&quot;&quot;</span>
+        options = {}
+        options[<span class="hljs-string">&quot;recognize_granularity&quot;</span>] = <span class="hljs-string">&quot;big&quot;</span>
+        options[<span class="hljs-string">&quot;probability&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+        options[<span class="hljs-string">&quot;accuracy&quot;</span>] = <span class="hljs-string">&quot;normal&quot;</span>
+        options[<span class="hljs-string">&quot;detect_direction&quot;</span>] = <span class="hljs-string">&quot;true&quot;</span>
+
+        <span class="hljs-string">&quot;&quot;&quot; &#x5E26;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B; &quot;&quot;&quot;</span>
+        result = client.receipt(f.read(), options)
+
+        pprint(result)
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-comment"># &#x5B9E;&#x4F8B;&#x5316; AipOcr</span>
+    aip = AipOcr(<span class="hljs-string">&apos;11538347&apos;</span>, <span class="hljs-string">&apos;7ISISvl3VGa0P2vFXrbwsHt1&apos;</span>, <span class="hljs-string">&apos;YvsYc8qxFR*******ZG3d64L&apos;</span>)
+
+    receipt_ocr(aip, <span class="hljs-string">&apos;.\data\images\&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;.jpg&apos;</span>)
+</code></pre>
+<h2 id="238-&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x548C;&#x5206;&#x7C7B;&#x7BA1;&#x7406;&#x5668;">2.3.8 &#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x548C;&#x5206;&#x7C7B;&#x7BA1;&#x7406;&#x5668;</h2>
+<h3 id="2381-&#x4ECB;&#x7ECD;">2.3.8.1 &#x4ECB;&#x7ECD;</h3>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x662F;&#x4E00;&#x6B3E;&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x5404;&#x79CD;&#x7968;&#x636E;&#x3001;&#x5361;&#x8BC1;&#x5B9E;&#x73B0;&#x5B57;&#x6BB5;&#x540D;&#x548C;&#x5B57;&#x6BB5;&#x503C;&#x5BF9;&#x5E94;&#x63D0;&#x53D6;&#x7684;OCR&#x4EA7;&#x54C1;&#xFF1B;&#x6BD4;&#x5982;&#xFF1A;&#x5F53;&#x4F60;&#x9700;&#x8981;&#x8BC6;&#x522B;&#x67D0;&#x4E00;&#x79CD;&#x8BC1;&#x4EF6;&#xFF08;&#x6BD4;&#x5982;&#x623F;&#x4EA7;&#x8BC1;&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x767E;&#x5EA6;&#x5B98;&#x65B9;&#x8FD8;&#x6CA1;&#x6709;&#x9488;&#x5BF9;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x8BC1;&#x4EF6;&#x63A8;&#x51FA;&#x5177;&#x4F53;&#x7684;&#x6A21;&#x7248;&#x8BC6;&#x522B;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x4F7F;&#x7528;&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x5B57;&#x6BB5;&#x540D;&#x548C;&#x5B57;&#x6BB5;&#x503C;&#x5BF9;&#x5E94;&#x5316;&#x7684;&#x63D0;&#x53D6;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x4EA7;&#x54C1;&#xFF0C;&#x5B9E;&#x73B0;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x6570;&#x636E;&#x63D0;&#x53D6;&#x3002;</p>
+<h3 id="2382-&#x6A21;&#x677F;&#x5236;&#x4F5C;&#x6B65;&#x9AA4;&#xFF08;&#x4EE5;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x4E3A;&#x4F8B;&#xFF09;">2.3.8.2 &#x6A21;&#x677F;&#x5236;&#x4F5C;&#x6B65;&#x9AA4;&#xFF08;&#x4EE5;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#x4E3A;&#x4F8B;&#xFF09;</h3>
+<ul>
+<li><p>&#x8BBF;&#x95EE;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x4E3B;&#x9875;&#x9762; <a href="http://ai.baidu.com/tech/ocr/iocr" target="_blank">http://ai.baidu.com/tech/ocr/iocr</a> &#xFF0C;&#x70B9;&#x51FB;&#x201C;&#x7ACB;&#x5373;&#x4F7F;&#x7528;&#x201D;&#xFF0C;&#x8FDB;&#x5165;&#x201C;&#x6A21;&#x677F;&#x7BA1;&#x7406;&#x201D;&#x9875;&#x9762;&#x3002;</p>
+<p><img src="images/3_13_&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x4E3B;&#x9875;.png" alt="&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;"></p>
+</li>
+<li><p>&#x70B9;&#x51FB;&#x201C;&#x521B;&#x5EFA;&#x6A21;&#x677F;&#x201D;</p>
+<p><img src="images/3_14_&#x6A21;&#x677F;&#x7BA1;&#x7406;.png" alt="&#x6A21;&#x677F;&#x7BA1;&#x7406;"></p>
+</li>
+<li><p>&#x70B9;&#x51FB;&#x201C;&#x70B9;&#x51FB;&#x9009;&#x62E9;&#x56FE;&#x7247;&#x201D;</p>
+<p><img src="images/3_15_&#x4E0A;&#x4F20;&#x6A21;&#x677F;&#x7167;&#x7247;.png" alt="&#x4E0A;&#x4F20;&#x6A21;&#x677F;&#x7167;&#x7247;"></p>
+</li>
+<li><p>&#x5728;&#x7535;&#x8111;&#x91CC;&#x9009;&#x62E9;&#x6A21;&#x677F;&#x56FE;&#x7247;&#xFF0C;&#x56FE;&#x7247;&#x8981;&#x6C42;&#xFF1A;</p>
+<ul>
+<li><p>&#x56FE;&#x7247;&#x8981;&#x6C42;&#x6446;&#x653E;&#x7AEF;&#x6B63;&#x3001;&#x5E73;&#x6574;&#xFF0C;&#x62CD;&#x6444;&#x65F6;&#x907F;&#x514D;&#x8FC7;&#x66DD;&#xFF0C;&#x9634;&#x5F71;&#x7B49;&#x4E0D;&#x826F;&#x60C5;&#x51B5;</p>
+</li>
+<li><p>&#x5355;&#x5B57;&#x50CF;&#x7D20;16*16&#x5230;60*60&#x4E4B;&#x95F4;</p>
+</li>
+<li><p>&#x56FE;&#x7247;&#x5927;&#x5C0F;&#x5728;200-800kb&#x4E4B;&#x95F4; </p>
+<p><strong>&#x6CE8;&#x610F;</strong> &#x5224;&#x65AD;&#x56FE;&#x7247;&#x662F;&#x5426;&#x7B26;&#x5408;&#x6807;&#x51C6;&#x6709;2&#x79CD;&#x65B9;&#x5F0F;,&#x4EFB;&#x9009;&#x5176;&#x4E00;&#xFF1A;</p>
+<p>&#xFF08;1&#xFF09;&#x5728;&#x7535;&#x8111;&#x201C;&#x753B;&#x56FE;&#x201D;&#x5DE5;&#x5177;&#x4E2D;&#x53EF;&#x67E5;&#x770B;&#xFF0C;&#x70B9;&#x51FB;&#x201C;&#x753B;&#x56FE;&#x201D;&#x5DE5;&#x5177;&#x4E2D;&#xFF0C;&#x201D;&#x9009;&#x62E9;&#x201C;&#xFF0C;&#x6846;&#x4F4F;&#x5355;&#x5B57;&#xFF0C;&#x67E5;&#x770B;&#x662F;&#x5426;&#x7B26;&#x5408;&#x6807;&#x51C6;</p>
+<p>&#xFF08;2&#xFF09;&#x6216;&#xFF0C;&#x5728;&#x201C;&#x901A;&#x7528;&#x7968;&#x636E;&#x8BC6;&#x522B;&#x201D;demo&#x4E2D;&#xFF0C;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#xFF0C;&#x80FD;&#x591F;&#x8BC6;&#x522B;&#xFF0C;&#x5219;&#x8BE5;&#x56FE;&#x7247;&#x7B26;&#x5408;&#x8981;&#x6C42;&#x3002;</p>
+<p><img src="images/3_16_&#x9009;&#x62E9;&#x6A21;&#x677F;&#x7167;&#x7247;.png" alt="&#x9009;&#x62E9;&#x6A21;&#x677F;&#x7167;&#x7247;"></p>
+</li>
+</ul>
+</li>
+<li><p>&#x70B9;&#x51FB;&#x4E0B;&#x4E00;&#x6B65;&#xFF0C;&#x8FDB;&#x5165;&#x201C;&#x7F16;&#x8F91;&#x6A21;&#x677F;&#x201D;&#x9875;&#x9762;&#xFF0C;&#x5B8C;&#x6210;&#x56DB;&#x6B65;&#xFF1A;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x6846;&#x9009;&#x53C2;&#x7167;&#x5B57;&#x6BB5;&#xFF0C;&#x6846;&#x9009;&#x8BC6;&#x522B;&#x533A;&#xFF0C;&#x6D4B;&#x8BD5;&#x53D1;&#x5E03;&#x3002;</p>
+<ul>
+<li>&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF1A;&#x586B;&#x5199;&#x6A21;&#x677F;&#x540D;&#x79F0;</li>
+</ul>
+<p><img src="images/3_17_&#x6A21;&#x677F;&#x7F16;&#x8F91;_&#x57FA;&#x672C;&#x4FE1;&#x606F;.png" alt="&#x6A21;&#x677F;&#x7F16;&#x8F91;_&#x57FA;&#x672C;&#x4FE1;&#x606F;"></p>
+<ul>
+<li><p>&#x6846;&#x9009;&#x53C2;&#x7167;&#x5B57;&#x6BB5;&#xFF1A;&#x6846;&#x9009;&#x56FE;&#x7247;&#x4E2D;&#x56FA;&#x5B9A;&#x4E0D;&#x53D8;&#x7684;&#x6587;&#x5B57;&#x6BB5;&#xFF0C;&#x540E;&#x671F;&#x4E0A;&#x4F20;&#x7684;&#x56FE;&#x7247;&#x4F1A;&#x4EE5;&#x6B64;&#x4E3A;&#x4F9D;&#x636E;&#x8FDB;&#x884C;&#x626D;&#x6B63;&#xFF0C;&#x53C2;&#x7167;&#x70B9;&#x7684;&#x9009;&#x53D6;&#x4F1A;&#x5F71;&#x54CD;&#x56FE;&#x7247;&#x7684;&#x8BC6;&#x522B;&#x7387;&#x3002;</p>
+<ul>
+<li><p>&#x53C2;&#x7167;&#x5B57;&#x6BB5;&#x8981;&#x6C42;&#xFF1A;&#x540C;&#x4F4D;&#x7F6E;&#x540C;&#x5B57;&#xFF0C;&#x6E05;&#x6670;&#xFF0C;&#x5206;&#x6563;&#xFF0C;&#x7B80;&#x5355;&#xFF0C;&#x552F;&#x4E00;&#xFF0C;8&#x4E2A;&#x4EE5;&#x4E0A;</p>
+</li>
+<li><p>&#x56DB;&#x4E0D;&#xFF1A;&#x4E0D;&#x9009;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#xFF08;&#x6700;&#x597D;&#x53EA;&#x9009;&#x5B57;&#xFF0C;&#x6570;&#x5B57;&#x7B49;&#xFF09;&#xFF0C;&#x4E0D;&#x9009;&#x96BE;&#x8BC6;&#x522B;&#x7684;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#x7684;&#xFF0C;&#x4E0D;&#x9009;&#x4F1A;&#x53D8;&#x5316;&#x7684;&#xFF0C;&#x4E0D;&#x9009;&#x8DE8;&#x884C;&#x7684;</p>
+</li>
+</ul>
+<p><img src="images/3_18_&#x6846;&#x9009;&#x53C2;&#x8003;&#x5B57;&#x6BB5;.png" alt="&#x6846;&#x9009;&#x53C2;&#x8003;&#x5B57;&#x6BB5;"></p>
+</li>
+<li><p>&#x6846;&#x9009;&#x8BC6;&#x522B;&#x533A;&#xFF1A;&#x6846;&#x9009;&#x9700;&#x8981;&#x8BC6;&#x522B;&#x7684;&#x5185;&#x5BB9;&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#x533A;&#x57DF;&#x3002; &#x7ED9;&#x6BCF;&#x4E2A;&#x8BC6;&#x522B;&#x533A;&#x53D6;&#x5B57;&#x6BB5;&#x540D;&#x3002;</p>
+<p><img src="images/3_19_&#x6846;&#x9009;&#x8BC6;&#x522B;&#x533A;.png" alt="&#x6846;&#x9009;&#x8BC6;&#x522B;&#x533A;"></p>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x53D1;&#x5E03;&#xFF1A;&#x70B9;&#x51FB;&#x201C;&#x4FDD;&#x5B58;&#x201D;&#xFF0C;&#x70B9;&#x51FB;&#x201C;&#x8BD5;&#x4E00;&#x8BD5;&#x201D;&#xFF0C;&#x4E0A;&#x4F20;&#x9700;&#x8981;&#x8BC6;&#x522B;&#x7684;&#x56FE;&#x7247; &#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;&#x5982;&#x679C;&#x80FD;&#x591F;&#x6210;&#x529F;&#x8BC6;&#x522B;&#xFF0C;&#x53EF;&#x4EE5;&#x70B9;&#x51FB;&#x201C;&#x7ACB;&#x5373;&#x53D1;&#x5E03;&#x201D;&#xFF0C;&#x5B8C;&#x6210;&#x6A21;&#x677F;&#x7684;&#x5B9A;&#x4E49;&#x3002;</p>
+<p><img src="images/3_20_&#x6D4B;&#x8BD5;&#x53D1;&#x5E03;.png" alt="&#x6D4B;&#x8BD5;&#x53D1;&#x5E03;"></p>
+<p><img src="images/3_21_&#x6A21;&#x677F;&#x53D1;&#x5E03;&#x6210;&#x529F;.png" alt="&#x6A21;&#x677F;&#x53D1;&#x5E03;&#x6210;&#x529F;"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2383-&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B;api">2.3.8.3 &#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B;API</h3>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot; &#x8C03;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B; &quot;&quot;&quot;</span>
+client.custom(image, templateSign);
+</code></pre>
+<p><strong>&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td>&#x56FE;&#x50CF;&#x6570;&#x636E;&#xFF0C;base64&#x7F16;&#x7801;&#xFF0C;&#x8981;&#x6C42;base64&#x7F16;&#x7801;&#x540E;&#x5927;&#x5C0F;&#x4E0D;&#x8D85;&#x8FC7;4M&#xFF0C;&#x6700;&#x77ED;&#x8FB9;&#x81F3;&#x5C11;15px&#xFF0C;&#x6700;&#x957F;&#x8FB9;&#x6700;&#x5927;4096px,&#x652F;&#x6301;jpg/png/bmp&#x683C;&#x5F0F;</td>
+</tr>
+<tr>
+<td>templateSign</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td>&#x60A8;&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x5E73;&#x53F0;&#x5236;&#x4F5C;&#x7684;&#x6A21;&#x7248;&#x7684;ID</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x6570;&#x636E;&#x53C2;&#x6570;&#x8BE6;&#x60C5;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x5B57;&#x6BB5;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error_code</td>
+<td>number</td>
+<td>number</td>
+<td>0&#x4EE3;&#x8868;&#x6210;&#x529F;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9519;&#x8BEF;&#x7801;&#x8FD4;&#x56DE;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0B;&#x65B9;&#x9519;&#x8BEF;&#x7801;&#x5217;&#x8868;&#x6392;&#x67E5;&#x95EE;&#x9898;</td>
+</tr>
+<tr>
+<td>error_msg</td>
+<td>&#x662F;</td>
+<td>string</td>
+<td>&#x5177;&#x4F53;&#x7684;&#x5931;&#x8D25;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0B;&#x65B9;&#x9519;&#x8BEF;&#x7801;&#x5217;&#x8868;&#x6392;&#x67E5;&#x95EE;&#x9898;</td>
+</tr>
+<tr>
+<td>data</td>
+<td>jsonObject</td>
+<td>&#x8BC6;&#x522B;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#x8FD4;&#x56DE;&#x793A;&#x4F8B;</strong></p>
+<pre><code class="lang-python">{<span class="hljs-string">&apos;error_code&apos;</span>: <span class="hljs-number">0</span>,
+ <span class="hljs-string">&apos;error_msg&apos;</span>: <span class="hljs-string">&apos;&apos;</span>,
+    <span class="hljs-string">&apos;data&apos;</span>: {<span class="hljs-string">&apos;isStructured&apos;</span>: <span class="hljs-keyword">True</span>,
+          <span class="hljs-string">&apos;logId&apos;</span>: <span class="hljs-string">&apos;153200556034161&apos;</span>,
+          <span class="hljs-string">&apos;ret&apos;</span>: [{<span class="hljs-string">&apos;location&apos;</span>: {<span class="hljs-string">&apos;height&apos;</span>: <span class="hljs-number">9</span>,
+                                <span class="hljs-string">&apos;left&apos;</span>: <span class="hljs-number">136</span>,
+                                <span class="hljs-string">&apos;top&apos;</span>: <span class="hljs-number">100</span>,
+                                <span class="hljs-string">&apos;width&apos;</span>: <span class="hljs-number">15</span>},
+                   <span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.960999</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.846632</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.00436</span>},
+                   <span class="hljs-string">&apos;word&apos;</span>: <span class="hljs-string">&apos;&#x4E2A;&#x4EBA;&apos;</span>,
+                   <span class="hljs-string">&apos;word_name&apos;</span>: <span class="hljs-string">&apos;&#x4E70;&#x65B9;&#x540D;&#x79F0;&apos;</span>},
+                  {<span class="hljs-string">&apos;location&apos;</span>: {<span class="hljs-string">&apos;height&apos;</span>: <span class="hljs-number">11</span>,
+                                <span class="hljs-string">&apos;left&apos;</span>: <span class="hljs-number">132</span>,
+                                <span class="hljs-string">&apos;top&apos;</span>: <span class="hljs-number">296</span>,
+                                <span class="hljs-string">&apos;width&apos;</span>: <span class="hljs-number">74</span>},
+                   <span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.903599</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.435438</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.029529</span>},
+                   <span class="hljs-string">&apos;word&apos;</span>: <span class="hljs-string">&apos;&#x4E0A;&#x6D77;&#x5706;&#x8FC8;&#x8D38;&#x6613;&#x6709;&#x9650;&#x516C;&#x53F8;&apos;</span>,
+                   <span class="hljs-string">&apos;word_name&apos;</span>: <span class="hljs-string">&apos;&#x5356;&#x65B9;&#x540D;&#x79F0;&apos;</span>},
+                  {<span class="hljs-string">&apos;location&apos;</span>: {<span class="hljs-string">&apos;height&apos;</span>: <span class="hljs-number">12</span>,
+                                <span class="hljs-string">&apos;left&apos;</span>: <span class="hljs-number">461</span>,
+                                <span class="hljs-string">&apos;top&apos;</span>: <span class="hljs-number">268</span>,
+                                <span class="hljs-string">&apos;width&apos;</span>: <span class="hljs-number">42</span>},
+                   <span class="hljs-string">&apos;probability&apos;</span>: {<span class="hljs-string">&apos;average&apos;</span>: <span class="hljs-number">0.978144</span>,
+                                   <span class="hljs-string">&apos;min&apos;</span>: <span class="hljs-number">0.893464</span>,
+                                   <span class="hljs-string">&apos;variance&apos;</span>: <span class="hljs-number">0.001793</span>},
+                   <span class="hljs-string">&apos;word&apos;</span>: <span class="hljs-string">&apos;93.46&apos;</span>,
+                   <span class="hljs-string">&apos;word_name&apos;</span>: <span class="hljs-string">&apos;&#x91D1;&#x989D;&apos;</span>}],
+          <span class="hljs-string">&apos;scores&apos;</span>: <span class="hljs-number">1.0</span>,
+          <span class="hljs-string">&apos;templateSign&apos;</span>: <span class="hljs-string">&apos;1a28f8d042f595d9cd50794d4db7bfa0&apos;</span>}
+}
+</code></pre>
+<h3 id="2384-&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x4EE3;&#x7801;&#x793A;&#x4F8B;">2.3.8.4 &#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7248;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x4EE3;&#x7801;&#x793A;&#x4F8B;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> aip <span class="hljs-keyword">import</span> AipOcr
+<span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
+
+<span class="hljs-comment"># &#x5B9E;&#x4F8B;&#x5316;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;&#x5E94;&#x7528;&#x7684;App ID&#xFF0C; API Key &#x548C; Secret Key</span>
+aip = AipOcr(<span class="hljs-string">&apos;11554123&apos;</span>, <span class="hljs-string">&apos;ZTiXeZUw5QWjWTwyGMTjo1Q2&apos;</span>, <span class="hljs-string">&apos;QUBq*******************VpbaGB8q&apos;</span>)
+
+<span class="hljs-comment"># &#x4EE5;&#x53EA;&#x8BFB;&#x548C;&#x4E8C;&#x8FDB;&#x5236;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#x56FE;&#x7247;&#x6587;&#x4EF6;</span>
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">&apos;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;.jpg&apos;</span>, <span class="hljs-string">&apos;rb&apos;</span>) <span class="hljs-keyword">as</span> f:
+    <span class="hljs-comment"># &#x8BFB;&#x53D6;&#x56FE;&#x7247;&#x5185;&#x5BB9;</span>
+    img = f.read()
+    <span class="hljs-comment"># &#x6A21;&#x677F;ID</span>
+    templateSign = <span class="hljs-string">&apos;1a28f8d042f595d9cd50794d4db7bfa0&apos;</span>
+
+    <span class="hljs-comment"># &#x8C03;&#x7528; &#x8BC6;&#x522B;&#x51FD;&#x6570;</span>
+    result = aip.custom(img, templateSign)
+    pprint(result)
+</code></pre>
+<h3 id="2385-&#x521B;&#x5EFA;&#x5206;&#x7C7B;&#x5668;">2.3.8.5 &#x521B;&#x5EFA;&#x5206;&#x7C7B;&#x5668;</h3>
+<p>&#x5982;&#x679C;&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x5B9A;&#x5236;&#x4E86;&#x5927;&#x91CF;&#x6A21;&#x677F;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x4EBA;&#x5DE5;&#x5148;&#x5BF9;&#x5404;&#x7C7B;&#x7968;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#xFF0C;&#x518D;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;&#x6A21;&#x677F;&#x8FDB;&#x884C;&#x7ED3;&#x6784;&#x5316;&#x8BC6;&#x522B;&#x3002;&#x4E3A;&#x4E86;&#x8282;&#x7701;&#x7528;&#x6237;&#x7968;&#x636E;&#x5206;&#x7C7B;&#x7684;&#x6210;&#x672C;&#xFF0C;&#x767E;&#x5EA6;&#x52A0;&#x5165;&#x4E86;&#x6A21;&#x677F;&#x81EA;&#x52A8;&#x5206;&#x7C7B;&#x529F;&#x80FD;&#xFF0C;&#x5BA2;&#x6237;&#x5728;&#x201C;&#x5206;&#x7C7B;&#x5668;&#x7BA1;&#x7406;&#x201D;&#x6807;&#x7B7E;&#x4E2D;&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x6240;&#x6709;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x548C;&#x767E;&#x5EA6;&#x5E73;&#x53F0;&#x5DF2;&#x6709;&#x7684;&#x7CFB;&#x7EDF;&#x6A21;&#x677F;&#xFF08;&#x5982;&#x8EAB;&#x4EFD;&#x8BC1;&#x3001;&#x94F6;&#x884C;&#x5361;&#x3001;&#x9A7E;&#x9A76;&#x8BC1;&#x7B49;&#xFF09;&#x521B;&#x5EFA;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x5B9E;&#x73B0;&#x6A21;&#x677F;&#x7684;&#x81EA;&#x52A8;&#x5206;&#x7C7B;&#x3002; </p>
+<ul>
+<li><p>&#x521B;&#x5EFA;&#x5206;&#x7C7B;&#x5668;&#x3002;&#x70B9;&#x51FB;&#x201C;&#x5206;&#x7C7B;&#x5668;&#x7BA1;&#x7406;&#x201D;&#xFF0C;&#x518D;&#x70B9;&#x51FB;&#x201C;&#x521B;&#x5EFA;&#x5206;&#x7C7B;&#x5668;&#x201D;</p>
+<p><img src="images/3_22_&#x5206;&#x7C7B;&#x7BA1;&#x7406;&#x5668;.png" alt="&#x5206;&#x7C7B;&#x7BA1;&#x7406;&#x5668;"></p>
+</li>
+<li><p>&#x8F93;&#x5165;&#x5206;&#x7C7B;&#x5668;&#x540D;&#x79F0;&#x548C;&#x8BE5;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;/&#x529F;&#x80FD;&#x63CF;&#x8FF0;&#x540E;&#x70B9;&#x51FB;&#x786E;&#x5B9A;&#x8FDB;&#x5165;&#x7F16;&#x8F91;&#x9875;&#x9762;</p>
+<p><img src="images/3_23_&#x586B;&#x5199;&#x7BA1;&#x7406;&#x5668;.png" alt="&#x586B;&#x5199;&#x7BA1;&#x7406;&#x5668;"></p>
+</li>
+<li><p>&#x9009;&#x62E9;&#x53C2;&#x4E0E;&#x5206;&#x7C7B;&#x7684;&#x6A21;&#x677F;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x5206;&#x7C7B;&#x7684;&#x6A21;&#x677F;&#x5206;&#x4E3A;&#x201C;&#x6211;&#x7684;&#x6A21;&#x677F;&#x201D;&#x548C;&#x201C;&#x7CFB;&#x7EDF;&#x6A21;&#x677F;&#x201D;&#xFF0C;&#x6211;&#x7684;&#x6A21;&#x677F;&#x6307;&#x5BA2;&#x6237;&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x7CFB;&#x7EDF;&#x6A21;&#x677F;&#x6307;&#x767E;&#x5EA6;&#x5B98;&#x7F51;&#x9884;&#x7F6E;&#x7684;&#x6A21;&#x677F;&#xFF08;&#x5305;&#x542B;&#x4E86;&#xFF1A;&#x8EAB;&#x4EFD;&#x8BC1;&#x6B63;&#x9762;&#x3001;&#x8EAB;&#x4EFD;&#x8BC1;&#x53CD;&#x9762;&#x3001;&#x94F6;&#x884C;&#x5361;&#x3001;&#x9A7E;&#x9A76;&#x8BC1;&#x3001;&#x884C;&#x9A76;&#x8BC1;&#x3001;&#x8F66;&#x724C;&#x3001;&#x8425;&#x4E1A;&#x6267;&#x7167;&#x3001;&#x62A4;&#x7167;&#x3001;&#x589E;&#x503C;&#x7A0E;&#x53D1;&#x7968;&#xFF09;&#x3002;&#x5BA2;&#x6237;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4E1A;&#x52A1;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x6A21;&#x677F;&#x53C2;&#x4E0E;&#x5206;&#x7C7B;&#x3002;</p>
+<p><img src="images/3_24_&#x6DFB;&#x52A0;&#x6A21;&#x677F;.png" alt="&#x6DFB;&#x52A0;&#x6A21;&#x677F;"></p>
+</li>
+<li><p>&#x4E0A;&#x4F20;&#x5BF9;&#x5E94;&#x6A21;&#x677F;&#x7684;&#x8BAD;&#x7EC3;&#x96C6;&#x3002;&#x53C2;&#x4E0E;&#x5206;&#x7C7B;&#x7684;&#x5982;&#x679C;&#x662F;&#x767E;&#x5EA6;&#x9884;&#x7F6E;&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x65E0;&#x9700;&#x4E0A;&#x4F20;&#x8BAD;&#x7EC3;&#x96C6;&#xFF0C;&#x5982;&#x679C;&#x53C2;&#x4E0E;&#x5206;&#x7C7B;&#x7684;&#x662F;&#x81EA;&#x5DF1;&#x5236;&#x4F5C;&#x7684;&#x6A21;&#x677F;&#x5219;&#x9700;&#x8981;&#x51C6;&#x5907;30&#x5230;100&#x5F20;&#x540C;&#x6A21;&#x677F;&#x7684;&#x7968;&#x636E;&#x6253;&#x5305;&#x6210;ZIP&#x5305;&#x4EE5;&#x540E;&#x70B9;&#x51FB;&#x201C;&#x7F16;&#x8F91;&#x8BAD;&#x7EC3;&#x96C6;&#x201D;&#x4E0A;&#x4F20;&#x8BE5;&#x8BAD;&#x7EC3;&#x96C6;&#x3002;</p>
+<p><img src="images/3_25_&#x6DFB;&#x52A0;&#x8BAD;&#x7EC3;&#x96C6;.png" alt="&#x6DFB;&#x52A0;&#x8BAD;&#x7EC3;&#x96C6;"></p>
+</li>
+<li><p>&#x5F53;&#x6240;&#x6709;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x677F;&#x90FD;&#x5DF2;&#x7ECF;&#x4E0A;&#x4F20;&#x4E86;&#x7B26;&#x5408;&#x8981;&#x6C42;&#xFF08;30&#x5230;100&#x5F20;&#x3001;&#x540C;&#x6A21;&#x677F;&#xFF09;&#x7684;&#x8BAD;&#x7EC3;&#x96C6;&#x540E;&#x70B9;&#x51FB;&#x201C;&#x5F00;&#x59CB;&#x8BAD;&#x7EC3;&#x201D;&#x3002;&#x53EF;&#x4EE5;&#x5728;&#x5206;&#x7C7B;&#x5668;&#x7BA1;&#x7406;&#x9875;&#x9762;&#x67E5;&#x770B;&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x7684;&#x65F6;&#x95F4;&#x5E76;&#x901A;&#x8FC7;&#x5237;&#x65B0;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x3002; </p>
+<p><img src="images/3_27_&#x8BAD;&#x7EC3;&#x72B6;&#x6001;.png" alt="&#x8BAD;&#x7EC3;&#x72B6;&#x6001;"></p>
+<p><img src="images/3_26_&#x8BAD;&#x7EC3;&#x72B6;&#x6001;.png" alt="&#x8BAD;&#x7EC3;&#x72B6;&#x6001;"></p>
+</li>
+<li><p>&#x8BAD;&#x7EC3;&#x5B8C;&#x6210;&#x540E;&#x8FDB;&#x884C;&#x6548;&#x679C;&#x6D4B;&#x8BD5;
+&#x5F53;&#x60A8;&#x7684;&#x5206;&#x7C7B;&#x5668;&#x8BAD;&#x7EC3;&#x5B8C;&#x6210;&#x540E;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x5206;&#x7C7B;&#x5668;&#x7BA1;&#x7406;&#x9875;&#x9762;&#x70B9;&#x51FB;&#x201C;&#x6D4B;&#x8BD5;&#x201D;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x6D4B;&#x8BD5;&#xFF0C;&#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x70B9;&#x51FB;&#x201C;&#x53D1;&#x5E03;&#x201D;&#xFF0C;&#x5373;&#x53EF;&#x901A;&#x8FC7;API&#x8C03;&#x7528;&#x8BE5;&#x63A5;&#x53E3;&#xFF0C;&#x53C2;&#x6570;classifierId&#x6307;&#x5B9A;&#x67D0;&#x4E2A;&#x5DF2;&#x53D1;&#x5E03;&#x7684;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x8BE5;&#x5206;&#x7C7B;&#x5668;&#x4E2D;&#x4EFB;&#x610F;&#x6A21;&#x677F;&#x7684;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x3002;&#x5982;&#x679C;&#x5BF9;&#x5206;&#x7C7B;&#x7ED3;&#x679C;&#x4E0D;&#x6EE1;&#x610F;&#xFF0C;&#x5EFA;&#x8BAE;&#x68C0;&#x67E5;&#x8BAD;&#x7EC3;&#x96C6;&#x6570;&#x636E;&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;&#x4E86;&#x8F83;&#x591A;&#x566A;&#x58F0;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x5C1D;&#x8BD5;&#x589E;&#x52A0;&#x8BAD;&#x7EC3;&#x96C6;&#x5185;&#x7684;&#x56FE;&#x7247;&#x6570;&#x91CF;&#x3002;</p>
+</li>
+</ul>
+<h3 id="2386-&#x5206;&#x7C7B;&#x5668;api">2.3.8.6 &#x5206;&#x7C7B;&#x5668;API</h3>
+<p><strong>&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;</strong></p>
+<p>HTTP &#x65B9;&#x6CD5;&#xFF1A;<code>POST</code></p>
+<p>&#x8BF7;&#x6C42;URL&#xFF1A; <code>https://aip.baidubce.com/rest/2.0/solution/v1/iocr/recognise</code></p>
+<p>URL&#x53C2;&#x6570;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>&#x901A;&#x8FC7;API Key&#x548C;Secret Key&#x83B7;&#x53D6;&#x7684;access_token,&#x53C2;&#x8003;&#x201C;<a href="http://ai.baidu.com/docs#/Auth" target="_blank">Access Token&#x83B7;&#x53D6;</a>&#x201D;</td>
+</tr>
+</tbody>
+</table>
+<p>Header&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+<p>Body&#x4E2D;&#x653E;&#x7F6E;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x8BE6;&#x60C5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><strong>&#x8BF7;&#x6C42;&#x53C2;&#x6570;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x662F;&#x5426;&#x5FC5;&#x9009;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x53EF;&#x9009;&#x503C;&#x8303;&#x56F4;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>true</td>
+<td>string</td>
+<td>-</td>
+<td>&#x56FE;&#x50CF;&#x6570;&#x636E;&#xFF0C;base64&#x7F16;&#x7801;&#x540E;&#x8FDB;&#x884C;urlencode&#xFF0C;&#x8981;&#x6C42;base64&#x7F16;&#x7801;&#x548C;urlencode&#x540E;&#x5927;&#x5C0F;&#x4E0D;&#x8D85;&#x8FC7;4M&#xFF0C;&#x6700;&#x77ED;&#x8FB9;&#x81F3;&#x5C11;15px&#xFF0C;&#x6700;&#x957F;&#x8FB9;&#x6700;&#x5927;4096px,&#x652F;&#x6301;jpg/png/bmp&#x683C;&#x5F0F;</td>
+</tr>
+<tr>
+<td>templateSign</td>
+<td>false</td>
+<td>string</td>
+<td>-</td>
+<td>&#x60A8;&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x5E73;&#x53F0;&#x5236;&#x4F5C;&#x7684;&#x6A21;&#x677F;&#x7684;ID&#xFF0C;&#x4E3E;&#x4F8B;&#xFF1A;Nsdax2424asaAS791823112</td>
+</tr>
+<tr>
+<td>classifierId</td>
+<td>false</td>
+<td>int</td>
+<td>-</td>
+<td>&#x5206;&#x7C7B;&#x5668;Id&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x548C;templateSign&#x81F3;&#x5C11;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#xFF0C;&#x4F18;&#x5148;&#x4F7F;&#x7528;templateSign&#x3002;&#x5B58;&#x5728;templateSign&#x65F6;&#xFF0C;&#x8868;&#x793A;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x6A21;&#x677F;&#xFF1B;&#x5982;&#x679C;&#x6CA1;&#x6709;templateSign&#x800C;&#x6709;classifierId&#xFF0C;&#x8868;&#x793A;&#x4F7F;&#x7528;&#x5206;&#x7C7B;&#x5668;&#x53BB;&#x5224;&#x65AD;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x6A21;&#x677F;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x8FD4;&#x56DE;&#x53C2;&#x6570;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x5B57;&#x6BB5;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error_code</td>
+<td>int</td>
+<td>0&#x4EE3;&#x8868;&#x6210;&#x529F;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9519;&#x8BEF;&#x7801;&#x8FD4;&#x56DE;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0B;&#x65B9;&#x9519;&#x8BEF;&#x7801;&#x5217;&#x8868;&#x6392;&#x67E5;&#x95EE;&#x9898;</td>
+</tr>
+<tr>
+<td>error_msg</td>
+<td>string</td>
+<td>&#x5982;&#x679C;error_code&#x5177;&#x4F53;&#x7684;&#x5931;&#x8D25;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0B;&#x65B9;&#x9519;&#x8BEF;&#x7801;&#x5217;&#x8868;&#x6392;&#x67E5;&#x95EE;&#x9898;</td>
+</tr>
+<tr>
+<td>data</td>
+<td>jsonObject</td>
+<td>&#x8BC6;&#x522B;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;</td>
+</tr>
+<tr>
+<td>+isStructured</td>
+<td>boolean</td>
+<td>&#x8868;&#x793A;&#x662F;&#x5426;&#x7ED3;&#x6784;&#x8BDD;&#x6210;&#x529F;&#xFF0C;true&#x4E3A;&#x6210;&#x529F;&#xFF0C;false&#x4E3A;&#x5931;&#x8D25;&#xFF1B;&#x6210;&#x529F;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#xFF1B;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x8BC6;&#x522B;&#xFF0C;&#x8FD4;&#x56DE;&#x7C7B;&#x4F3C;&#x901A;&#x7528;&#x6587;&#x5B57;&#x8BC6;&#x522B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x80FD;&#x8BC6;&#x522B;&#xFF0C;&#x8FD4;&#x56DE;&#x7A7A;</td>
+</tr>
+<tr>
+<td>+logId</td>
+<td>string</td>
+<td>&#x8C03;&#x7528;&#x7684;&#x65E5;&#x5FD7;id</td>
+</tr>
+<tr>
+<td>+templateSign</td>
+<td>string</td>
+<td>&#x4F7F;&#x7528;&#x7684;tenplateSign</td>
+</tr>
+<tr>
+<td>+scores</td>
+<td>float</td>
+<td>&#x5206;&#x7C7B;&#x5668;&#x7684;&#x5F97;&#x5206;&#xFF0C;&#x76F4;&#x63A5;&#x9009;&#x62E9;&#x65F6;&#x4E3A;1.0F</td>
+</tr>
+<tr>
+<td>+ret</td>
+<td>jsonArray</td>
+<td>&#x8BC6;&#x522B;&#x51FA;&#x6765;&#x7684;&#x5B57;&#x6BB5;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x91CC;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>++word_name</td>
+<td>string</td>
+<td>isStructured &#x4E3A; true &#x65F6;&#x5B58;&#x5728;&#xFF0C;&#x8868;&#x793A;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x5B57;&#xFF1B;&#x5982;&#x679C; isStructured &#x4E3A; false &#x65F6;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;</td>
+</tr>
+<tr>
+<td>++word</td>
+<td>string</td>
+<td>&#x8BC6;&#x522B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x5355;&#x5B57;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x793A;&#x4F8B;</strong></p>
+<pre><code class="lang-python">{<span class="hljs-string">&apos;data&apos;</span>: {<span class="hljs-string">&apos;isStructured&apos;</span>: <span class="hljs-keyword">True</span>,
+          <span class="hljs-string">&apos;logId&apos;</span>: <span class="hljs-string">&apos;153302879295072&apos;</span>,
+          <span class="hljs-string">&apos;ret&apos;</span>: [{<span class="hljs-string">&apos;word&apos;</span>: <span class="hljs-string">&apos;NO VALID&apos;</span>,
+                   <span class="hljs-string">&apos;word_name&apos;</span>: <span class="hljs-string">&apos;valid_date&apos;</span>},
+                  {<span class="hljs-string">&apos;word&apos;</span>: <span class="hljs-string">&apos;966666 213818 710515&apos;</span>,
+                   <span class="hljs-string">&apos;word_name&apos;</span>: <span class="hljs-string">&apos;bank_card_number&apos;</span>},
+                  {<span class="hljs-string">&apos;word&apos;</span>: <span class="hljs-number">1</span>, 
+                   <span class="hljs-string">&apos;word_name&apos;</span>: <span class="hljs-string">&apos;bank_card_type&apos;</span>},
+                  {<span class="hljs-string">&apos;word&apos;</span>: <span class="hljs-string">&apos;&#x5174;&#x4E1A;&#x94F6;&#x884C;&apos;</span>,
+                   <span class="hljs-string">&apos;word_name&apos;</span>: <span class="hljs-string">&apos;bank_name&apos;</span>}],
+          <span class="hljs-string">&apos;scores&apos;</span>: <span class="hljs-number">0.8322</span>,
+          <span class="hljs-string">&apos;templateSign&apos;</span>: <span class="hljs-string">&apos;bank_card&apos;</span>},
+ <span class="hljs-string">&apos;error_code&apos;</span>: <span class="hljs-number">0</span>,
+ <span class="hljs-string">&apos;error_msg&apos;</span>: <span class="hljs-string">&apos;&apos;</span>}
+</code></pre>
+<h3 id="2387-&#x5206;&#x7C7B;&#x5668;&#x8BF7;&#x6C42;&#x4EE3;&#x7801;&#x793A;&#x4F8B;">2.3.8.7 &#x5206;&#x7C7B;&#x5668;&#x8BF7;&#x6C42;&#x4EE3;&#x7801;&#x793A;&#x4F8B;</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x83B7;&#x53D6;access token</span>
+<span class="hljs-comment"># &#x8C03;&#x7528;api &#x8FDB;&#x884C;&#x5206;&#x7C7B;</span>
+
+<span class="hljs-keyword">import</span> urllib.request, urllib.parse
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
+<span class="hljs-keyword">import</span> base64
+
+
+<span class="hljs-comment"># &#x5B9A;&#x4E49;Classifier &#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Classifier</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, app_id, api_key, secret_key)</span>:</span>
+        self.app_id = app_id
+        self.api_key = api_key
+        self.secret_key = secret_key
+        self.token_url = <span class="hljs-string">&apos;https://aip.baidubce.com/oauth/2.0/token&apos;</span>
+        self.service_url = <span class="hljs-string">&apos;https://aip.baidubce.com/rest/2.0/solution/v1/iocr/recognise&apos;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_token</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x83B7;&#x53D6; access token
+        :return: access token
+        &quot;&quot;&quot;</span>
+        grant_type = <span class="hljs-string">&apos;client_credentials&apos;</span>
+        client_id = self.api_key
+        client_secret = self.secret_key
+
+        <span class="hljs-comment"># &#x6784;&#x5EFA;url&#x5730;&#x5740;&#x548C;&#x53C2;&#x6570;</span>
+        url = self.token_url + <span class="hljs-string">&apos;?grant_type=&apos;</span> + grant_type + <span class="hljs-string">&apos;&amp;client_id=&apos;</span> + client_id + <span class="hljs-string">&apos;&amp;client_secret=&apos;</span> + client_secret
+
+        <span class="hljs-comment"># &#x6784;&#x5EFA;http &#x8BF7;&#x6C42;</span>
+        request = urllib.request.Request(url)
+        request.add_header(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;application/json; charset=UTF-8&apos;</span>)
+
+        <span class="hljs-comment"># &#x53D1;&#x9001;http&#x8BF7;&#x6C42;</span>
+        response = urllib.request.urlopen(request)
+        content = response.read()
+
+        <span class="hljs-comment"># pprint(json.loads(content.decode()))</span>
+        <span class="hljs-keyword">return</span> json.loads(content.decode())[<span class="hljs-string">&apos;access_token&apos;</span>]
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">classify</span><span class="hljs-params">(self, token, image, classifierId)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+           &#x81EA;&#x52A8;&#x9009;&#x62E9;&#x6A21;&#x677F;&#xFF0C;&#x7136;&#x540E;&#x8BC6;&#x522B;&#x56FE;&#x7247;&#x7684;&#x6587;&#x5B57;
+        :param token: access token
+        :param image: &#x5DF2;&#x7ECF;&#x8BFB;&#x53D6;&#x597D;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;, &#x8FD8;&#x672A;&#x8FDB;&#x884C;base64&#x7F16;&#x7801;
+        :return: &#x8FD4;&#x56DE;&#x5206;&#x7C7B;&#x7ED3;&#x679C;
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># &#x6784;&#x5EFA;&#x670D;&#x52A1;url + &#x53C2;&#x6570;: access_token</span>
+        url = self.service_url + <span class="hljs-string">&apos;?access_token=&apos;</span> + token
+
+        <span class="hljs-comment"># &#x5BF9;&#x56FE;&#x7247;&#x8FDB;&#x884C;base64&#x7F16;&#x7801;</span>
+        img64 = base64.b64encode(image)
+
+        <span class="hljs-comment"># &#x6784;&#x5EFA; http &#x8BF7;&#x6C42; body</span>
+        params = {}
+        params[<span class="hljs-string">&apos;image&apos;</span>] = img64
+        params[<span class="hljs-string">&apos;classifierId&apos;</span>] = classifierId
+
+        <span class="hljs-comment"># &#x628A;&#x5B57;&#x5178;&#x6570;&#x636E;&#x7F16;&#x7801;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</span>
+        params = urllib.parse.urlencode(params).encode()
+
+        <span class="hljs-comment"># &#x6784;&#x5EFA;http &#x8BF7;&#x6C42;</span>
+        request = urllib.request.Request(url, params)
+        request.add_header(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;application/x-www-form-urlencoded; charset=UTF-8&apos;</span>)
+
+        <span class="hljs-comment"># &#x53D1;&#x9001;&#x8BF7;&#x6C42;</span>
+        response = urllib.request.urlopen(request)
+        content = response.read()
+        result = json.loads(content.decode())
+        <span class="hljs-keyword">return</span> result
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-comment"># &#x5B9E;&#x4F8B;&#x5316;&#x5206;&#x7C7B;&#x5668;&#x7C7B;</span>
+    classifier = Classifier(<span class="hljs-string">&apos;11560811&apos;</span>, <span class="hljs-string">&apos;gN0pPnWTQsuvDSrGXptq5Zyl&apos;</span>, <span class="hljs-string">&apos;dVaefK5FYkfD1AxhYOb9dg2EeDSBLKEj&apos;</span>)
+
+    <span class="hljs-comment"># &#x8C03;&#x7528;get_token&#x83B7;&#x53D6;access_token</span>
+    token = classifier.get_token()
+    pprint(token)
+
+    <span class="hljs-comment"># &#x8BFB;&#x53D6;&#x56FE;&#x7247;, &#x8C03;&#x7528;classify&#x51FD;&#x6570;</span>
+    <span class="hljs-keyword">with</span> open(<span class="hljs-string">&apos;./data/images/card1.JPG&apos;</span>, <span class="hljs-string">&apos;rb&apos;</span>) <span class="hljs-keyword">as</span> f:
+        image = f.read()
+        ret = classifier.classify(token, image, <span class="hljs-number">1</span>)
+        pprint(ret)
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../02_chapter/02_image.html" class="navigation navigation-prev " aria-label="Previous page: 图像识别"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../03_chapter/index.html" class="navigation navigation-next " aria-label="Next page: 人工智能平台语音技术"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"splitter":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

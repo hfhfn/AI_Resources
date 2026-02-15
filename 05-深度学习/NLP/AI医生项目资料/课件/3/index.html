@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>第三章:neo4j图数据库 - DOCTOR</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7b2c\u4e09\u7ae0:neo4j\u56fe\u6570\u636e\u5e93";
+    var mkdocs_page_input_path = "3.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'mkdocs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DOCTOR</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../1/">第一章:背景介绍与Unit的使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2/">第二章:在线医生的总体架构与工具介绍</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">第三章:neo4j图数据库</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#31-neo4j">3.1 neo4j简介</a></li>
+    
+
+    <li class="toctree-l2"><a href="#32-neo4j">3.2 neo4j图数据库的安装</a></li>
+    
+
+    <li class="toctree-l2"><a href="#33-cypher">3.3 Cypher介绍与使用</a></li>
+    
+
+    <li class="toctree-l2"><a href="#34-pythonneo4j">3.4 在Python中使用neo4j</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4/">第四章:离线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5/">第五章:命名实体审核任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6/">第六章:命名实体识别任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7/">第七章:在线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8/">第八章:句子主题相关任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9/">第九章:系统联调与测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10/">附录:环境安装部署手册</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DOCTOR</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>第三章:neo4j图数据库</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="31-neo4j">3.1 neo4j简介</h2>
+<ul>
+<li>学习目标:<ul>
+<li>了解neo4j图数据库的简介, 版本说明.</li>
+<li>了解节点, 关系，属性，标签的有关概念.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><center><img alt="avatar" src="../img/neo4j.png" /></center></p>
+<ul>
+<li>neo4j简介:<ul>
+<li>neo4j是由Java实现的开源NoSQL图数据库.自从2003年开始研发, 到2007年发布第一版, 最新版本为3.3.5, neo4j现如今已经被各行各业的数十万家公司和组织采用.</li>
+<li>neo4j实现了专业数据库级别的图数据模型的存储. 与普通的图处理或内存级数据库不同, neo4j提供了完整的数据库特性, 包括ACID事物的支持, 集群支持, 备份与故障转移等. 这使其适合于企业级生产环境下的各种应用.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>neo4j的版本说明:<ul>
+<li>企业版: 需要高额的付费获得授权, 提供高可用, 热备份等性能.</li>
+<li>社区开源版: 免费使用, 但只能单点运行.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>neo4j图形数据库的有关概念:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/标记属性图模型.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>节点<ul>
+<li>节点是主要的数据元素, 节点通过关系连接到其他节点, 节点可以具有一个或多个属性
+(即存储为键/值对的属性), 节点有一个或多个标签, 用于描述其在图表中的作用. 示例: Person&gt;节点.</li>
+<li>可以将节点类比为关系型数据库中的表, 对应的标签可以类比为不同的表名, 属性就是表中的列.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>关系<ul>
+<li>关系连接两个节点, 关系是方向性的, 关系可以有一个或多个属性(即存储为键/值对的
+属性).</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>属性<ul>
+<li>属性是命名值, 其中名称(或键)是字符串, 属性可以被索引和约束, 可以从多个属性创
+建复合索引.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>标签<ul>
+<li>标签用于组节点到集, 节点可以具有多个标签, 对标签进行索引以加速在图中查找节点.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="32-neo4j">3.2 neo4j图数据库的安装</h2>
+<ul>
+<li>学习目标:<ul>
+<li>掌握neo4j图数据库的安装流程及其可视化后台的登陆..</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>neo4j图数据库的安装流程:<ul>
+<li>第一步: 将neo4j安装信息载入到yum检索列表.</li>
+<li>第二步: 使用yum install命令安装.</li>
+<li>第三步: 修改配置文件内容 /etc/neo4j/neo4j.conf.</li>
+<li>第四步: 启动neo4j数据库.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 将neo4j安装信息载入到yum检索列表</li>
+</ul>
+<pre><code>cd /tmp
+wget http://debian.neo4j.org/neotechnology.gpg.key
+rpm --import neotechnology.gpg.key
+cat &lt;&lt;EOF&gt;  /etc/yum.repos.d/neo4j.repo
+# 写入下面内容
+[neo4j]
+name=Neo4j RPM Repository
+baseurl=http://yum.neo4j.org/stable
+enabled=1
+gpgcheck=1
+</code></pre>
+
+<hr />
+<ul>
+<li>第二步: 使用yum install命令安装</li>
+</ul>
+<pre><code>yum install neo4j-3.3.5
+</code></pre>
+
+<hr />
+<ul>
+<li>第三步: 修改配置文件默认在/etc/neo4j/neo4j.conf, 为了方便显示下面把一些修改显示在这里</li>
+</ul>
+<pre><code># 数据库的存储库存储位置、日志位置等
+dbms.directories.data=/var/lib/neo4j/data
+dbms.directories.plugins=/var/lib/neo4j/plugins
+dbms.directories.certificates=/var/lib/neo4j/certificates
+dbms.directories.logs=/var/log/neo4j
+dbms.directories.lib=/usr/share/neo4j/lib
+dbms.directories.run=/var/run/neo4j
+
+# 导入的位置
+dbms.directories.import=/var/lib/neo4j/import
+
+# 初始化内存大小
+dbms.memory.heap.initial_size=512m
+
+# Bolt 连接地址
+dbms.connector.bolt.enabled=true
+dbms.connector.bolt.tls_level=OPTIONAL
+dbms.connector.bolt.listen_address=0.0.0.0:7687
+</code></pre>
+
+<hr />
+<ul>
+<li>第四步: 启动neo4j数据库</li>
+</ul>
+<pre><code># 启动命令
+neo4j start
+
+# 终端显示如下, 代表启动成功
+Active database: graph.db
+Directories in use:
+  home:         /usr/neo4j
+  config:       /etc/neo4j
+  logs:         /var/log/neo4j
+  plugins:      /var/lib/neo4j/plugins
+  import:       /var/lib/neo4j/import
+  data:         /var/lib/neo4j/data
+  certificates: /var/lib/neo4j/certificates
+  run:          /var/run/neo4j
+Starting Neo4j.
+</code></pre>
+
+<hr />
+<ul>
+<li>neo4j的可视化管理后台登陆:<ul>
+<li>访问地址: http://0.0.0.0:7474.</li>
+<li>ConnectURL: bolt://0.0.0.0:7687</li>
+<li>Username: neo4j</li>
+<li>Password: neo4j (默认)</li>
+</ul>
+</li>
+</ul>
+<p><center><img alt="avatar" src="../img/neo4j可视化.jpg" /></center></p>
+<hr />
+<ul>
+<li>
+<p>小节总结:</p>
+<ul>
+<li>学习了neo4j图数据库的安装流程:<ul>
+<li>第一步: 将neo4j安装信息载入到yum检索列表.</li>
+<li>第二步: 使用yum install命令安装.</li>
+<li>第三步: 修改配置文件内容 /etc/neo4j/neo4j.conf.</li>
+<li>第四步: 启动neo4j数据库.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>学习了neo4j的可视化管理后台登陆:<ul>
+<li>访问地址: http://0.0.0.0:7474.</li>
+<li>ConnectURL: bolt://0.0.0.0:7687</li>
+<li>Username: neo4j</li>
+<li>Password: neo4j (默认)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="33-cypher">3.3 Cypher介绍与使用</h2>
+<ul>
+<li>学习目标<ul>
+<li>了解Cypher的基本概念.</li>
+<li>掌握Cypher的基本命令和语法.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Cypher的基本概念:<ul>
+<li>Cypher是neo4j图数据的查询语言, 类似于mysql数据库的sql语句, 但是它允许对图形进行富有表现力和有效的查询和更新.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Cypher的基本命令和语法:<ul>
+<li>create命令</li>
+<li>match命令</li>
+<li>merge命令</li>
+<li>relationship关系命令</li>
+<li>where命令</li>
+<li>delete命令</li>
+<li>sort命令</li>
+<li>字符串函数</li>
+<li>聚合函数</li>
+<li>index索引命令</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>create命令: 创建图数据中的节点.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 创建命令格式:
+# 此处create是关键字, 创建节点名称node_name, 节点标签Node_Label, 放在小括号里面()
+# 后面把所有属于节点标签的属性放在大括号'{}'里面, 依次写出属性名称:属性值, 不同属性用逗号','分隔
+# 例如下面命令创建一个节点e, 节点标签是Employee, 拥有id, name, salary, deptnp四个属性:
+CREATE (e:Employee{id:222, name:'Bob', salary:6000, deptnp:12})
+</code></pre>
+
+<hr />
+<ul>
+<li>效果</li>
+</ul>
+<p><center><img alt="avatar" src="../img/1.jpeg" /></center></p>
+<hr />
+<ul>
+<li>match命令: 匹配(查询)已有数据.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># match命令专门用来匹配查询, 节点名称:节点标签, 依然放在小括号内, 然后使用return语句返回查询结果, 和SQL很相似.
+MATCH (e:Employee) RETURN e.id, e.name, e.salary, e.deptno
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/2.jpeg" /></center></p>
+<hr />
+<ul>
+<li>merge命令: 若节点存在, 则等效与match命令; 节点不存在, 则等效于create命令.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code>MERGE (e:Employee {id:146, name:'Lucer', salary:3500, deptno:16})
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/3.jpeg" /></center></p>
+<hr />
+<ul>
+<li>然后再次用merge查询, 发现数据库中的数据并没有增加, 因为已经存在相同的数据了, merge匹配成功.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code>MERGE (e:Employee {id:146, name:'Lucer', salary:3500, deptno:16})
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/4.jpeg" /></center></p>
+<hr />
+<ul>
+<li>使用create创建关系: 必须创建有方向性的关系, 否则报错.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 创建一个节点p1到p2的有方向关系, 这个关系r的标签为Buy, 代表p1购买了p2, 方向为p1指向p2
+CREATE (p1:Profile1)-[r:Buy]-&gt;(p2:Profile2)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/5.jpeg" /></center></p>
+<hr />
+<ul>
+<li>使用merge创建关系: 可以创建有/无方向性的关系.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 创建一个节点p1到p2的无方向关系, 这个关系r的标签为miss, 代表p1-miss-p2, 方向为相互的
+MERGE (p1:Profile1)-[r:miss]-(p2:Profile2)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/6.jpeg" /></center></p>
+<hr />
+<ul>
+<li>where命令: 类似于SQL中的添加查询条件.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 查询节点Employee中, id值等于123的那个节点
+MATCH (e:Employee) WHERE e.id=123 RETURN e
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/7.jpeg" /></center></p>
+<hr />
+<ul>
+<li>delete命令: 删除节点/关系及其关联的属性.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 注意: 删除节点的同时, 也要删除关联的关系边
+MATCH (c1:CreditCard)-[r]-(c2:Customer) DELETE c1, r, c2
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/10.jpeg" /></center></p>
+<hr />
+<ul>
+<li>sort命令: Cypher命令中的排序使用的是order by.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 匹配查询标签Employee, 将所有匹配结果按照id值升序排列后返回结果
+MATCH (e:Employee) RETURN e.id, e.name, e.salary, e.deptno ORDER BY e.id
+
+# 如果要按照降序排序, 只需要将ORDER BY e.salary改写为ORDER BY e.salary DESC
+MATCH (e:Employee) RETURN e.id, e.name, e.salary, e.deptno ORDER BY e.salary DESC
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/11.jpeg" /></center></p>
+<hr />
+<ul>
+<li>字符串函数:<ul>
+<li>toUpper()函数</li>
+<li>toLower()函数</li>
+<li>substring()函数</li>
+<li>replace()函数</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>toUpper()函数: 将一个输入字符串转换为大写字母.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code>MATCH (e:Employee) RETURN e.id, toUpper(e.name), e.salary, e.deptno
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/12.jpeg" /></center></p>
+<hr />
+<ul>
+<li>toLower()函数: 讲一个输入字符串转换为小写字母.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code>MATCH (e:Employee) RETURN e.id, toLower(e.name), e.salary, e.deptno
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/13.jpeg" /></center> </p>
+<hr />
+<ul>
+<li>substring()函数: 返回一个子字符串.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 输入字符串为input_str, 返回从索引start_index开始, 到end_index-1结束的子字符串
+substring(input_str, start_index, end_index)
+
+# 示例代码, 返回员工名字的前两个字母
+MATCH (e:Employee) RETURN e.id, substring(e.name,0,2), e.salary, e.deptno
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/14.jpeg" /></center></p>
+<hr />
+<ul>
+<li>replace()函数: 替换掉子字符串.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 输入字符串为input_str, 将输入字符串中符合origin_str的部分, 替换成new_str
+replace(input_str, origin_str, new_str)
+
+# 示例代码, 将员工名字替换为添加后缀_HelloWorld
+MATCH (e:Employee) RETURN e.id, replace(e.name,e.name,e.name + &quot;_HelloWorld&quot;), e.salary, e.deptno
+
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/15.jpeg" /></center></p>
+<hr />
+<ul>
+<li>聚合函数<ul>
+<li>count()函数</li>
+<li>max()函数</li>
+<li>min()函数</li>
+<li>sum()函数</li>
+<li>avg()函数</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>count()函数: 返回由match命令匹配成功的条数.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 返回匹配标签Employee成功的记录个数
+MATCH (e:Employee) RETURN count( * )
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/16.jpeg" /></center></p>
+<hr />
+<ul>
+<li>max()函数: 返回由match命令匹配成功的记录中的最大值.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 返回匹配标签Employee成功的记录中, 最高的工资数字
+MATCH (e:Employee) RETURN max(e.salary)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/17.jpeg" /></center></p>
+<hr />
+<ul>
+<li>min()函数: 返回由match命令匹配成功的记录中的最小值.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 返回匹配标签Employee成功的记录中, 最低的工资数字
+MATCH (e:Employee) RETURN min(e.salary)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/18.jpeg" /></center></p>
+<hr />
+<ul>
+<li>sum()函数: 返回由match命令匹配成功的记录中某字段的全部加和值.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 返回匹配标签Employee成功的记录中, 所有员工工资的和
+MATCH (e:Employee) RETURN sum(e.salary)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/19.jpeg" /></center></p>
+<hr />
+<ul>
+<li>avg()函数: 返回由match命令匹配成功的记录中某字段的平均值.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 返回匹配标签Employee成功的记录中, 所有员工工资的平均值
+MATCH (e:Employee) RETURN avg(e.salary)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/20.jpeg" /></center></p>
+<hr />
+<ul>
+<li>索引index<ul>
+<li>Neo4j支持在节点或关系属性上的索引, 以提高查询的性能.</li>
+<li>可以为具有相同标签名称的所有节点的属性创建索引.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>创建索引: 使用create index on来创建索引.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 创建节点Employee上面属性id的索引
+CREATE INDEX ON:Employee(id)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/21.jpeg" /></center></p>
+<hr />
+<ul>
+<li>删除索引: 使用drop index on来删除索引.</li>
+</ul>
+<hr />
+<ul>
+<li>演示:</li>
+</ul>
+<pre><code># 删除节点Employee上面属性id的索引
+DROP INDEX ON:Employee(id)
+</code></pre>
+
+<hr />
+<ul>
+<li>效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/22.jpeg" /></center></p>
+<hr />
+<ul>
+<li>
+<p>小节总结:</p>
+<ul>
+<li>学习了Cypher的基本概念:<ul>
+<li>Cypher是neo4j图数据的查询语言, 类似于mysql数据库的sql语句, 但是它允许对图形进行富有表现力和有效的查询和更新.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Cypher的基本命令和语法:<ul>
+<li>create命令</li>
+<li>match命令</li>
+<li>merge命令</li>
+<li>relationship关系命令</li>
+<li>where命令</li>
+<li>delete命令</li>
+<li>sort命令</li>
+<li>字符串函数</li>
+<li>聚合函数</li>
+<li>index索引命令</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>create命令: 创建图数据中的节点.<ul>
+<li>CREATE (e:Employee{id:222, name:'Bob', salary:6000, deptnp:12})</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>match命令: 匹配(查询)已有数据.<ul>
+<li>MATCH (e:Employee) RETURN e.id, e.name, e.salary, e.deptno</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>merge命令: 若节点存在, 则等效与match命令; 节点不存在, 则等效于create命令.<ul>
+<li>MERGE (e:Employee {id:145, name:'Lucy', salary:7500, deptno:12})</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>使用create创建关系: 必须创建有方向性的关系, 否则报错.<ul>
+<li>CREATE (p1:Profile1)-[r:Buy]-&gt;(p2:Profile2)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>使用merge创建关系: 可以创建有/无方向性的关系.<ul>
+<li>MERGE (p1:Profile1)-[r:miss]-(p2:Profile2)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>where命令: 类似于SQL中的添加查询条件.<ul>
+<li>MATCH (e:Employee) WHERE e.id=123 RETURN e</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>delete命令: 删除节点/关系及其关联的属性.<ul>
+<li>MATCH (c1:CreditCard)-[r]-(c2:Customer) DELETE c1, r, c2</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>sort命令: Cypher命令中的排序使用的是order by.<ul>
+<li>MATCH (e:Employee) RETURN e.id, e.name, e.salary, e.deptno ORDER BY e.id</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>字符串函数:<ul>
+<li>toUpper()函数</li>
+<li>toLower()函数</li>
+<li>substring()函数</li>
+<li>replace()函数 </li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>toUpper()函数: 将一个输入字符串转换为大写字母.<ul>
+<li>MATCH (e:Employee) RETURN e.id, toUpper(e.name), e.salary, e.deptno</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>toLower()函数: 讲一个输入字符串转换为小写字母.<ul>
+<li>MATCH (e:Employee) RETURN e.id, toLower(e.name), e.salary, e.deptno</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>substring()函数: 返回一个子字符串.<ul>
+<li>MATCH (e:Employee) RETURN e.id, substring(e.name,0,2), e.salary, e.deptno</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>replace()函数: 替换掉子字符串.<ul>
+<li>MATCH (e:Employee) RETURN e.id, replace(e.name,e.name,e.name + "_HelloWorld"), e.salary, e.deptno</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>聚合函数<ul>
+<li>count()函数</li>
+<li>max()函数</li>
+<li>min()函数</li>
+<li>sum()函数</li>
+<li>avg()函数</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>count()函数: 返回由match命令匹配成功的条数. <ul>
+<li>MATCH (e:Employee) RETURN count( * )</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>max()函数: 返回由match命令匹配成功的记录中的最大值.<ul>
+<li>MATCH (e:Employee) RETURN max(e.salary)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>min()函数: 返回由match命令匹配成功的记录中的最小值.<ul>
+<li>MATCH (e:Employee) RETURN min(e.salary)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>sum()函数: 返回由match命令匹配成功的记录中某字段的全部加和值.<ul>
+<li>MATCH (e:Employee) RETURN sum(e.salary)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>avg()函数: 返回由match命令匹配成功的记录中某字段的平均值.<ul>
+<li>MATCH (e:Employee) RETURN avg(e.salary)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>索引index<ul>
+<li>Neo4j支持在节点或关系属性上的索引, 以提高查询的性能.</li>
+<li>可以为具有相同标签名称的所有节点的属性创建索引.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>创建索引: 使用create index on来创建索引.<ul>
+<li>CREATE INDEX ON:Employee(id)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>删除索引: 使用drop index on来删除索引.<ul>
+<li>DROP INDEX ON:Employee(id)    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="34-pythonneo4j">3.4 在Python中使用neo4j</h2>
+<ul>
+<li>学习目标<ul>
+<li>了解python中neo4j-driver的相关知识.</li>
+<li>掌握neo4j中事务概念和操作方法.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>neo4j-driver简介:<ul>
+<li>neo4j-driver是一个python中的package, 作为python中neo4j的驱动, 帮助我们在python程序中更好的使用图数据库.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>neo4j-driver的安装:</li>
+</ul>
+<pre><code>pip install neo4j-driver
+</code></pre>
+
+<hr />
+<ul>
+<li>neo4j-driver使用演示:</li>
+</ul>
+<pre><code>from neo4j import GraphDatabase
+
+# 关于neo4j数据库的用户名,密码信息已经配置在同目录下的config.py文件中
+from config import NEO4J_CONFIG
+
+driver = GraphDatabase.driver( **NEO4J_CONFIG)
+
+# 直接用python代码形式访问节点Company, 并返回所有节点信息
+with driver.session() as session:
+    cypher = &quot;CREATE(c:Company) SET c.name='黑马程序员' RETURN c.name&quot;
+    record = session.run(cypher)
+    result = list(map(lambda x: x[0], record))
+    print(&quot;result:&quot;, result)
+</code></pre>
+
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>result: 黑马程序员
+</code></pre>
+
+<hr />
+<ul>
+<li>事务的概念:<ul>
+<li>如果一组数据库操作要么全部发生要么一步也不执行，我们称该组处理步骤为一个事务, 它是数据库一致性的保证.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>使用事务的演示:</li>
+</ul>
+<pre><code>def _some_operations(tx, cat_name, mouse_name):
+    tx.run(&quot;MERGE (a:Cat{name: $cat_name})&quot;
+           &quot;MERGE (b:Mouse{name: $mouse_name})&quot;
+           &quot;MERGE (a)-[r:And]-(b)&quot;,
+           cat_name=cat_name, mouse_name=mouse_name)
+
+
+with driver.session() as session:
+    session.write_transaction(_some_operations, &quot;Tom&quot;, &quot;Jerry&quot;)
+
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<p><center><img alt="avatar" src="../img/cat.jpeg" /></center></p>
+<hr />
+<ul>
+<li>
+<p>小节总结:</p>
+<ul>
+<li>学习了neo4j-driver简介:<ul>
+<li>neo4j-driver是一个python中的package, 作为python中neo4j的驱动, 帮助我们在python程序中更好的使用图数据库.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>学习了neo4j-driver的安装和使用方法.</li>
+</ul>
+<hr />
+<ul>
+<li>学习了事务的概念:<ul>
+<li>如果一组数据库操作要么全部发生要么一步也不执行，我们称该组处理步骤为一个事务, 它是数据库一致性的保证.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>学习了如何使用事务来向图数据库中写入数据.</li>
+</ul>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../4/" class="btn btn-neutral float-right" title="第四章:离线部分">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../2/" class="btn btn-neutral" title="第二章:在线医生的总体架构与工具介绍"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>©Copyright 2019, itcast.cn.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../2/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../4/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

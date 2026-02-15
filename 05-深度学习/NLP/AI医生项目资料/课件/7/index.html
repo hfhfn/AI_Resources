@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>第七章:在线部分 - DOCTOR</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7b2c\u4e03\u7ae0:\u5728\u7ebf\u90e8\u5206";
+    var mkdocs_page_input_path = "7.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'mkdocs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DOCTOR</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../1/">第一章:背景介绍与Unit的使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2/">第二章:在线医生的总体架构与工具介绍</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3/">第三章:neo4j图数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4/">第四章:离线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5/">第五章:命名实体审核任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6/">第六章:命名实体识别任务</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">第七章:在线部分</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#71">7.1 在线部分简要分析</a></li>
+    
+
+    <li class="toctree-l2"><a href="#72-werobot">7.2 werobot服务构建</a></li>
+    
+
+    <li class="toctree-l2"><a href="#73">7.3 主要逻辑服务</a></li>
+    
+
+    <li class="toctree-l2"><a href="#74">7.4 句子主题相关任务</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8/">第八章:句子主题相关任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9/">第九章:系统联调与测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10/">附录:环境安装部署手册</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DOCTOR</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>第七章:在线部分</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="71">7.1 在线部分简要分析</h2>
+<hr />
+<ul>
+<li>学习目标:<ul>
+<li>了解在线部分的核心组成.</li>
+<li>了解各个核心组成部分的作用.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>在线部分架构图:</li>
+</ul>
+<p><img style="margin: 0px 30px 0px -30px" src="../img/doctorAI_online.png"></p>
+<hr />
+<ul>
+<li>在线部分简要分析:<ul>
+<li>根据架构图，在线部分的核心由三个服务组成，分别是werobot服务，主要逻辑服务，句子相关模型服务. 这三个服务贯穿连接整个在线部分的各个模块.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>werobot服务作用:<ul>
+<li>用于连接微信客户端与后端服务, 向主要逻辑服务发送用户请求，并接收结构返回给用户.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>主要逻辑服务作用:<ul>
+<li>用于处理核心业务逻辑, 包括会话管理，请求句子相关模型服务，查询图数据库，调用Unit API等.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>句子相关模型服务:<ul>
+<li>用于封装训练好的句子相关判断模型, 接收来自主要逻辑服务的请求, 返回判断结果.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="72-werobot">7.2 werobot服务构建</h2>
+<hr />
+<ul>
+<li>学习目标:<ul>
+<li>掌握werobot服务的构建过程.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>werobot服务的构建过程可分为四步:<ul>
+<li>第一步: 获取服务器公网IP</li>
+<li>第二步: 配置微信公众号</li>
+<li>第三步: 使用werobot启动服务脚本</li>
+<li>第四步: 使用微信公众号进行测试</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 获取服务器公网IP</li>
+</ul>
+<blockquote>
+<ul>
+<li>登陆阿里云官网(https://www.aliyun.com/product/ecs):</li>
+</ul>
+</blockquote>
+<p><center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8ECS%E9%A6%96%E9%A1%B5.png" height="auto" width="auto"/></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>进行基本配置, 选择所在地域, 实例类型, 镜像, 存储, 购买时长</li>
+</ul>
+</blockquote>
+<p><center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A81-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE-%E5%9C%B0%E5%9F%9F%E4%B8%8E%E5%AE%9E%E4%BE%8B%E7%B1%BB%E5%9E%8B.png" height="auto" width="auto"/></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>选择网络和安全组(默认配置)
+        <center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A81-%E7%BD%91%E7%BB%9C%E5%92%8C%E5%AE%89%E5%85%A8%E7%BB%84-%E9%BB%98%E8%AE%A4.png" height="auto" width="auto"/></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>设置密码, 实例名称, 主机名
+        <center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A83-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-%E5%AF%86%E7%A0%81%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%AE%9E%E4%BE%8B%E5%90%8D.png" height="auto" width="auto"/></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>配置分组设置(默认配置)
+        <center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A84-%E5%88%86%E7%BB%84%E8%AE%BE%E7%BD%AE.png" height="auto" width="auto"/></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>确认订单并支付
+        <center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A85-%E7%A1%AE%E8%AE%A4%E8%AE%A2%E5%8D%95.png" height="auto" width="auto"/></center></li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>查看服务器公网IP
+    <center><img alt="avatar" src="../img/20190114.png" /></center></li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>第二步: 使用公网IP配置微信公众号</li>
+</ul>
+<blockquote>
+<ul>
+<li>注册微信订阅号(https://mp.weixin.qq.com)</li>
+</ul>
+</blockquote>
+<p><center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_1_reg_mpweixin.jpg" height="auto" width="auto"/></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>在基本配置中进行URL和Token设定</li>
+</ul>
+</blockquote>
+<p><center><img src="http://47.92.175.143:4000/Chapter1_HelloRobot/img/3_1_developer_setting_1.jpg" height="auto" width="auto"/></center></p>
+<hr />
+<ul>
+<li>第三步: 使用werobot启动服务脚本</li>
+</ul>
+<blockquote>
+<ul>
+<li>安装werobot</li>
+</ul>
+</blockquote>
+<pre><code>pip install werobot
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>进行启动脚本的编写 </li>
+</ul>
+</blockquote>
+<pre><code># 导入werobot和发送请求的requests
+import werobot
+import requests
+
+# 主要逻辑服务请求地址
+url = &quot;http://161.117.187.37:5000/v1/main_serve/&quot;
+
+# 服务超时时间
+TIMEOUT = 3
+
+# 声明微信访问请求【框架将辅助完成微信联通验证】
+robot = werobot.WeRoBot(token=&quot;doctoraitoken&quot;)
+
+# 设置所有请求（包含文本、语音、图片等消息）入口
+@robot.handler
+def doctor(message, session):
+    try:
+        # 获得用户uid
+        uid = message.source
+        try:
+            # 检查session，判断该用户是否第一次发言
+            # 初始session为{}
+            # 如果session中没有{uid:&quot;1&quot;}
+            if session.get(uid, None) != &quot;1&quot;:
+                # 将添加{uid:&quot;1&quot;}
+                session[uid] = &quot;1&quot;
+                # 并返回打招呼用语
+                return '您好, 我是智能客服小艾, 有什么需要帮忙的吗?'
+            # 获取message中的用户发言内容
+            text = message.content
+        except:
+            # 这里使用try...except是因为我用户很可能出现取消关注又重新关注的现象
+            # 此时通过session判断，该用户并不是第一次发言，会获取message.content
+            # 但用户其实又没有说话, 获取message.content时会报错
+            # 该情况也是直接返回打招呼用语
+            return '您好, 我是智能客服小艾, 有什么需要帮忙的吗 ?'
+        # 获得发送主要逻辑服务的数据体
+        data = {&quot;uid&quot;: uid, &quot;text&quot;: text}
+        # 向主要逻辑服务发送post请求
+        res = requests.post(url, data=data, timeout=TIMEOUT)
+        # 返回主要逻辑服务的结果
+        return res.text
+    except Exception as e:
+        print(&quot;出现异常:&quot;, e)
+        return &quot;对不起, 机器人客服正在休息...&quot;
+
+# 让服务器监听在 0.0.0.0:80
+robot.config[&quot;HOST&quot;] = &quot;0.0.0.0&quot;
+robot.config[&quot;PORT&quot;] = 80
+robot.run()
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/wr.py</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>启动服务脚本</li>
+</ul>
+</blockquote>
+<pre><code>python /data/wr.py
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>第四步: 使用微信进行测试
+    <center><img alt="avatar" src="../img/20190114_1.jpeg" /></center></li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>小节总结:<ul>
+<li>学习了werobot服务的构建过程:<ul>
+<li>第一步: 获取服务器公网IP</li>
+<li>第二步: 配置微信公众号</li>
+<li>第三步: 使用werobot启动服务脚本</li>
+<li>第四步: 使用微信公众号进行测试</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="73">7.3 主要逻辑服务</h2>
+<hr />
+<ul>
+<li>学习目标:<ul>
+<li>了解该服务中的主要逻辑.</li>
+<li>掌握构建主要逻辑服务的过程.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>主要逻辑图:
+<center><img src="../img/doctorAI_luoji.png" height="auto" width="auto"/></center></li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>逻辑图分析:</p>
+<ul>
+<li>
+<p>主要逻辑服务接收werobot发送的请求后，根据用户id查询redis查找用户上一次说过的话，根据结果判断是否为他的第一句.</p>
+</li>
+<li>
+<p>如果是第一句话，直接查询数据库，判断句子中是否包含症状实体，并返回该症状连接的疾病，并填充在规则对话模版中，如果查询不到则调用Unit API返回结果.</p>
+</li>
+<li>
+<p>如果不是该用户的第一句话,则连同上一句话的内容一起请求句子相关模型服务，判断两句话是否讨论同一主题,如果是,则继续查询图数据库，如果不是，使用unit api返回结果.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>构建主要逻辑服务的步骤:<ul>
+<li>第一步: 导入必备工具和配置</li>
+<li>第二步: 完成查询neo4j数据库的函数</li>
+<li>第三步: 编写主要逻辑处理类</li>
+<li>第四步: 编写服务中的主函数</li>
+<li>第五步: 使用gunicorn启动服务</li>
+<li>第六步: 编写测试脚本并进行测试:</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 导入必备工具和配置</li>
+</ul>
+<pre><code># 服务框架使用Flask
+# 导入必备的工具
+from flask import Flask
+from flask import request
+app = Flask(__name__)
+
+# 导入发送http请求的requests工具
+import requests
+
+# 导入操作redis数据库的工具
+import redis
+
+# 导入加载json文件的工具
+import json
+
+# 导入已写好的Unit API调用文件
+from unit import unit_chat
+
+# 导入操作neo4j数据库的工具
+from neo4j import GraphDatabase
+
+# 从配置文件中导入需要的配置
+# NEO4J的连接配置
+from config import NEO4J_CONFIG
+# REDIS的连接配置
+from config import REDIS_CONFIG
+# 句子相关模型服务的请求地址
+from config import model_serve_url
+# 句子相关模型服务的超时时间
+from config import TIMEOUT
+# 规则对话模版的加载路径
+from config import reply_path
+# 用户对话信息保存的过期时间
+from config import ex_time
+
+# 建立REDIS连接池
+pool = redis.ConnectionPool(**REDIS_CONFIG)
+
+# 初始化NEO4J驱动对象
+_driver = GraphDatabase.driver(**NEO4J_CONFIG)
+
+</code></pre>
+
+<hr />
+<ul>
+<li>代码位置: /data/doctor_online/main_serve/app.py</li>
+</ul>
+<hr />
+<blockquote>
+<ul>
+<li>配置文件内容如下:</li>
+</ul>
+</blockquote>
+<pre><code>REDIS_CONFIG = {
+     &quot;host&quot;: &quot;0.0.0.0&quot;,
+     &quot;port&quot;: 6379
+}
+
+
+NEO4J_CONFIG = {
+    &quot;uri&quot;: &quot;bolt://0.0.0.0:7687&quot;,
+    &quot;auth&quot;: (&quot;neo4j&quot;, &quot;********&quot;),
+    &quot;encrypted&quot;: False
+}
+
+model_serve_url = &quot;http://0.0.0.0:5001/v1/recognition/&quot;
+
+TIMEOUT = 2
+
+reply_path = &quot;./reply.json&quot;
+
+ex_time = 36000
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/doctor_online/main_serve/config.py</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>规则对话模版文件reply.json内容如下:</li>
+</ul>
+</blockquote>
+<pre><code>{
+&quot;1&quot;: &quot;亲爱的用户, 在线医生一个医患问答机器人，请您说一些当前的症状吧！&quot;,
+&quot;2&quot;: &quot;根据您当前的症状描述, 您可能患有以下疾病, %s, 再想想还有更多的症状吗?&quot;,
+&quot;3&quot;: &quot;对不起, 您所说的内容超出了在线医生的知识范围. 请尝试换一些描述方式！&quot;,
+&quot;4&quot;: &quot;您的这次描述并没有给我带来更多信息，请您继续描述您的症状.&quot;
+}
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/doctor_online/main_serve/reply.json</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>第二步: 完成查询neo4j数据库的函数</li>
+</ul>
+<pre><code>def query_neo4j(text):
+    &quot;&quot;&quot;
+    description: 根据用户对话文本中的可能存在的症状查询图数据库.
+    :param text: 用户的输入文本.
+    :return: 用户描述的症状对应的疾病列表.
+    &quot;&quot;&quot;
+    # 开启一个session操作图数据库 
+    with _driver.session() as session:
+         # cypher语句, 匹配句子中存在的所有症状节点, 
+         # 保存这些节点并逐一通过关系dis_to_sym进行对应病症的查找, 返回找到的疾病名字列表.
+        cypher = &quot;MATCH(a:Symptom) WHERE(%r contains a.name) WITH \
+                  a MATCH(a)-[r:dis_to_sym]-(b:Disease) RETURN b.name LIMIT 5&quot; %text
+        # 运行这条cypher语句
+        record = session.run(cypher)
+        # 从record对象中获得结果列表
+        result = list(map(lambda x: x[0], record))
+    return result
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/doctor_online/main_serve/app.py</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>调用:</li>
+</ul>
+</blockquote>
+<pre><code>if __name__ == &quot;__main__&quot;:
+    text = &quot;我最近腹痛!&quot;
+    result = query_neo4j(text)
+    print(&quot;疾病列表:&quot;, result)
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>输出效果:</li>
+</ul>
+</blockquote>
+<pre><code>疾病列表: ['胃肠道癌转移卵巢', '胃肠道功能紊乱', '胃肠积液', '胃肠型食物中毒', '胃结核']
+</code></pre>
+
+<hr />
+<ul>
+<li>第三步: 编写主要逻辑处理类</li>
+</ul>
+<pre><code>class Handler(object):
+    &quot;&quot;&quot;主要逻辑服务的处理类&quot;&quot;&quot;
+    def __init__(self, uid, text, r, reply):
+        &quot;&quot;&quot;
+        :param uid: 用户唯一标示uid
+        :param text: 该用户本次输入的文本
+        :param r: redis数据库的连接对象
+        :param reply: 规则对话模版加载到内存的对象(字典)
+        &quot;&quot;&quot;
+        self.uid = uid
+        self.text = text
+        self.r = r
+        self.reply = reply
+
+    def non_first_sentence(self, previous):
+        &quot;&quot;&quot;
+        description: 非首句处理函数
+        :param previous: 该用户当前句(输入文本)的上一句文本
+        :return: 根据逻辑图返回非首句情况下的输出语句
+        &quot;&quot;&quot;
+        # 尝试请求模型服务, 若失败则打印错误结果
+        try:
+            data = {&quot;text1&quot;: previous, &quot;text2&quot;: self.text}
+            result = requests.post(model_serve_url, data=data, timeout=TIMEOUT)
+            if not result.text: return unit_chat(self.text)
+        except Exception as e:
+            print(&quot;模型服务异常:&quot;, e)
+            return unit_chat(self.text)
+        # 继续查询图数据库, 并获得结果
+        s = query_neo4j(self.text)
+        # 判断结果为空列表, 则直接使用UnitAPI返回
+        if not s: return unit_chat(self.text)
+        # 若结果不为空, 获取上一次已回复的疾病old_disease
+        old_disease = self.r.hget(str(self.uid), &quot;previous_d&quot;)
+        if old_disease:
+            # new_disease是本次需要存储的疾病, 是已经存储的疾病与本次查询到疾病的并集
+            new_disease = list(set(s) | set(eval(old_disease)))
+            # res是需要返回的疾病, 是本次查询到的疾病与已经存储的疾病的差集
+            res = list(set(s) - set(eval(old_disease)))
+        else:
+            # 如果old_disease为空, 则它们相同都是本次查询结果s
+            res = new_disease = list(set(s))
+
+        # 存储new_disease覆盖之前的old_disease
+        self.r.hset(str(self.uid), &quot;previous_d&quot;, str(new_disease))
+        # 设置过期时间
+        self.r.expire(str(self.uid), ex_time)
+        # 将列表转化为字符串, 添加到规则对话模版中返回
+        if not res:
+            return self.reply[&quot;4&quot;]
+        else:
+            res = &quot;,&quot;.join(res)
+            return self.reply[&quot;2&quot;] %res
+
+
+    def first_sentence(self):
+        &quot;&quot;&quot;首句处理函数&quot;&quot;&quot;
+        # 直接查询图数据库, 并获得结果
+        s = query_neo4j(self.text)
+        # 判断结果为空列表, 则直接使用UnitAPI返回
+        if not s: return unit_chat(self.text)
+        # 将s存储为&quot;上一次返回的疾病&quot;
+        self.r.hset(str(self.uid), &quot;previous_d&quot;, str(s))
+        # 设置过期时间
+        self.r.expire(str(self.uid), ex_time)
+        # 将列表转化为字符串, 添加到规则对话模版中返回
+        res = &quot;,&quot;.join(s)
+        return self.reply[&quot;2&quot;] %res
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/doctor_online/main_serve/app.py</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>第四步: 编写服务中的主函数</li>
+</ul>
+<pre><code># 设定主要逻辑服务的路由和请求方法
+@app.route('/v1/main_serve/', methods=[&quot;POST&quot;])
+def main_serve():
+    # 接收来自werobot服务的字段
+    uid = request.form['uid']
+    text = request.form['text']
+    # 从redis连接池中获得一个活跃连接
+    r = redis.StrictRedis(connection_pool=pool)
+    # 根据该uid获取他的上一句话(可能不存在)
+    previous = r.hget(str(uid), &quot;previous&quot;)
+    # 将当前输入的文本设置成上一句
+    r.hset(str(uid), &quot;previous&quot;, text)
+    # 读取规则对话模版内容到内存
+    reply = json.load(open(reply_path, &quot;r&quot;))
+    # 实例化主要逻辑处理对象
+    handler = Handler(uid, text, r, reply)
+    # 如果previous存在, 说明不是第一句话
+    if previous:
+        # 调用non_first_sentence方法
+        return handler.non_first_sentence(previous)
+    else:
+        # 否则调用first_sentence()方法
+        return handler.first_sentence()
+</code></pre>
+
+<hr />
+<ul>
+<li>第五步: 使用gunicorn启动服务</li>
+</ul>
+<pre><code>gunicorn -w 1 -b 0.0.0.0:5001 app:app
+# -w 代表开启的进程数, 我们只开启一个进程
+# -b 服务的IP地址和端口
+# app:app 是指执行的主要对象位置, 在app.py中的app对象
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: 在/data/doctor_online/main_serve/路径下执行.</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>第六步: 编写测试脚本并进行测试</li>
+</ul>
+<blockquote>
+<ul>
+<li>编写测试脚本:</li>
+</ul>
+</blockquote>
+<pre><code>import requests
+
+# 定义请求url和传入的data
+url = &quot;http://0.0.0.0:5000/v1/main_serve/&quot;
+data = {&quot;uid&quot;:&quot;13424&quot;, &quot;text&quot;: &quot;头晕&quot;}
+
+# 向服务发送post请求
+res = requests.post(url, data=data)
+# 打印返回的结果
+print(res.text)
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>运行脚本:</li>
+</ul>
+</blockquote>
+<pre><code>python test.py
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>输出效果:</li>
+</ul>
+</blockquote>
+<pre><code>根据您当前的症状描述, 您可能患有以下疾病, 中毒,虫媒传染病,小儿肥厚型心肌病,血红蛋白E病,铍中毒, 再想想还有更多的症状吗?
+</code></pre>
+
+<hr />
+<ul>
+<li>
+<p>小节总结:</p>
+<ul>
+<li>学习了服务的主要逻辑:<ul>
+<li>主要逻辑服务接收werobot发送的请求后，根据用户id查询redis查找用户上一次说过的话，根据结果判断是否为他的第一句.</li>
+<li>如果是第一句话，直接查询数据库，判断句子中是否包含症状实体，并返回该症状连接的疾病，并填充在规则对话模版中，如果查询不到则调用Unit API返回结果.</li>
+<li>如果不是该用户的第一句话,则连同上一句话的内容一起请求句子相关模型服务，判断两句话是否讨论同一主题,如果是,则继续查询图数据库，如果不是，使用unit api返回结果.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>构建主要逻辑服务的步骤:<ul>
+<li>第一步: 导入必备工具和配置</li>
+<li>第二步: 完成查询neo4j数据库的函数</li>
+<li>第三步: 编写主要逻辑处理类</li>
+<li>第四步: 编写服务中的主函数</li>
+<li>第五步: 使用gunicorn启动服务</li>
+<li>第六步: 编写测试脚本并进行测试</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="74">7.4 句子主题相关任务</h2>
+<ul>
+<li>句子主题相关的任务的工作在我们这里使用AI模型实现, 包括模型训练和使用的整个过程, 因此这里内容以独立一章的形成呈现给大家, 具体内容在<a href="../8/">第八章: 句子主题相关任务</a></li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../8/" class="btn btn-neutral float-right" title="第八章:句子主题相关任务">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../6/" class="btn btn-neutral" title="第六章:命名实体识别任务"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>©Copyright 2019, itcast.cn.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../6/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../8/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

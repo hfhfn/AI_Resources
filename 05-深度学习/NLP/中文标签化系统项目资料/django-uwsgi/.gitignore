@@ -1,0 +1,7 @@
+
+**/__pycache__/
+*.sh
+db.sqlite3
+*.pid
+*.pyc
+

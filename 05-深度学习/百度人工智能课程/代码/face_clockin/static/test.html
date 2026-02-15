@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>home</title>
+</head>
+
+<body>
+    <div>
+        <video id="video" width="640px" height="480px" autoplay="autoplay" style="background: #ccc;"></video>
+        <canvas id="canvas" width="640px" height="480px">1212</canvas>
+        <button onclick="takePicture()">拍照</button>
+    </div>
+
+    <script type="text/javascript">
+        var video = document.getElementById("video");
+        var context = canvas.getContext("2d");
+        var errocb = function (code) {
+            alert(code);
+        };
+        if (navigator.getUserMedia) { // 标准的API
+            navigator.getUserMedia({ "video": true }, function (stream) {
+                video.src = window.webkitURL.createObjectURL(stream);//stream;
+                video.play();
+            }, errocb);
+        } else if (navigator.webkitGetUserMedia) { // WebKit 核心的API
+
+            console.log(navigator.webkitGetUserMedia);
+            navigator.webkitGetUserMedia({ "video": true }, function (stream) {
+                video.src = window.webkitURL.createObjectURL(stream);
+                video.play();
+            }, errocb);
+        }
+
+        // window.setInterval(function () {
+        //     var width = parseInt(video.videoWidth)
+        //     var height = parseInt(video.videoHeight)
+        //     context.drawImage(video, 0, 0, parseInt(width), parseInt(height));
+        // }, 15);
+
+        function takePicture() {
+            var width = parseInt(video.videoWidth)
+            var height = parseInt(video.videoHeight)
+            context.drawImage(video, 0, 0, parseInt(width), parseInt(height));
+            var canvasEl = document.getElementById("canvas")
+            var imgData = canvasEl.toDataURL("image/png");
+            console.log(imgData)
+            // var imgEl = document.getElementById("picture")
+            // imgEl.setAttribute('src', imgData)
+        }
+
+    </script>
+    <style type="text/css">
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        video {
+            width: 200px;
+            height: 200px;
+        }
+
+        canvas {
+            /*width: 30%;*/
+            /*height: 30%;*/
+            /*position: absolute;*/
+            /*left: 200px;*/
+            /*top: 0px;*/
+            /*z-index: 100;*/
+        }
+    </style>
+</body>
+
+</html>

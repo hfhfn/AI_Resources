@@ -1,0 +1,21 @@
+* [百度人工智能课程](README.md)
+* [平台介绍](01_chapter/README.md)
+  * [总体介绍](01_chapter/00_intro.md)
+  * [机器学习平台介绍](01_chapter/01_bml.md)
+  * [深度学习平台介绍](01_chapter/02_bdl.md)
+  * [人工智能平台介绍](01_chapter/03_ai.md)
+* [人工智能平台视觉技术](02_chapter/README.md)
+  * [人脸识别](02_chapter/01_face.md)
+  * [图像识别](02_chapter/02_image.md)
+  * [文字识别](02_chapter/03_character.md)
+* [人工智能平台语音技术](03_chapter/README.md)
+  * [语音识别](03_chapter/01_语音识别.md)
+  * [语音合成](03_chapter/02_语音合成.md)
+  * 
+* [人工智能平台自然语言](04_chapter/README.md)
+  * [自然语言处理基础技术](04_chapter/01_语言处理基础技术.md)
+  * [理解与交互技术UNIT](04_chapter/02_理解与交互技术.md)
+  * 
+* [案例](05_chapter/README.md)
+  * [人脸识别打卡案例](05_chapter/01_人脸打卡案例.md)
+  * 

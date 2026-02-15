@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>第二章:在线医生的总体架构与工具介绍 - DOCTOR</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7b2c\u4e8c\u7ae0:\u5728\u7ebf\u533b\u751f\u7684\u603b\u4f53\u67b6\u6784\u4e0e\u5de5\u5177\u4ecb\u7ecd";
+    var mkdocs_page_input_path = "2.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'mkdocs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DOCTOR</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../1/">第一章:背景介绍与Unit的使用</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">第二章:在线医生的总体架构与工具介绍</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#21">2.1 在线医生的总体架构</a></li>
+    
+
+    <li class="toctree-l2"><a href="#22">2.2 总体架构中的工具介绍</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3/">第三章:neo4j图数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4/">第四章:离线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5/">第五章:命名实体审核任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6/">第六章:命名实体识别任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7/">第七章:在线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8/">第八章:句子主题相关任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9/">第九章:系统联调与测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10/">附录:环境安装部署手册</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DOCTOR</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>第二章:在线医生的总体架构与工具介绍</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="21">2.1 在线医生的总体架构</h2>
+<ul>
+<li>学习目标:<ul>
+<li>了解在线医生项目的总体架构</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>项目整体架构图:
+    <img style="margin: 0px 30px 0px -60px" src="../img/doctorAI.png"></li>
+</ul>
+<hr />
+<ul>
+<li>架构图分析:<ul>
+<li>整个项目分为: 在线部分和离线部分</li>
+<li>在线部分包括: werobot服务模块, 主要逻辑服务模块, 句子相关模型服务模块, 会话管理模块(redis), 图数据库模块以及规则对话/Unit模块.</li>
+<li>离线部分包括: 结构与非结构化数据采集模块, NER模型使用模块, 以及实体审核模型使用模块.</li>
+<li>在线部分数据流: 从用户请求开始, 通过werobot服务, 在werobot服务内部请求主服务, 在主服务中将调用会话管理数据库redis, 调用句子相关模型服务, 以及调用图数据库, 最后将查询结果输送给对话规则模版或者使用Unit对话API回复.</li>
+<li>离线部分数据流: 从数据采集开始, 将获得结构化和非结构化的数据, 对于结构化数据将直接使用实体审核模型进行审核, 然后写入图数据库; 对于非结构化数据, 将使用NER模型进行实体抽取, 然后通过实体审核后再写入图数据库.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="22">2.2 总体架构中的工具介绍</h2>
+<hr />
+<ul>
+<li>学习目标:<ul>
+<li>了解总体架构中使用了哪些工具.</li>
+<li>掌握总体架构中各个工具的简介, 作用, 安装和基本使用方法.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>总体架构中使用的工具:<ul>
+<li>Flask web服务框架</li>
+<li>Redis数据库</li>
+<li>Gunicorn服务组件</li>
+<li>Supervisor服务监控器</li>
+<li>Neo4j图数据库</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Flask web服务框架:</li>
+</ul>
+<p><center><img style="margin: 0px 0px 0px 0px" src="../img/Flask.png" width="400px" height="400px"></center></p>
+<blockquote>
+<ul>
+<li>简介:<ul>
+<li>Flask框架是当下最受欢迎的python轻量级框架, 也是pytorch官网指定的部署框架. Flask的基本模式为在程序里将一个视图函数分配给一个URL，每当用户访问这个URL时，系统就会执行给该URL分配好的视图函数，获取函数的返回值，其工作过程见图.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/Flask_1.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>作用:<ul>
+<li>在项目中, Flask框架是主逻辑服务和句子相关模型服务使用的服务框架.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>安装:</li>
+</ul>
+</blockquote>
+<pre><code># 使用pip安装Flask
+pip install Flask==1.1.1
+</code></pre>
+
+<blockquote>
+<ul>
+<li>基本使用方法:</li>
+</ul>
+</blockquote>
+<pre><code># 导入Flask类
+from flask import Flask
+# 创建一个该类的实例app, 参数为__name__, 这个参数是必需的，
+# 这样Flask才能知道在哪里可找到模板和静态文件等东西.
+app = Flask(__name__)
+
+# 使用route()装饰器来告诉Flask触发函数的URL
+@app.route('/')
+def hello_world():
+    &quot;&quot;&quot;请求指定的url后，执行的主要逻辑函数&quot;&quot;&quot;
+    # 在用户浏览器中显示信息:'Hello, World!'
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(host=&quot;0.0.0.0&quot;, port=5000)
+
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>代码位置: /data/doctor_onine/main_serve/app.py</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>启动服务:</li>
+</ul>
+</blockquote>
+<pre><code>python app.py
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>启动效果:<ul>
+<li>通过浏览器打开地址http://0.0.0.0:5000可看见打印了'Hello, World'.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>Redis数据库:</li>
+</ul>
+<p><center><img style="margin: 0px 0px 0px 0px" src="../img/redis.png"></center></p>
+<blockquote>
+<ul>
+<li>简介:<ul>
+<li>Redis（全称：Remote Dictionary Server 远程字典服务）是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>作用: <ul>
+<li>在项目中, Redis用于会话管理数据库, 保存用户聊天历史.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>安装:</li>
+</ul>
+</blockquote>
+<pre><code># 使用yum安装redis
+yum install redis -y
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>基本使用方法:<ul>
+<li>Redis支持四种数据结构的存储: String(字符串), Hash(散列), List(列表), Set(集合), Sorted Set(有序集合).</li>
+<li>在这里我们将着重介绍如何在python中使用Hash(散列)进行读写.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>安装python中的redis驱动:</li>
+</ul>
+</blockquote>
+<pre><code># 使用pip进行安装
+pip install redis
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>启动redis服务:</li>
+</ul>
+</blockquote>
+<pre><code># 启动redis-server, 这里使用了默认配置, 端口是6379.
+redis-server
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>在python中使用Hash(散列)进行读写:</li>
+</ul>
+</blockquote>
+<pre><code># coding=utf-8
+# redis配置
+REDIS_CONFIG = {
+     &quot;host&quot;: &quot;0.0.0.0&quot;,
+     &quot;port&quot;: 6379
+}
+
+# 导入redis驱动
+import redis
+
+# 创建一个redis连接池
+pool = redis.ConnectionPool( **REDIS_CONFIG)
+# 从连接池中初始化一个活跃的连接对象
+r = redis.StrictRedis(connection_pool=pool)
+# hset表示使用hash数据结构进行数据写入
+# uid代表某个用户的唯一标识
+uid = &quot;8888&quot;
+# key是需要记录的数据描述
+key = &quot;该用户最后一次说的话:&quot;.encode('utf-8')
+# value是需要记录的数据具体内容
+value = &quot;再见, 董小姐&quot;.encode('utf-8')
+r.hset(uid, key, value)
+
+
+# hget表示使用hash数据结构进行数据读取
+result = r.hget(uid, key)
+print(result.decode('utf-8'))
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>输出效果:</li>
+</ul>
+</blockquote>
+<pre><code>再见, 董小姐
+</code></pre>
+
+<hr />
+<ul>
+<li>Gunicorn服务组件:</li>
+</ul>
+<p><center><img style="margin: 0px 0px 0px 0px" src="../img/gunicorn.png"></center></p>
+<blockquote>
+<ul>
+<li>简介:<ul>
+<li>Gunicorn是一个被广泛使用的高性能的Python WSGI UNIX HTTP服务组件(WSGI: Web Server Gateway Interface)，移植自Ruby的独角兽（Unicorn ）项目，具有使用非常简单，轻量级的资源消耗，以及高性能等特点.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>作用: <ul>
+<li>在项目中, Gunicorn和Flask框架一同使用, 能够开启服务, 处理请求,因其高性能的特点能够有效减少服务丢包率.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>安装:</li>
+</ul>
+</blockquote>
+<pre><code># 使用pip安装gunicorn
+pip install gunicorn==20.0.4
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>基本使用方法:</li>
+</ul>
+</blockquote>
+<pre><code># 使用其启动Flask服务:
+gunicorn -w 1 -b 0.0.0.0:5000 app:app
+# -w 代表开启的进程数, 我们只开启一个进程
+# -b 服务的IP地址和端口
+# app:app 是指执行的主要对象位置, 在app.py中的app对象
+# 如果使其在后台运行可使用:
+# nohup gunicorn -w 1 -b 0.0.0.0:5001 app:app &amp;
+</code></pre>
+
+<hr />
+<ul>
+<li>Supervisor服务监控:</li>
+</ul>
+<blockquote>
+<ul>
+<li>简介: <ul>
+<li>Supervisor是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具。它可以很方便的监听、启动、停止、重启一个或多个进程, 并守护这些进程。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>作用: <ul>
+<li>在项目中, Supervisor用于监控和守护主要逻辑服务和redis数据库服务.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>安装:</li>
+</ul>
+</blockquote>
+<pre><code># 使用yum安装supervisor
+yum install supervisor -y
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>基本使用方法:</li>
+</ul>
+</blockquote>
+<pre><code># 编辑配置文件, 指明监控和守护的进程开启命令, 
+# 请查看/data/doctor_online/supervisord.conf文件
+# 开启supervisor, -c用于指定配置文件
+sueprvisord -c /data/doctor_online/main_server/supervisord.conf
+
+# 查看监控的进程状态:
+supervisorctl status
+
+# main_server                      RUNNING   pid 31609, uptime 0:32:20
+# redis                            RUNNING   pid 31613, uptime 0:32:18
+
+# 关闭supervisor
+supervisorctl shutdown 
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>还可以通过浏览器查看可视化监控页面: http://0.0.0.0:9001</li>
+</ul>
+</blockquote>
+<p><center><img style="margin: 0px 0px 0px 0px" src="../img/Supervisor.png"></center></p>
+<hr />
+<ul>
+<li>Neo4j图数据库:<ul>
+<li>因为在项目中, Neo4j图数据库作为核心的存储和查询数据库, 因此会在<a href="../3/">第三章: Neo4j图数据库</a>中对其进行详细的介绍.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>本章总结:</p>
+<ul>
+<li>学习了架构图分析:<ul>
+<li>整个项目分为: 在线部分和离线部分</li>
+<li>在线部分包括: werobot服务模块, 主要逻辑服务模块, 句子相关模型服务模块, 会话管理模块(redis), 图数据库模块以及规则对话/Unit模块.</li>
+<li>离线部分包括: 结构与非结构化数据采集模块, NER模型使用模块, 以及实体审核模型使用模块.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>学习了总体架构中使用的工具:<ul>
+<li>Flask web服务框架</li>
+<li>Redis数据库</li>
+<li>Gunicorn服务组件</li>
+<li>Supervisor服务监控器</li>
+<li>Neo4j图数据库 </li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Flask web服务框架:<ul>
+<li>作用: 在项目中, Flask框架是主逻辑服务和句子相关模型服务使用的服务框架.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Redis数据库:<ul>
+<li>作用: 在项目中, Redis用于会话管理数据库, 保存用户聊天历史.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Gunicorn服务组件:<ul>
+<li>作用: 在项目中, Gunicorn和Flask框架一同使用, 能够开启服务, 处理请求,因其高性能的特点能够有效减少服务丢包率.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Supervisor服务监控:<ul>
+<li>作用: 在项目中, Supervisor用于监控和守护主要逻辑服务和redis数据库服务.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3/" class="btn btn-neutral float-right" title="第三章:neo4j图数据库">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../1/" class="btn btn-neutral" title="第一章:背景介绍与Unit的使用"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>©Copyright 2019, itcast.cn.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../3/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

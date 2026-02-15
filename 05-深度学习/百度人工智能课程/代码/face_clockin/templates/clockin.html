@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../static/js/jquery-1.12.4.min.js"></script>
+    <title>打卡界面</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+<body>
+<div class="sys_title"></div>
+
+
+<div class="video_bg">
+    <video id="video" autoplay="autoplay" class="video_show"></video>
+</div>
+
+<div id="show_result" class="show_result">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<canvas id="canvas" width="640", height="480", hidden></canvas>
+
+<script type="text/javascript">
+    var video = document.getElementById("video");
+    var context = canvas.getContext("2d");
+    var errocb = function (code) {
+        alert(code);
+    };
+    if (navigator.getUserMedia) { // 标准的API
+        navigator.getUserMedia({"video": true}, function (stream) {
+            video.src = window.webkitURL.createObjectURL(stream);//stream;
+            video.play();
+        }, errocb);
+    } else if (navigator.webkitGetUserMedia) { // WebKit 核心的API
+        console.log(navigator.webkitGetUserMedia);
+        navigator.webkitGetUserMedia({"video": true}, function (stream) {
+            video.src = window.webkitURL.createObjectURL(stream);
+            video.play();
+        }, errocb);
+    }
+
+    function takePicture() {
+        var width = parseInt(video.videoWidth)
+        var height = parseInt(video.videoHeight)
+        context.drawImage(video, 0, 0, parseInt(width), parseInt(height));
+        var canvasEl = document.getElementById("canvas")
+        var imgData = canvasEl.toDataURL("image/png");
+
+        $.ajax({
+            url: "/clockin",
+            type: "post",
+            contentType: "application/json",
+            data: JSON.stringify({"img_data": imgData}),
+            success: function (resp) {
+                console.log(resp)
+                var content = ""
+                console.log(resp.errno)
+                if (resp.errno == 0) {
+                    // 识别成功
+                    content += "识别成功：" + JSON.stringify(resp.dict)
+                } else {
+                    // 识别失败
+                    content += "识别失败：" + resp.errmsg + "；错误码：" + resp.errno
+                }
+
+                var $div = $("#show_result")
+                // 发起请求
+                $div.append('<div>'+content+'</div>')
+                // 滚动到最底部
+                $div.scrollTop($div[0].scrollHeight)
+            }
+        })
+
+
+    }
+
+    setInterval(function () {
+        takePicture()
+    }, 1000)
+</script>
+
+</body>
+</html>

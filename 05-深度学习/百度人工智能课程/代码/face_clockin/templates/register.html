@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+
+<body>
+<div class="sys_title"></div>
+<div class="video_bg">
+    <video id="video" width="550" height="420" autoplay="autoplay" class="video_show"></video>
+    <img id="picture" style="width:550px;height:420px;display:none;margin-top:10px" class="video_show">
+    
+    <button id="tkpicture" onclick="takePicture(this)" class="tkpicture">拍照</button>
+    <button id="retkpicture" style="display: none;" onclick="reTackPicture()" class="tkpicture">重拍</button>
+
+</div>
+<canvas id="mycanvas" width="550" height="420" style="display:none;"></canvas>
+
+
+<form method="post" class="reg_form">
+    <div style="color: red;margin-bottom:5px;">{{ msg }}</div>
+    <div class="form_group">
+        <label>姓名：</label><input type="text" name="stu_name" class="input_txt">
+    </div>
+    <div class="form_group">
+        <label class="ml10">班级：</label><input type="text" name="stu_class" class="input_txt">
+    </div>
+    <div class="form_group">
+        <label>学号：</label><input type="text" name="stu_num"  class="input_txt">
+    </div>
+    <div class="form_group">
+    <label class="ml10">性别：</label><input type="radio" name="gender" value="MAN">男 <input type="radio" name="gender" value="WOMAN">女
+    </div>
+    <input id="img_data" name="img_data" type="hidden">   
+    <input type="submit" value="提交注册" class="btn_sub">
+</form>
+
+
+<script type="text/javascript">
+    var video = document.getElementById("video");
+    var canv = document.getElementById('mycanvas');
+    var context = canv.getContext("2d");
+    var errocb = function (code) {
+        alert(code);
+    };
+    if (navigator.getUserMedia) { // 标准的API
+        navigator.getUserMedia({"video": true}, function (stream) {
+            video.src = window.webkitURL.createObjectURL(stream);//stream;
+            video.play();
+        }, errocb);
+    } else if (navigator.webkitGetUserMedia) { // WebKit 核心的API
+
+        console.log(navigator.webkitGetUserMedia);
+        navigator.webkitGetUserMedia({"video": true}, function (stream) {
+            video.src = window.webkitURL.createObjectURL(stream);
+            video.play();
+        }, errocb);
+    }
+
+    function takePicture(obj) {
+        event.preventDefault()
+        var width = 550;
+        var height = 410;
+        context.drawImage(video, 0, 0, parseInt(width), parseInt(height));
+        var canvasEl = document.getElementById("mycanvas")
+        var imgData = canvasEl.toDataURL("image/png");
+        console.log(imgData)
+        var imgEl = document.getElementById("picture")
+        imgEl.setAttribute('src', imgData)
+        obj.style.display = 'none';
+
+        document.getElementById('video').style.display = 'none';
+        document.getElementById('picture').style.display = 'block';
+        document.getElementById('retkpicture').style.display = 'block';
+        document.getElementById('img_data').value= imgData
+    }
+
+
+    function reTackPicture() {
+        event.preventDefault()
+        document.getElementById('video').style.display = 'block';
+        document.getElementById('picture').style.display = 'none';
+        document.getElementById('tkpicture').style.display = 'block';
+        document.getElementById('retkpicture').style.display = 'none';
+    }
+
+</script>
+
+</body>
+</html>

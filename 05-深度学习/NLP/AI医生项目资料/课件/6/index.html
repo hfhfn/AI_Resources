@@ -1,0 +1,3081 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>第六章:命名实体识别任务 - DOCTOR</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7b2c\u516d\u7ae0:\u547d\u540d\u5b9e\u4f53\u8bc6\u522b\u4efb\u52a1";
+    var mkdocs_page_input_path = "6.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'mkdocs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DOCTOR</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../1/">第一章:背景介绍与Unit的使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2/">第二章:在线医生的总体架构与工具介绍</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3/">第三章:neo4j图数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4/">第四章:离线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5/">第五章:命名实体审核任务</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">第六章:命名实体识别任务</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#61">6.1 命名实体识别介绍</a></li>
+    
+
+    <li class="toctree-l2"><a href="#62-bilstm">6.2 BiLSTM介绍</a></li>
+    
+
+    <li class="toctree-l2"><a href="#63-crf">6.3 CRF介绍</a></li>
+    
+
+    <li class="toctree-l2"><a href="#64-bilstmcrf">6.4 BiLSTM+CRF模型</a></li>
+    
+
+    <li class="toctree-l2"><a href="#65">6.5 模型训练</a></li>
+    
+
+    <li class="toctree-l2"><a href="#66">6.6 模型使用</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7/">第七章:在线部分</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8/">第八章:句子主题相关任务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9/">第九章:系统联调与测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10/">附录:环境安装部署手册</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DOCTOR</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>第六章:命名实体识别任务</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="61">6.1 命名实体识别介绍</h2>
+<ul>
+<li>学习目标:<ul>
+<li>了解什么是命名实体识别</li>
+<li>了解命名实体识别的作用</li>
+<li>了解命名实体识别常用方法</li>
+<li>了解医学文本特征</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>什么是命名实体识别:</p>
+<ul>
+<li>命名实体识别(Named Entity Recognition，NER)就是从一段自然语言文本中找出相关实体，并标注出其位置以及类型。是信息提取, 问答系统, 句法分析, 机器翻译等应用领域的重要基础工具, 在自然语言处理技术走向实用化的过程中占有重要地位. 包含行业, 领域专有名词, 如人名, 地名, 公司名, 机构名, 日期, 时间, 疾病名, 症状名, 手术名称, 软件名称等。具体可参看如下示例图：</li>
+</ul>
+</li>
+</ul>
+<p><img alt="命名实体识别示例" src="../img/6_1_NER_demo_1.png" /></p>
+<p><img alt="命名实体识别示例" src="../img/6_1_NER_demo_2.png" /></p>
+<p><img alt="命名实体识别示例" src="../img/6_1_NER_demo_3.png" /></p>
+<hr />
+<ul>
+<li>命名实体识别的作用:<ul>
+<li>识别专有名词, 为文本结构化提供支持.</li>
+<li>主体识别, 辅助句法分析.</li>
+<li>实体关系抽取, 有利于知识推理.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>命名实体识别常用方法:</li>
+</ul>
+<blockquote>
+<ul>
+<li>基于规则: 针对有特殊上下文的实体, 或实体本身有很多特征的文本, 使用规则的方法简单且有效. 比如抽取文本中物品价格, 如果文本中所有商品价格都是“数字+元”的形式, 则可以通过正则表达式”\d*.?\d+元”进行抽取. 但如果待抽取文本中价格的表达方式多种多样, 例如“一千八百万”, “伍佰贰拾圆”, “2000万元”, 遇到这些情况就要修改规则来满足所有可能的情况. 随着语料数量的增加, 面对的情况也越来越复杂, 规则之间也可能发生冲突, 整个系统也可能变得不可维护. 因此基于规则的方式比较适合半结构化或比较规范的文本中的进行抽取任务, 结合业务需求能够达到一定的效果.<ul>
+<li>优点: 简单, 快速.</li>
+<li>缺点: 适用性差, 维护成本高后期甚至不能维护.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>
+<p>基于模型: 从模型的角度来看, 命名实体识别问题实际上是序列标注问题. 序列标注问题指的是模型的输入是一个序列, 包括文字, 时间等, 输出也是一个序列. 针对输入序列的每一个单元, 输出一个特定的标签. 以中文分词任务进行举例, 例如输入序列是一串文字: "我是中国人", 输出序列是一串标签: "OOBII", 其中"BIO"组成了一种中文分词的标签体系: B表示这个字是词的开始, I表示词的中间到结尾, O表示其他类型词. 因此我们可以根据输出序列"OOBII"进行解码, 得到分词结果"我\是\中国人". </p>
+<ul>
+<li>
+<p>序列标注问题涵盖了自然语言处理中的很多任务, 包括语音识别, 中文分词, 机器翻译, 命名实体识别等, 而常见的序列标注模型包括HMM, CRF, RNN, LSTM, GRU等模型. </p>
+</li>
+<li>
+<p>其中在命名实体识别技术上, 目前主流的技术是通过BiLSTM+CRF模型进行序列标注, 也是项目中要用到的模型.</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>
+<p>医学文本特征:
+    <img alt="命名实体识别示例" src="../img/6_1_NER_demo.png" /></p>
+<ul>
+<li>简短精炼</li>
+<li>形容词相对较少</li>
+<li>泛化性相对较小</li>
+<li>医学名词错字率比较高</li>
+<li>同义词、简称比较多</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>小节总结:<ul>
+<li>学习了什么是命名实体识别</li>
+<li>学习了命名实体识别的作用</li>
+<li>学习了命名实体识别常用方法</li>
+<li>学习了医学文本特征</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="62-bilstm">6.2 BiLSTM介绍</h2>
+<ul>
+<li>学习目标:<ul>
+<li>了解BiLSTM网络结构.</li>
+<li>掌握BiLSTM模型实现.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>BiLSTM网络结构:</p>
+<ul>
+<li>所谓的BiLSTM，就是(Bidirectional LSTM)双向LSTM. 单向的LSTM模型只能捕捉到从前向后传递的信息, 而双向的网络可以同时捕捉正向信息和反向信息, 使得对文本信息的利用更全面, 效果也更好.</li>
+<li>在BiLSTM网络最终的输出层后面增加了一个线性层, 用来将BiLSTM产生的隐藏层输出结果投射到具有某种表达标签特征意义的区间, 具体如下图所示：</li>
+</ul>
+<p><img alt="模型结构图" src="../img/bilstm.jpg" /></p>
+</li>
+</ul>
+<hr />
+<ul>
+<li>BiLSTM模型实现:<ul>
+<li>第一步: 实现类的初始化和网络结构的搭建.</li>
+<li>第二步: 实现文本向量化的函数.</li>
+<li>第三步: 实现网络的前向计算.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 实现类的初始化和网络结构的搭建.</li>
+</ul>
+<pre><code># 本段代码构建类BiLSTM, 完成初始化和网络结构的搭建
+# 总共3层: 词嵌入层, 双向LSTM层, 全连接线性层
+import torch
+import torch.nn as nn
+
+
+class BiLSTM(nn.Module):
+    &quot;&quot;&quot;
+    description: BiLSTM 模型定义
+    &quot;&quot;&quot;
+    def __init__(self, vocab_size, tag_to_id, input_feature_size, hidden_size,
+                 batch_size, sentence_length, num_layers=1, batch_first=True):
+        &quot;&quot;&quot;
+        description: 模型初始化
+        :param vocab_size:          所有句子包含字符大小
+        :param tag_to_id:           标签与 id 对照
+        :param input_feature_size:  字嵌入维度( 即LSTM输入层维度 input_size )
+        :param hidden_size:         隐藏层向量维度
+        :param batch_size:          批训练大小
+        :param sentence_length      句子长度
+        :param num_layers:          堆叠 LSTM 层数
+        :param batch_first:         是否将batch_size放置到矩阵的第一维度
+        &quot;&quot;&quot;
+        # 类继承初始化函数
+        super(BiLSTM, self).__init__()
+        # 设置标签与id对照
+        self.tag_to_id = tag_to_id
+        # 设置标签大小, 对应BiLSTM最终输出分数矩阵宽度
+        self.tag_size = len(tag_to_id)
+        # 设定LSTM输入特征大小, 对应词嵌入的维度大小
+        self.embedding_size = input_feature_size
+        # 设置隐藏层维度, 若为双向时想要得到同样大小的向量, 需要除以2
+        self.hidden_size = hidden_size // 2
+        # 设置批次大小, 对应每个批次的样本条数, 可以理解为输入张量的第一个维度
+        self.batch_size = batch_size
+        # 设定句子长度
+        self.sentence_length = sentence_length
+        # 设定是否将batch_size放置到矩阵的第一维度, 取值True, 或False
+        self.batch_first = batch_first
+        # 设置网络的LSTM层数
+        self.num_layers = num_layers
+
+        # 构建词嵌入层: 字向量, 维度为总单词数量与词嵌入维度
+        # 参数: 总体字库的单词数量, 每个字被嵌入的维度
+        self.embedding = nn.Embedding(vocab_size, self.embedding_size)
+
+        # 构建双向LSTM层: BiLSTM (参数: input_size      字向量维度(即输入层大小),
+        #                               hidden_size     隐藏层维度,
+        #                               num_layers      层数,
+        #                               bidirectional   是否为双向,
+        #                               batch_first     是否批次大小在第一位)
+        self.bilstm = nn.LSTM(input_size=input_feature_size,
+                              hidden_size=self.hidden_size,
+                              num_layers=num_layers,
+                              bidirectional=True,
+                              batch_first=batch_first)
+
+        # 构建全连接线性层: 将BiLSTM的输出层进行线性变换
+        self.linear = nn.Linear(hidden_size, self.tag_size)
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 参数1:码表与id对照
+char_to_id = {&quot;双&quot;: 0, &quot;肺&quot;: 1, &quot;见&quot;: 2, &quot;多&quot;: 3, &quot;发&quot;: 4, &quot;斑&quot;: 5, &quot;片&quot;: 6,
+              &quot;状&quot;: 7, &quot;稍&quot;: 8, &quot;高&quot;: 9, &quot;密&quot;: 10, &quot;度&quot;: 11, &quot;影&quot;: 12, &quot;。&quot;: 13}
+
+# 参数2:标签码表对照
+tag_to_id = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4}
+
+# 参数3:字向量维度
+EMBEDDING_DIM = 200
+
+# 参数4:隐层维度
+HIDDEN_DIM = 100
+
+# 参数5:批次大小
+BATCH_SIZE = 8
+
+# 参数6:句子长度
+SENTENCE_LENGTH = 20
+
+# 参数7:堆叠 LSTM 层数
+NUM_LAYERS = 1
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code># 初始化模型
+model = BiLSTM(vocab_size=len(char_to_id),
+               tag_to_id=tag_to_id,
+               input_feature_size=EMBEDDING_DIM,
+               hidden_size=HIDDEN_DIM,
+               batch_size=BATCH_SIZE,
+               sentence_length=SENTENCE_LENGTH,
+               num_layers=NUM_LAYERS)
+print(model)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>BiLSTM(
+  (embedding): Embedding(14, 200)
+  (bilstm): LSTM(200, 50, batch_first=True, bidirectional=True)
+  (linear): Linear(in_features=100, out_features=5, bias=True)
+)
+</code></pre>
+
+<hr />
+<ul>
+<li>第二步:实现文本向量化的函数.</li>
+</ul>
+<pre><code># 本函数实现将中文文本映射为数字化的张量
+def sentence_map(sentence_list, char_to_id, max_length):
+    &quot;&quot;&quot;
+    description: 将句子中的每一个字符映射到码表中
+    :param sentence: 待映射句子, 类型为字符串或列表
+    :param char_to_id: 码表, 类型为字典, 格式为{&quot;字1&quot;: 1, &quot;字2&quot;: 2}
+    :return: 每一个字对应的编码, 类型为tensor
+    &quot;&quot;&quot;
+    # 字符串按照逆序进行排序, 不是必须操作
+    sentence_list.sort(key=lambda c:len(c), reverse=True)
+    # 定义句子映射列表
+    sentence_map_list = []
+    for sentence in sentence_list:
+        # 生成句子中每个字对应的 id 列表
+        sentence_id_list = [char_to_id[c] for c in sentence]
+        # 计算所要填充 0 的长度
+        padding_list = [0] * (max_length-len(sentence))
+        # 组合
+        sentence_id_list.extend(padding_list)
+        # 将填充后的列表加入句子映射总表中
+        sentence_map_list.append(sentence_id_list)
+    # 返回句子映射集合, 转为标量
+    return torch.tensor(sentence_map_list, dtype=torch.long)
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 参数1:句子集合
+sentence_list = [
+    &quot;确诊弥漫大b细胞淋巴瘤1年&quot;,
+    &quot;反复咳嗽、咳痰40年,再发伴气促5天。&quot;,
+    &quot;生长发育迟缓9年。&quot;,
+    &quot;右侧小细胞肺癌第三次化疗入院&quot;,
+    &quot;反复气促、心悸10年,加重伴胸痛3天。&quot;,
+    &quot;反复胸闷、心悸、气促2多月,加重3天&quot;,
+    &quot;咳嗽、胸闷1月余, 加重1周&quot;,
+    &quot;右上肢无力3年, 加重伴肌肉萎缩半年&quot;]
+
+# 参数2:码表与id对照
+char_to_id = {&quot;&lt;PAD&gt;&quot;:0}
+
+# 参数3:句子长度
+SENTENCE_LENGTH = 20
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    for sentence in sentence_list:
+        # 获取句子中的每一个字
+        for _char in sentence:
+            # 判断是否在码表 id 对照字典中存在
+            if _char not in char_to_id:
+                # 加入字符id对照字典
+                char_to_id[_char] = len(char_to_id)
+
+    # 将句子转为 id 并用 tensor 包装
+    sentences_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+    print(&quot;sentences_sequence:\n&quot;, sentences_sequence)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>sentences_sequence:
+tensor([[14, 15, 16, 17, 18, 16, 19, 20, 21, 13, 22, 23, 24, 25, 26, 27, 28, 29, 30,  0],
+        [14, 15, 26, 27, 18, 49, 50, 12, 21, 13, 22, 51, 52, 25, 53, 54, 55, 29, 30,  0],
+        [14, 15, 53, 56, 18, 49, 50, 18, 26, 27, 57, 58, 59, 22, 51, 52, 55, 29, 0,  0],
+        [37, 63, 64, 65, 66, 55, 13, 22, 61, 51, 52, 25, 67, 68, 69, 70, 71, 13, 0,  0],
+        [37, 38, 39,  7,  8, 40, 41, 42, 43, 44, 45, 46, 47, 48,  0,  0,  0,  0, 0,  0],
+        [16, 17, 18, 53, 56, 12, 59, 60, 22, 61, 51, 52, 12, 62,  0,  0,  0,  0, 0,  0],
+        [ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13,  0,  0,  0,  0,  0, 0,  0],
+        [31, 32, 24, 33, 34, 35, 36, 13, 30,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,  0]])
+</code></pre>
+
+<hr />
+<ul>
+<li>第三步: 实现网络的前向计算.</li>
+</ul>
+<pre><code># 本函数实现类BiLSTM中的前向计算函数forward()
+def forward(self, sentences_sequence):
+    &quot;&quot;&quot;
+    description: 将句子利用BiLSTM进行特征计算，分别经过Embedding-&gt;BiLSTM-&gt;Linear，
+                 获得发射矩阵（emission scores）
+    :param sentences_sequence: 句子序列对应的编码，
+                               若设定 batch_first 为 True，
+                               则批量输入的 sequence 的 shape 为(batch_size, sequence_length)
+    :return:    返回当前句子特征，转化为 tag_size 的维度的特征
+    &quot;&quot;&quot;
+    # 初始化隐藏状态值
+    h0 = torch.randn(self.num_layers * 2, self.batch_size, self.hidden_size)
+    # 初始化单元状态值
+    c0 = torch.randn(self.num_layers * 2, self.batch_size, self.hidden_size)
+    # 生成字向量， shape 为(batch, sequence_length, input_feature_size)
+    # 注：embedding cuda 优化仅支持 SGD 、 SparseAdam
+    input_features = self.embedding(sentences_sequence)
+
+    # 将字向量与初始值(隐藏状态 h0 , 单元状态 c0 )传入 LSTM 结构中
+    # 输出包含如下内容：
+    # 1, 计算的输出特征，shape 为(batch, sentence_length, hidden_size)
+    #    顺序为设定 batch_first 为 True 情况, 若未设定则 batch 在第二位
+    # 2, 最后得到的隐藏状态 hn ， shape 为(num_layers * num_directions, batch, hidden_size)
+    # 3, 最后得到的单元状态 cn ， shape 为(num_layers * num_directions, batch, hidden_size)
+    output, (hn, cn) = self.bilstm(input_features, (h0, c0))
+    # 将输出特征进行线性变换，转为 shape 为 (batch, sequence_length, tag_size) 大小的特征
+    sequence_features = self.linear(output)
+    # 输出线性变换为 tag 映射长度的特征
+    return sequence_features
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 参数1:标签码表对照
+tag_to_id = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4}
+
+# 参数2:字向量维度
+EMBEDDING_DIM = 200
+
+# 参数3:隐层维度
+HIDDEN_DIM = 100
+
+# 参数4:批次大小
+BATCH_SIZE = 8
+
+# 参数5:句子长度
+SENTENCE_LENGTH = 20
+
+# 参数6:堆叠 LSTM 层数
+NUM_LAYERS = 1
+
+char_to_id = {&quot;&lt;PAD&gt;&quot;:0}
+SENTENCE_LENGTH = 20
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    for sentence in sentence_list:
+        for _char in sentence:
+            if _char not in char_to_id:
+                char_to_id[_char] = len(char_to_id)
+    sentence_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+
+    model = BiLSTM(vocab_size=len(char_to_id), tag_to_id=tag_to_id, input_feature_size=EMBEDDING_DIM, \
+    hidden_size=HIDDEN_DIM, batch_size=BATCH_SIZE, sentence_length=SENTENCE_LENGTH, num_layers=NUM_LAYERS)
+
+    sentence_features = model(sentence_sequence)
+    print(&quot;sequence_features:\n&quot;, sentence_features)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>sequence_features:
+tensor([[[ 4.0880e-02, -5.8926e-02, -9.3971e-02,  8.4794e-03, -2.9872e-01],
+         [ 2.9434e-02, -2.5901e-01, -2.0811e-01,  1.3794e-02, -1.8743e-01],
+         [-2.7899e-02, -3.4636e-01,  1.3382e-02,  2.2684e-02, -1.2067e-01],
+         [-1.9069e-01, -2.6668e-01, -5.7182e-02,  2.1566e-01,  1.1443e-01],
+                                        ...
+         [-1.6844e-01, -4.0699e-02,  2.6328e-02,  1.3513e-01, -2.4445e-01],
+         [-7.3070e-02,  1.2032e-01,  2.2346e-01,  1.8993e-01,  8.3171e-02],
+         [-1.6808e-01,  2.1454e-02,  3.2424e-01,  8.0905e-03, -1.5961e-01],
+         [-1.9504e-01, -4.9296e-02,  1.7219e-01,  8.9345e-02, -1.4214e-01]],
+        ...
+        [[-3.4836e-03,  2.6217e-01,  1.9355e-01,  1.8084e-01, -1.6086e-01],
+         [-9.1231e-02, -8.4838e-04,  1.0575e-01,  2.2864e-01,  1.6104e-02],
+         [-8.7726e-02, -7.6956e-02, -7.0301e-02,  1.7199e-01, -6.5375e-02],
+         [-5.9306e-02, -5.4701e-02, -9.3267e-02,  3.2478e-01, -4.0474e-02],
+         [-1.1326e-01,  4.8365e-02, -1.7994e-01,  8.1722e-02,  1.8604e-01],
+                                        ...
+         [-5.8271e-02, -6.5781e-02,  9.9232e-02,  4.8524e-02, -8.2799e-02],
+         [-6.8400e-02, -9.1515e-02,  1.1352e-01,  1.0674e-02, -8.2739e-02],
+         [-9.1461e-02, -1.2304e-01,  1.2540e-01, -4.2065e-02, -8.3091e-02],
+         [-1.5834e-01, -8.7316e-02,  7.0567e-02, -8.8845e-02, -7.0867e-02]],
+
+        [[-1.4069e-01,  4.9171e-02,  1.4314e-01, -1.5284e-02, -1.4395e-01],
+         [ 6.5296e-02,  9.3255e-03, -2.8411e-02,  1.5143e-01,  7.8252e-02],
+         [ 4.1765e-03, -1.4635e-01, -4.9798e-02,  2.7597e-01, -1.0256e-01],
+         ...
+         [-3.9810e-02, -7.6746e-03,  1.2418e-01,  4.9897e-02, -8.4538e-02],
+         [-3.4474e-02, -1.0586e-02,  1.3861e-01,  4.0395e-02, -8.3676e-02],
+         [-3.4092e-02, -2.3208e-02,  1.6097e-01,  2.3498e-02, -8.3332e-02],
+         [-4.6900e-02, -5.0335e-02,  1.8982e-01,  3.6287e-03, -7.8078e-02],
+         [-6.4105e-02, -4.2628e-02,  1.8999e-01, -2.9888e-02, -1.1875e-01]]],
+       grad_fn=&lt;AddBackward0&gt;)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出结果说明: 该输出结果为输入批次中句子的特征, 利用线性变换分别对应到每个tag的得分. 例如上述标量第一个值：<code>[ 4.0880e-02, -5.8926e-02, -9.3971e-02,  8.4794e-03, -2.9872e-01]</code>表示的意思为第一个句子第一个字分别被标记为["O", "B-dis", "I-dis", "B-sym", "I-sym"]的分数, 由此可以判断, 在这个例子中, 第一个字被标注为"O"的分数最高.</li>
+</ul>
+<hr />
+<ul>
+<li>小节总结:<ul>
+<li>了解了BiLSTM网络结构<ul>
+<li>设置隐藏层维度的时候, 需要将hidden_size // 2</li>
+<li>总共有3层需要构建, 分别是词嵌入层, 双向LSTM层, 全连接线性层</li>
+<li>在代码层面, 双向LSTM就是将nn.LSTM()中的参数bidirectional设置为True</li>
+</ul>
+</li>
+<li>掌握了BiLSTM网络的代码实现<ul>
+<li>构建类BiLSTM的初始化函数</li>
+<li>添加文本向量化的辅助函数, 注意padding填充为相同长度的Tensor</li>
+<li>要注意forward函数中不同张量的形状约定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="63-crf">6.3 CRF介绍</h2>
+<ul>
+<li>学习目标:<ul>
+<li>了解CRF的概念和作用</li>
+<li>了解转移概率矩阵</li>
+<li>了解发射概率矩阵</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>CRF的概念和作用:</p>
+<ul>
+<li>
+<p>CRF(全称Conditional Random Fields), 条件随机场. 是给定输入序列的条件下, 求解输出序列的条件概率分布模型.</p>
+</li>
+<li>
+<p>下面举两个应用场景的例子:</p>
+<ul>
+<li>
+<p>场景一: 假设有一堆日常生活的给小朋友排拍的视频片段, 可能的状态有睡觉、吃饭、喝水、洗澡、刷牙、玩耍等, 大部分情况, 我们是能够识别出视频片段的状态. 但如果你只是看到一小段拿杯子的视频, 在没有前后相连的视频作为前后文参照的情况下, 我们很难知道拿杯子是要刷牙还是喝水. 这时, 可以用到CRF模型.</p>
+</li>
+<li>
+<p>场景二: 假设有分好词的句子, 我们要判断每个词的词性, 那么对于一些词来说, 如果我们不知道相邻词的词性的情况下, 是很难准确判断每个词的词性的. 这时, 我们也可以用到CRF.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>基本定义: 我们将随机变量的集合称为随机过程. 由一个空间变量索引的随机过程, 我们将其称为随机场. 上面的例子中, 做词性标注时, 可以将{名词、动词、形容词、副词}这些词性定义为随机变量, 然后从中选择相应的词性, 而这组随机变量在某种程度上遵循某种概率分布, 将这些词性按照对应的概率赋值给相应的词, 就完成了句子的词性标注.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>关于条件随机场与马尔科夫假设:</p>
+<ul>
+<li>前面课程我们介绍过马尔科夫假设, 也就是当前位置的取值只和与它相邻的位置的值有关, 和它不相邻的位置的值无关.</li>
+<li>应用到我们上面的词性标注例子中, 可以理解为当前词的词性是根据前一个词和后一个词的词性来决定的, 等效于从词性前后文的概率来给出当前词的词性判断结果.</li>
+<li>现实中可以做如下假设: 假设一个动词或者副词后面不会连接同样的动词或者副词, 这样的概率很高. 那么, 可以假定这种给定隐藏状态(也就是词性序列)的情况下, 来计算观测状态的计算过程. 本质上CRF模型考虑到了观测状态这个先验条件, 这也是条件随机场中的条件一词的含义.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>转移概率矩阵:</li>
+</ul>
+<blockquote>
+<ul>
+<li>首先假设我们需要标注的实体类型有一下几类：</li>
+</ul>
+</blockquote>
+<pre><code>{&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4}
+
+# 其中dis表示疾病(disease), sym表示症状(symptom), B表示命名实体开头, I表示命名实体中间到结尾, O表示其他类型.
+</code></pre>
+
+<hr />
+<blockquote>
+<ul>
+<li>因此我们很容易知道每个字的可能标注类型有以上五种可能性, 那么在一个句子中, 由上一个字到下一个字的概率乘积就有5 × 5种可能性, 具体见下图所示:</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/transition.jpg" /></center></p>
+<blockquote>
+<ul>
+<li>最终训练出来结果大致会如上图所示, 其中下标索引为(i, j)的方格代表如果当前字符是第i行表示的标签, 那么下一个字符表示第j列表示的标签所对应的概率值. 以第二行为例, 假设当前第i个字的标签为B-dis, 那么第i+1个字最大可能出现的概率应该是I-dis.</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>发射概率矩阵:</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>发射概率, 是指已知当前标签的情况下, 对应所出现字符的概率. 通俗理解就是当前标签比较可能出现的文字有哪些, 及其对应出现的概率.</p>
+</li>
+<li>
+<p>下面是几段医疗文本数据的标注结果:</p>
+</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/ner_demo01.png" /></center></p>
+<p><center><img alt="" src="../img/ner_demo02.png" /></center></p>
+<p><center><img alt="" src="../img/ner_demo03.png" /></center></p>
+<p><center><img alt="" src="../img/ner_demo04.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>可以得到以上句子的转移矩阵概率如下：</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/transition_matrix.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>对应的发射矩阵可以理解为如下图所示结果：</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/emission_matrix.png" /></center>   </p>
+<hr />
+<ul>
+<li>小节总结:<ul>
+<li>学习了CRF的概念和作用<ul>
+<li>概念: 条件随机场, 一种条件概率分布模型</li>
+<li>作用: 增加了先验条件, 可以更好的完成实体序列的识别</li>
+</ul>
+</li>
+<li>学习了转移概率矩阵</li>
+<li>学习了发射概率矩阵</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="64-bilstmcrf">6.4 BiLSTM+CRF模型</h2>
+<ul>
+<li>学习目标:<ul>
+<li>掌握BiLSTM+CRF模型结构</li>
+<li>掌握损失函数的定义</li>
+<li>掌握BiLSTM_CRF模型的实现</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>BiLSTM+CRF模型结构:<ul>
+<li>1, 模型的标签定义与整体架构</li>
+<li>2, 模型内部的分层展开</li>
+<li>3, CRF层的作用</li>
+</ul>
+</li>
+</ul>
+<hr />
+<blockquote>
+<ul>
+<li>1, 模型的标签定义与整体架构: 假设我们的数据集中有两类实体-人名, 地名, 与之对应的在训练集中有5类标签如下所示:</li>
+</ul>
+</blockquote>
+<pre><code>B-Person, I-Person, B-Organization, I-Organization, O
+
+# B-Person: 人名的开始
+# I-Person: 人名的中间部分
+# B-Organization: 地名的开始
+# I-Organization: 地名的中间部分
+# O: 其他非人名, 非地名的标签
+</code></pre>
+
+<blockquote>
+<ul>
+<li>
+<p>假设一个句子有5个单词构成, (w0, w1, w2, w3, w4), 每一个单元都代表着由字嵌入构成的向量.
+其中字嵌入是随机初始化的, 词嵌入是通过数据训练得到的, 所有的嵌入在训练过程中都会调整到最优解.</p>
+</li>
+<li>
+<p>这些字嵌入或词嵌入作为BiLSTM+CRF模型的输入, 而输出的是句子中每个单元的标签.</p>
+</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/32.jpeg" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>2, 模型内部的分层展开: 整个模型明显有两层, 第一层是BiLSTM层, 第二层是CRF层, 将层的内部展开如下图所示:</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/33.jpeg" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>BiLSTM层的输出为每一个标签的预测分值, 例如对于单词w0, BiLSTM层输出是</li>
+</ul>
+</blockquote>
+<pre><code>1.5 (B-Person), 0.9 (I-Person), 0.1 (B-Organization), 0.08 (I-Organization), 0.05 (O)
+</code></pre>
+
+<blockquote>
+<ul>
+<li>这些分值将作为CRF层的输入.</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>3, CRF层的作用: 如果没有CRF层, 也可以训练一个BiLSTM命名实体识别模型, 如下图所示:</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/34.jpeg" /></center></p>
+<blockquote>
+<ul>
+<li>由于BiLSTM的输出为单元的每一个标签分值, 我们可以挑选分值最高的一个作为该单元的标签.例如, 对于单词w0, "B-Person"的分值-1.5是所有标签得分中最高的, 因此可以挑选"B-Person"作为单词w0的预测标签. 同理, 可以得到w1 - "I-Person", w2 - "O", w3 - "B-Organization", w4 - "O"</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li>虽然按照上述方法, 在没有CRF层的条件下我们也可以得到x中每个单元的预测标签, 但是不能保证标签的预测每次都是正确的. 如果出现下图的BiLSTM层输出结果, 则明显预测是错误的.</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/35.jpeg" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>
+<p>CRF层能从训练数据中获得约束性的规则.</p>
+</li>
+<li>
+<p>CRF层可以为最后预测的标签添加一些约束来保证预测的标签是合法的. 在训练数据训练的过程中, 这些约束可以通过CRF层自动学习到.</p>
+</li>
+</ul>
+</blockquote>
+<pre><code>1: 句子中的第一个词总是以标签&quot;B-&quot;或者&quot;O&quot;开始, 而不是&quot;I-&quot;开始.
+2: 标签&quot;B-label1 I-label2 I-label3 ......&quot;, 其中的label1, label2, label3应该属于同一类实体. 
+比如, &quot;B-Person I-Person&quot;是合法的序列, 但是&quot;B-Person I-Organization&quot;是非法的序列.
+3: 标签序列&quot;O I-label&quot;是非法序列, 任意实体标签的首个标签应该是&quot;B-&quot;, 而不是&quot;I-&quot;.
+比如, &quot;O B-label&quot;才是合法的序列
+</code></pre>
+
+<blockquote>
+<ul>
+<li>有了上述这些约束, 标签序列的预测中非法序列出现的概率将会大大降低.</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>
+<p>损失函数的定义:</p>
+<ul>
+<li>
+<p>BiLSTM层的输出维度是tag_size, 也就是每个单词w_i映射到tag的发射概率值, 假设BiLSTM的输出矩阵是P, 其中P(i,j)代表单词w_i映射到tag_j的非归一化概率. 对于CRF层, 假设存在一个转移矩阵A, 其中A(i,j)代表tag_j转移到tag_i的概率.</p>
+</li>
+<li>
+<p>对于输入序列X对应的输出tag序列y, 定义分数如下(本质上就是发射概率和转移概率的累加和):</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><center><img alt="avatar" src="../img/36.jpeg" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>利用softmax函数, 为每一个正确的tag序列y定义一个概率值, 在真实的训练中, 只需要最大化似然概率p(y|X)即可, 具体使用对数似然如下:</li>
+</ul>
+</blockquote>
+<p><center><img alt="avatar" src="../img/37.jpeg" /></center></p>
+<hr />
+<ul>
+<li>BiLSTM+CRF模型的实现:<ul>
+<li>第一步: 构建神经网络</li>
+<li>第二步: 文本信息张量化</li>
+<li>第三步: 计算损失函数第一项的分值</li>
+<li>第四步: 计算损失函数第二项的分值</li>
+<li>第五步: 维特比算法的实现</li>
+<li>第六步: 完善BiLSTM_CRF类的全部功能</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 构建神经网络</li>
+</ul>
+<hr />
+<pre><code># 导入相关包与模块
+import torch
+import torch.nn as nn
+
+class BiLSTM_CRF(nn.Module):
+    def __init__(self, vocab_size, tag_to_ix, embedding_dim, hidden_dim, 
+                       num_layers, batch_size, sequence_length):
+        '''
+        description: 模型初始化
+        :param vocab_size:          所有句子包含字符大小
+        :param tag_to_ix:           标签与id对照字典
+        :param embedding_dim:       字嵌入维度(即LSTM输入层维度input_size)
+        :param hidden_dim:          隐藏层向量维度
+        :param num_layers:          神经网络的层数
+        :param batch_size:          批次的数量
+        :param sequence_length:     语句的限制最大长度
+        '''
+        # 继承函数的初始化
+        super(BiLSTM_CRF, self).__init__()
+        # 设置标签与id对照
+        self.tag_to_ix = tag_to_ix
+        # 设置标签大小，对应 BiLSTM 最终输出分数矩阵宽度
+        self.tagset_size = len(tag_to_ix)
+        # 设定 LSTM 输入特征大小
+        self.embedding_dim = embedding_dim
+        # 设置隐藏层维度
+        self.hidden_dim = hidden_dim
+        # 设置单词总数的大小
+        self.vocab_size = vocab_size
+        # 设置隐藏层的数量
+        self.num_layers = num_layers
+        # 设置语句的最大限制长度
+        self.sequence_length = sequence_length
+        # 设置批次的大小
+        self.batch_size = batch_size
+
+        # 构建词嵌入层, 两个参数分别是单词总数, 词嵌入维度
+        self.word_embeds = nn.Embedding(vocab_size, embedding_dim)
+
+        # 构建双向LSTM层, 输入参数包括词嵌入维度, 隐藏层大小, 堆叠的LSTM层数, 是否双向标志位
+        self.lstm = nn.LSTM(embedding_dim, hidden_dim // 2, num_layers=self.num_layers, bidirectional=True)
+
+        # 构建全连接线性层, 一端对接LSTM隐藏层, 另一端对接输出层, 相应的维度就是标签数量tagset_size
+        self.hidden2tag = nn.Linear(hidden_dim, self.tagset_size)
+
+        # 初始化转移矩阵, 转移矩阵是一个方阵[tagset_size, tagset_size]
+        self.transitions = nn.Parameter(torch.randn(self.tagset_size, self.tagset_size))
+
+        # 按照损失函数小节的定义, 任意的合法句子不会转移到&quot;START_TAG&quot;, 因此设置为-10000
+        # 同理, 任意合法的句子不会从&quot;STOP_TAG&quot;继续向下转移, 也设置为-10000
+        self.transitions.data[tag_to_ix[START_TAG], :] = -10000
+        self.transitions.data[:, tag_to_ix[STOP_TAG]] = -10000
+
+        # 初始化隐藏层, 利用单独的类函数init_hidden()来完成
+        self.hidden = self.init_hidden()
+
+    # 定义类内部专门用于初始化隐藏层的函数
+    def init_hidden(self):
+        # 为了符合LSTM的输入要求, 我们返回h0, c0, 这两个张量的shape完全一致
+        # 需要注意的是shape: [2 * num_layers, batch_size, hidden_dim / 2]
+        return (torch.randn(2 * self.num_layers, self.batch_size, self.hidden_dim // 2), 
+                 torch.randn(2 * self.num_layers, self.batch_size, self.hidden_dim // 2))
+
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm_crf.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 开始字符和结束字符
+START_TAG = &quot;&lt;START&gt;&quot;
+STOP_TAG = &quot;&lt;STOP&gt;&quot;
+# 标签和序号的对应码表
+tag_to_ix = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, START_TAG: 5, STOP_TAG: 6}
+# 词嵌入的维度
+EMBEDDING_DIM = 200
+# 隐藏层神经元的数量
+HIDDEN_DIM = 100
+# 批次的大小
+BATCH_SIZE = 8
+# 设置最大语句限制长度
+SENTENCE_LENGTH = 20
+# 默认神经网络的层数
+NUM_LAYERS = 1
+# 初始化的字符和序号的对应码表
+char_to_id = {&quot;双&quot;: 0, &quot;肺&quot;: 1, &quot;见&quot;: 2, &quot;多&quot;: 3, &quot;发&quot;: 4, &quot;斑&quot;: 5, &quot;片&quot;: 6,
+              &quot;状&quot;: 7, &quot;稍&quot;: 8, &quot;高&quot;: 9, &quot;密&quot;: 10, &quot;度&quot;: 11, &quot;影&quot;: 12, &quot;。&quot;: 13}
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>model = BiLSTM_CRF(vocab_size=len(char_to_id),
+                   tag_to_ix=tag_to_ix,
+                   embedding_dim=EMBEDDING_DIM,
+                   hidden_dim=HIDDEN_DIM,
+                   num_layers=NUM_LAYERS,
+                   batch_size=BATCH_SIZE,
+                   sequence_length=SENTENCE_LENGTH)
+
+print(model)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>BiLSTM(
+  (word_embeds): Embedding(14, 200)
+  (lstm): LSTM(200, 50, bidirectional=True)
+  (hidden2tag): Linear(in_features=100, out_features=7, bias=True)
+)
+</code></pre>
+
+<hr />
+<ul>
+<li>第二步: 文本信息张量化</li>
+</ul>
+<pre><code># 函数sentence_map完成中文文本信息的数字编码, 变成张量
+def sentence_map(sentence_list, char_to_id, max_length):
+    # 对一个批次的所有语句按照长短进行排序, 此步骤非必须
+    sentence_list.sort(key=lambda c:len(c), reverse=True)
+    # 定义一个最终存储结果特征向量的空列表
+    sentence_map_list = []
+    # 循环遍历一个批次内的所有语句
+    for sentence in sentence_list:
+        # 采用列表生成式完成字符到id的映射
+        sentence_id_list = [char_to_id[c] for c in sentence]
+        # 长度不够的部分用0填充
+        padding_list = [0] * (max_length-len(sentence))
+        # 将每一个语句向量扩充成相同长度的向量
+        sentence_id_list.extend(padding_list)
+        # 追加进最终存储结果的列表中
+        sentence_map_list.append(sentence_id_list)
+    # 返回一个标量类型值的张量
+    return torch.tensor(sentence_map_list, dtype=torch.long)
+
+
+# 在类中将文本信息经过词嵌入层, BiLSTM层, 线性层的处理, 最终输出句子张量
+def _get_lstm_features(self, sentence):
+    self.hidden = self.init_hidden()
+    # a = self.word_embeds(sentence)
+    # print(a.shape)  torch.Size([8, 20, 200])
+    # LSTM的输入要求形状为 [sequence_length, batch_size, embedding_dim]
+    # LSTM的隐藏层h0要求形状为 [num_layers * direction, batch_size, hidden_dim]
+    embeds = self.word_embeds(sentence).view(self.sequence_length, self.batch_size, -1)
+
+    # LSTM的两个输入参数: 词嵌入后的张量, 随机初始化的隐藏层张量
+    lstm_out, self.hidden = self.lstm(embeds, self.hidden)
+
+    # 要保证输出张量的shape: [sequence_length, batch_size, hidden_dim]
+    lstm_out = lstm_out.view(self.sequence_length, self.batch_size, self.hidden_dim)
+
+    # 将BiLSTM的输出经过一个全连接层, 得到输出张量shape:[sequence_length, batch_size, tagset_size]
+    lstm_feats = self.hidden2tag(lstm_out)
+    return lstm_feats
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm_crf.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code>START_TAG = &quot;&lt;START&gt;&quot;
+STOP_TAG = &quot;&lt;STOP&gt;&quot;
+# 标签和序号的对应码表
+tag_to_ix = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, START_TAG: 5, STOP_TAG: 6}
+# 词嵌入的维度
+EMBEDDING_DIM = 200
+# 隐藏层神经元的数量
+HIDDEN_DIM = 100
+# 批次的大小
+BATCH_SIZE = 8
+# 设置最大语句限制长度
+SENTENCE_LENGTH = 20
+# 默认神经网络的层数
+NUM_LAYERS = 1
+# 初始化的示例语句, 共8行, 可以理解为当前批次batch_size=8
+sentence_list = [
+    &quot;确诊弥漫大b细胞淋巴瘤1年&quot;,
+    &quot;反复咳嗽、咳痰40年,再发伴气促5天。&quot;,
+    &quot;生长发育迟缓9年。&quot;,
+    &quot;右侧小细胞肺癌第三次化疗入院&quot;,
+    &quot;反复气促、心悸10年,加重伴胸痛3天。&quot;,
+    &quot;反复胸闷、心悸、气促2多月,加重3天&quot;,
+    &quot;咳嗽、胸闷1月余, 加重1周&quot;,
+    &quot;右上肢无力3年, 加重伴肌肉萎缩半年&quot;
+]
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>char_to_id = {&quot;&lt;PAD&gt;&quot;:0}
+
+if __name__ == '__main__':
+    for sentence in sentence_list:
+        for _char in sentence:
+            if _char not in char_to_id:
+                char_to_id[_char] = len(char_to_id)
+    sentence_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+    print(&quot;sentence_sequence:\n&quot;, sentence_sequence)
+    model = BiLSTM_CRF(vocab_size=len(char_to_id), tag_to_ix=tag_to_ix, embedding_dim=EMBEDDING_DIM, \
+                       hidden_dim=HIDDEN_DIM, num_layers=NUM_LAYERS, batch_size=BATCH_SIZE, \
+                       sequence_length=SENTENCE_LENGTH)
+
+    sentence_features = model._get_lstm_features(sentence_sequence)
+    print(&quot;sequence_features:\n&quot;, sentence_features)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>sentence_sequence:
+ tensor([[14, 15, 16, 17, 18, 16, 19, 20, 21, 13, 22, 23, 24, 25, 26, 27, 28, 29,
+         30,  0],
+        [14, 15, 26, 27, 18, 49, 50, 12, 21, 13, 22, 51, 52, 25, 53, 54, 55, 29,
+         30,  0],
+        [14, 15, 53, 56, 18, 49, 50, 18, 26, 27, 57, 58, 59, 22, 51, 52, 55, 29,
+          0,  0],
+        [37, 63, 64, 65, 66, 55, 13, 22, 61, 51, 52, 25, 67, 68, 69, 70, 71, 13,
+          0,  0],
+        [37, 38, 39,  7,  8, 40, 41, 42, 43, 44, 45, 46, 47, 48,  0,  0,  0,  0,
+          0,  0],
+        [16, 17, 18, 53, 56, 12, 59, 60, 22, 61, 51, 52, 12, 62,  0,  0,  0,  0,
+          0,  0],
+        [ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13,  0,  0,  0,  0,  0,
+          0,  0],
+        [31, 32, 24, 33, 34, 35, 36, 13, 30,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+          0,  0]])
+sequence_features:
+ tensor([[[ 0.5118,  0.0895, -0.2030,  ..., -0.2605, -0.2138, -0.0192],
+         [ 0.1473, -0.0844, -0.1976,  ..., -0.0260, -0.1921,  0.0378],
+         [-0.2201,  0.0790, -0.0173,  ...,  0.1551, -0.0899,  0.2035],
+         ...,
+         [-0.2387,  0.4015, -0.1882,  ..., -0.0473, -0.0399, -0.2642],
+         [ 0.1203,  0.2065,  0.0764,  ...,  0.1412, -0.0817,  0.1800],
+         [ 0.0362,  0.1477, -0.0596,  ...,  0.1640, -0.0790,  0.0359]],
+
+        [[ 0.1481, -0.0057, -0.1339,  ...,  0.0348, -0.1515,  0.0797],
+         [ 0.1469,  0.0430, -0.1578,  ..., -0.0599, -0.1647,  0.2721],
+         [-0.1601,  0.2572,  0.0821,  ...,  0.0455, -0.0430,  0.2123],
+         ...,
+         [-0.0230,  0.3032, -0.2572,  ..., -0.1670, -0.0009, -0.1256],
+         [-0.0643,  0.1889,  0.0266,  ..., -0.1044, -0.2333,  0.1548],
+         [ 0.1969,  0.4262, -0.0194,  ...,  0.1344,  0.0094, -0.0583]],
+
+        [[ 0.2893, -0.0850, -0.1214,  ...,  0.0855,  0.0234,  0.0684],
+         [-0.0185,  0.0532, -0.1170,  ...,  0.2265, -0.0688,  0.2116],
+         [-0.0882, -0.0393, -0.0658,  ...,  0.0006, -0.1219,  0.1954],
+         ...,
+         [ 0.0035,  0.0627, -0.1165,  ..., -0.1742, -0.1552, -0.0772],
+         [-0.1099,  0.2375, -0.0568,  ..., -0.0636, -0.1998,  0.1747],
+         [ 0.1005,  0.3047, -0.0009,  ...,  0.1359, -0.0076, -0.1088]],
+
+        ...,
+
+        [[ 0.3587,  0.0157, -0.1612,  ...,  0.0327, -0.3009, -0.2104],
+         [ 0.2939, -0.1935, -0.1481,  ...,  0.0349, -0.1136,  0.0226],
+         [ 0.1832, -0.0890, -0.3369,  ...,  0.0113, -0.1601, -0.1295],
+         ...,
+         [ 0.1462,  0.0905, -0.1082,  ...,  0.1253, -0.0416, -0.0082],
+         [ 0.2161,  0.0444,  0.0300,  ...,  0.2624, -0.0970,  0.0016],
+         [-0.0896, -0.0905, -0.1790,  ...,  0.0711, -0.0477, -0.1236]],
+
+        [[ 0.2954,  0.0616, -0.0810,  ..., -0.0213, -0.1283, -0.1051],
+         [-0.0038, -0.1580, -0.0555,  ..., -0.1327, -0.1139,  0.2161],
+         [ 0.1022,  0.1964, -0.1896,  ..., -0.1081, -0.1491, -0.1872],
+         ...,
+         [ 0.3404, -0.0456, -0.2569,  ...,  0.0701, -0.1644, -0.0731],
+         [ 0.4573,  0.1885, -0.0779,  ...,  0.1605, -0.1966, -0.0589],
+         [ 0.1448, -0.1581, -0.3021,  ...,  0.0837, -0.0334, -0.2364]],
+
+        [[ 0.3556,  0.0299, -0.1570,  ...,  0.0512, -0.3286, -0.2882],
+         [ 0.2074, -0.1521, -0.1487,  ...,  0.0637, -0.2674, -0.0174],
+         [ 0.0976, -0.0754, -0.2779,  ..., -0.1588, -0.2096, -0.3432],
+         ...,
+         [ 0.4961,  0.0583, -0.2965,  ...,  0.0363, -0.2933, -0.1551],
+         [ 0.4594,  0.3354, -0.0093,  ...,  0.1681, -0.2508, -0.1423],
+         [ 0.0957, -0.0486, -0.2616,  ...,  0.0578, -0.0737, -0.2259]]],
+       grad_fn=&lt;AddBackward0&gt;)
+</code></pre>
+
+<hr />
+<ul>
+<li>第三步: 计算损失函数第一项的分值</li>
+</ul>
+<pre><code># 若干辅助函数, 在类BiLSTM外部定义, 目的是辅助log_sum_exp()函数的计算
+# 将Variable类型变量内部的真实值, 以python float类型返回
+def to_scalar(var): # var是Variable, 维度是１
+    # 返回一个python float类型的值
+    return var.view(-1).data.tolist()[0]
+
+
+# 获取最大值的下标
+def argmax(vec):
+    # 返回列的维度上的最大值下标, 此下标是一个标量float
+    _, idx = torch.max(vec, 1)
+    return to_scalar(idx)
+
+
+# 辅助完成损失函数中的公式计算
+def log_sum_exp(vec): # vec是1 * 7, type是Variable
+    max_score = vec[0, argmax(vec)]
+    #max_score维度是1, max_score.view(1,-1)维度是1 * 1, max_score.view(1, -1).expand(1, vec.size()[1])的维度1 * 7
+    # 经过expand()之后的张量, 里面所有的值都相同, 都是最大值max_score
+    max_score_broadcast = max_score.view(1, -1).expand(1, vec.size()[1]) # vec.size()维度是1 * 7
+    # 先减去max_score,最后再加上max_score, 是为了防止数值爆炸, 纯粹是代码上的小技巧
+    return max_score + torch.log(torch.sum(torch.exp(vec - max_score_broadcast)))
+
+
+
+# 计算损失函数第一项的分值函数, 本质上是发射矩阵和转移矩阵的累加和
+def _forward_alg(self, feats):
+    # 初始化一个alphas张量, 代表转移矩阵的起始位置
+    init_alphas = torch.full((1, self.tagset_size), -10000.)
+    # init_alphas: [1, 7] , [-10000, -10000, -10000, -10000, -10000, -10000, -10000]
+    # 仅仅把START_TAG赋值为0, 代表着接下来的转移只能从START_TAG开始
+    init_alphas[0][self.tag_to_ix[START_TAG]] = 0.
+
+    # 前向计算变量的赋值, 这样在反向求导的过程中就可以自动更新参数
+    forward_var = init_alphas
+
+    # 输入进来的feats: [20, 8, 7], 为了接下来按句子进行计算, 要将batch_size放在第一个维度上
+    feats = feats.transpose(1, 0)
+
+    # feats: [8, 20, 7]是一个3维矩阵, 最外层代表8个句子, 内层代表每个句子有20个字符, 
+    # 每一个字符映射成7个标签的发射概率
+    # 初始化最终的结果张量, 每个句子对应一个分数
+    result = torch.zeros((1, self.batch_size))
+    idx = 0
+
+    # 按行遍历, 总共循环batch_size次
+    for feat_line in feats:
+        # 遍历一行语句, 每一个feat代表一个time_step
+        for feat in feat_line:
+            # 当前time_step的一个forward tensors
+            alphas_t = []
+            # 在当前time_step, 遍历所有可能的转移标签, 进行累加计算
+            for next_tag in range(self.tagset_size):
+                # 广播发射矩阵的分数
+                emit_score = feat[next_tag].view(1, -1).expand(1, self.tagset_size)
+
+                # 第i个time_step循环时, 转移到next_tag标签的转移概率
+                trans_score = self.transitions[next_tag].view(1, -1)
+
+                # 将前向矩阵, 转移矩阵, 发射矩阵累加
+                next_tag_var = forward_var + trans_score + emit_score
+
+                # 计算log_sum_exp()函数值
+                # a = log_sum_exp(next_tag_var), 注意: log_sum_exp()函数仅仅返回一个实数值
+                # print(a.shape) : tensor(1.0975) , ([])
+                # b = a.view(1) : tensor([1.0975]), 注意: a.view(1)的操作就是将一个数字变成一个一阶矩阵, ([]) -&gt; ([1])
+                # print(b.shape) : ([1])
+                alphas_t.append(log_sum_exp(next_tag_var).view(1))
+            # print(alphas_t) : [tensor([337.6004], grad_fn=&lt;ViewBackward&gt;), tensor([337.0469], grad_fn=&lt;ViewBackward&gt;), tensor([337.8497], grad_fn=&lt;ViewBackward&gt;), tensor([337.8668], grad_fn=&lt;ViewBackward&gt;), tensor([338.0186], grad_fn=&lt;ViewBackward&gt;), tensor([-9662.2734], grad_fn=&lt;ViewBackward&gt;), tensor([337.8692], grad_fn=&lt;ViewBackward&gt;)]
+            # temp = torch.cat(alphas_t)
+            # print(temp) : tensor([[  337.6004,   337.0469,   337.8497,   337.8668,   338.0186, -9662.2734, 337.8692]])
+            # 将列表张量转变为二维张量
+            forward_var = torch.cat(alphas_t).view(1, -1)
+            # print(forward_var.shape) : [1, 7]
+        # print(forward_var) : tensor([[   13.7928,    16.0067,    14.1092, -9984.7852,    15.8380]])
+        # 添加最后一步转移到&quot;STOP_TAG&quot;的分数, 就完成了整条语句的分数计算
+        terminal_var = forward_var + self.transitions[self.tag_to_ix[STOP_TAG]]
+        # print(terminal_var) : tensor([[  339.2167,   340.8612,   340.2773,   339.0194,   340.8908, -9659.5732, -9660.0527]])
+        # 计算log_sum_exp()函数值, 作为一条样本语句的最终得分
+        alpha = log_sum_exp(terminal_var)
+        # print(alpha) : tensor(341.9394)
+        # 将得分添加进结果列表中, 作为函数结果返回
+        result[0][idx] = alpha
+        idx += 1
+    return result
+
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm_crf.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code>START_TAG = &quot;&lt;START&gt;&quot;
+STOP_TAG = &quot;&lt;STOP&gt;&quot;
+# 标签和序号的对应码表
+tag_to_ix = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, START_TAG: 5, STOP_TAG: 6}
+# 词嵌入的维度
+EMBEDDING_DIM = 200
+# 隐藏层神经元的数量
+HIDDEN_DIM = 100
+# 批次的大小
+BATCH_SIZE = 8
+# 设置最大语句限制长度
+SENTENCE_LENGTH = 20
+# 默认神经网络的层数
+NUM_LAYERS = 1
+# 初始化的示例语句, 共8行, 可以理解为当前批次batch_size=8
+sentence_list = [
+    &quot;确诊弥漫大b细胞淋巴瘤1年&quot;,
+    &quot;反复咳嗽、咳痰40年,再发伴气促5天。&quot;,
+    &quot;生长发育迟缓9年。&quot;,
+    &quot;右侧小细胞肺癌第三次化疗入院&quot;,
+    &quot;反复气促、心悸10年,加重伴胸痛3天。&quot;,
+    &quot;反复胸闷、心悸、气促2多月,加重3天&quot;,
+    &quot;咳嗽、胸闷1月余, 加重1周&quot;,
+    &quot;右上肢无力3年, 加重伴肌肉萎缩半年&quot;
+]
+
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    for sentence in sentence_list:
+        for _char in sentence:
+            if _char not in char_to_id:
+                char_to_id[_char] = len(char_to_id)
+    sentence_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+    model = BiLSTM_CRF(vocab_size=len(char_to_id), tag_to_ix=tag_to_ix, embedding_dim=EMBEDDING_DIM, \
+                       hidden_dim=HIDDEN_DIM, num_layers=NUM_LAYERS, batch_size=BATCH_SIZE, \
+                       sequence_length=SENTENCE_LENGTH)
+
+    for epoch in range(1):
+        model.zero_grad()
+        feats = model._get_lstm_features(sentence_sequence)
+
+        forward_score = model._forward_alg(feats)
+        print(forward_score)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>tensor([[ 44.0279,  87.6439, 132.7635, 176.7535, 221.1325, 265.4456, 309.8346,
+         355.9332]], grad_fn=&lt;CopySlices&gt;)
+</code></pre>
+
+<hr />
+<ul>
+<li>第四步: 计算损失函数第二项的分值</li>
+</ul>
+<pre><code>def _score_sentence(self, feats, tags):
+    # feats: [20, 8, 7] , tags: [8, 20]
+    # 初始化一个0值的tensor, 为后续累加做准备
+    score = torch.zeros(1)
+    # 将START_TAG和真实标签tags做列维度上的拼接
+    temp = torch.tensor(torch.full((self.batch_size, 1), self.tag_to_ix[START_TAG]), dtype=torch.long)
+    tags = torch.cat((temp, tags), dim=1)
+
+    # 将传入的feats形状转变为[bathc_size, sequence_length, tagset_size]
+    feats = feats.transpose(1, 0)
+    # feats: [8, 20, 7]
+    idx = 0
+
+    # 初始化最终的结果分数张量, 每一个句子得到一个分数
+    result = torch.zeros((1, self.batch_size))
+    for feat_line in feats:
+        # 注意: 此处区别于第三步的循环, 最重要的是这是在真实标签指导下的转移矩阵和发射矩阵的累加分数
+        for i, feat in enumerate(feat_line):
+            score = score + self.transitions[tags[idx][i + 1], tags[idx][i]] + feat[tags[idx][i + 1]]
+        # 最后加上转移到STOP_TAG的分数
+        score = score + self.transitions[self.tag_to_ix[STOP_TAG], tags[idx][-1]]
+        result[0][idx] = score
+        idx += 1
+    return result
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm_crf.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code>START_TAG = &quot;&lt;START&gt;&quot;
+STOP_TAG = &quot;&lt;STOP&gt;&quot;
+# 标签和序号的对应码表
+tag_to_ix = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, START_TAG: 5, STOP_TAG: 6}
+# 词嵌入的维度
+EMBEDDING_DIM = 200
+# 隐藏层神经元的数量
+HIDDEN_DIM = 100
+# 批次的大小
+BATCH_SIZE = 8
+# 设置最大语句限制长度
+SENTENCE_LENGTH = 20
+# 默认神经网络的层数
+NUM_LAYERS = 1
+
+# 初始化的示例语句, 共8行, 可以理解为当前批次batch_size=8
+sentence_list = [
+    &quot;确诊弥漫大b细胞淋巴瘤1年&quot;,
+    &quot;反复咳嗽、咳痰40年,再发伴气促5天。&quot;,
+    &quot;生长发育迟缓9年。&quot;,
+    &quot;右侧小细胞肺癌第三次化疗入院&quot;,
+    &quot;反复气促、心悸10年,加重伴胸痛3天。&quot;,
+    &quot;反复胸闷、心悸、气促2多月,加重3天&quot;,
+    &quot;咳嗽、胸闷1月余, 加重1周&quot;,
+    &quot;右上肢无力3年, 加重伴肌肉萎缩半年&quot;
+]
+
+# 真实标签数据, 对应为tag_to_ix中的数字标签
+tag_list = [
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 3, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+# 将标签转为标量tags
+tags = torch.tensor(tag_list, dtype=torch.long)
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    for sentence in sentence_list:
+        for _char in sentence:
+            if _char not in char_to_id:
+                char_to_id[_char] = len(char_to_id)
+    sentence_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+    model = BiLSTM_CRF(vocab_size=len(char_to_id), tag_to_ix=tag_to_ix, embedding_dim=EMBEDDING_DIM, \
+                       hidden_dim=HIDDEN_DIM, num_layers=NUM_LAYERS, batch_size=BATCH_SIZE, \
+                       sequence_length=SENTENCE_LENGTH)
+
+    for epoch in range(1):
+        model.zero_grad()
+
+        feats = model._get_lstm_features(sentence_sequence)
+
+        gold_score = model._score_sentence(feats, tags)
+        print(gold_score)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>tensor([[ 5.3102,  9.0228, 14.7486, 19.5984, 32.4324, 37.9789, 57.8647, 66.8853]],
+       grad_fn=&lt;CopySlices&gt;)
+</code></pre>
+
+<hr />
+<ul>
+<li>第五步: 维特比算法的实现</li>
+</ul>
+<pre><code># 根据传入的语句特征feats, 推断出标签序列
+def _viterbi_decode(self, feats):
+    # 初始化最佳路径结果的存放列表
+    result_best_path = []
+    # 将输入张量变形为[batch_size, sequence_length, tagset_size]
+    feats = feats.transpose(1, 0)
+
+    # 对批次中的每一行语句进行遍历, 每个语句产生一个最优标注序列
+    for feat_line in feats:
+        backpointers = []
+
+        # 初始化前向传播的张量, 设置START_TAG等于0, 约束合法序列只能从START_TAG开始
+        init_vvars = torch.full((1, self.tagset_size), -10000.)
+        init_vvars[0][self.tag_to_ix[START_TAG]] = 0
+
+        # 在第i个time_step, 张量forward_var保存第i-1个time_step的viterbi变量
+        forward_var = init_vvars
+
+        # 依次遍历i=0, 到序列最后的每一个time_step
+        for feat in feat_line:
+            # 保存当前time_step的回溯指针
+            bptrs_t = []
+            # 保存当前time_step的viterbi变量
+            viterbivars_t = []
+
+            for next_tag in range(self.tagset_size):
+                # next_tag_var[i]保存了tag_i 在前一个time_step的viterbi变量
+                # 前向传播张量forward_var加上从tag_i转移到next_tag的分数, 赋值给next_tag_var
+                # 注意此处没有加发射矩阵分数, 因为求最大值不需要发射矩阵
+                next_tag_var = forward_var + self.transitions[next_tag]
+
+                # 将最大的标签id加入到当前time_step的回溯列表中
+                best_tag_id = argmax(next_tag_var)
+                bptrs_t.append(best_tag_id)
+                viterbivars_t.append(next_tag_var[0][best_tag_id].view(1))
+
+            # 此处再将发射矩阵分数feat加上, 赋值给forward_var, 作为下一个time_step的前向传播张量
+            forward_var = (torch.cat(viterbivars_t) + feat).view(1, -1)
+
+            # 当前time_step的回溯指针添加进当前这一行样本的总体回溯指针中
+            backpointers.append(bptrs_t)
+
+        # 最后加上转移到STOP_TAG的分数
+        terminal_var = forward_var + self.transitions[self.tag_to_ix[STOP_TAG]]
+        best_tag_id = argmax(terminal_var)
+        # path_score是整个路径的总得分
+        path_score = terminal_var[0][best_tag_id]
+
+        # 根据回溯指针, 解码最佳路径
+        # 首先把最后一步的id值加入
+        best_path = [best_tag_id]
+        # 从后向前回溯最佳路径
+        for bptrs_t in reversed(backpointers):
+            # 通过第i个time_step得到的最佳id, 找到第i-1个time_step的最佳id
+            best_tag_id = bptrs_t[best_tag_id]
+            best_path.append(best_tag_id)
+
+        # 将START_TAG删除
+        start = best_path.pop()
+        # 确认一下最佳路径中的第一个标签是START_TAG
+        assert start == self.tag_to_ix[START_TAG]
+
+        # 因为是从后向前回溯, 所以再次逆序得到总前向后的真实路径
+        best_path.reverse()
+        # 当前这一行的样本结果添加到最终的结果列表里
+        result_best_path.append(best_path)
+
+    return result_best_path
+
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置/data/doctor_offline/ner_model/bilstm_crf.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code>START_TAG = &quot;&lt;START&gt;&quot;
+STOP_TAG = &quot;&lt;STOP&gt;&quot;
+# 标签和序号的对应码表
+tag_to_ix = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, START_TAG: 5, STOP_TAG: 6}
+# 词嵌入的维度
+EMBEDDING_DIM = 200
+# 隐藏层神经元的数量
+HIDDEN_DIM = 100
+# 批次的大小
+BATCH_SIZE = 8
+# 设置最大语句限制长度
+SENTENCE_LENGTH = 20
+# 默认神经网络的层数
+NUM_LAYERS = 1
+
+# 初始化的示例语句, 共8行, 可以理解为当前批次batch_size=8
+sentence_list = [
+    &quot;确诊弥漫大b细胞淋巴瘤1年&quot;,
+    &quot;反复咳嗽、咳痰40年,再发伴气促5天。&quot;,
+    &quot;生长发育迟缓9年。&quot;,
+    &quot;右侧小细胞肺癌第三次化疗入院&quot;,
+    &quot;反复气促、心悸10年,加重伴胸痛3天。&quot;,
+    &quot;反复胸闷、心悸、气促2多月,加重3天&quot;,
+    &quot;咳嗽、胸闷1月余, 加重1周&quot;,
+    &quot;右上肢无力3年, 加重伴肌肉萎缩半年&quot;
+]
+
+# 真实标签数据, 对应为tag_to_ix中的数字标签
+tag_list = [
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 3, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+# 将标签转为标量tags
+tags = torch.tensor(tag_list, dtype=torch.long)
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    for sentence in sentence_list:
+        for _char in sentence:
+            if _char not in char_to_id:
+                char_to_id[_char] = len(char_to_id)
+    sentence_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+    model = BiLSTM_CRF(vocab_size=len(char_to_id), tag_to_ix=tag_to_ix, embedding_dim=EMBEDDING_DIM, \
+                       hidden_dim=HIDDEN_DIM, num_layers=NUM_LAYERS, batch_size=BATCH_SIZE, \
+                       sequence_length=SENTENCE_LENGTH)
+
+    for epoch in range(1):
+        model.zero_grad()
+
+        feats = model._get_lstm_features(sentence_sequence)
+
+        result_tags = model._viterbi_decode(feats)
+        print(result_tags)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]]
+</code></pre>
+
+<hr />
+<ul>
+<li>第六步: 完善BiLSTM类的全部功能</li>
+</ul>
+<pre><code># 对数似然函数的计算, 输入的是数字化编码后的语句, 和真实的标签
+# 注意: 这个函数是未来真实训练中要用到的&quot;虚拟化的forward()&quot;
+def neg_log_likelihood(self, sentence, tags):
+    # 第一步先得到BiLSTM层的输出特征张量
+    feats = self._get_lstm_features(sentence)
+
+    # feats : [20, 8, 7] 代表一个批次有8个样本, 每个样本长度20
+    # 每一个word映射到7个标签的概率, 发射矩阵
+
+    # forward_score 代表公式推导中损失函数loss的第一项
+    forward_score = self._forward_alg(feats)
+
+    # gold_score 代表公式推导中损失函数loss的第二项
+    gold_score = self._score_sentence(feats, tags)
+
+    # 按行求和, 在torch.sum()函数值中, 需要设置dim=1 ; 同理, dim=0代表按列求和
+    # 注意: 在这里, 通过forward_score和gold_score的差值来作为loss, 用来梯度下降训练模型
+    return torch.sum(forward_score - gold_score, dim=1)
+
+# 此处的forward()真实场景是用在预测部分, 训练的时候并没有用到
+def forward(self, sentence):
+    # 获取从BiLSTM层得到的发射矩阵
+    lstm_feats = self._get_lstm_features(sentence)
+
+    # 通过维特比算法直接解码最佳路径
+    tag_seq = self._viterbi_decode(lstm_feats)
+    return tag_seq
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/bilstm_crf.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code>START_TAG = &quot;&lt;START&gt;&quot;
+STOP_TAG = &quot;&lt;STOP&gt;&quot;
+# 标签和序号的对应码表
+tag_to_ix = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, START_TAG: 5, STOP_TAG: 6}
+# 词嵌入的维度
+EMBEDDING_DIM = 200
+# 隐藏层神经元的数量
+HIDDEN_DIM = 100
+# 批次的大小
+BATCH_SIZE = 8
+# 设置最大语句限制长度
+SENTENCE_LENGTH = 20
+# 默认神经网络的层数
+NUM_LAYERS = 1
+
+# 初始化的示例语句, 共8行, 可以理解为当前批次batch_size=8
+sentence_list = [
+    &quot;确诊弥漫大b细胞淋巴瘤1年&quot;,
+    &quot;反复咳嗽、咳痰40年,再发伴气促5天。&quot;,
+    &quot;生长发育迟缓9年。&quot;,
+    &quot;右侧小细胞肺癌第三次化疗入院&quot;,
+    &quot;反复气促、心悸10年,加重伴胸痛3天。&quot;,
+    &quot;反复胸闷、心悸、气促2多月,加重3天&quot;,
+    &quot;咳嗽、胸闷1月余, 加重1周&quot;,
+    &quot;右上肢无力3年, 加重伴肌肉萎缩半年&quot;
+]
+
+# 真实标签数据, 对应为tag_to_ix中的数字标签
+tag_list = [
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 3, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+# 将标签转为标量tags
+tags = torch.tensor(tag_list, dtype=torch.long)
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    for sentence in sentence_list:
+        for _char in sentence:
+            if _char not in char_to_id:
+                char_to_id[_char] = len(char_to_id)
+    sentence_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+    model = BiLSTM_CRF(vocab_size=len(char_to_id), tag_to_ix=tag_to_ix, embedding_dim=EMBEDDING_DIM, \
+                       hidden_dim=HIDDEN_DIM, num_layers=NUM_LAYERS, batch_size=BATCH_SIZE, \
+                       sequence_length=SENTENCE_LENGTH)
+
+    optimizer = optim.SGD(model.parameters(), lr=0.01, weight_decay=1e-4)
+
+    for epoch in range(1):
+        model.zero_grad()
+
+        loss = model.neg_log_likelihood(sentence_sequence, tags)
+        print(loss)
+
+        loss.backward()
+        optimizer.step()
+
+        result = model(sentence_sequence)
+        print(result)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>tensor([2347.2678], grad_fn=&lt;SumBackward1&gt;)
+[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+</code></pre>
+
+<hr />
+<h2 id="65">6.5 模型训练</h2>
+<ul>
+<li>学习目标:<ul>
+<li>掌握数据的预处理流程</li>
+<li>掌握生成批量训练数据的方法</li>
+<li>掌握模型训练代码</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>模型训练的流程<ul>
+<li>第一步: 熟悉字符到数字编码的码表</li>
+<li>第二步: 熟悉训练数据集的样式和含义解释</li>
+<li>第三步: 生成批量训练数据</li>
+<li>第四步: 完成准确率和召回率的评估代码</li>
+<li>第五步: 完成训练模型的代码</li>
+<li>第六步: 绘制损失曲线和评估曲线图</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>第一步: 熟悉字符到数字编码的码表.</li>
+</ul>
+<pre><code># 代表了数据集中所有字符到数字编码的字典映射
+# 码表可以包含中文简体、繁体、英文大小写字母、数字、中英文标点符号等等
+# &lt;PAD&gt;为填充标识, 训练时需要将句子转化成矩阵, 而句子长短不一, 需要做padding处理
+
+{
+    &quot;&lt;PAD&gt;&quot;: 0,
+    &quot;厑&quot;: 1,
+    &quot;吖&quot;: 2,
+    &quot;呵&quot;: 3,
+    &quot;啊&quot;: 4,
+    &quot;嗄&quot;: 5,
+    &quot;嬶&quot;: 6,
+    ...
+}
+</code></pre>
+
+<hr />
+<ul>
+<li>码表所在位置: /data/doctor_offline/ner_model/data/char_to_id.json</li>
+</ul>
+<hr />
+<ul>
+<li>第二步: 熟悉训练数据集的样式和含义解释.</li>
+</ul>
+<pre><code>荨   B-dis
+麻   I-dis
+疹   I-dis
+这   O
+么   O
+痒   O
+咋   O
+办   O
+。   O
+
+突   O
+然   O
+头   B-sym
+晕   I-sym
+呕   B-sym
+吐   I-sym
+。   O
+</code></pre>
+
+<hr />
+<ul>
+<li>训练数据集的含义解释:<ul>
+<li>每一行包含一个字以及与之对应的标签, 字与标签之间通过\t分隔</li>
+<li>句子与句子之间通过空行分隔</li>
+<li>标签说明:<ul>
+<li>B-dis: 疾病实体名词起始标识</li>
+<li>I-dis: 疾病实体名词中间到结尾标识</li>
+<li>B-sym: 症状实体名词起始标识</li>
+<li>I-sym: 症状实体名词中间到结尾标识</li>
+<li>O:     其他非实体部分标识</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>数据集所在位置: /data/doctor_offline/ner_model/data/train.txt</li>
+</ul>
+<hr />
+<ul>
+<li>将训练数据集转换为数字化编码集:</li>
+</ul>
+<pre><code># 导入包
+import json
+import numpy as np
+
+# 创建训练数据集, 从原始训练文件中将中文字符进行数字编码, 并将标签页进行数字编码
+def create_train_data(train_data_file, result_file, json_file, tag2id, max_length=20):
+    # 导入json格式的中文字符到id的映射表
+    char2id = json.load(open(json_file, mode='r', encoding='utf-8'))
+
+    char_data, tag_data = [], []
+
+    # 打开原始训练文件
+    with open(train_data_file, mode='r', encoding='utf-8') as f:
+        # 初始化一条语句数字化编码后的列表
+        char_ids = [0] * max_length
+        tag_ids = [0] * max_length
+        idx = 0
+        for line in f.readlines():
+            line = line.strip('\n').strip()
+            # 如果不是空行, 并且当前语句长度没有超过max_length, 则进行字符到id的映射
+            if len(line) &gt; 0 and line and idx &lt; max_length:
+                ch, tag = line.split('\t')
+                # 如果当前字符存在于映射表中, 则直接映射为对应的id值
+                if char2id.get(ch):
+                    char_ids[idx] = char2id[ch]
+                # 否则直接用&quot;UNK&quot;的id值来代替这个未知字符
+                else:
+                    char_ids[idx] = char2id['UNK']
+                # 将标签也进行对应的转换
+                tag_ids[idx] = tag2id[tag]
+                idx += 1
+            # 如果是空行, 或者当前语句长度超过max_length
+            else:
+                # 如果当前语句长度超过max_length, 直接将[0: max_langth]的部分作为结果
+                if idx &lt;= max_length:
+                    char_data.append(char_ids)
+                    tag_data.append(tag_ids)
+                # 遇到空行, 说明当前句子已经结束, 初始化清零, 为下一个句子的映射做准备
+                char_ids = [0] * max_length
+                tag_ids = [0] * max_length
+                idx = 0
+
+    # 将数字化编码后的数据封装成numpy的数组类型, 数字编码采用np.int32
+    x_data = np.array(char_data, dtype=np.int32)
+    y_data = np.array(tag_data, dtype=np.int32)
+
+    # 直接利用np.savez()将数据存储为.npz类型的文件
+    np.savez(result_file, x_data=x_data, y_data=y_data)
+    print(&quot;create_train_data Finished!&quot;.center(100, &quot;-&quot;))
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/preprocess_data.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 参数1:字符码表文件路
+json_file = './data/char_to_id.json'
+
+# 参数2:标签码表对照字典
+tag2id = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, &quot;&lt;START&gt;&quot;: 5, &quot;&lt;STOP&gt;&quot;: 6}
+
+# 参数3:训练数据文件路径
+train_data_file = './data/train.txt'
+
+# 参数4:创建的npz文件保路径(训练数据)
+result_file = './data/train.npz'
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    create_train_data(train_data_file, result_file, json_file, tag2id)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>------------------------------------create_train_data Finished!-------------------------------------
+
+</code></pre>
+
+<ul>
+<li>生成了新的数据集文件: /data/doctor_offline/ner_model/data/train.npz</li>
+</ul>
+<hr />
+<ul>
+<li>第三步: 生成批量训练数据.</li>
+</ul>
+<pre><code># 导入相关的包
+import numpy as np
+import torch
+import torch.utils.data as Data
+
+# 生成批量训练数据
+def load_dataset(data_file, batch_size):
+    # 将第二步生成的train.npz文件导入内存
+    data = np.load(data_file)
+
+    # 分别取出特征值和标签
+    x_data = data['x_data']
+    y_data = data['y_data']
+
+    # 将数据封装成tensor张量
+    x = torch.tensor(x_data, dtype=torch.long)
+    y = torch.tensor(y_data, dtype=torch.long)
+
+    # 将数据封装成Tensor数据集
+    dataset = Data.TensorDataset(x, y)
+
+    total_length = len(dataset)
+
+    # 采用80%的数据作为训练集, 20%的数据作为测试集
+    train_length = int(total_length * 0.8)
+    validation_length = total_length - train_length
+
+    # 利用Data.random_split()直接切分集合, 按照80%, 20%的比例划分
+    train_dataset, validation_dataset = Data.random_split(dataset=dataset,
+                                        lengths=[train_length, validation_length])
+
+    # 将训练集进行DataLoader封装
+    # 参数说明如下:
+    # dataset:     训练数据集
+    # batch_size:  代表批次大小, 若数据集总样本数量无法被batch_size整除, 则最后一批数据为余数
+    #              若设置drop_last为True， 则自动抹去最后不能被整除的剩余批次
+    # shuffle:     是否每个批次为随机抽取, 若为True, 则每次迭代时数据为随机抽取
+    # num_workers: 设定有多少子进程用来做数据加载, 默认为0, 即数据将被加载到主进程中
+    # drop_last:   是否去除不能被整除后的最后批次, 若为True, 则不生成最后不能被整除剩余的数据内容
+    #              例如: dataset长度为1028, batch_size为8,
+    #              若drop_last=True, 则最后剩余的4(1028/8=128余4)条数据将被抛弃不用
+    train_loader = Data.DataLoader(dataset=train_dataset, batch_size=batch_size,
+                                   shuffle=True, num_workers=4, drop_last=True)
+
+    validation_loader = Data.DataLoader(dataset=validation_dataset, batch_size=batch_size,
+                                        shuffle=True, num_workers=4, drop_last=True)
+
+    # 将两个数据生成器封装为一个字典类型
+    data_loaders = {'train': train_loader, 'validation': validation_loader}
+
+    # 将两个数据集的长度也封装为一个字典类型
+    data_size = {'train': train_length, 'validation': validation_length}
+
+    return data_loaders, data_size
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/loader_data.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 批次大小
+BATCH_SIZE = 8
+
+# 编码后的训练数据文件路径
+DATA_FILE = './data/train.npz'
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    data_loader, data_size = load_dataset(DATA_FILE, BATCH_SIZE)
+    print('data_loader:', data_loader, '\ndata_size:', data_size)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>data_loader: {'train': &lt;torch.utils.data.dataloader.DataLoader object at 0x7f29eaafb3d0&gt;, 'validation': &lt;torch.utils.data.dataloader.DataLoader object at 0x7f29eaafb5d0&gt;} 
+data_size: {'train': 5368, 'validation': 1343}
+</code></pre>
+
+<hr />
+<ul>
+<li>第四步: 完成准确率和召回率的评估代码.</li>
+</ul>
+<pre><code># 评估模型的准确率, 召回率, F1, 等指标
+def evaluate(sentence_list, true_tag, predict_tag, id2char, id2tag):
+    '''
+    sentence_list: 文本向量化后的句子向量列表
+    true_tag:      真实的标签
+    predict_tag:   模型预测的标签
+    id2char:       id值到中文字符的映射表
+    id2tag:        id值到标签的映射表
+    '''
+    # 初始化真实的命名实体, 预测的命名实体, 接下来比较两者来评估各项指标
+    true_entities, true_entity = [], []
+    predict_entities, predict_entity = [], []
+
+    # 逐条遍历批次中所有的语句
+    for line_num, sentence in enumerate(sentence_list):
+        # 遍历一条样本语句中的每一个字符编码(这里面是数字化编码)
+        for char_num in range(len(sentence)):
+            # 编码为0, 表示后面都是填充的0, 可以结束for循环
+            if sentence[char_num]==0:
+                break
+
+            # 依次取出真实的样本字符, 真实的标签, 预测的标签
+            char_text = id2char[sentence[char_num]]
+            true_tag_type = id2tag[true_tag[line_num][char_num]]
+            predict_tag_type = id2tag[predict_tag[line_num][char_num]]
+
+            # 对真实标签进行命名实体的匹配
+            # 如果第一个字符是&quot;B&quot;, 表示一个实体的开始, 将&quot;字符/标签&quot;的格式添加进实体列表中
+            if true_tag_type[0] == &quot;B&quot;:
+                true_entity = [char_text + &quot;/&quot; + true_tag_type]
+            # 如果第一个字符是&quot;I&quot;, 表示处于一个实体的中间
+            # 如果真实命名实体列表非空, 并且最后一个添加进去的标签类型和当前的标签类型一样, 则继续添加
+            # 意思就是比如true_entity = [&quot;中/B-Person&quot;, &quot;国/I-Person&quot;], 此时的&quot;人/I-Person&quot;就可以添加进去, 因为都属于同一个命名实体
+            elif true_tag_type[0] == &quot;I&quot; and len(true_entity) != 0 and true_entity[-1].split(&quot;/&quot;)[1][1:] == true_tag_type[1:]:
+                true_entity.append(char_text + &quot;/&quot; + true_tag_type)
+            # 如果第一个字符是&quot;O&quot;, 并且true_entity非空, 表示一个命名实体的匹配结束了
+            elif true_tag_type[0] == &quot;O&quot; and len(true_entity) != 0 :
+                # 最后增加进去一个&quot;行号_列号&quot;, 作为区分实体的标志
+                true_entity.append(str(line_num) + &quot;_&quot; + str(char_num))
+                # 将这个匹配出来的实体加入到结果列表中
+                true_entities.append(true_entity)
+                # 清空true_entity, 为下一个命名实体的匹配做准备
+                true_entity=[]
+            # 除了上面三种情况, 说明当前没有匹配出任何命名实体, 则清空true_entity, 继续下一次匹配
+            else:
+                true_entity=[]
+
+            # 对预测标签进行命名实体的匹配
+            # 如果第一个字符是&quot;B&quot;, 表示一个实体的开始, 将&quot;字符/预测标签&quot;的格式添加进实体列表中
+            if predict_tag_type[0] == &quot;B&quot;:
+                predict_entity = [char_text + &quot;/&quot; + predict_tag_type]
+            # 如果第一个字符是&quot;I&quot;, 表示处于一个实体的中间
+            # 如果预测命名实体列表非空, 并且最后一个添加进去的标签类型和当前的标签类型一样, 则继续添加
+            # 意思就是比如predict_entity = [&quot;中/B-Person&quot;, &quot;国/I-Person&quot;], 此时的&quot;人/I-Person&quot;就可以添&gt;加进去, 因为都属于同一个命名实体
+            elif predict_tag_type[0] == &quot;I&quot; and len(predict_entity) != 0 and predict_entity[-1].split(&quot;/&quot;)[1][1:] == predict_tag_type[1:]:
+                predict_entity.append(char_text + &quot;/&quot; + predict_tag_type)
+            # 如果第一个字符是&quot;O&quot;, 并且predict_entity非空, 表示一个命名实体的匹配结束了
+            elif predict_tag_type[0] == &quot;O&quot; and len(predict_entity) != 0:
+                # 最后增加进去一个&quot;行号_列号&quot;, 作为区分实体的标志
+                predict_entity.append(str(line_num) + &quot;_&quot; + str(char_num))
+                # 将这个匹配出来的实体加入到结果列表中
+                predict_entities.append(predict_entity)
+                # 清空predict_entity, 为下一个命名实体的匹配做准备
+                predict_entity = []
+            # 除了上面三种情况, 说明当前没有匹配出任何命名实体, 则清空predict_entity, 继续下一次匹配
+            else:
+                predict_entity = []
+
+    # 遍历所有预测实体的列表, 只有那些在真实命名实体中的才是正确的
+    acc_entities = [entity for entity in predict_entities if entity in true_entities]
+
+    # 计算正确实体的个数, 预测实体的总个数, 真实实体的总个数
+    acc_entities_length = len(acc_entities)
+    predict_entities_length = len(predict_entities)
+    true_entities_length = len(true_entities)
+
+    # 至少正确预测了一个, 才计算3个指标, 准确率
+    if acc_entities_length &gt; 0:
+        accuracy = float(acc_entities_length / predict_entities_length)
+        recall = float(acc_entities_length / true_entities_length)
+        f1_score = 2 * accuracy * recall / (accuracy + recall)
+        return accuracy, recall, f1_score, acc_entities_length, predict_entities_length, true_entities_length
+    else:
+        return 0, 0, 0, acc_entities_length, predict_entities_length, true_entities_length 
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/evaluate_model.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 真实标签数据
+tag_list = [
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 3, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+
+# 预测标签数据
+predict_tag_list = [
+    [0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0],
+    [0, 0, 3, 4, 0, 3, 4, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [3, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0, 0],
+    [3, 4, 0, 3, 4, 0, 0, 1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 3, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+
+# 编码与字符对照字典
+id2char = {0: '&lt;PAD&gt;', 1: '确', 2: '诊', 3: '弥', 4: '漫', 5: '大', 6: 'b', 7: '细', 8: '胞', 9: '淋', 10: '巴', 11: '瘤', 12: '1', 13: '年', 14: '反', 15: '复', 16: '咳', 17: '嗽', 18: '、', 19: '痰', 20: '4', 21: '0', 22: ',', 23: '再', 24: '发', 25: '伴', 26: '气', 27: '促', 28: '5', 29: '天', 30: '。', 31: '生', 32: '长', 33: '育', 34: '迟', 35: '缓', 36: '9', 37: '右', 38: '侧', 39: '小', 40: '肺', 41: '癌', 42: '第', 43: '三', 44: '次', 45: '化', 46: '疗', 47: '入', 48: '院', 49: '心', 50: '悸', 51: '加', 52: '重', 53: '胸', 54: '痛', 55: '3', 56: '闷', 57: '2', 58: '多', 59: '月', 60: '余', 61: ' ', 62: '周', 63: '上', 64: '肢', 65: '无', 66: '力', 67: '肌', 68: '肉', 69: '萎', 70: '缩', 71: '半'}
+
+# 编码与标签对照字典
+id2tag = {0: 'O', 1: 'B-dis', 2: 'I-dis', 3: 'B-sym', 4: 'I-sym'}
+
+# 输入的数字化sentences_sequence, 由下面的sentence_list经过映射函数sentence_map()转化后得到
+sentence_list = [
+    &quot;确诊弥漫大b细胞淋巴瘤1年&quot;,
+    &quot;反复咳嗽、咳痰40年,再发伴气促5天。&quot;,
+    &quot;生长发育迟缓9年。&quot;,
+    &quot;右侧小细胞肺癌第三次化疗入院&quot;,
+    &quot;反复气促、心悸10年,加重伴胸痛3天。&quot;,
+    &quot;反复胸闷、心悸、气促2多月,加重3天&quot;,
+    &quot;咳嗽、胸闷1月余, 加重1周&quot;,
+    &quot;右上肢无力3年, 加重伴肌肉萎缩半年&quot;
+]
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>def sentence_map(sentence_list, char_to_id, max_length):
+    sentence_list.sort(key=lambda c:len(c), reverse=True)
+    sentence_map_list = []
+    for sentence in sentence_list:
+        sentence_id_list = [char_to_id[c] for c in sentence]
+        padding_list = [0] * (max_length-len(sentence))
+        sentence_id_list.extend(padding_list)
+        sentence_map_list.append(sentence_id_list)
+    return torch.tensor(sentence_map_list, dtype=torch.long)
+
+char_to_id = {&quot;&lt;PAD&gt;&quot;:0}
+
+SENTENCE_LENGTH = 20
+
+for sentence in sentence_list:
+    for _char in sentence:
+        if _char not in char_to_id:
+            char_to_id[_char] = len(char_to_id)
+
+sentences_sequence = sentence_map(sentence_list, char_to_id, SENTENCE_LENGTH)
+
+
+if __name__ == '__main__':
+    accuracy, recall, f1_score, acc_entities_length, predict_entities_length, true_entities_length = evaluate(sentences_sequence.tolist(), tag_list, predict_tag_list, id2char, id2tag)
+
+    print(&quot;accuracy:&quot;,                  accuracy,
+          &quot;\nrecall:&quot;,                  recall,
+          &quot;\nf1_score:&quot;,                f1_score,
+          &quot;\nacc_entities_length:&quot;,     acc_entities_length,
+          &quot;\npredict_entities_length:&quot;, predict_entities_length,
+          &quot;\ntrue_entities_length:&quot;,    true_entities_length)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>step_acc: 0.8823529411764706 
+step_recall: 0.9375 
+f1_score: 0.9090909090909091 
+acc_entities_length: 15 
+predict_entities_length: 17 
+true_entities_length: 16
+</code></pre>
+
+<hr />
+<ul>
+<li>第五步: 完成训练模型的代码.</li>
+</ul>
+<pre><code># 导入包
+import json
+import time
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+import torch
+import torch.optim as optim
+from torch.autograd import Variable
+# 导入之前编写好的包, 包括类, 数据集加载, 评估函数
+from bilstm_crf import BiLSTM_CRF
+from loader_data import load_dataset
+from evaluate_model import evaluate
+
+# 训练模型的函数
+def train(data_loader, data_size, batch_size, embedding_dim, hidden_dim,
+          sentence_length, num_layers, epochs, learning_rate, tag2id,
+          model_saved_path, train_log_path,
+          validate_log_path, train_history_image_path):
+    '''
+    data_loader: 数据集的加载器, 之前已经通过load_dataset完成了构造
+    data_size:   训练集和测试集的样本数量
+    batch_size:  批次的样本个数
+    embedding_dim:  词嵌入的维度
+    hidden_dim:     隐藏层的维度
+    sentence_length:  文本限制的长度
+    num_layers:       神经网络堆叠的LSTM层数
+    epochs:           训练迭代的轮次
+    learning_rate:    学习率
+    tag2id:           标签到id的映射字典
+    model_saved_path: 模型保存的路径
+    train_log_path:   训练日志保存的路径
+    validate_log_path:  测试集日志保存的路径
+    train_history_image_path:  训练数据的相关图片保存路径
+    '''
+    # 将中文字符和id的对应码表加载进内存
+    char2id = json.load(open(&quot;./data/char_to_id.json&quot;, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;))
+    # 初始化BiLSTM_CRF模型
+    model = BiLSTM_CRF(vocab_size=len(char2id), tag_to_ix=tag2id,
+                   embedding_dim=embedding_dim, hidden_dim=hidden_dim,
+                   batch_size=batch_size, num_layers=num_layers,
+                   sequence_length=sentence_length)
+
+    # 定义优化器, 使用SGD作为优化器(pytorch中Embedding支持的GPU加速为SGD, SparseAdam）
+    # 参数说明如下:
+    # lr:          优化器学习率
+    # momentum:    优化下降的动量因子, 加速梯度下降过程
+    optimizer = optim.SGD(params=model.parameters(), lr=learning_rate, momentum=0.85)
+
+    # 设定优化器学习率更新策略
+    # 参数说明如下:
+    # optimizer:    优化器
+    # step_size:    更新频率, 每过多少个epoch更新一次优化器学习率
+    # gamma:        学习率衰减幅度,
+    #               按照什么比例调整(衰减)学习率(相对于上一轮epoch), 默认0.1
+    #   例如:
+    #   初始学习率 lr = 0.5,    step_size = 20,    gamma = 0.1
+    #              lr = 0.5     if epoch &lt; 20
+    #              lr = 0.05    if 20 &lt;= epoch &lt; 40
+    #              lr = 0.005   if 40 &lt;= epoch &lt; 60
+    scheduler = optim.lr_scheduler.StepLR(optimizer=optimizer, step_size=5, gamma=0.2)
+
+    # 初始化存放训练中损失, 准确率, 召回率, F1等数值指标
+    train_loss_list = []
+    train_acc_list = []
+    train_recall_list = []
+    train_f1_list = []
+    train_log_file = open(train_log_path, mode=&quot;w&quot;, encoding=&quot;utf-8&quot;)
+    # 初始化存放测试中损失, 准确率, 召回率, F1等数值指标
+    validate_loss_list = []
+    validate_acc_list = []
+    validate_recall_list = []
+    validate_f1_list = []
+    validate_log_file = open(validate_log_path, mode=&quot;w&quot;, encoding=&quot;utf-8&quot;)
+    # 利用tag2id生成id到tag的映射字典
+    id2tag = {v:k for k, v in tag2id.items()}
+    # 利用char2id生成id到字符的映射字典
+    id2char = {v:k for k, v in char2id.items()}
+
+    # 按照参数epochs的设定来循环epochs次
+    for epoch in range(epochs):
+        # 在进度条打印前, 先输出当前所执行批次
+        tqdm.write(&quot;Epoch {}/{}&quot;.format(epoch + 1, epochs))
+        # 定义要记录的正确总实体数, 识别实体数以及真实实体数
+        total_acc_entities_length, \
+        total_predict_entities_length, \
+        total_gold_entities_length = 0, 0, 0
+        # 定义每batch步数, 批次loss总值, 准确度, f1值
+        step, total_loss, correct, f1 = 1, 0.0, 0, 0
+
+        # 开启当前epochs的训练部分
+        for inputs, labels in tqdm(data_loader[&quot;train&quot;]):
+            # 将数据以Variable进行封装
+            inputs, labels = Variable(inputs), Variable(labels)
+            # 在训练模型期间, 要在每个样本计算梯度前将优化器归零, 不然梯度会被累加
+            optimizer.zero_grad()
+            # 此处调用的是BiLSTM_CRF类中的neg_log_likelihood()函数
+            loss = model.neg_log_likelihood(inputs, labels)
+            # 获取当前步的loss, 由tensor转为数字
+            step_loss = loss.data
+            # 累计每步损失值
+            total_loss += step_loss
+            # 获取解码最佳路径列表, 此时调用的是BiLSTM_CRF类中的forward()函数
+            best_path_list = model(inputs)
+            # 模型评估指标值获取包括:当前批次准确率, 召回率, F1值以及对应的实体个数
+            step_acc, step_recall, f1_score, acc_entities_length, \
+            predict_entities_length, gold_entities_length = evaluate(inputs.tolist(),
+                                                                     labels.tolist(),
+                                                                     best_path_list,
+                                                                     id2char,
+                                                                     id2tag)
+            # 训练日志内容
+            log_text = &quot;Epoch: %s | Step: %s &quot; \
+                       &quot;| loss: %.5f &quot; \
+                       &quot;| acc: %.5f &quot; \
+                       &quot;| recall: %.5f &quot; \
+                       &quot;| f1 score: %.5f&quot; % \
+                       (epoch, step, step_loss, step_acc, step_recall,f1_score)
+            # 分别累计正确总实体数、识别实体数以及真实实体数
+            total_acc_entities_length += acc_entities_length
+            total_predict_entities_length += predict_entities_length
+            total_gold_entities_length += gold_entities_length
+
+            # 对损失函数进行反向传播
+            loss.backward()
+            # 通过optimizer.step()计算损失, 梯度和更新参数
+            optimizer.step()
+            # 记录训练日志
+            train_log_file.write(log_text + &quot;\n&quot;)
+            step += 1
+        # 获取当前epochs平均损失值(每一轮迭代的损失总值除以总数据量)
+        epoch_loss = total_loss / data_size[&quot;train&quot;]
+        # 计算当前epochs准确率
+        total_acc = total_acc_entities_length / total_predict_entities_length
+        # 计算当前epochs召回率
+        total_recall = total_acc_entities_length / total_gold_entities_length
+        # 计算当前epochs的F1值
+        total_f1 = 0
+        if total_acc + total_recall != 0:
+            total_f1 = 2 * total_acc * total_recall / (total_acc + total_recall)
+        log_text = &quot;Epoch: %s &quot; \
+                   &quot;| mean loss: %.5f &quot; \
+                   &quot;| total acc: %.5f &quot; \
+                   &quot;| total recall: %.5f &quot; \
+                   &quot;| total f1 scroe: %.5f&quot; % (epoch, epoch_loss,
+                                               total_acc,
+                                               total_recall,
+                                               total_f1)
+
+        # 当前epochs训练后更新学习率, 必须在优化器更新之后
+        scheduler.step()
+
+        # 记录当前epochs训练loss值(用于图表展示), 准确率, 召回率, f1值
+        train_loss_list.append(epoch_loss)
+        train_acc_list.append(total_acc)
+        train_recall_list.append(total_recall)
+        train_f1_list.append(total_f1)
+        train_log_file.write(log_text + &quot;\n&quot;)
+
+
+        # 定义要记录的正确总实体数, 识别实体数以及真实实体数
+        total_acc_entities_length, \
+        total_predict_entities_length, \
+        total_gold_entities_length = 0, 0, 0
+        # 定义每batch步数, 批次loss总值, 准确度, f1值
+        step, total_loss, correct, f1 = 1, 0.0, 0, 0
+
+        # 开启当前epochs的验证部分
+        for inputs, labels in tqdm(data_loader[&quot;validation&quot;]):
+            # 将数据以Variable进行封装
+            inputs, labels = Variable(inputs), Variable(labels)
+            # 此处调用的是BiLSTM_CRF类中的neg_log_likelihood 函数
+            # 返回最终的CRF的对数似然结果
+            loss = model.neg_log_likelihood(inputs, labels)
+            # 获取当前步的loss值, 由tensor转为数字
+            step_loss = loss.data
+            # 累计每步损失值
+            total_loss += step_loss
+            # 获取解码最佳路径列表, 此时调用的是BiLSTM_CRF类中的forward()函数
+            best_path_list = model(inputs)
+            # 模型评估指标值获取: 当前批次准确率, 召回率, F1值以及对应的实体个数
+            step_acc, step_recall, f1_score, acc_entities_length, \
+            predict_entities_length, gold_entities_length = evaluate(inputs.tolist(),
+                                                                     labels.tolist(),
+                                                                     best_path_list,
+                                                                     id_to_char,
+                                                                     id_to_tag)
+
+            # 训练日志内容
+            log_text = &quot;Epoch: %s | Step: %s &quot; \
+                       &quot;| loss: %.5f &quot; \
+                       &quot;| acc: %.5f &quot; \
+                       &quot;| recall: %.5f &quot; \
+                       &quot;| f1 score: %.5f&quot; % \
+                       (epoch, step, step_loss, step_acc, step_recall,f1_score)
+            # 分别累计正确总实体数、识别实体数以及真实实体数
+            total_acc_entities_length += acc_entities_length
+            total_predict_entities_length += predict_entities_length
+            total_gold_entities_length += gold_entities_length
+
+            # 记录验证集损失日志
+            validate_log_file.write(log_text + &quot;\n&quot;)
+            step += 1
+
+        # 获取当前批次平均损失值(每一批次损失总值除以数据量)
+        epoch_loss = total_loss / data_size[&quot;validation&quot;]
+        # 计算总批次准确率
+        total_acc = total_acc_entities_length / total_predict_entities_length
+        # 计算总批次召回率
+        total_recall = total_acc_entities_length / total_gold_entities_length
+        # 计算总批次F1值
+        total_f1 = 0
+        if total_acc + total_recall != 0:
+            total_f1 = 2 * total_acc * total_recall / (total_acc + total_recall)
+        log_text = &quot;Epoch: %s &quot; \
+                   &quot;| mean loss: %.5f &quot; \
+                   &quot;| total acc: %.5f &quot; \
+                   &quot;| total recall: %.5f &quot; \
+                   &quot;| total f1 scroe: %.5f&quot; % (epoch, epoch_loss,
+                                               total_acc,
+                                               total_recall,
+                                               total_f1)
+
+        # 记录当前批次验证loss值(用于图表展示)准确率, 召回率, f1值
+        validate_loss_list.append(epoch_loss)
+        validate_acc_list.append(total_acc)
+        validate_recall_list.append(total_recall)
+        validate_f1_list.append(total_f1)
+        validate_log_file.write(log_text + &quot;\n&quot;)
+
+
+    # 保存模型
+    torch.save(model.state_dict(), model_saved_path)
+
+    # 将loss下降历史数据转为图片存储
+    save_train_history_image(train_loss_list,
+                             validate_loss_list,
+                             train_history_image_path,
+                             &quot;Loss&quot;)
+    # 将准确率提升历史数据转为图片存储
+    save_train_history_image(train_acc_list,
+                             validate_acc_list,
+                             train_history_image_path,
+                             &quot;Acc&quot;)
+    # 将召回率提升历史数据转为图片存储
+    save_train_history_image(train_recall_list,
+                             validate_recall_list,
+                             train_history_image_path,
+                             &quot;Recall&quot;)
+    # 将F1上升历史数据转为图片存储
+    save_train_history_image(train_f1_list,
+                             validate_f1_list,
+                             train_history_image_path,
+                             &quot;F1&quot;)
+    print(&quot;train Finished&quot;.center(100, &quot;-&quot;))
+
+
+# 按照传入的不同路径, 绘制不同的训练曲线
+def save_train_history_image(train_history_list,
+                             validate_history_list,
+                             history_image_path,
+                             data_type):
+    # 根据训练集的数据列表, 绘制折线图
+    plt.plot(train_history_list, label=&quot;Train %s History&quot; % (data_type))
+    # 根据测试集的数据列表, 绘制折线图
+    plt.plot(validate_history_list, label=&quot;Validate %s History&quot; % (data_type))
+    # 将图片放置在最优位置
+    plt.legend(loc=&quot;best&quot;)
+    # 设置x轴的图标为轮次Epochs
+    plt.xlabel(&quot;Epochs&quot;)
+    # 设置y轴的图标为参数data_type
+    plt.ylabel(data_type)
+    # 将绘制好的图片保存在特定的路径下面, 并修改图片名字中的&quot;plot&quot;为对应的data_type
+    plt.savefig(history_image_path.replace(&quot;plot&quot;, data_type))
+    plt.close()
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/train.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 参数1:批次大小
+BATCH_SIZE = 8
+# 参数2:训练数据文件路径
+train_data_file_path = &quot;data/train.npz&quot;
+# 参数3:加载 DataLoader 数据
+data_loader, data_size = load_dataset(train_data_file_path, BATCH_SIZE)
+# 参数4:记录当前训练时间（拼成字符串用）
+time_str = time.strftime(&quot;%Y%m%d_%H%M%S&quot;, time.localtime(time.time()))
+# 参数5:标签码表对照
+tag_to_id = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, &quot;&lt;START&gt;&quot;: 5, &quot;&lt;STOP&gt;&quot;: 6}
+# 参数6:训练文件存放路径
+model_saved_path = &quot;model/bilstm_crf_state_dict_%s.pt&quot; % (time_str)
+# 参数7:训练日志文件存放路径
+train_log_path = &quot;log/train_%s.log&quot; % (time_str)
+# 参数8:验证打印日志存放路径
+validate_log_path = &quot;log/validate_%s.log&quot; % (time_str)
+# 参数9:训练历史记录图存放路径
+train_history_image_path = &quot;log/bilstm_crf_train_plot_%s.png&quot; % (time_str)
+# 参数10:字向量维度
+EMBEDDING_DIM = 200
+# 参数11:隐层维度
+HIDDEN_DIM = 100
+# 参数12:句子长度
+SENTENCE_LENGTH = 20
+# 参数13:堆叠 LSTM 层数
+NUM_LAYERS = 1
+# 参数14:训练批次
+EPOCHS = 100
+# 参数15:初始化学习率
+LEARNING_RATE = 0.5
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code>if __name__ == '__main__':
+    train(data_loader, data_size, BATCH_SIZE, EMBEDDING_DIM, HIDDEN_DIM, SENTENCE_LENGTH,
+          NUM_LAYERS, EPOCHS, LEARNING_RATE, tag_to_id,
+          model_saved_path, train_log_path, validate_log_path, train_history_image_path)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:<ul>
+<li>模型训练结果文件保存位置:model/bilstm_crf_state_dict_[年月日时分秒时间字符串].pt</li>
+<li>模型训练日志文件保存位置:log/train_[年月日时分秒时间字符串].log</li>
+<li>模型验证日志文件保存位置:log/validate_[年月日时分秒时间字符串].log</li>
+<li>模型训练损失历史记录图片保存位置:log/bilstm_crf_train_Loss_[年月日时分秒时间字符串].png</li>
+<li>模型训练准确率历史记录图片保存位置:log/bilstm_crf_train_Acc_[年月日时分秒时间字符串].png</li>
+<li>模型训练召回率历史记录图片保存位置:log/bilstm_crf_train_Recall_[年月日时分秒时间字符串].png</li>
+<li>模型训练F1值历史记录图片保存位置:log/bilstm_crf_train_F1_[年月日时分秒时间字符串].png</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>训练日志:</li>
+</ul>
+<pre><code>Epoch: 0 | train loss: 366.58832 |acc: 0.632 |recall: 0.503 |f1 score: 0.56 | validate loss: 666.032 |acc: 0.591 |recall: 0.457 |f1 score: 0.515
+Epoch: 1 | train loss: 123.87159 |acc: 0.743 |recall: 0.687 |f1 score: 0.714 | validate loss: 185.021 |acc: 0.669 |recall: 0.606 |f1 score: 0.636
+Epoch: 2 | train loss: 113.04003 |acc: 0.738 |recall: 0.706 |f1 score: 0.722 | validate loss: 107.393 |acc: 0.711 |recall: 0.663 |f1 score: 0.686
+Epoch: 3 | train loss: 119.14317 |acc: 0.751 |recall: 0.692 |f1 score: 0.721 | validate loss: 158.381 |acc: 0.713 |recall: 0.64 |f1 score: 0.674
+Epoch: 4 | train loss: 105.81506 |acc: 0.741 |recall: 0.699 |f1 score: 0.72 | validate loss: 118.99 |acc: 0.669 |recall: 0.624 |f1 score: 0.646
+Epoch: 5 | train loss: 86.67545 |acc: 0.773 |recall: 0.751 |f1 score: 0.762 | validate loss: 123.636 |acc: 0.64 |recall: 0.718 |f1 score: 0.676
+Epoch: 6 | train loss: 79.66924 |acc: 0.808 |recall: 0.772 |f1 score: 0.789 | validate loss: 89.771 |acc: 0.735 |recall: 0.714 |f1 score: 0.724
+Epoch: 7 | train loss: 85.35771 |acc: 0.766 |recall: 0.752 |f1 score: 0.759 | validate loss: 141.233 |acc: 0.675 |recall: 0.7 |f1 score: 0.687
+Epoch: 8 | train loss: 82.38535 |acc: 0.787 |recall: 0.748 |f1 score: 0.767 | validate loss: 108.429 |acc: 0.717 |recall: 0.673 |f1 score: 0.694
+Epoch: 9 | train loss: 82.46296 |acc: 0.783 |recall: 0.751 |f1 score: 0.767 | validate loss: 74.716 |acc: 0.692 |recall: 0.702 |f1 score: 0.697
+Epoch: 10 | train loss: 75.12292 |acc: 0.814 |recall: 0.779 |f1 score: 0.796 | validate loss: 90.693 |acc: 0.672 |recall: 0.7 |f1 score: 0.686
+Epoch: 11 | train loss: 74.89426 |acc: 0.813 |recall: 0.77 |f1 score: 0.791 | validate loss: 77.161 |acc: 0.729 |recall: 0.718 |f1 score: 0.724
+Epoch: 12 | train loss: 76.39055 |acc: 0.814 |recall: 0.785 |f1 score: 0.799 | validate loss: 132.545 |acc: 0.806 |recall: 0.685 |f1 score: 0.74
+Epoch: 13 | train loss: 75.01093 |acc: 0.814 |recall: 0.787 |f1 score: 0.8 | validate loss: 101.596 |acc: 0.765 |recall: 0.681 |f1 score: 0.721
+Epoch: 14 | train loss: 74.35796 |acc: 0.83 |recall: 0.802 |f1 score: 0.816 | validate loss: 92.535 |acc: 0.745 |recall: 0.777 |f1 score: 0.761
+Epoch: 15 | train loss: 73.27102 |acc: 0.818 |recall: 0.791 |f1 score: 0.804 | validate loss: 109.51 |acc: 0.68 |recall: 0.76 |f1 score: 0.717
+Epoch: 16 | train loss: 67.66725 |acc: 0.841 |recall: 0.811 |f1 score: 0.826 | validate loss: 93.047 |acc: 0.768 |recall: 0.738 |f1 score: 0.753
+Epoch: 17 | train loss: 63.75809 |acc: 0.83 |recall: 0.813 |f1 score: 0.822 | validate loss: 76.231 |acc: 0.784 |recall: 0.776 |f1 score: 0.78
+Epoch: 18 | train loss: 60.30417 |acc: 0.845 |recall: 0.829 |f1 score: 0.837 | validate loss: 76.019 |acc: 0.806 |recall: 0.758 |f1 score: 0.781
+Epoch: 19 | train loss: 60.30238 |acc: 0.849 |recall: 0.823 |f1 score: 0.836 | validate loss: 90.269 |acc: 0.748 |recall: 0.733 |f1 score: 0.741
+Epoch: 20 | train loss: 60.20072 |acc: 0.847 |recall: 0.82 |f1 score: 0.833 | validate loss: 61.756 |acc: 0.81 |recall: 0.77 |f1 score: 0.79
+Epoch: 21 | train loss: 58.98606 |acc: 0.844 |recall: 0.82 |f1 score: 0.832 | validate loss: 60.799 |acc: 0.765 |recall: 0.754 |f1 score: 0.759
+Epoch: 22 | train loss: 60.23671 |acc: 0.848 |recall: 0.828 |f1 score: 0.838 | validate loss: 65.676 |acc: 0.787 |recall: 0.781 |f1 score: 0.784
+Epoch: 23 | train loss: 58.57862 |acc: 0.849 |recall: 0.827 |f1 score: 0.838 | validate loss: 65.975 |acc: 0.794 |recall: 0.754 |f1 score: 0.774
+Epoch: 24 | train loss: 58.93968 |acc: 0.848 |recall: 0.827 |f1 score: 0.838 | validate loss: 66.994 |acc: 0.784 |recall: 0.746 |f1 score: 0.764
+Epoch: 25 | train loss: 59.91834 |acc: 0.862 |recall: 0.828 |f1 score: 0.845 | validate loss: 68.794 |acc: 0.795 |recall: 0.756 |f1 score: 0.775
+Epoch: 26 | train loss: 59.09166 |acc: 0.84 |recall: 0.823 |f1 score: 0.831 | validate loss: 68.508 |acc: 0.746 |recall: 0.758 |f1 score: 0.752
+Epoch: 27 | train loss: 58.0584 |acc: 0.856 |recall: 0.84 |f1 score: 0.848 | validate loss: 53.158 |acc: 0.802 |recall: 0.774 |f1 score: 0.788
+Epoch: 28 | train loss: 54.2857 |acc: 0.858 |recall: 0.834 |f1 score: 0.845 | validate loss: 60.243 |acc: 0.816 |recall: 0.772 |f1 score: 0.793
+Epoch: 29 | train loss: 56.44759 |acc: 0.845 |recall: 0.838 |f1 score: 0.841 | validate loss: 56.497 |acc: 0.768 |recall: 0.77 |f1 score: 0.769
+Epoch: 30 | train loss: 57.90492 |acc: 0.868 |recall: 0.832 |f1 score: 0.85 | validate loss: 75.158 |acc: 0.773 |recall: 0.762 |f1 score: 0.768
+Epoch: 31 | train loss: 56.81468 |acc: 0.861 |recall: 0.835 |f1 score: 0.847 | validate loss: 56.742 |acc: 0.796 |recall: 0.784 |f1 score: 0.79
+Epoch: 32 | train loss: 54.72623 |acc: 0.86 |recall: 0.844 |f1 score: 0.852 | validate loss: 63.175 |acc: 0.757 |recall: 0.78 |f1 score: 0.768
+Epoch: 33 | train loss: 60.10299 |acc: 0.846 |recall: 0.813 |f1 score: 0.829 | validate loss: 68.994 |acc: 0.768 |recall: 0.724 |f1 score: 0.745
+Epoch: 34 | train loss: 59.67491 |acc: 0.849 |recall: 0.826 |f1 score: 0.837 | validate loss: 58.662 |acc: 0.8 |recall: 0.739 |f1 score: 0.769
+Epoch: 35 | train loss: 65.01099 |acc: 0.857 |recall: 0.83 |f1 score: 0.844 | validate loss: 69.299 |acc: 0.772 |recall: 0.752 |f1 score: 0.762
+Epoch: 36 | train loss: 61.52783 |acc: 0.856 |recall: 0.828 |f1 score: 0.842 | validate loss: 82.373 |acc: 0.761 |recall: 0.777 |f1 score: 0.769
+Epoch: 37 | train loss: 66.19576 |acc: 0.844 |recall: 0.822 |f1 score: 0.833 | validate loss: 79.853 |acc: 0.791 |recall: 0.77 |f1 score: 0.781
+Epoch: 38 | train loss: 60.32529 |acc: 0.841 |recall: 0.828 |f1 score: 0.835 | validate loss: 69.346 |acc: 0.773 |recall: 0.755 |f1 score: 0.764
+Epoch: 39 | train loss: 63.8836 |acc: 0.837 |recall: 0.819 |f1 score: 0.828 | validate loss: 74.759 |acc: 0.732 |recall: 0.759 |f1 score: 0.745
+Epoch: 40 | train loss: 67.28363 |acc: 0.838 |recall: 0.824 |f1 score: 0.831 | validate loss: 63.027 |acc: 0.768 |recall: 0.764 |f1 score: 0.766
+Epoch: 41 | train loss: 61.40488 |acc: 0.852 |recall: 0.826 |f1 score: 0.839 | validate loss: 58.976 |acc: 0.802 |recall: 0.755 |f1 score: 0.778
+Epoch: 42 | train loss: 61.04982 |acc: 0.856 |recall: 0.817 |f1 score: 0.836 | validate loss: 58.47 |acc: 0.783 |recall: 0.74 |f1 score: 0.761
+Epoch: 43 | train loss: 64.40567 |acc: 0.849 |recall: 0.821 |f1 score: 0.835 | validate loss: 63.506 |acc: 0.764 |recall: 0.765 |f1 score: 0.765
+Epoch: 44 | train loss: 65.09746 |acc: 0.845 |recall: 0.805 |f1 score: 0.825 | validate loss: 65.535 |acc: 0.773 |recall: 0.743 |f1 score: 0.758
+Epoch: 45 | train loss: 63.26585 |acc: 0.848 |recall: 0.808 |f1 score: 0.827 | validate loss: 62.477 |acc: 0.789 |recall: 0.733 |f1 score: 0.76
+Epoch: 46 | train loss: 63.91504 |acc: 0.847 |recall: 0.812 |f1 score: 0.829 | validate loss: 59.916 |acc: 0.779 |recall: 0.751 |f1 score: 0.765
+Epoch: 47 | train loss: 62.3592 |acc: 0.845 |recall: 0.824 |f1 score: 0.835 | validate loss: 63.363 |acc: 0.775 |recall: 0.761 |f1 score: 0.768
+Epoch: 48 | train loss: 63.13221 |acc: 0.843 |recall: 0.823 |f1 score: 0.833 | validate loss: 65.71 |acc: 0.767 |recall: 0.755 |f1 score: 0.761
+Epoch: 49 | train loss: 64.9964 |acc: 0.845 |recall: 0.811 |f1 score: 0.828 | validate loss: 65.174 |acc: 0.768 |recall: 0.74 |f1 score: 0.754
+Epoch: 50 | train loss: 62.40605 |acc: 0.847 |recall: 0.817 |f1 score: 0.832 | validate loss: 60.761 |acc: 0.776 |recall: 0.746 |f1 score: 0.761
+Epoch: 51 | train loss: 63.05476 |acc: 0.845 |recall: 0.812 |f1 score: 0.828 | validate loss: 64.217 |acc: 0.764 |recall: 0.748 |f1 score: 0.756
+Epoch: 52 | train loss: 59.77727 |acc: 0.84 |recall: 0.831 |f1 score: 0.836 | validate loss: 60.48 |acc: 0.79 |recall: 0.759 |f1 score: 0.774
+Epoch: 53 | train loss: 62.7249 |acc: 0.828 |recall: 0.813 |f1 score: 0.821 | validate loss: 64.584 |acc: 0.757 |recall: 0.757 |f1 score: 0.757
+Epoch: 54 | train loss: 61.1763 |acc: 0.842 |recall: 0.832 |f1 score: 0.837 | validate loss: 61.088 |acc: 0.775 |recall: 0.768 |f1 score: 0.771
+Epoch: 55 | train loss: 64.04366 |acc: 0.835 |recall: 0.816 |f1 score: 0.826 | validate loss: 68.183 |acc: 0.784 |recall: 0.742 |f1 score: 0.762
+Epoch: 56 | train loss: 66.76939 |acc: 0.84 |recall: 0.813 |f1 score: 0.827 | validate loss: 67.284 |acc: 0.77 |recall: 0.748 |f1 score: 0.759
+Epoch: 57 | train loss: 67.85329 |acc: 0.826 |recall: 0.789 |f1 score: 0.807 | validate loss: 69.961 |acc: 0.766 |recall: 0.732 |f1 score: 0.749
+Epoch: 58 | train loss: 64.79573 |acc: 0.84 |recall: 0.812 |f1 score: 0.826 | validate loss: 73.358 |acc: 0.754 |recall: 0.735 |f1 score: 0.745
+Epoch: 59 | train loss: 65.36249 |acc: 0.862 |recall: 0.826 |f1 score: 0.844 | validate loss: 66.552 |acc: 0.783 |recall: 0.766 |f1 score: 0.774
+Epoch: 60 | train loss: 63.43061 |acc: 0.835 |recall: 0.811 |f1 score: 0.823 | validate loss: 63.138 |acc: 0.771 |recall: 0.746 |f1 score: 0.759
+Epoch: 61 | train loss: 62.34639 |acc: 0.848 |recall: 0.825 |f1 score: 0.836 | validate loss: 59.656 |acc: 0.783 |recall: 0.756 |f1 score: 0.769
+Epoch: 62 | train loss: 61.83451 |acc: 0.83 |recall: 0.814 |f1 score: 0.822 | validate loss: 60.443 |acc: 0.765 |recall: 0.751 |f1 score: 0.758
+Epoch: 63 | train loss: 64.78461 |acc: 0.854 |recall: 0.818 |f1 score: 0.836 | validate loss: 61.125 |acc: 0.786 |recall: 0.748 |f1 score: 0.767
+Epoch: 64 | train loss: 63.43409 |acc: 0.838 |recall: 0.818 |f1 score: 0.828 | validate loss: 62.396 |acc: 0.77 |recall: 0.757 |f1 score: 0.764
+Epoch: 65 | train loss: 61.20197 |acc: 0.854 |recall: 0.815 |f1 score: 0.834 | validate loss: 59.019 |acc: 0.79 |recall: 0.75 |f1 score: 0.769
+Epoch: 66 | train loss: 59.69791 |acc: 0.851 |recall: 0.82 |f1 score: 0.836 | validate loss: 55.06 |acc: 0.789 |recall: 0.754 |f1 score: 0.771
+Epoch: 67 | train loss: 63.16074 |acc: 0.836 |recall: 0.811 |f1 score: 0.823 | validate loss: 61.48 |acc: 0.764 |recall: 0.745 |f1 score: 0.755
+Epoch: 68 | train loss: 62.15521 |acc: 0.845 |recall: 0.824 |f1 score: 0.835 | validate loss: 62.407 |acc: 0.778 |recall: 0.761 |f1 score: 0.769
+Epoch: 69 | train loss: 61.90574 |acc: 0.847 |recall: 0.828 |f1 score: 0.838 | validate loss: 59.801 |acc: 0.781 |recall: 0.762 |f1 score: 0.771
+Epoch: 70 | train loss: 60.51348 |acc: 0.852 |recall: 0.827 |f1 score: 0.839 | validate loss: 56.632 |acc: 0.781 |recall: 0.761 |f1 score: 0.771
+Epoch: 71 | train loss: 62.78683 |acc: 0.856 |recall: 0.823 |f1 score: 0.84 | validate loss: 62.867 |acc: 0.796 |recall: 0.757 |f1 score: 0.776
+Epoch: 72 | train loss: 62.11708 |acc: 0.845 |recall: 0.82 |f1 score: 0.833 | validate loss: 57.211 |acc: 0.784 |recall: 0.754 |f1 score: 0.769
+Epoch: 73 | train loss: 63.2298 |acc: 0.839 |recall: 0.816 |f1 score: 0.828 | validate loss: 60.247 |acc: 0.764 |recall: 0.752 |f1 score: 0.758
+Epoch: 74 | train loss: 61.87119 |acc: 0.848 |recall: 0.828 |f1 score: 0.838 | validate loss: 59.692 |acc: 0.782 |recall: 0.765 |f1 score: 0.774
+Epoch: 75 | train loss: 59.88628 |acc: 0.851 |recall: 0.821 |f1 score: 0.836 | validate loss: 59.461 |acc: 0.78 |recall: 0.755 |f1 score: 0.767
+Epoch: 76 | train loss: 61.97182 |acc: 0.858 |recall: 0.812 |f1 score: 0.835 | validate loss: 59.748 |acc: 0.78 |recall: 0.749 |f1 score: 0.765
+Epoch: 77 | train loss: 62.2035 |acc: 0.836 |recall: 0.811 |f1 score: 0.823 | validate loss: 56.778 |acc: 0.768 |recall: 0.748 |f1 score: 0.758
+Epoch: 78 | train loss: 59.90309 |acc: 0.846 |recall: 0.823 |f1 score: 0.835 | validate loss: 59.424 |acc: 0.771 |recall: 0.76 |f1 score: 0.765
+Epoch: 79 | train loss: 62.48097 |acc: 0.844 |recall: 0.821 |f1 score: 0.833 | validate loss: 57.535 |acc: 0.769 |recall: 0.755 |f1 score: 0.762
+Epoch: 80 | train loss: 65.83723 |acc: 0.853 |recall: 0.83 |f1 score: 0.842 | validate loss: 60.798 |acc: 0.782 |recall: 0.762 |f1 score: 0.772
+Epoch: 81 | train loss: 67.69897 |acc: 0.848 |recall: 0.812 |f1 score: 0.83 | validate loss: 62.135 |acc: 0.78 |recall: 0.746 |f1 score: 0.763
+Epoch: 82 | train loss: 64.45554 |acc: 0.863 |recall: 0.845 |f1 score: 0.854 | validate loss: 62.102 |acc: 0.793 |recall: 0.775 |f1 score: 0.784
+Epoch: 83 | train loss: 59.9239 |acc: 0.857 |recall: 0.84 |f1 score: 0.848 | validate loss: 57.003 |acc: 0.788 |recall: 0.771 |f1 score: 0.779
+Epoch: 84 | train loss: 65.42567 |acc: 0.859 |recall: 0.831 |f1 score: 0.845 | validate loss: 61.993 |acc: 0.788 |recall: 0.763 |f1 score: 0.775
+Epoch: 85 | train loss: 62.69893 |acc: 0.852 |recall: 0.828 |f1 score: 0.84 | validate loss: 59.489 |acc: 0.786 |recall: 0.761 |f1 score: 0.773
+Epoch: 86 | train loss: 64.58199 |acc: 0.858 |recall: 0.831 |f1 score: 0.845 | validate loss: 60.414 |acc: 0.789 |recall: 0.764 |f1 score: 0.776
+Epoch: 87 | train loss: 58.41865 |acc: 0.875 |recall: 0.838 |f1 score: 0.856 | validate loss: 56.525 |acc: 0.805 |recall: 0.768 |f1 score: 0.786
+Epoch: 88 | train loss: 61.39529 |acc: 0.848 |recall: 0.824 |f1 score: 0.836 | validate loss: 56.678 |acc: 0.783 |recall: 0.759 |f1 score: 0.771
+Epoch: 89 | train loss: 63.69639 |acc: 0.857 |recall: 0.818 |f1 score: 0.837 | validate loss: 59.014 |acc: 0.787 |recall: 0.751 |f1 score: 0.769
+Epoch: 90 | train loss: 61.78225 |acc: 0.841 |recall: 0.84 |f1 score: 0.84 | validate loss: 59.58 |acc: 0.773 |recall: 0.775 |f1 score: 0.774
+Epoch: 91 | train loss: 58.19114 |acc: 0.845 |recall: 0.826 |f1 score: 0.836 | validate loss: 55.284 |acc: 0.776 |recall: 0.758 |f1 score: 0.767
+Epoch: 92 | train loss: 58.67227 |acc: 0.857 |recall: 0.82 |f1 score: 0.838 | validate loss: 54.982 |acc: 0.787 |recall: 0.753 |f1 score: 0.77
+Epoch: 93 | train loss: 60.79532 |acc: 0.858 |recall: 0.83 |f1 score: 0.844 | validate loss: 57.808 |acc: 0.792 |recall: 0.764 |f1 score: 0.778
+Epoch: 94 | train loss: 56.71145 |acc: 0.872 |recall: 0.851 |f1 score: 0.861 | validate loss: 53.551 |acc: 0.804 |recall: 0.785 |f1 score: 0.795
+Epoch: 95 | train loss: 58.791 |acc: 0.864 |recall: 0.83 |f1 score: 0.847 | validate loss: 54.284 |acc: 0.793 |recall: 0.765 |f1 score: 0.779
+Epoch: 96 | train loss: 60.07491 |acc: 0.849 |recall: 0.828 |f1 score: 0.839 | validate loss: 55.524 |acc: 0.78 |recall: 0.764 |f1 score: 0.772
+Epoch: 97 | train loss: 61.53479 |acc: 0.86 |recall: 0.825 |f1 score: 0.842 | validate loss: 56.891 |acc: 0.796 |recall: 0.759 |f1 score: 0.777
+Epoch: 98 | train loss: 61.94878 |acc: 0.85 |recall: 0.836 |f1 score: 0.843 | validate loss: 57.019 |acc: 0.783 |recall: 0.771 |f1 score: 0.777
+Epoch: 99 | train loss: 58.49541 |acc: 0.86 |recall: 0.834 |f1 score: 0.847 | validate loss: 56.162 |acc: 0.795 |recall: 0.767 |f1 score: 0.781
+</code></pre>
+
+<hr />
+<ul>
+<li>
+<p>第六步: 绘制损失曲线和评估曲线图</p>
+<ul>
+<li>训练和验证损失对照曲线:</li>
+</ul>
+</li>
+</ul>
+<p><center><img alt="loss" src="../img/bilstm_crf_train_Loss.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>分析: 损失对照曲线一直下降, 从第5个epoch开始, 迅速降到比较理想的位置, 说明模型能够从数据中获取规律了, 到第40个批次之后, 模型趋于稳定, 说明参数基本能够已经得到最优化效果, 此时, 根据对scheduler的设置, 通过该方法已经对优化器进行了近8次的迭代, 应该在我们原本设置的初始学习率基础上缩小了0.2的8次方倍, 此时应该找到了当前最优解, 因此也就趋于稳定了.</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>训练和验证准确率对照曲线:</li>
+</ul>
+<p><center><img alt="acc" src="../img/bilstm_crf_train_Acc.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>分析:</li>
+<li>首先，准确率是指识别<strong>正确的实体</strong>占<strong>识别出的实体</strong>中的比例.</li>
+<li>根据对照曲线来看，整体学习结果都在趋于准确率上升方向增加，而且随着批次的增加曲线震动相对平稳，不过可能由于训练与验证样本分布不均衡或者噪声等原因，导致最终验证集的准确度没有达到与训练集相同的情况.</li>
+<li>最终的训练集和验证集的召回率分别在：0.85和0.78左右.</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>训练和验证召回率对照曲线:</li>
+</ul>
+<p><center><img alt="recall" src="../img/bilstm_crf_train_Recall.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>分析:</li>
+<li>在此召回率是指<strong>识别正确的实体</strong>占当前批次所包含的<strong>所有实体总数</strong>的比例.</li>
+<li>关于训练和验证召回率对照曲线，可以看出召回率的变化相对比较平滑，基本上也在40步左右趋于稳定.</li>
+<li>最终的训练集和验证集的召回率分别在：0.83和0.75左右.</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>训练和验证F1值对照曲线:</li>
+</ul>
+<p><center><img alt="F1" src="../img/bilstm_crf_train_F1.png" /></center></p>
+<hr />
+<blockquote>
+<ul>
+<li>分析:</li>
+<li>F1值主要是指训练效果而言，在不多识别实体的情况下同时提高准确度的衡量指标.</li>
+<li>其公式为：2×准确率×召回率 / (准确率<strong>+</strong>召回率)</li>
+<li>从曲线可见整体F1值上升与损失、召回率的曲线比较接近，说明在识别出的实体中，正确率比较问题，不过根据前面的准确度来分析，可能在识别过程中，增加了识别出的实体个数而导致不稳定。从这方面来说，可以验证样本不均衡问题以及噪声对模型的影响还是比较大的。</li>
+<li>从整体而言，F1值基本也在第40步之后趋于稳定，最终的训练集和验证集的结果在：0.85和0.75左右。</li>
+</ul>
+</blockquote>
+<hr />
+<ul>
+<li>小节总结:<ul>
+<li>学习了数据预处理的相关方法<ul>
+<li>原始数据集的字符经过数字化编码变成向量</li>
+<li>标注数据集的字符经过数字化编码变成向量</li>
+</ul>
+</li>
+<li>学习生成批量训练数据的方法</li>
+<li>学习了模型训练相关代码的实现<ul>
+<li>准确率和召回率评估的代码</li>
+<li>模型构建类的全部内部函数代码</li>
+<li>启动训练流程的代码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="66">6.6 模型使用</h2>
+<ul>
+<li>学习目标:<ul>
+<li>掌握模型单条文本预测代码实现</li>
+<li>掌握批量文件夹文件预测代码实现</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>模型单条文本预测代码实现:</li>
+</ul>
+<pre><code>import os
+import torch
+import json
+from bilstm_crf import BiLSTM_CRF
+
+def singel_predict(model_path, content, char_to_id_json_path, batch_size, embedding_dim,
+                   hidden_dim, num_layers, sentence_length, offset, target_type_list, tag2id):
+
+    char_to_id = json.load(open(char_to_id_json_path, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;))
+    # 将字符串转为码表id列表
+    char_ids = content_to_id(content, char_to_id)
+    # 处理成 batch_size * sentence_length 的 tensor 数据
+    # 定义模型输入列表
+    model_inputs_list, model_input_map_list = build_model_input_list(content,
+                                                                     char_ids,
+                                                                     batch_size,
+                                                                     sentence_length,
+                                                                     offset)
+    # 加载模型
+    model = BiLSTM_CRF(vocab_size=len(char_to_id),
+                       tag_to_ix=tag2id,
+                       embedding_dim=embedding_dim,
+                       hidden_dim=hidden_dim,
+                       batch_size=batch_size,
+                       num_layers=num_layers,
+                       sequence_length=sentence_length)
+    # 加载模型字典
+    model.load_state_dict(torch.load(model_path))
+
+    tag_id_dict = {v: k for k, v in tag_to_id.items() if k[2:] in target_type_list}
+    # 定义返回实体列表
+    entities = []
+    with torch.no_grad():
+        for step, model_inputs in enumerate(model_inputs_list):
+            prediction_value = model(model_inputs)
+            # 获取每一行预测结果
+            for line_no, line_value in enumerate(prediction_value):
+                # 定义将要识别的实体
+                entity = None
+                # 获取当前行每个字的预测结果
+                for char_idx, tag_id in enumerate(line_value):
+                    # 若预测结果 tag_id 属于目标字典数据 key 中
+                    if tag_id in tag_id_dict:
+                        # 取符合匹配字典id的第一个字符，即B, I
+                        tag_index = tag_id_dict[tag_id][0]
+                        # 计算当前字符确切的下标位置
+                        current_char = model_input_map_list[step][line_no][char_idx]
+                        # 若当前字标签起始为 B, 则设置为实体开始
+                        if tag_index == &quot;B&quot;:
+                            entity = current_char
+                        # 若当前字标签起始为 I, 则进行字符串追加
+                        elif tag_index == &quot;I&quot; and entity:
+                            entity += current_char
+                    # 当实体不为空且当前标签类型为 O 时，加入实体列表
+                    if tag_id == tag_to_id[&quot;O&quot;] and entity:
+                        # 满足当前字符为O，上一个字符为目标提取实体结尾时，将其加入实体列表
+                        entities.append(entity)
+                        # 重置实体
+                        entity = None
+    return entities
+
+
+def content_to_id(content, char_to_id):
+    # 定义字符串对应的码表 id 列表
+    char_ids = []
+    for char in list(content):
+        # 判断若字符不在码表对应字典中，则取 NUK 的编码（即 unknown），否则取对应的字符编码
+        if char_to_id.get(char):
+            char_ids.append(char_to_id[char])
+        else:
+            char_ids.append(char_to_id[&quot;UNK&quot;])
+    return char_ids
+
+
+def build_model_input_list(content, char_ids, batch_size, sentence_length, offset):
+    # 定义模型输入数据列表
+    model_input_list = []
+    # 定义每个批次句子 id 数据
+    batch_sentence_list = []
+    # 将文本内容转为列表
+    content_list = list(content)
+    # 定义与模型 char_id 对照的文字
+    model_input_map_list = []
+    #  定义每个批次句子字符数据
+    batch_sentence_char_list = []
+    # 判断是否需要 padding
+    if len(char_ids) % sentence_length &gt; 0:
+        # 将不足 batch_size * sentence_length 的部分填充0
+        padding_length = (batch_size * sentence_length
+                          - len(char_ids) % batch_size * sentence_length
+                          - len(char_ids) % sentence_length)
+        char_ids.extend([0] * padding_length)
+        content_list.extend([&quot;#&quot;] * padding_length)
+    # 迭代字符 id 列表
+    # 数据满足 batch_size * sentence_length 将加入 model_input_list
+    for step, idx in enumerate(range(0, len(char_ids) + 1, sentence_length)):
+        # 起始下标，从第一句开始增加 offset 个字的偏移
+        start_idx = 0 if idx == 0 else idx - step * offset
+        # 获取长度为 sentence_length 的字符 id 数据集
+        sub_list = char_ids[start_idx:start_idx + sentence_length]
+        # 获取长度为 sentence_length 的字符数据集
+        sub_char_list = content_list[start_idx:start_idx + sentence_length]
+        # 加入批次数据集中
+        batch_sentence_list.append(sub_list)
+        # 批量句子包含字符列表
+        batch_sentence_char_list.append(sub_char_list)
+        # 每当批次长度达到 batch_size 时候，将其加入 model_input_list
+        if len(batch_sentence_list) == batch_size:
+            # 将数据格式转为 tensor 格式，大小为 batch_size * sentence_length
+            model_input_list.append(torch.tensor(batch_sentence_list))
+            # 重置 batch_sentence_list
+            batch_sentence_list = []
+            # 将 char_id 对应的字符加入映射表中
+            model_input_map_list.append(batch_sentence_char_list)
+            # 重置批字符串内容
+            batch_sentence_char_list = []
+    # 返回模型输入列表
+    return model_input_list, model_input_map_list
+
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/predict.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 参数1:待识别文本
+content = &quot;本病是由DNA病毒的单纯疱疹病毒所致。人类单纯疱疹病毒分为两型，&quot; \
+&quot;即单纯疱疹病毒Ⅰ型（HSV-Ⅰ）和单纯疱疹病毒Ⅱ型（HSV-Ⅱ）。&quot; \
+&quot;Ⅰ型主要引起生殖器以外的皮肤黏膜（口腔黏膜）和器官（脑）的感染。&quot; \
+&quot;Ⅱ型主要引起生殖器部位皮肤黏膜感染。&quot; \
+&quot;病毒经呼吸道、口腔、生殖器黏膜以及破损皮肤进入体内，&quot; \
+&quot;潜居于人体正常黏膜、血液、唾液及感觉神经节细胞内。&quot; \
+&quot;当机体抵抗力下降时，如发热胃肠功能紊乱、月经、疲劳等时，&quot; \
+&quot;体内潜伏的HSV被激活而发病。&quot;
+# 参数2:模型保存文件路径
+model_path = &quot;model/bilstm_crf_state_dict_20200129_210417.pt&quot;
+# 参数3:批次大小
+BATCH_SIZE = 8
+# 参数4:字向量维度
+EMBEDDING_DIM = 300
+# 参数5:隐层维度
+HIDDEN_DIM = 128
+# 参数6:句子长度
+SENTENCE_LENGTH = 100
+# 参数7:偏移量
+OFFSET = 10
+# 参数8:标签码表对照字典
+tag_to_id = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, &quot;&lt;START&gt;&quot;: 5, &quot;&lt;STOP&gt;&quot;: 6}
+# 参数9:字符码表文件路径
+char_to_id_json_path = &quot;./data/char_to_id.json&quot;
+# 参数10:预测结果存储路径
+prediction_result_path = &quot;prediction_result&quot;
+# 参数11:待匹配标签类型
+target_type_list = [&quot;sym&quot;]
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code># 单独文本预测, 获得实体结果
+entities = singel_predict(model_path,
+                          content,
+                          char_to_id_json_path,
+                          BATCH_SIZE,
+                          EMBEDDING_DIM,
+                          HIDDEN_DIM,
+                          SENTENCE_LENGTH,
+                          OFFSET,
+                          target_type_list,
+                          tag_to_id)
+# 打印实体结果
+print(&quot;entities:\n&quot;, entities)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果:</li>
+</ul>
+<pre><code>entities:
+['感染', '发热', '##']
+</code></pre>
+
+<hr />
+<ul>
+<li>批量文件夹文件预测代码实现:</li>
+</ul>
+<pre><code>def batch_predict(data_path, model_path, char_to_id_json_path, batch_size, embedding_dim,
+                  hidden_dim, sentence_length, offset, target_type_list,
+                  prediction_result_path, tag_to_id):
+    &quot;&quot;&quot;
+    description: 批量预测，查询文件目录下数据, 
+                 从中提取符合条件的实体并存储至新的目录下prediction_result_path
+    :param data_path:               数据文件路径
+    :param model_path:              模型文件路径
+    :param char_to_id_json_path:    字符码表文件路径
+    :param batch_size:              训练批次大小
+    :param embedding_dim:           字向量维度
+    :param hidden_dim:              BiLSTM 隐藏层向量维度
+    :param sentence_length:         句子长度(句子做了padding)
+    :param offset:                  设定偏移量, 
+                                    当字符串超出sentence_length时, 换行时增加偏移量
+    :param target_type_list:        待匹配类型，符合条件的实体将会被提取出来
+    :param prediction_result_path:  预测结果保存路径
+    :param tag_to_id:               标签码表对照字典, 标签对应 id
+    :return:                        无返回
+    &quot;&quot;&quot;
+    # 迭代路径, 读取文件名
+    for fn in os.listdir(data_path):
+        # 拼装全路径
+        fullpath = os.path.join(data_path, fn)
+        # 定义输出结果文件
+        entities_file = open(os.path.join(prediction_result_path, fn),
+                             mode=&quot;w&quot;,
+                             encoding=&quot;utf-8&quot;)
+        with open(fullpath, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+            # 读取文件内容
+            content = f.readline()
+            # 调用单个预测模型，输出为目标类型实体文本列表
+            entities = singel_predict(model_path, content, char_to_id_json_path,
+                                      batch_size, embedding_dim, hidden_dim, sentence_length,
+                                      offset, target_type_list, tag_to_id)
+            # 写入识别结果文件
+            entities_file.write(&quot;\n&quot;.join(entities))
+    print(&quot;batch_predict Finished&quot;.center(100, &quot;-&quot;))
+</code></pre>
+
+<hr />
+<ul>
+<li>代码实现位置: /data/doctor_offline/ner_model/predict.py</li>
+</ul>
+<hr />
+<ul>
+<li>输入参数:</li>
+</ul>
+<pre><code># 参数1:模型保存路径
+model_path = &quot;model/bilstm_crf_state_dict_20191219_220256.pt&quot;
+# 参数2:批次大小
+BATCH_SIZE = 8
+# 参数3:字向量维度
+EMBEDDING_DIM = 200
+# 参数4:隐层维度
+HIDDEN_DIM = 100
+# 参数5:句子长度
+SENTENCE_LENGTH = 20
+# 参数6:偏移量
+OFFSET = 10
+# 参数7:标签码表对照字典
+tag_to_id = {&quot;O&quot;: 0, &quot;B-dis&quot;: 1, &quot;I-dis&quot;: 2, &quot;B-sym&quot;: 3, &quot;I-sym&quot;: 4, &quot;&lt;START&gt;&quot;: 5, &quot;&lt;STOP&gt;&quot;: 6}
+# 参数8:字符码表文件路径
+char_to_id_json_path = &quot;./data/char_to_id.json&quot;
+# 参数9:预测结果存储路径
+prediction_result_path = &quot;prediction_result&quot;
+# 参数10:待匹配标签类型
+target_type_list = [&quot;sym&quot;]
+# 参数11:待预测文本文件所在目录
+data_path = &quot;origin_data&quot;
+</code></pre>
+
+<hr />
+<ul>
+<li>调用:</li>
+</ul>
+<pre><code># 批量文本预测, 并将结果写入文件中
+batch_predict(data_path,
+              model_path,
+              char_to_id_json_path,
+              BATCH_SIZE,
+              EMBEDDING_DIM,
+              HIDDEN_DIM,
+              SENTENCE_LENGTH,
+              OFFSET,
+              target_type_list,
+              prediction_result_path,
+              tag_to_id)
+</code></pre>
+
+<hr />
+<ul>
+<li>输出效果: 将识别结果保存至prediction_result_path指定的目录下, 名称与源文件一致, 内容为每行存储识别实体名称</li>
+</ul>
+<hr />
+<ul>
+<li>小节总结:<ul>
+<li>学习了模型单条文本预测代码实现</li>
+<li>学习了批量文件夹文件预测代码实现</li>
+</ul>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../7/" class="btn btn-neutral float-right" title="第七章:在线部分">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../5/" class="btn btn-neutral" title="第五章:命名实体审核任务"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>©Copyright 2019, itcast.cn.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../5/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../7/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
