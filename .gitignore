@@ -38,9 +38,9 @@ build/
 # === Virtual Environment ===
 .env
 .venv
-env/
+# env/
 venv/
-ENV/
+# ENV/
 
 # === Problematic filenames (too long / invalid chars for Windows) ===
 04-机器学习/算法/images/timg*
